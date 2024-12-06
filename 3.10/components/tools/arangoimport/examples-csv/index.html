@@ -1,0 +1,151 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.10/components/tools/arangoimport/examples-csv/"><meta property="og:title" content="arangoimport Examples CSV / TSV"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.10"><title>arangoimport Examples CSV / TSV | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.10"><a itemprop=item class=link href=/3.10/><span itemprop=name class=breadcrumb-entry>3.10.14</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.10/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Tools"><a itemprop=item class=link href=/3.10/components/tools/><span itemprop=name class=breadcrumb-entry>Tools</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangoimport"><a itemprop=item class=link href=/3.10/components/tools/arangoimport/><span itemprop=name class=breadcrumb-entry>arangoimport</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Examples CSV"><a itemprop=item class=link href=/3.10/components/tools/arangoimport/examples-csv/><span itemprop=name class=breadcrumb-entry>Examples CSV</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.10 reached End of Life (EOL) and is no longer supported.</p><p>This documentation is outdated. Please see the most recent <a href=/3.12/components/tools/arangoimport/examples-csv/ class=link>stable version</a>.</p></div></div></div></div><hgroup><h1><em>arangoimport</em> Examples CSV / TSV</h1></hgroup><h2 id=importing-csv-data>Importing CSV Data <a href=/3.10/components/tools/arangoimport/examples-csv/#importing-csv-data class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><em>arangoimport</em> offers the possibility to import data from CSV files. This
+comes handy when the data at hand is in CSV format already and you don&rsquo;t want to
+spend time converting them to JSON for the import.</p><p>To import data from a CSV file, make sure your file contains the attribute names
+in the first row. All the following lines in the file are interpreted as
+data records and are imported.</p><p>The CSV import requires the data to have a homogeneous structure. All records
+must have exactly the same amount of columns as there are headers. By default,
+lines with a different number of values are not imported and you get warnings
+about them. To still import lines with less values than in the header,
+there is the <code>--ignore-missing</code> option. If set to <code>true</code>, lines that have a
+different amount of fields are imported. In this case, only those attributes
+are populated for which there are values. Attributes for which there are
+no values present are silently discarded.</p><p>Example:</p><pre tabindex=0><code>&#34;first&#34;,&#34;last&#34;,&#34;age&#34;,&#34;active&#34;,&#34;dob&#34;
+&#34;John&#34;,&#34;Connor&#34;,25,true
+&#34;Jim&#34;,&#34;O&#39;Brady&#34;
+</code></pre><p>With <code>--ignore-missing</code> this produces the following documents:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;John&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;Connor&#34;</span><span class=p>,</span> <span class=s2>&#34;active&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> <span class=s2>&#34;age&#34;</span> <span class=o>:</span> <span class=mi>25</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;Jim&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;O&#39;Brady&#34;</span> <span class=p>}</span></span></span></code></pre></div><p>The cell values can have different data types though. If a cell does not have
+any value, it can be left empty in the file. These values are not imported,
+omitting the attributes in the created document. Values enclosed in
+quotes are imported as strings, so to import numeric values, boolean values,
+or the <code>null</code> value, don&rsquo;t enclose the value in quotes in your file.</p><p>We use the following import for the CSV import:</p><pre tabindex=0><code>&#34;first&#34;,&#34;last&#34;,&#34;age&#34;,&#34;active&#34;,&#34;dob&#34;
+&#34;John&#34;,&#34;Connor&#34;,25,true,
+&#34;Jim&#34;,&#34;O&#39;Brady&#34;,19,,
+&#34;Lisa&#34;,&#34;Jones&#34;,,,&#34;1981-04-09&#34;
+Hans,dos Santos,0123,,
+Wayne,Brewer,null,false,
+</code></pre><p>The command line to execute the import is:</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --collection &#34;users&#34;
+</code></pre><p>The above data is imported into 5 documents which look as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;John&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;Connor&#34;</span><span class=p>,</span> <span class=s2>&#34;active&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> <span class=s2>&#34;age&#34;</span> <span class=o>:</span> <span class=mi>25</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;Jim&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;O&#39;Brady&#34;</span><span class=p>,</span> <span class=s2>&#34;age&#34;</span> <span class=o>:</span> <span class=mi>19</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;Lisa&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;Jones&#34;</span><span class=p>,</span> <span class=s2>&#34;dob&#34;</span> <span class=o>:</span> <span class=s2>&#34;1981-04-09&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;Hans&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;dos Santos&#34;</span><span class=p>,</span> <span class=s2>&#34;age&#34;</span> <span class=o>:</span> <span class=mi>123</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=s2>&#34;first&#34;</span> <span class=o>:</span> <span class=s2>&#34;Wayne&#34;</span><span class=p>,</span> <span class=s2>&#34;last&#34;</span> <span class=o>:</span> <span class=s2>&#34;Brewer&#34;</span><span class=p>,</span> <span class=s2>&#34;active&#34;</span> <span class=o>:</span> <span class=kc>false</span> <span class=p>}</span></span></span></code></pre></div><p>As you can see, values left completely empty in the input file are treated
+as absent. This is also true for unquoted <code>null</code> literals.</p><p>The literals <code>true</code> and <code>false</code> are treated as booleans if they are not
+enclosed in quotes.</p><p>Numeric values not enclosed in quotes are treated as numbers.
+Note that leading zeros in numeric values are removed. To import numbers
+with leading zeros, please use strings (e.g. <code>"012"</code> instead of <code>012</code> or
+<a href=#overriding-data-types-per-attribute class=link>override the datatype</a>).</p><p>You can set <code>--convert</code> to <code>false</code> if you want to treat all unquoted literals
+and numbers as strings instead. <code>--convert</code> is enabled by default.</p><p>Other values not enclosed in quotes are treated as strings. Any values
+enclosed in quotes are treated as strings, too.</p><p>String values containing the quote character or the separator must be enclosed
+with quote characters. Within a string, the quote character itself must be
+escaped with another quote character (or with a backslash if the
+<code>--backslash-escape</code> option is used).</p><p>Note that the quote and separator characters can be adjusted via the
+<code>--quote</code> and <code>--separator</code> arguments when invoking <em>arangoimport</em>. The quote
+character defaults to the double quote mark (<code>"</code>). To use a literal quote in a
+string, you can use two quote characters (<code>""</code>).
+To use backslash for escaping quote characters (<code>\"</code>), please set the option
+<code>--backslash-escape</code> to <code>true</code>.</p><p>The importer supports Windows (CRLF) and Unix (LF) line breaks. Line breaks might
+also occur inside values that are enclosed with the quote character.</p><p>Here is an example for using literal quotes and newlines inside values:</p><pre tabindex=0><code>&#34;name&#34;,&#34;password&#34;
+&#34;Foo&#34;,&#34;r4ndom&#34;&#34;123!&#34;
+&#34;Bar&#34;,&#34;wow!
+this is a
+multine password!&#34;
+&#34;Bartholomew &#34;&#34;Bart&#34;&#34; Simpson&#34;,&#34;Milhouse&#34;
+</code></pre><p>Extra whitespace at the end of each line is ignored. Whitespace at the
+start of lines or between field values is not ignored, so please make sure
+that there is no extra whitespace in front of values or between them.</p><h2 id=attribute-name-translation>Attribute Name Translation <a href=/3.10/components/tools/arangoimport/examples-csv/#attribute-name-translation class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>For the CSV and TSV input formats, attribute names can be translated automatically.
+This is useful in case the import file has different attribute names than those
+that should be used in ArangoDB.</p><p>A common use case is to rename an <code>id</code> column from the input file into <code>_key</code> as
+it is expected by ArangoDB. To do this, specify the following translation when
+invoking arangoimport:</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --translate &#34;id=_key&#34;
+</code></pre><p>Other common cases are to rename columns in the input file to <code>_from</code> and <code>_to</code>:</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --translate &#34;from=_from&#34; --translate &#34;to=_to&#34;
+</code></pre><p>The <code>--translate</code> option can be specified multiple times. The source attribute name
+and the target attribute must be separated with a <code>=</code>.</p><h2 id=ignoring-attributes>Ignoring Attributes <a href=/3.10/components/tools/arangoimport/examples-csv/#ignoring-attributes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>For the CSV and TSV input formats, certain attribute names can be ignored on
+imports. In an ArangoDB cluster there are cases where this can come in handy,
+when your documents already contain a <code>_key</code> attribute and your collection has
+a sharding attribute other than <code>_key</code>: In the cluster this configuration is
+not supported, because ArangoDB needs to guarantee the uniqueness of the <code>_key</code>
+attribute in <strong>all</strong> shards of the collection.</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --remove-attribute &#34;_key&#34;
+</code></pre><p>The same thing would apply if your data contains an <code>_id</code> attribute:</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --remove-attribute &#34;_id&#34;
+</code></pre><h2 id=overriding-data-types-per-attribute>Overriding data types per attribute <a href=/3.10/components/tools/arangoimport/examples-csv/#overriding-data-types-per-attribute class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.9.0</small></p><p>The <code>--datatype</code> startup option can be used to fix
+the datatypes for certain attributes in CSV/TSV imports. For example, in the
+following CSV input file, it is unclear if the numeric values should be
+imported as numbers or as stringified numbers for the individual attributes:</p><pre tabindex=0><code>key,price,weight,fk
+123456,200,5,585852
+864924,120,10,9998242
+9949,70,11.5,499494
+6939926,2130,5,96962612
+</code></pre><p>To determine the datatypes for the individual columns, <em>arangoimport</em> can be
+invoked with the <code>--datatype</code> startup option, once for each attribute:</p><pre tabindex=0><code>--datatype key=string
+--datatype price=number
+--datatype weight=number
+--datatype fk=string
+</code></pre><p>This turns the numeric-looking values in the <code>key</code> attribute into strings
+but treats the attributes <code>price</code> and <code>weight</code> as numbers. Finally, the values in
+attribute <code>fk</code> are treated as strings again.</p><p>The possible values for <code>--datatype</code> are:</p><ul><li><code>null</code>: unconditionally treats all input values as <code>null</code>, effectively
+ignoring the column (similar to <code>--remove-attribute</code>) because <code>null</code> values
+are dropped</li><li><code>boolean</code>: interprets the input values <code>false</code>, <code>null</code> and <code>0</code> (quoted or
+unquoted) as the boolean value <code>false</code>, and everything else as the boolean
+value <code>true</code>.</li><li><code>number</code>: converts input values that look like numbers to numbers, including
+numbers wrapped in quote marks (<code>--quote</code>), and treats everything else as the
+number <code>0</code>.</li><li><code>string</code>: treats the input value as a string</li></ul><p>If <code>--datatype</code> is used for an attribute, it takes precedence over <code>--convert</code>
+and the automatic conversions applied by the latter. If you want to import
+most fields as strings, then you can use <code>--convert false</code> and only override
+the datatype for non-string fields with <code>--datatype</code>:</p><pre tabindex=0><code>--convert false
+--datatype price=number
+--datatype weight=number
+</code></pre><h2 id=merging-attributes>Merging Attributes <a href=/3.10/components/tools/arangoimport/examples-csv/#merging-attributes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.9.0</small></p><p><em>arangoimport</em> supports creating additional attributes during the import
+process, which are concatenations of other attribute values and hard-coded
+string literals/separators.</p><p>Such attributes can be added in CSV/TSV imports by specifying the option
+<code>--merge-attributes</code> for each new attribute.</p><p>The following example adds a new attribute named <code>fullName</code> that consists
+of the values of the <code>firstName</code> and <code>lastName</code> columns, separated by a colon
+character <code>:</code>:</p><pre tabindex=0><code>arangoimport --merge-attributes fullName=[firstName]:[lastName]
+</code></pre><p>When referring to existing attribute names from the input data, the referred-to
+names need to be enclosed in square brackets (<code>[</code> and <code>]</code>). Any characters
+outside the brackets are interpreted as literals, and are added to the
+new attribute as-is.</p><p>If an attribute name that is enclosed in brackets does not exist in the input
+data, then the import emits a warning message and continues. Non-existing
+attributes are replaced with an empty string in the resulting value.</p><p>The <code>--merge-attribute</code> option does not support using the brackets (<code>[</code> or <code>]</code>)
+or the equal sign (<code>=</code>) in any of the literals, or inside an attribute reference.
+Attribute references with empty attribute names (e.g. <code>[]</code>) are disallowed too.</p><p><code>--merge-attributes</code> can be specified multiple times to create independent
+additional fields:</p><pre tabindex=0><code>arangoimport \
+  --merge-attributes fullName=[firstName]:[lastName] \
+  --merge-attributes dateOfBirth=[month]-[day]-[year] \
+  ...
+</code></pre><p>Later merge attributes can build on former merge attributes
+(in left-to-right order), e.g.</p><pre tabindex=0><code>arangoimport \
+  --merge-attributes ids=[id1]-[id2] \
+  --merge-attributes nameAndIds=[name]-[ids] \
+  ...
+</code></pre><p>Note that when the <code>--translate</code> option is also used, the referred-to attribute
+names for <code>--merge-attributes</code> must be the ones before translation, e.g.</p><pre tabindex=0><code>arangoimport --translate _key=id --merge-attributes idAndName=[id]:[lastName]
+</code></pre><p><code>--merge-attributes</code> is currently supported for CSV/TSV input files only.</p><h2 id=importing-tsv-data>Importing TSV Data <a href=/3.10/components/tools/arangoimport/examples-csv/#importing-tsv-data class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>You may also import tab-separated values (TSV) from a file. This format is very
+simple: every line in the file represents a data record. There is no quoting or
+escaping. That also means that the separator character (which defaults to the
+tabstop symbol) must not be used anywhere in the actual data.</p><p>As with CSV, the first line in the TSV file must contain the attribute names,
+and all lines must have an identical number of values.</p><p>If a different separator character or string should be used, it can be specified
+with the <code>--separator</code> argument.</p><p>An example command line to execute the TSV import is:</p><pre tabindex=0><code>arangoimport --file &#34;data.tsv&#34; --type tsv --collection &#34;users&#34;
+</code></pre><h2 id=reading-compressed-input-files>Reading compressed input files <a href=/3.10/components/tools/arangoimport/examples-csv/#reading-compressed-input-files class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><em>arangoimport</em> can transparently process gzip-compressed input files
+if they have a &ldquo;.gz&rdquo; file extension, e.g.</p><pre tabindex=0><code>arangoimport --file data.csv.gz --type csv --collection &#34;users&#34;
+</code></pre><p>For other input formats it is possible to decompress the input file using another
+program and piping its output into arangoimport, e.g.</p><pre tabindex=0><code>bzcat users.csv.bz2 | arangoimport --file &#34;-&#34; --type csv --collection &#34;users&#34;
+</code></pre><p>This example requires that a <code>bzcat</code> utility for decompressing bzip2-compressed
+files is available, and that the shell supports pipes.</p><h2 id=reading-headers-from-a-separate-file>Reading headers from a separate file <a href=/3.10/components/tools/arangoimport/examples-csv/#reading-headers-from-a-separate-file class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>For the CSV and TSV input formats it is sometimes required to read raw data
+files that do not contain a first line with all attributes names.</p><p>For these cases, <em>arangoimport</em> supports a <code>--headers-file</code> option to specify
+a separate input file just for the header line with all the attribute names.
+The contents of this file are interpreted as CSV/TSV line with attribute
+names, and the contents of the regular input file (<code>--file</code>) are
+interpreted as the data to import, without any attribute names.</p><p>The <code>--headers-option</code> can be used as follows:</p><pre tabindex=0><code>arangoimport --file &#34;data.csv&#34; --type csv --headers-file &#34;headers.csv&#34;
+</code></pre><p>If the option is used, it is necessary that the file specified via
+<code>--headers-file</code> contains one line with the attribute names in CSV/TSV format
+(taking into account <code>--backslash-escape</code>, <code>--quote</code> and <code>--separator</code>).</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.10/components/tools/arangoimport/examples-json/><i class="fas fa-chevron-left fa-fw"></i><p>Examples JSON</p></a></span><span class=next><a class="nav nav-next link" href=/3.10/components/tools/arangoimport/details/><p>Details</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.10/components/tools/arangoimport/examples-csv.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#importing-csv-data>Importing CSV Data</a></div><div class=level-2><a href=#attribute-name-translation>Attribute Name Translation</a></div><div class=level-2><a href=#ignoring-attributes>Ignoring Attributes</a></div><div class=level-2><a href=#overriding-data-types-per-attribute>Overriding data types per attribute</a></div><div class=level-2><a href=#merging-attributes>Merging Attributes</a></div><div class=level-2><a href=#importing-tsv-data>Importing TSV Data</a></div><div class=level-2><a href=#reading-compressed-input-files>Reading compressed input files</a></div><div class=level-2><a href=#reading-headers-from-a-separate-file>Reading headers from a separate file</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>_arangoinspect_ on ArangoDB Documentation</title><link>http://localhost/3.12/components/tools/arangoinspect/</link><description>Recent content in _arangoinspect_ on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.12/components/tools/arangoinspect/index.xml" rel="self" type="application/rss+xml"/><item><title>_arangoinspect_ Examples</title><link>http://localhost/3.12/components/tools/arangoinspect/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/components/tools/arangoinspect/examples/</guid><description>If you are asked by ArangoDB support to provide an inspector output, run the arangoinspect binary to generate a file in the current working folder.
+The resulting JSON file is a collection of meta data acquired from all involved instances. The data includes relevant operating system parameters, ArangoDB process parameters, local database information etc.
+Please open the file locally and check if it contains anything that you are not allowed/willing to share and obfuscate it before sharing (user names, files paths etc.</description></item><item><title>_arangoinspect_ Options</title><link>http://localhost/3.12/components/tools/arangoinspect/options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/components/tools/arangoinspect/options/</guid><description>Usage: arangoinspect [&amp;lt;options&amp;gt;]
+General --check-configuration Type: boolean
+Check the configuration and exit.
+This is a command, no value needs to be specified. The process terminates after executing the command.
+--compress-request-threshold Introduced in: v3.12.0
+Type: uint64
+The HTTP request body size from which on requests are transparently compressed when sending them to the server.
+Show details Automatically compress outgoing HTTP requests with the deflate compression format. Compression will only happen for HTTP/1.</description></item></channel></rss>

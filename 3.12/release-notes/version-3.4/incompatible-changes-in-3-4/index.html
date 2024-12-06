@@ -1,0 +1,348 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Check the following list of potential breaking changes before upgrading to this ArangoDB version and adjust any client applications if necessary"><meta property="og:url" content="http://localhost/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/"><meta property="og:title" content="Deprecated features"><meta property="og:type" content="website"><meta property="og:description" content="Check the following list of potential breaking changes before upgrading to this ArangoDB version and adjust any client applications if necessary"><meta name=docsearch:version content="3.12"><title>Deprecated features | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Release Notes"><a itemprop=item class=link href=/3.12/release-notes/><span itemprop=name class=breadcrumb-entry>Release Notes</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Version 3.4"><a itemprop=item class=link href=/3.12/release-notes/version-3.4/><span itemprop=name class=breadcrumb-entry>Version 3.4</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Incompatible changes in 3.4"><a itemprop=item class=link href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/><span itemprop=name class=breadcrumb-entry>Incompatible changes in 3.4</span></a></li></ol></nav><article class=default><hgroup><h1>Deprecated features</h1><p class=lead>Check the following list of potential breaking changes <strong>before</strong> upgrading to this ArangoDB version and adjust any client applications if necessary</p></hgroup><h2 id=release-packages>Release packages <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#release-packages class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The official ArangoDB release packages for Linux are now built as static executables
+linked with the <a href=https://www.musl-libc.org/ target=_blank rel="noopener noreferrer" class=link>musl libc</a>&nbsp;<i class="fas fa-external-link-alt"></i> standard library. For Linux,
+there are release packages for the Debian-based family of Linux distributions (.deb),
+and packages for RedHat-based distributions (.rpm). There are no specialized binaries
+for the individual Linux distributions nor for their individual subversions.</p><p>The release packages are intended to be reasonably portable (see minimum supported
+architectures below) and should run on a variety of different Linux distributions and
+versions.</p><p>Release packages are provided for Windows and macOS as well.</p><h2 id=supported-architectures>Supported architectures <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#supported-architectures class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The minimum supported architecture for the official release packages of ArangoDB is
+now the Westmere architecture.</p><p>All release packages are built with compiler optimizations that require at least
+this architecture. The following CPU features are required for running an official
+release package (note: these are all included in the Westmere architecture and upwards):</p><ul><li>SSE2</li><li>SSE3</li><li>SSE4.1</li><li>SSE4.2</li><li>PCLMUL</li></ul><p>In case the target platform does not conform to these requirements, ArangoDB may
+not work correctly.</p><p>The compiled-in architecture optimizations can be retrieved on most platforms by
+invoking the <em>arangod</em> binary with the <code>--version</code> option. The optimization switches
+will then show up in the output in the line starting with <code>optimization-flags</code>, e.g.</p><pre tabindex=0><code>$ arangod --version
+...
+optimization-flags: -march=westmere -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -mno-sse4a -mno-avx -mno-fma -mno-bmi2 -mno-avx2 -mno-xop -mno-fma4 -mno-avx512f -mno-avx512vl -mno-avx512pf -mno-avx512er -mno-avx512cd -mno-avx512dq -mno-avx512bw -mno-avx512ifma -mno-avx512vbmi
+platform: linux
+</code></pre><p>Note that to get even more target-specific optimizations, it is possible for end
+users to compile ArangoDB on their own with compiler optimizations tailored to the
+target environment.</p><h2 id=target-host-requirements>Target host requirements <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#target-host-requirements class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>When the ArangoDB service is started on a Linux host, it will switch to user
+<code>arangodb</code> and group <code>arangodb</code> at some point during the startup process.
+This user and group are created during ArangoDB package installation as usual.</p><p>However, if either the group <code>arangodb</code> or the user <code>arangodb</code> cannot be found in
+the target hosts local <code>/etc/group</code> or <code>/etc/passwd</code> storage (for example,
+because system users and groups are stored centrally using NIS, LDAP etc.), then
+the underlying group-lookup implementation used by ArangoDB will always consult
+the local nscd (name-service cache daemon) for this. Effectively this requires
+a running nscd instance on hosts that ArangoDB is installed on and that do store
+the operating system users in a place other than the host-local <code>/etc/group</code> and
+<code>/etc/passwd</code>.</p><h2 id=storage-engine>Storage engine <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#storage-engine class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>In ArangoDB 3.4, the default storage engine for new installations is the RocksDB
+engine. This differs to previous versions (3.2 and 3.3), in which the default
+storage engine was the MMFiles engine.</p><p>The MMFiles engine can still be explicitly selected as the storage engine for
+all new installations. It&rsquo;s only that the &ldquo;auto&rdquo; setting for selecting the storage
+engine will now use the RocksDB engine instead of MMFiles engine.</p><p>In the following scenarios, the effectively selected storage engine for new
+installations will be RocksDB:</p><ul><li><code>--server.storage-engine rocksdb</code></li><li><code>--server.storage-engine auto</code></li><li><code>--server.storage-engine</code> option not specified</li></ul><p>The MMFiles storage engine will be selected for new installations only when
+explicitly selected:</p><ul><li><code>--server.storage-engine mmfiles</code></li></ul><p>To make users aware of that the RocksDB storage engine was chosen automatically
+due to an explicit other storage engine selection, 3.4 will come up with the following
+startup warning:</p><pre tabindex=0><code>using default storage engine &#39;rocksdb&#39;, as no storage engine was explicitly selected via the `--server.storage-engine` option.
+please note that default storage engine has changed from &#39;mmfiles&#39; to &#39;rocksdb&#39; in ArangoDB 3.4
+</code></pre><p>On upgrade, any existing ArangoDB installation will keep its previously selected
+storage engine. The change of the default storage engine in 3.4 is thus only relevant
+for new ArangoDB installations and/or existing cluster setups for which new server
+nodes get added later. All server nodes in a cluster setup should use the same
+storage engine to work reliably. Using different storage engines in a cluster is
+unsupported.</p><p>To validate that the different nodes in a cluster deployment use the same storage
+engine throughout the entire cluster, there is now a startup check performed by
+each Coordinator. Each Coordinator will contact all DB-Servers and check if the
+same engine on the DB-Server is the same as its local storage engine. In case
+there is any discrepancy, the Coordinator will abort its startup.</p><h2 id=geo-indexes>Geo indexes <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#geo-indexes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p>The on-disk storage format for indexes of type <code>geo</code> has changed for the RocksDB
+storage engine. This also affects <code>geo1</code> and <code>geo2</code> indexes.</p><p>This <strong>requires</strong> users to start the arangod process with the
+<code>--database.auto-upgrade true</code> option to allow ArangoDB recreating these
+indexes using the new on-disk format.</p><p>The on-disk format for geo indexes is incompatible with the on-disk format used
+in 3.3 and 3.2, so an in-place downgrade from 3.4 to 3.3 is not supported.</p></li><li><p>Geo indexes will now be reported no longer as <em>geo1</em> or <em>geo2</em> but as type <code>geo</code>.
+The two previously known geo index types (<code>geo1</code>and <code>geo2</code>) are <strong>deprecated</strong>.
+APIs for creating indexes (<code>ArangoCollection.ensureIndex</code>) will continue to support
+<code>geo1</code>and <code>geo2</code>.</p></li></ul><h2 id=rocksdb-engine-data-storage-format>RocksDB engine data storage format <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#rocksdb-engine-data-storage-format class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Installations that start using ArangoDB 3.4 will use an optimized on-disk format
+for storing documents using the RocksDB storage engine. The RocksDB engine will also
+a new table format version that was added in a recent version of the RocksDB library
+and that is not available in ArangoDB versions before 3.4.</p><p>This format cannot be used with ArangoDB 3.3 or before, meaning it is not possible to
+perform an in-place downgrade from a fresh 3.4 install to 3.3 or earlier when using the
+RocksDB engine. For more information on how to downgrade, please refer to the
+<a href=/3.12/operations/upgrading/downgrading/ class=link>Downgrading</a> chapter.</p><p>Installations that were originally set up with older versions of ArangoDB (e.g. 3.2
+or 3.3) will continue to use the existing on-disk format for the RocksDB engine
+even with ArangoDB 3.4 (unless you install a fresh 3.4 package and restore a backup
+of your data on this fresh installation).</p><p>In order to use the new binary format with existing data, it is required to
+create a logical dump of the database data, shut down the server, erase the
+database directory and restore the data from the logical dump. To minimize
+downtime you can alternatively run a second arangod instance in your system,
+that replicates the original data; once the replication has reached completion,
+you can switch the instances.</p><h2 id=rocksdb-intermediate-commits>RocksDB intermediate commits <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#rocksdb-intermediate-commits class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Intermediate commits in the rocksdb engine are now only enabled in standalone AQL queries
+(not within a JS transaction), standalone truncate as well as for the &ldquo;import&rdquo; API.</p><p>The options <code>intermediateCommitCount</code> and <code>intermediateCommitSize</code> will have no affect
+anymore on transactions started via <code>/_api/transaction</code>, or <code>db._executeTransaction()</code>.</p><h2 id=rocksdb-background-sync-thread>RocksDB background sync thread <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#rocksdb-background-sync-thread class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The RocksDB storage engine in 3.4 has a background WAL syncing thread that by default
+syncs RocksDB&rsquo;s WAL to disk every 100 milliseconds. This may cause additional background
+I/Os compared to ArangoDB 3.3, but will distribute the sync calls more evenly over time
+than the all-or-nothing file syncs that were performed by previous versions of ArangoDB.</p><p>The syncing interval can be configured by adjusting the configuration option
+<code>--rocksdb.sync-interval</code>.</p><p>Note: this option is not supported on Windows platforms. Setting the sync interval to
+to a value greater than 0 will produce a startup warning on Windows.</p><h2 id=rocksdb-write-buffer-size>RocksDB write buffer size <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#rocksdb-write-buffer-size class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The total amount of data to build up in all in-memory write buffers (backed by log
+files) is now by default restricted to a certain fraction of the available physical
+RAM. This helps restricting memory usage for the arangod process, but may have an
+effect on the RocksDB storage engine&rsquo;s write performance.</p><p>In ArangoDB 3.3 the governing configuration option <code>--rocksdb.total-write-buffer-size</code>
+had a default value of <code>0</code>, which meant that the memory usage was not limited. ArangoDB
+3.4 now changes the default value to about 40% of available physical RAM, and 512MiB
+for setups with less than 4GiB of RAM.</p><h2 id=threading-and-request-handling>Threading and request handling <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#threading-and-request-handling class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The processing of incoming requests and the execution of requests by server threads
+has changed in 3.4.</p><p>Previous ArangoDB versions had a hard-coded implicit lower bound of 64 running
+threads, and up to which they would increase the number of running server threads.
+That value could be increased further by adjusting the option <code>--server.maximal-threads</code>.
+The configuration option <code>--server.threads</code> existed, but did not effectively set
+or limit the number of running threads.</p><p>In ArangoDB 3.4, the number of threads ArangoDB uses for request handling can now
+be strictly bounded by configuration options.</p><p>The number of server threads is now configured by the following startup options:</p><ul><li><code>--server.minimal-threads</code>: determines the minimum number of request processing
+threads the server will start and always keep around</li><li><code>--server.maximal-threads</code>: determines the maximum number of request processing
+threads the server will start for request handling. If that number of threads is
+already running, arangod will not start further threads for request handling</li></ul><p>The actual number of request processing threads is adjusted dynamically at runtime
+and will float between <code>--server.minimal-threads</code> and <code>--server.maximal-threads</code>.</p><h2 id=http-rest-api>HTTP REST API <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#http-rest-api class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The following incompatible changes were made in context of ArangoDB&rsquo;s HTTP REST
+APIs:</p><ul><li><p>The following, partly undocumented internal REST APIs have been removed in ArangoDB 3.4:</p><ul><li><code>GET /_admin/test</code></li><li><code>GET /_admin/clusterCheckPort</code></li><li><code>GET /_admin/cluster-test</code></li><li><code>GET /_admin/routing/routes</code></li><li><code>GET /_admin/statistics/short</code></li><li><code>GET /_admin/statistics/long</code></li><li><code>GET /_admin/auth/reload</code></li></ul></li><li><p><code>GET /_api/index</code> will now return type <code>geo</code> for geo indexes, not type <code>geo1</code>
+or <code>geo2</code> as previous versions did.</p><p>For geo indexes, the index API will not return the attributes <code>constraint</code> and
+<code>ignoreNull</code> anymore. These attributes were initially deprecated in ArangoDB 2.5</p></li><li><p><code>GET /_api/aqlfunction</code> was migrated to match the general structure of
+ArangoDB replies. It now returns an object with a &ldquo;result&rdquo; attribute that
+contains the list of available AQL user functions:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;code&#34;</span><span class=p>:</span> <span class=mi>200</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;error&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;result&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;UnitTests::mytest1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;code&#34;</span><span class=p>:</span> <span class=s2>&#34;function () { return 1; }&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;isDeterministic&#34;</span><span class=p>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>In previous versions, this REST API returned only the list of available
+AQL user functions on the top level of the response.
+Each AQL user function description now also contains the &lsquo;isDeterministic&rsquo; attribute.</p></li><li><p>if authentication is turned on, requests to databases by users with insufficient
+access rights will be answered with HTTP 401 (Forbidden) instead of HTTP 404 (Not found).</p></li><li><p>the REST handler for user permissions at <code>/_api/user</code> will now return HTTP 404
+(Not found) when trying to grant or revoke user permissions for a non-existing
+collection.</p><p>This affects the HTTP PUT calls to the endpoint <code>/_api/user/&lt;user>/&lt;database>/&lt;collection></code>
+for collections that do not exist.</p></li></ul><p>The following APIs have been added or augmented:</p><ul><li><p>additional <code>stream</code> attribute in queries HTTP API</p><p>The REST APIs for retrieving the list of currently running and slow queries
+at <code>GET /_api/query/current</code> and <code>GET /_api/query/slow</code> are now returning an
+additional attribute <code>stream</code> for each query.</p><p>This attribute indicates whether the query was started using a streaming cursor.</p></li><li><p><code>POST /_api/document/{collection}</code> now supports repsert (replace-insert).</p><p>This can be achieved by using the URL parameter <code>overwrite=true</code>. When set to
+<code>true</code>, insertion will not fail in case of a primary key conflict, but turn
+into a replace operation.</p><p>When an insert turns into a replace, the previous version of the document can
+be retrieved by passing the URL parameter <code>returnOld=true</code></p></li><li><p><code>POST /_api/aqlfunction</code> now includes an &ldquo;isNewlyCreated&rdquo; attribute that indicates
+if a new function was created or if an existing one was replaced (in addition to the
+&ldquo;code&rdquo; attribute, which remains 200 for replacement and 201 for creation):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;code&#34;</span><span class=p>:</span> <span class=s2>&#34;201&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;error&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;isNewlyCreated&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></li><li><p><code>DELETE /_api/aqlfunction</code> now returns the number of deleted functions:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;code&#34;</span><span class=p>:</span> <span class=mi>200</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;error&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;deletedCount&#34;</span><span class=p>:</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></li><li><p><code>GET /_admin/status</code> now returns the attribute <code>operationMode</code> in addition to
+<code>mode</code>. The attribute <code>writeOpsEnabled</code> is now also represented by the new
+attribute <code>readOnly</code>, which is has an inverted value compared to the original
+attribute. The old attributes are deprecated in favor of the new ones.</p></li><li><p><code>POST /_api/collection</code> now will process the optional <code>shardingStrategy</code>
+attribute in the response body in cluster mode.</p><p>This attribute specifies the name of the sharding strategy to use for the
+collection. Since ArangoDB 3.4 there are different sharding strategies to
+select from when creating a new collection. The selected <em>shardingStrategy</em>
+value will remain fixed for the collection and cannot be changed afterwards.
+This is important to make the collection keep its sharding settings and
+always find documents already distributed to shards using the same initial
+sharding algorithm.</p><p>The available sharding strategies are:</p><ul><li><code>community-compat</code>: default sharding used by ArangoDB
+Community Edition before version 3.4</li><li><code>enterprise-compat</code>: default sharding used by ArangoDB
+Enterprise Edition before version 3.4</li><li><code>enterprise-smart-edge-compat</code>: default sharding used by smart edge
+collections in ArangoDB Enterprise Edition before version 3.4</li><li><code>hash</code>: default sharding used for new collections starting from version 3.4
+(excluding smart edge collections)</li><li><code>enterprise-hash-smart-edge</code>: default sharding used for new
+smart edge collections starting from version 3.4</li></ul><p>If no sharding strategy is specified, the default will be <code>hash</code> for
+all collections, and <code>enterprise-hash-smart-edge</code> for all smart edge
+collections (requires the <em>Enterprise Edition</em> of ArangoDB).
+Manually overriding the sharding strategy does not yet provide a
+benefit, but it may later in case other sharding strategies are added.</p><p>In single-server mode, the <em>shardingStrategy</em> attribute is meaningless and
+will be ignored.</p></li><li><p>a new API for inspecting the contents of the AQL query results cache has been added
+to endpoint <code>GET /_api/query/cache/entries</code></p><p>This API returns the current contents of the AQL query results cache of the
+currently selected database.</p></li><li><p>APIs for view management have been added at endpoint <code>/_api/view</code>.</p></li><li><p>The REST APIs for modifying graphs at endpoint <code>/_api/gharial</code> now support returning
+the old revision of vertices / edges after modifying them. The APIs also supports
+returning the just-inserted vertex / edge. This is in line with the already existing
+single-document functionality provided at endpoint <code>/_api/document</code>.</p><p>The old/new revisions can be accessed by passing the URL parameters <code>returnOld</code> and
+<code>returnNew</code> to the following endpoints:</p><ul><li><code>/_api/gharial/&lt;graph>/vertex/&lt;collection></code></li><li><code>/_api/gharial/&lt;graph>/edge/&lt;collection></code></li></ul><p>The exception from this is that the HTTP DELETE verb for these APIs does not
+support <code>returnOld</code> because that would make the existing API incompatible.</p></li></ul><h2 id=aql>AQL <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#aql class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p>all AQL date functions in 3.4 may raise an &ldquo;invalid date value&rdquo; warning when given a
+syntactically invalid date string as an input. The rules for valid date strings have been
+made more strict in ArangoDB 3.4.</p><p>In previous versions, passing in a date value with a one-digit hour, minute or second
+component worked just fine, and the date was considered valid.</p><p>From ArangoDB 3.4 onwards, using date values with a one-digit hour, minute or second
+component will render the date value invalid, and make the underlying date functions
+return a value of <code>null</code> and issue an &ldquo;invalid date value&rdquo; warning.</p><p>The following overview details which values are considered valid and invalid in the
+respective ArangoDB versions:</p><table><thead><tr><th>Date string</th><th>3.3</th><th>3.4</th></tr></thead><tbody><tr><td><code>"2019-07-01 05:02:34"</code></td><td>valid</td><td>valid</td></tr><tr><td><code>"2019-7-1 05:02:34"</code></td><td>valid</td><td>valid</td></tr><tr><td><code>"2019-7-1 5:02:34"</code></td><td>valid</td><td><strong>invalid</strong></td></tr><tr><td><code>"2019-7-1 05:2:34"</code></td><td>valid</td><td><strong>invalid</strong></td></tr><tr><td><code>"2019-7-1 05:02:4"</code></td><td>valid</td><td><strong>invalid</strong></td></tr><tr><td><code>"2019-07-01T05:02:34"</code></td><td>valid</td><td>valid</td></tr><tr><td><code>"2019-7-1T05:02:34"</code></td><td>valid</td><td>valid</td></tr><tr><td><code>"2019-7-1T5:02:34"</code></td><td>valid</td><td><strong>invalid</strong></td></tr><tr><td><code>"2019-7-1T05:2:34"</code></td><td>valid</td><td><strong>invalid</strong></td></tr><tr><td><code>"2019-7-1T05:02:4"</code></td><td>valid</td><td><strong>invalid</strong></td></tr></tbody></table></li><li><p>the AQL functions <code>CALL</code> and <code>APPLY</code> may now throw the errors 1540
+(<code>ERROR_QUERY_FUNCTION_NAME_UNKNOWN</code>) and 1541 (<code>ERROR_QUERY_FUNCTION_ARGUMENT_TYPE_MISMATCH</code>)
+instead of error 1582 (<code>ERROR_QUERY_FUNCTION_NOT_FOUND</code>) in some situations.</p></li><li><p>the existing &ldquo;fulltext-index-optimizer&rdquo; optimizer rule has been removed
+because its duty is now handled by the new &ldquo;replace-function-with-index&rdquo; rule.</p></li><li><p>the behavior of the <code>fullCount</code> option for AQL queries has changed so that it
+will only take into account <code>LIMIT</code> statements on the top level of the query.</p><p><code>LIMIT</code> statements in subqueries will not have any effect on the <code>fullCount</code> results
+any more.</p></li><li><p>the AQL functions <code>NEAR</code>, <code>WITHIN</code>, <code>WITHIN_RECTANGLE</code> and <code>FULLTEXT</code> do not
+support accessing collections dynamically anymore.</p><p>The name of the underlying collection and the name of the index attribute to be
+used have to specified using either collection name identifiers, string literals
+or bind parameters, but must not be specified using query variables.</p><p>For example, the following AQL queries are ok:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=nf>NEAR</span><span class=p>(</span><span class=n>myCollection</span><span class=p>,</span> <span class=mf>2.5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span>
+</span></span><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=nf>NEAR</span><span class=p>(</span><span class=vg>@@collection</span><span class=p>,</span> <span class=mf>2.5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span>
+</span></span><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=nf>FULLTEXT</span><span class=p>(</span><span class=s2>&#34;myCollection&#34;</span><span class=p>,</span> <span class=s2>&#34;body&#34;</span><span class=p>,</span> <span class=s2>&#34;foxx&#34;</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span>
+</span></span><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=nf>FULLTEXT</span><span class=p>(</span><span class=vg>@@collection</span><span class=p>,</span> <span class=nv>@attribute</span><span class=p>,</span> <span class=s2>&#34;foxx&#34;</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Contrary, the following queries will fail to execute with 3.4 because of dynamic
+collection/attribute names used in them:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>name</span> <span class=kr>IN</span> <span class=p>[</span><span class=s2>&#34;col1&#34;</span><span class=p>,</span> <span class=s2>&#34;col2&#34;</span><span class=p>]</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=nf>NEAR</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=mf>2.5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>collection</span> 
+</span></span><span class=line><span class=cl>  <span class=kr>FOR</span> <span class=n>match</span> <span class=kr>IN</span> <span class=nf>FULLTEXT</span><span class=p>(</span><span class=nf>PARSE_IDENTIFIER</span><span class=p>(</span><span class=n>doc</span><span class=p>).</span><span class=n>collection</span><span class=p>,</span> <span class=nf>PARSE_IDENTIFIER</span><span class=p>(</span><span class=n>doc</span><span class=p>).</span><span class=n>key</span><span class=p>,</span> <span class=s2>&#34;foxx&#34;</span><span class=p>)</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div></li><li><p>the AQL warning 1577 (&ldquo;collection used in expression&rdquo;) will not occur anymore</p><p>It was used in previous versions of ArangoDB when the name of a collection was
+used in an expression in an AQL query, e.g.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=n>c1</span> <span class=o>+</span> <span class=n>c2</span></span></span></code></pre></div><p>Due to internal changes in AQL this is not detected anymore in 3.4, so this
+particular warning will not be raised.</p><p>Additionally, using collections in arbitrary AQL expressions as above is unsupported
+in a mixed cluster that is running a 3.3 Coordinator and 3.4 DB-Server(s). The
+DB-Server(s) running 3.4 will in this case not be able to use a collection in an
+arbitrary expression, and instead throw an error.</p></li><li><p>the undocumented built-in visitor functions for AQL traversals have been removed,
+as they were based on JavaScript implementations:</p><ul><li><code>HASATTRIBUTESVISITOR</code></li><li><code>PROJECTINGVISITOR</code></li><li><code>IDVISITOR</code></li><li><code>KEYVISITOR</code></li><li><code>COUNTINGVISITOR</code></li></ul><p>Using any of these functions from inside AQL will now produce an error.</p></li><li><p>in previous versions, the AQL optimizer used two different ways of converting
+strings into numbers. The two different ways have been unified into a single
+way that behaves like the <code>TO_NUMBER</code> AQL function, which is also the documented
+behavior.</p><p>The change affects arithmetic operations with strings that contain numbers and
+other trailing characters, e.g.</p><pre tabindex=0><code>expression         3.3 result          3.4 result       TO_NUMBER()
+0 + &#34;1a&#34;           0 + 1 = 1           0 + 0 = 0        TO_NUMBER(&#34;1a&#34;) = 0
+0 + &#34;1 &#34;           0 + 1 = 1           0 + 1 = 1        TO_NUMBER(&#34;1 &#34;) = 1
+0 + &#34; 1&#34;           0 + 1 = 1           0 + 1 = 1        TO_NUMBER(&#34; 1&#34;) = 1
+0 + &#34;a1&#34;           0 + 0 = 0           0 + 0 = 0        TO_NUMBER(&#34;a1&#34;) = 0
+</code></pre></li><li><p>the AQL function <code>DATE_NOW</code> is now marked as deterministic internally, meaning that
+the optimizer may evaluate the function at query compile time and not at query
+runtime. This will mean that calling the function repeatedly inside the same query will
+now always produce the same result, whereas in previous versions of ArangoDB the
+function may have generated different results.</p><p>Each AQL query that is run will still evaluate the result value of the <code>DATE_NOW</code>
+function independently, but only once at the beginning of the query. This is most
+often what is desired anyway, but the change makes <code>DATE_NOW</code> useless to measure
+time differences inside a single query.</p></li><li><p>the internal AQL function <code>PASSTHRU</code> (which simply returns its call argument)
+has been changed from being non-deterministic to being deterministic, provided its
+call argument is also deterministic. This change should not affect end users, as
+<code>PASSTHRU</code> is intended to be used for internal testing only. Should end users use
+this AQL function in any query and need a wrapper to make query parts non-deterministic,
+the <code>NOOPT</code> AQL function can stand in as a non-deterministic variant of <code>PASSTHRU</code></p></li><li><p>the AQL query optimizer will by default now create at most 128 different execution
+plans per AQL query. In previous versions the maximum number of plans was 192.</p><p>Normally the AQL query optimizer will generate a single execution plan per AQL query,
+but there are some cases in which it creates multiple competing plans. More plans
+can lead to better optimized queries, however, plan creation has its costs. The
+more plans are created and shipped through the optimization pipeline, the more
+time will be spent in the optimizer.
+To make the optimizer better cope with some edge cases, the maximum number of plans
+to create is now strictly enforced and was lowered compared to previous versions of
+ArangoDB.</p><p>Note that this default maximum value can be adjusted globally by setting the startup
+option <code>--query.optimizer-max-plans</code> or on a per-query basis by setting a query&rsquo;s
+<code>maxNumberOfPlans</code> option.</p></li><li><p>When creating query execution plans for a query, the query optimizer was fetching
+the number of documents of the underlying collections in case multiple query
+execution plans were generated. The optimizer used these counts as part of its
+internal decisions and execution plan costs calculations.</p><p>Fetching the number of documents of a collection can have measurable overhead in a
+cluster, so ArangoDB 3.4 now caches the &ldquo;number of documents&rdquo; that are referred to
+when creating query execution plans. This may save a few roundtrips in case the
+same collections are frequently accessed using AQL queries.</p><p>The &ldquo;number of documents&rdquo; value was not and is not supposed to be 100% accurate
+in this stage, as it is used for rough cost estimates only. It is possible however
+that when explaining an execution plan, the &ldquo;number of documents&rdquo; estimated for
+a collection is using a cached stale value, and that the estimates change slightly
+over time even if the underlying collection is not modified.</p></li><li><p>AQL query results that are served from the AQL query results cache can now return
+the <em>fullCount</em> attribute as part of the query statistics. Alongside the <em>fullCount</em>
+attribute, other query statistics will be returned. However, these statistics will
+reflect figures generated during the initial query execution, so especially a
+query&rsquo;s <em>executionTime</em> figure may be misleading for a cached query result.</p></li></ul><h2 id=usage-of-v8>Usage of V8 <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#usage-of-v8 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The internal usage of the V8 JavaScript engine for non-user actions has been
+reduced in ArangoDB 3.4. Several APIs have been rewritten to not depend on V8
+and thus do not require using the V8 engine nor a V8 context for execution
+anymore.</p><p>Compared to ArangoDB 3.3, the following parts of ArangoDB can now be used
+without the V8 engine:</p><ul><li>Agency nodes in a cluster</li><li>DB-Server nodes in a cluster</li><li>cluster plan application on DB-Server nodes</li><li>all of AQL (with the exception of user-defined functions)</li><li>the graph modification APIs at endpoint <code>/_api/gharial</code></li><li>background statistics gathering</li></ul><p>Reduced usage of V8 in ArangoDB may allow end users to lower the configured
+numbers of V8 contexts to start. In terms of configuration options, these
+are:</p><ul><li><code>--javascript.v8-contexts</code>: the maximum number of V8 contexts to create
+(high-water mark)</li><li><code>--javascript.v8-contexts-minimum</code>: the minimum number of V8 contexts to
+create at server start and to keep around permanently (low-water mark)</li></ul><p>The default values for these startup options have not been changed in ArangoDB
+3.4, but depending on the actual workload, 3.4 ArangoDB instances may need
+less V8 contexts than 3.3.</p><p>As mentioned above, Agency and DB-Server nodes in a cluster does not
+require V8 for any operation in 3.4, so the V8 engine is turned off entirely on
+such nodes, regardless of the number of configured V8 contexts there.</p><p>The V8 engine is still enabled on Coordinator servers in a cluster and on single
+server instances. Here the number of started V8 contexts may actually be reduced
+in case a lot of the above features are used.</p><h2 id=startup-option-changes>Startup option changes <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#startup-option-changes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>For arangod, the following startup options have changed:</p><ul><li><p>the number of server threads is now configured by the following startup options:</p><ul><li><code>--server.minimal-threads</code>: determines the minimum number of request processing
+threads the server will start</li><li><code>--server.maximal-threads</code>: determines the maximum number of request processing
+threads the server will start</li></ul><p>The actual number of request processing threads is adjusted dynamically at runtime
+and will float between <code>--server.minimal-threads</code> and <code>--server.maximal-threads</code>.</p></li><li><p>the default value for the existing startup option <code>--javascript.gc-interval</code>
+has been increased from every 1000 to every 2000 requests, and the default value
+for the option <code>--javascript.gc-frequency</code> has been increased from 30 to 60 seconds.</p><p>This will make the V8 garbage collection run less often by default than in previous
+versions, reducing CPU load a bit and leaving more V8 contexts available on average.</p></li><li><p>the startup option <code>--cluster.my-local-info</code> has been removed in favor of persisted
+server UUIDs.</p><p>The option <code>--cluster.my-local-info</code> was deprecated since ArangoDB 3.3.</p></li><li><p>the startup option <code>--database.check-30-revisions</code> was removed. It was used for
+checking the revision ids of documents for having been created with ArangoDB 3.0,
+which required a dump & restore migration of the data to 3.1.</p><p>As direct upgrades from ArangoDB 3.0 to 3.4 or from 3.1 to 3.4 are not supported,
+this option has been removed in 3.4.</p></li><li><p>the startup option <code>--server.session-timeout</code> has been obsoleted. Setting this
+option will not have any effect.</p></li><li><p>the option <code>--replication.automatic-failover</code> was renamed to <code>--replication.active-failover</code></p><p>Using the old option name will still work in ArangoDB 3.4, but support for the old
+option name will be removed in future versions of ArangoDB.</p></li><li><p>the option <code>--rocksdb.block-align-data-blocks</code> has been added</p><p>If set to true, data blocks stored by the RocksDB engine are aligned on lesser of page
+size and block size, which may waste some memory but may reduce the number of cross-page
+I/Os operations.</p><p>The default value for this option is <em>false</em>.</p><p>As mentioned above, ArangoDB 3.4 changes the default value of the configuration option
+<code>--rocksdb.total-write-buffer-size</code> to about 40% of available physical RAM, and 512MiB
+for setups with less than 4GiB of RAM. In ArangoDB 3.3 this option had a default value
+of <code>0</code>, which meant that the memory usage for write buffers was not limited.</p></li></ul><h2 id=permissions>Permissions <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#permissions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The behavior of permissions for databases and collections changed:</p><p>The new fallback rule for databases for which no access level is explicitly
+specified is now:</p><ul><li>Choose the higher access level of:<ul><li>A wildcard database grant</li><li>A database grant on the <code>_system</code> database</li></ul></li></ul><p>The new fallback rule for collections for which no access level is explicitly
+specified is now:</p><ul><li>Choose the higher access level of:<ul><li>Any wildcard access grant in the same database, or on <code>"*"</code></li><li>The access level for the current database</li><li>The access level for the <code>_system</code> database</li></ul></li></ul><h2 id=sslv2>SSLv2 <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#sslv2 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Support for SSLv2 has been removed from arangod and all client tools.</p><p>Startup will now be aborted when using SSLv2 for a server endpoint, or when connecting
+with one of the client tools via an SSLv2 connection.</p><p>SSLv2 has been disabled in the OpenSSL library by default in recent versions
+because of security vulnerabilities inherent in this protocol.</p><p>As it is not safe at all to use this protocol, the support for it has also
+been stopped in ArangoDB. End users that use SSLv2 for connecting to ArangoDB
+should change the protocol from SSLv2 to TLSv12 if possible, by adjusting
+the value of the <code>--ssl.protocol</code> startup option.</p><h2 id=replication>Replication <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#replication class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>By default, database-specific and global replication appliers use a slightly
+different configuration in 3.4 than in 3.3. In 3.4 the default value for the
+configuration option <code>requireFromPresent</code> is now <code>true</code>, meaning the follower
+will abort the replication when it detects gaps in the leader&rsquo;s stream of
+events. Such gaps can happen if the leader has pruned WAL log files with
+events that have not been fetched by a follower yet, which may happen for
+example if the network connectivity between follower and leader is bad.</p><p>Previous versions of ArangoDB 3.3 used a default value of <code>false</code> for
+<code>requireFromPresent</code>, meaning that any such gaps in the replication data
+exchange will not cause the replication to stop. 3.4 now stops replication by
+default and writes according errors to the log. Replication can automatically
+be restarted in this case by setting the <code>autoResync</code> replication configuration
+option to <code>true</code>.</p><h2 id=mixed-engine-clusters>Mixed-engine clusters <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#mixed-engine-clusters class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Starting a cluster with Coordinators and DB-Servers using different storage
+engines is not supported. Doing it anyway will now log an error and abort a
+Coordinator&rsquo;s startup.</p><p>Previous versions of ArangoDB did not detect the usage of different storage
+engines in a cluster, but the runtime behavior of the cluster was undefined.</p><h2 id=client-tools>Client tools <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#client-tools class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The client tool <em>arangoimp</em> has been renamed to <em>arangoimport</em> for consistency.</p><p>Release packages will still install <em>arangoimp</em> as a symlink to <em>arangoimport</em>,
+so user scripts invoking <em>arangoimp</em> do not need to be changed to work with
+ArangoDB 3.4. However, user scripts invoking <em>arangoimp</em> should eventually be
+changed to use <em>arangoimport</em> instead, as that will be the long-term supported
+way of running imports.</p><p>The tools <em>arangodump</em> and <em>arangorestore</em> will now by default work with two
+threads when extracting data from a server or loading data back into a server resp.
+The number of threads to use can be adjusted for both tools by adjusting the
+<code>--threads</code> parameter when invoking them. This change is noteworthy because in
+previous versions of ArangoDB both tools were single-threaded and only processed
+one collection at a time, while starting with ArangoDB 3.4 by default they will
+process two collections at a time, with the intended benefit of completing their
+work faster. However, this may create higher load on servers than in previous
+versions of ArangoDB. If the load produced by <em>arangodump</em> or <em>arangorestore</em> is
+higher than desired, please consider setting their <code>--threads</code> parameter to a
+value of <code>1</code> when invoking them.</p><p>In the ArangoShell, the undocumented JavaScript module <code>@arangodb/actions</code> has
+been removed. This module contained the methods <code>printRouting</code> and <code>printFlatRouting</code>,
+which were used for debugging purposes only.</p><p>In the ArangoShell, the undocumented JavaScript functions <code>reloadAuth</code> and <code>routingCache</code>
+have been removed from the <code>internal</code> module.</p><h2 id=foxx-applications>Foxx applications <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#foxx-applications class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The undocumented JavaScript module <code>@arangodb/database-version</code> has been
+removed, so it cannot be use from Foxx applications anymore The module only
+provided the current version of the database, so any client-side invocations
+can easily be replaced by using the <code>db._version()</code> instead.</p><p>The <code>ShapedJson</code> JavaScript object prototype, a remainder from ArangoDB 2.8
+for encapsulating database documents, has been removed in ArangoDB 3.4.</p><h2 id=miscellaneous-changes>Miscellaneous changes <a href=/3.12/release-notes/version-3.4/incompatible-changes-in-3-4/#miscellaneous-changes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>For the MMFiles engine, the compactor thread(s) were renamed from &ldquo;Compactor&rdquo;
+to &ldquo;MMFilesCompactor&rdquo;.</p><p>This change will be visible only on systems which allow assigning names to
+threads.</p><p>The following features and APIs are deprecated in ArangoDB 3.4, and will be
+removed in future versions of ArangoDB:</p><ul><li><p>the JavaScript-based traversal REST API at <code>/_api/traversal</code> and the
+underlying traversal module <code>@arangodb/graph/traversal</code>:</p><p>This API has several limitations (including low result set sizes) and has
+effectively been unmaintained since the introduction of native AQL traversal.</p><p>It is recommended to migrate client applications that use the REST API at
+<code>/_api/traversal</code> to use AQL-based traversal queries instead.</p></li><li><p>the REST API for simple queries at <code>/_api/simple</code>:</p><p>The simple queries provided by the <code>/_api/simple</code> endpoint are limited in
+functionality and will internally resort to AQL queries anyway. It is advised
+that client applications also use the equivalent AQL queries instead of
+using the simple query API, because that is more flexible and allows greater
+control of how the queries are executed.</p></li><li><p>the REST API for querying endpoints at <code>/_api/endpoint</code>:</p><p>The API <code>/_api/endpoint</code> is deprecated since ArangoDB version 3.1.
+For cluster mode there is <code>/_api/cluster/endpoints</code> to find all current
+Coordinator endpoints.</p></li><li><p>accessing collections via their numeric IDs instead of their names. This mostly
+affects the REST APIs at</p><ul><li><code>/_api/collection/&lt;collection-id></code></li><li><code>/_api/document/&lt;collection-id></code></li><li><code>/_api/simple</code></li></ul><p>Note that in ArangoDB 3.4 it is still possible to access collections via
+their numeric ID, but the preferred way to access a collections is by its
+user-defined name.</p></li><li><p>the REST API for WAL tailing at <code>/_api/replication/logger-follow</code>:</p><p>The <code>logger-follow</code> WAL tailing API has several limitations. A better API
+was introduced at endpoint <code>/_api/wal/tail</code> in ArangoDB 3.3.</p><p>Client applications using the old tailing API at <code>/_api/replication/logger-follow</code>
+should switch to the new API eventually.</p></li><li><p>the result attributes <code>mode</code> and <code>writeOpsEnabled</code> in the REST API for querying
+a server&rsquo;s status at <code>/_admin/status</code>:</p><p><code>GET /_admin/status</code> returns the additional attributes <code>operationMode</code> and
+<code>readOnly</code> now, which should be used in favor of the old attributes.</p></li><li><p>creating geo indexes via any APIs with one of the types <code>geo1</code> or <code>geo2</code>:</p><p>The two previously known geo index types (<code>geo1</code>and <code>geo2</code>) are deprecated now.
+Instead, when creating geo indexes, the type <code>geo</code> should be used.</p><p>The types <code>geo1</code> and <code>geo2</code> will still work in ArangoDB 3.4, but may be removed
+in future versions.</p></li><li><p>the persistent index type is marked for removal in 4.0.0 and is thus deprecated.</p><p>This index type was added when there was only the MMFiles storage engine as
+kind of a stop gap. We recommend to switch to RocksDB engine, which persists
+all index types with no difference between skiplist and persistent indexes.</p></li><li><p>the legacy mode for Foxx applications from ArangoDB 2.8 or earlier.</p></li><li><p>the AQL geo functions <code>NEAR</code>, <code>WITHIN</code>, <code>WITHIN_RECTANGLE</code> and <code>IS_IN_POLYGON</code>:</p><p>The special purpose <code>NEAR</code> AQL function can be substituted with the
+following AQL (provided there is a geo index present on the <code>doc.latitude</code>
+and <code>doc.longitude</code> attributes) since ArangoDB 3.2:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>in</span> <span class=n>geoSort</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=nf>DISTANCE</span><span class=p>(</span><span class=n>doc</span><span class=p>.</span><span class=n>latitude</span><span class=p>,</span> <span class=n>doc</span><span class=p>.</span><span class=n>longitude</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kr>LIMIT</span> <span class=mi>5</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p><code>WITHIN</code> can be substituted with the following AQL since ArangoDB 3.2:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>in</span> <span class=n>geoFilter</span>
+</span></span><span class=line><span class=cl>  <span class=kr>FILTER</span> <span class=nf>DISTANCE</span><span class=p>(</span><span class=n>doc</span><span class=p>.</span><span class=n>latitude</span><span class=p>,</span> <span class=n>doc</span><span class=p>.</span><span class=n>longitude</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span> <span class=o>&lt;</span> <span class=mi>2000</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Compared to using the special purpose AQL functions this approach has the
+advantage that it is more composable, and will also honor any <code>LIMIT</code> values
+used in the AQL query.</p><p>In ArangoDB 3.4, <code>NEAR</code>, <code>WITHIN</code>, <code>WITHIN_RECTANGLE</code> and <code>IS_IN_POLYGON</code>
+will still work and automatically be rewritten by the AQL query optimizer
+to the above forms. However, AQL queries using the deprecated AQL functions
+should eventually be adjusted.</p></li><li><p>using the <code>arangoimp</code> binary instead of <code>arangoimport</code></p><p><code>arangoimp</code> has been renamed to <code>arangoimport</code> for consistency in ArangoDB
+3.4, and <code>arangoimp</code> is just a symbolic link to <code>arangoimport</code> now.
+<code>arangoimp</code> is there for compatibility only, but client scripts should
+eventually be migrated to use <code>arangoimport</code> instead.</p></li><li><p>the <code>foxx-manager</code> executable is deprecated and will be removed in ArangoDB 4.</p><p>Please use <a href=/3.12/components/tools/foxx-cli/ class=link>Foxx CLI</a> instead.</p></li></ul><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/release-notes/version-3.4/known-issues-in-3-4/><i class="fas fa-chevron-left fa-fw"></i><p>Known Issues in 3.4</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/release-notes/version-3.3/><p>Version 3.3</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/release-notes/version-3.4/incompatible-changes-in-3-4.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#release-packages>Release packages</a></div><div class=level-2><a href=#supported-architectures>Supported architectures</a></div><div class=level-2><a href=#target-host-requirements>Target host requirements</a></div><div class=level-2><a href=#storage-engine>Storage engine</a></div><div class=level-2><a href=#geo-indexes>Geo indexes</a></div><div class=level-2><a href=#rocksdb-engine-data-storage-format>RocksDB engine data storage format</a></div><div class=level-2><a href=#rocksdb-intermediate-commits>RocksDB intermediate commits</a></div><div class=level-2><a href=#rocksdb-background-sync-thread>RocksDB background sync thread</a></div><div class=level-2><a href=#rocksdb-write-buffer-size>RocksDB write buffer size</a></div><div class=level-2><a href=#threading-and-request-handling>Threading and request handling</a></div><div class=level-2><a href=#http-rest-api>HTTP REST API</a></div><div class=level-2><a href=#aql>AQL</a></div><div class=level-2><a href=#usage-of-v8>Usage of V8</a></div><div class=level-2><a href=#startup-option-changes>Startup option changes</a></div><div class=level-2><a href=#permissions>Permissions</a></div><div class=level-2><a href=#sslv2>SSLv2</a></div><div class=level-2><a href=#replication>Replication</a></div><div class=level-2><a href=#mixed-engine-clusters>Mixed-engine clusters</a></div><div class=level-2><a href=#client-tools>Client tools</a></div><div class=level-2><a href=#foxx-applications>Foxx applications</a></div><div class=level-2><a href=#miscellaneous-changes>Miscellaneous changes</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

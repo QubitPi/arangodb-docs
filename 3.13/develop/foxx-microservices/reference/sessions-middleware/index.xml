@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Foxx Session Middleware on ArangoDB Documentation</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/</link><description>Recent content in Foxx Session Middleware on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/index.xml" rel="self" type="application/rss+xml"/><item><title>Foxx Session Storages</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/</guid><description>Session storages are used by the sessions middleware to persist sessions across requests. Session storages must implement the fromClient and forClient methods and can optionally implement the new method.
+The built-in session storages generally provide the following attributes:
+uid: string (Default: null)
+A unique identifier indicating the active user.
+created: number (Default: Date.now())
+The numeric timestamp of when the session was created.
+data: any (Default: null)
+Arbitrary data to persisted in the session.</description></item><item><title>Foxx Session Transports</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-transports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-transports/</guid><description>Session transports are used by the sessions middleware to store and retrieve session identifiers in requests and responses. Session transports must implement the get and/or set methods and can optionally implement the clear method.
+get transport.get(request): string | null
+Retrieves a session identifier from a request object.
+If present this method will automatically be invoked for each transport until a transport returns a session identifier.
+Arguments
+request: Request
+Request object to extract a session identifier from.</description></item></channel></rss>

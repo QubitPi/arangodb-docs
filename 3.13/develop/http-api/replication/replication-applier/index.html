@@ -1,0 +1,701 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.13/develop/http-api/replication/replication-applier/"><meta property="og:title" content="Replication applier commands"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.13"><title>Replication applier commands | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.13/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.13/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Replication"><a itemprop=item class=link href=/3.13/develop/http-api/replication/><span itemprop=name class=breadcrumb-entry>Replication</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Replication Applier"><a itemprop=item class=link href=/3.13/develop/http-api/replication/replication-applier/><span itemprop=name class=breadcrumb-entry>Replication Applier</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.13 is under development and not released yet.
+This documentation is not final and potentially incomplete.</p></div></div></div></div><hgroup><h1>Replication applier commands</h1></hgroup><p>The applier commands allow to remotely start, stop, and query the state and
+configuration of an ArangoDB database&rsquo;s replication applier.</p><h2 id=get-the-replication-applier-configuration>Get the replication applier configuration <a href=/3.13/develop/http-api/replication/replication-applier/#get-the-replication-applier-configuration class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/applier-config</span></div><div class="openapi-description regular-font"><p>Returns the configuration of the replication applier.</p><p>The body of the response is a JSON object with the configuration. The
+following attributes may be present in the configuration:</p><ul><li><p><code>endpoint</code>: the logger server to connect to (e.g. &ldquo;tcp://192.168.173.13:8529&rdquo;).</p></li><li><p><code>database</code>: the name of the database to connect to (e.g. &ldquo;_system&rdquo;).</p></li><li><p><code>username</code>: an optional ArangoDB username to use when connecting to the endpoint.</p></li><li><p><code>password</code>: the password to use when connecting to the endpoint.</p></li><li><p><code>maxConnectRetries</code>: the maximum number of connection attempts the applier
+will make in a row. If the applier cannot establish a connection to the
+endpoint in this number of attempts, it will stop itself.</p></li><li><p><code>connectTimeout</code>: the timeout (in seconds) when attempting to connect to the
+endpoint. This value is used for each connection attempt.</p></li><li><p><code>requestTimeout</code>: the timeout (in seconds) for individual requests to the endpoint.</p></li><li><p><code>chunkSize</code>: the requested maximum size for log transfer packets that
+is used when the endpoint is contacted.</p></li><li><p><code>autoStart</code>: whether or not to auto-start the replication applier on
+(next and following) server starts</p></li><li><p><code>adaptivePolling</code>: whether or not the replication applier will use
+adaptive polling.</p></li><li><p><code>includeSystem</code>: whether or not system collection operations will be applied</p></li><li><p><code>autoResync</code>: whether or not the follower should perform a full automatic
+resynchronization with the leader in case the leader cannot serve log data
+requested by the follower, or when the replication is started and no tick
+value
+can be found.</p></li><li><p><code>autoResyncRetries</code>: number of resynchronization retries that will be performed
+in a row when automatic resynchronization is enabled and kicks in. Setting this
+to <code>0</code> will effectively disable <code>autoResync</code>. Setting it to some other value
+will limit the number of retries that are performed. This helps preventing endless
+retries in case resynchronizations always fail.</p></li><li><p><code>initialSyncMaxWaitTime</code>: the maximum wait time (in seconds) that the initial
+synchronization will wait for a response from the leader when fetching initial
+collection data.
+This wait time can be used to control after what time the initial synchronization
+will give up waiting for a response and fail. This value is relevant even
+for continuous replication when <code>autoResync</code> is set to <code>true</code> because this
+may re-start the initial synchronization when the leader cannot provide
+log data the follower requires.
+This value will be ignored if set to <code>0</code>.</p></li><li><p><code>connectionRetryWaitTime</code>: the time (in seconds) that the applier will
+intentionally idle before it retries connecting to the leader in case of
+connection problems.
+This value will be ignored if set to <code>0</code>.</p></li><li><p><code>idleMinWaitTime</code>: the minimum wait time (in seconds) that the applier will
+intentionally idle before fetching more log data from the leader in case
+the leader has already sent all its log data. This wait time can be used
+to control the frequency with which the replication applier sends HTTP log
+fetch requests to the leader in case there is no write activity on the leader.
+This value will be ignored if set to <code>0</code>.</p></li><li><p><code>idleMaxWaitTime</code>: the maximum wait time (in seconds) that the applier will
+intentionally idle before fetching more log data from the leader in case the
+leader has already sent all its log data and there have been previous log
+fetch attempts that resulted in no more log data. This wait time can be used
+to control the maximum frequency with which the replication applier sends HTTP
+log fetch requests to the leader in case there is no write activity on the
+leader for longer periods. This configuration value will only be used if the
+option <code>adaptivePolling</code> is set to <code>true</code>.
+This value will be ignored if set to <code>0</code>.</p></li><li><p><code>requireFromPresent</code>: if set to <code>true</code>, then the replication applier will check
+at start whether the start tick from which it starts or resumes replication is
+still present on the leader. If not, then there would be data loss. If
+<code>requireFromPresent</code> is <code>true</code>, the replication applier will abort with an
+appropriate error message. If set to <code>false</code>, then the replication applier will
+still start, and ignore the data loss.</p></li><li><p><code>verbose</code>: if set to <code>true</code>, then a log line will be emitted for all operations
+performed by the replication applier. This should be used for debugging
+replication
+problems only.</p></li><li><p><code>restrictType</code>: the configuration for <code>restrictCollections</code></p></li><li><p><code>restrictCollections</code>: the optional array of collections to include or exclude,
+based on the setting of <code>restrictType</code></p></li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-configuration_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-replication-applier-configuration_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-configuration_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-replication-applier-configuration_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If set to <code>true</code>, returns the configuration of the global replication applier for all
+databases. If set to <code>false</code>, returns the configuration of the replication applier in the
+selected database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-configuration_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-replication-applier-configuration_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-configuration_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-replication-applier-configuration_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-configuration_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-replication-applier-configuration_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/replication/applier-config</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>519</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;requestTimeout&#34;</span> : 600, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;connectTimeout&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;ignoreErrors&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;maxConnectRetries&#34;</span> : 100, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;lockTimeoutRetries&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sslProtocol&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;chunkSize&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;skipCreateDrop&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoStart&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;adaptivePolling&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoResync&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoResyncRetries&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;maxPacketSize&#34;</span> : 536870912, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;includeSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;includeFoxxQueues&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;requireFromPresent&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;verbose&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;incremental&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;restrictType&#34;</span> : <span class=s2>&#34;&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;restrictCollections&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;connectionRetryWaitTime&#34;</span> : 15, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;initialSyncMaxWaitTime&#34;</span> : 300, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;idleMinWaitTime&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;idleMaxWaitTime&#34;</span> : 2.5 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=update-the-replication-applier-configuration>Update the replication applier configuration <a href=/3.13/develop/http-api/replication/replication-applier/#update-the-replication-applier-configuration class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/applier-config</span></div><div class="openapi-description regular-font"><p>Sets the configuration of the replication applier. The configuration can
+only be changed while the applier is not running. The updated configuration
+will be saved immediately but only become active with the next start of the
+applier.</p><p>In case of success, the body of the response is a JSON object with the updated
+configuration.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If set to <code>true</code>, adjusts the configuration of the global replication applier for all
+databases. If set to <code>false</code>, adjusts the configuration of the replication applier in the
+selected database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_adaptivePolling><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">adaptivePolling*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_adaptivePolling><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>if set to <code>true</code>, the replication applier will fall
+to sleep for an increasingly long period in case the logger server at the
+endpoint does not have any more replication events to apply. Using
+adaptive polling is thus useful to reduce the amount of work for both the
+applier and the logger server for cases when there are only infrequent
+changes. The downside is that when using adaptive polling, it might take
+longer for the replication applier to detect that there are new replication
+events on the logger server.</p><p>Setting <code>adaptivePolling</code> to false will make the replication applier
+contact the logger server in a constant interval, regardless of whether
+the logger server provides updates frequently or seldom.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_autoResync><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">autoResync</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_autoResync><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not the follower should perform a full automatic resynchronization
+with the leader in case the leader cannot serve log data requested by the
+follower, or when the replication is started and no tick value can be found.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_autoResyncRetries><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">autoResyncRetries</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_autoResyncRetries><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of resynchronization retries that will be performed in a row when
+automatic resynchronization is enabled and kicks in. Setting this to <code>0</code>
+will
+effectively disable <code>autoResync</code>. Setting it to some other value will limit
+the number of retries that are performed. This helps preventing endless
+retries
+in case resynchronizations always fail.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_autoStart><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">autoStart*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_autoStart><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not to auto-start the replication applier on
+(next and following) server starts</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_chunkSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">chunkSize*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_chunkSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the requested maximum size for log transfer packets that
+is used when the endpoint is contacted.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_connectTimeout><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">connectTimeout*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_connectTimeout><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the timeout (in seconds) when attempting to connect to the
+endpoint. This value is used for each connection attempt.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_connectionRetryWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">connectionRetryWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_connectionRetryWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the time (in seconds) that the applier will intentionally idle before
+it retries connecting to the leader in case of connection problems.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_database><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_body_database><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the name of the database on the endpoint. If not specified, defaults to the current local database name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_endpoint><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">endpoint*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_body_endpoint><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the logger server to connect to (e.g. &ldquo;tcp://192.168.173.13:8529&rdquo;). The endpoint must be specified.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_idleMaxWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">idleMaxWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_idleMaxWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum wait time (in seconds) that the applier will intentionally idle
+before fetching more log data from the leader in case the leader has
+already sent all its log data and there have been previous log fetch attempts
+that resulted in no more log data. This wait time can be used to control the
+maximum frequency with which the replication applier sends HTTP log fetch
+requests to the leader in case there is no write activity on the leader for
+longer periods. This configuration value will only be used if the option
+<code>adaptivePolling</code> is set to <code>true</code>.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_idleMinWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">idleMinWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_idleMinWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the minimum wait time (in seconds) that the applier will intentionally idle
+before fetching more log data from the leader in case the leader has
+already sent all its log data. This wait time can be used to control the
+frequency with which the replication applier sends HTTP log fetch requests
+to the leader in case there is no write activity on the leader.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_includeSystem><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">includeSystem*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_includeSystem><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not system collection operations will be applied</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_initialSyncMaxWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">initialSyncMaxWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_initialSyncMaxWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum wait time (in seconds) that the initial synchronization will
+wait for a response from the leader when fetching initial collection data.
+This wait time can be used to control after what time the initial
+synchronization
+will give up waiting for a response and fail. This value is relevant even
+for continuous replication when <code>autoResync</code> is set to <code>true</code> because this
+may re-start the initial synchronization when the leader cannot provide
+log data the follower requires.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_maxConnectRetries><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">maxConnectRetries*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_maxConnectRetries><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum number of connection attempts the applier
+will make in a row. If the applier cannot establish a connection to the
+endpoint in this number of attempts, it will stop itself.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_password><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">password*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_body_password><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the password to use when connecting to the endpoint.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_requestTimeout><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestTimeout*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-replication-applier-configuration_body_requestTimeout><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the timeout (in seconds) for individual requests to the endpoint.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_requireFromPresent><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requireFromPresent*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_requireFromPresent><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>if set to <code>true</code>, then the replication applier will check
+at start whether the start tick from which it starts or resumes replication is
+still present on the leader. If not, then there would be data loss. If
+<code>requireFromPresent</code> is <code>true</code>, the replication applier will abort with an
+appropriate error message. If set to <code>false</code>, then the replication applier will
+still start, and ignore the data loss.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_restrictCollections><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">restrictCollections</span>
+<span class=openapi-property-type><span class=bold-text>array of strings</span></span>
+<a href=#update-the-replication-applier-configuration_body_restrictCollections><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the array of collections to include or exclude,
+based on the setting of <code>restrictType</code></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_restrictType><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">restrictType*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_body_restrictType><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the configuration for <code>restrictCollections</code>; Has to be either <code>include</code> or <code>exclude</code></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_username><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">username</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-replication-applier-configuration_body_username><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>an optional ArangoDB username to use when connecting to the endpoint.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_body_verbose><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">verbose*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#update-the-replication-applier-configuration_body_verbose><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>if set to <code>true</code>, then a log line will be emitted for all operations
+performed by the replication applier. This should be used for debugging replication
+problems only.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#update-the-replication-applier-configuration_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#update-the-replication-applier-configuration_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the configuration is incomplete or malformed, or if the
+replication applier is currently running.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#update-the-replication-applier-configuration_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-replication-applier-configuration_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#update-the-replication-applier-configuration_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - http://localhost:8529/_api/replication/applier-config
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span>: <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;username&#34;</span>: <span class=s2>&#34;replicationApplier&#34;</span>,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;password&#34;</span>: <span class=s2>&#34;applier1234@foxx&#34;</span>,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;chunkSize&#34;</span>: 4194304,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoStart&#34;</span>: false,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;adaptivePolling&#34;</span>: <span class=nb>true</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>612</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;username&#34;</span> : <span class=s2>&#34;replicationApplier&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;requestTimeout&#34;</span> : 600, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;connectTimeout&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;ignoreErrors&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;maxConnectRetries&#34;</span> : 100, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;lockTimeoutRetries&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sslProtocol&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;chunkSize&#34;</span> : 4194304, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;skipCreateDrop&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoStart&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;adaptivePolling&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoResync&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;autoResyncRetries&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;maxPacketSize&#34;</span> : 536870912, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;includeSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;includeFoxxQueues&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;requireFromPresent&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;verbose&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;incremental&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;restrictType&#34;</span> : <span class=s2>&#34;&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;restrictCollections&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;connectionRetryWaitTime&#34;</span> : 15, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;initialSyncMaxWaitTime&#34;</span> : 300, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;idleMinWaitTime&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;idleMaxWaitTime&#34;</span> : 2.5 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=start-the-replication-applier>Start the replication applier <a href=/3.13/develop/http-api/replication/replication-applier/#start-the-replication-applier class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/applier-start</span></div><div class="openapi-description regular-font"><p>Starts the replication applier. This will return immediately if the
+replication applier is already running.</p><p>If the replication applier is not already running, the applier configuration
+will be checked, and if it is complete, the applier will be started in a
+background thread. This means that even if the applier will encounter any
+errors while running, they will not be reported in the response to this
+method.</p><p>To detect replication applier errors after the applier was started, use the
+<code>/_api/replication/applier-state</code> API instead.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#start-the-replication-applier_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#start-the-replication-applier_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If set to <code>true</code>, starts the global replication applier for all
+databases. If set to <code>false</code>, starts the replication applier in the
+selected database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_query_from><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">from</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#start-the-replication-applier_query_from><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The remote <code>lastLogTick</code> value from which to start applying. If not specified,
+the last saved tick from the previous applier run is used. If there is no
+previous applier state saved, the applier will start at the beginning of the
+logger server&rsquo;s log.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#start-the-replication-applier_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#start-the-replication-applier_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the replication applier is not fully configured or the
+configuration is invalid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#start-the-replication-applier_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=start-the-replication-applier_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#start-the-replication-applier_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/replication/applier-start</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>749</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;started&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:19Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;running&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;phase&#34;</span> : <span class=s2>&#34;running&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAppliedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastProcessedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAvailableContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;safeResumeTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ticksBehind&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;progress&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:03:44Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;message&#34;</span> : <span class=s2>&#34;applier initially created for database &#39;_system&#39;&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;failedConnects&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRequests&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFailedConnects&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalEvents&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalDocuments&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRemovals&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalResyncs&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalOperationsExcluded&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastError&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;errorNum&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:19Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;139702625518696&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=stop-the-replication-applier>Stop the replication applier <a href=/3.13/develop/http-api/replication/replication-applier/#stop-the-replication-applier class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/applier-stop</span></div><div class="openapi-description regular-font">Stops the replication applier. This will return immediately if the
+replication applier is not running.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=stop-the-replication-applier_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#stop-the-replication-applier_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=stop-the-replication-applier_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#stop-the-replication-applier_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If set to <code>true</code>, stops the global replication applier for all
+databases. If set to <code>false</code>, stops the replication applier in the
+selected database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=stop-the-replication-applier_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#stop-the-replication-applier_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=stop-the-replication-applier_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#stop-the-replication-applier_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=stop-the-replication-applier_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#stop-the-replication-applier_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/replication/applier-stop</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>704</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;started&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:19Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;running&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;phase&#34;</span> : <span class=s2>&#34;inactive&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAppliedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastProcessedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAvailableContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;safeResumeTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;progress&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:20Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;message&#34;</span> : <span class=s2>&#34;applier shut down&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;failedConnects&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRequests&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFailedConnects&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalEvents&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalDocuments&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRemovals&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalResyncs&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalOperationsExcluded&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastError&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;errorNum&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:20Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;139702625518696&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-replication-applier-state>Get the replication applier state <a href=/3.13/develop/http-api/replication/replication-applier/#get-the-replication-applier-state class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/applier-state</span></div><div class="openapi-description regular-font"><p>Returns the state of the replication applier, regardless of whether the
+applier is currently running or not.</p><p>The response is a JSON object with the following attributes:</p><ul><li><p><code>state</code>: a JSON object with the following sub-attributes:</p><ul><li><p><code>running</code>: whether or not the applier is active and running</p></li><li><p><code>lastAppliedContinuousTick</code>: the last tick value from the continuous
+replication log the applier has applied.</p></li><li><p><code>lastProcessedContinuousTick</code>: the last tick value from the continuous
+replication log the applier has processed.</p><p>Regularly, the last applied and last processed tick values should be
+identical. For transactional operations, the replication applier will first
+process incoming log events before applying them, so the processed tick
+value might be higher than the applied tick value. This will be the case
+until the applier encounters the <em>transaction commit</em> log event for the
+transaction.</p></li><li><p><code>lastAvailableContinuousTick</code>: the last tick value the remote server can
+provide, for all databases.</p></li><li><p><code>ticksBehind</code>: this attribute will be present only if the applier is currently
+running. It will provide the number of log ticks between what the applier
+has applied/seen and the last log tick value provided by the remote server.
+If this value is zero, then both servers are in sync. If this is non-zero,
+then the remote server has additional data that the applier has not yet
+fetched and processed, or the remote server may have more data that is not
+applicable to the applier.</p><p>Client applications can use it to determine approximately how far the applier
+is behind the remote server, and can periodically check if the value is
+increasing (applier is falling behind) or decreasing (applier is catching up).</p><p>Please note that as the remote server will only keep one last log tick value
+for all of its databases, but replication may be restricted to just certain
+databases on the applier, this value is more meaningful when the global applier
+is used.
+Additionally, the last log tick provided by the remote server may increase
+due to writes into system collections that are not replicated due to replication
+configuration. So the reported value may exaggerate the reality a bit for
+some scenarios.</p></li><li><p><code>time</code>: the time on the applier server.</p></li><li><p><code>totalRequests</code>: the total number of requests the applier has made to the
+endpoint.</p></li><li><p><code>totalFailedConnects</code>: the total number of failed connection attempts the
+applier has made.</p></li><li><p><code>totalEvents</code>: the total number of log events the applier has processed.</p></li><li><p><code>totalOperationsExcluded</code>: the total number of log events excluded because
+of <code>restrictCollections</code>.</p></li><li><p><code>progress</code>: a JSON object with details about the replication applier progress.
+It contains the following sub-attributes if there is progress to report:</p><ul><li><p><code>message</code>: a textual description of the progress</p></li><li><p><code>time</code>: the date and time the progress was logged</p></li><li><p><code>failedConnects</code>: the current number of failed connection attempts</p></li></ul></li><li><p><code>lastError</code>: a JSON object with details about the last error that happened on
+the applier. It contains the following sub-attributes if there was an error:</p><ul><li><p><code>errorNum</code>: a numerical error code</p></li><li><p><code>errorMessage</code>: a textual error description</p></li><li><p><code>time</code>: the date and time the error occurred</p></li></ul><p>In case no error has occurred, <code>lastError</code> will be empty.</p></li></ul></li><li><p><code>server</code>: a JSON object with the following sub-attributes:</p><ul><li><p><code>version</code>: the applier server&rsquo;s version</p></li><li><p><code>serverId</code>: the applier server&rsquo;s id</p></li></ul></li><li><p><code>endpoint</code>: the endpoint the applier is connected to (if applier is
+active) or will connect to (if applier is currently inactive)</p></li><li><p><code>database</code>: the name of the database the applier is connected to (if applier is
+active) or will connect to (if applier is currently inactive)</p></li></ul><p>Please note that all &ldquo;tick&rdquo; values returned do not have a specific unit. Tick
+values are only meaningful when compared to each other. Higher tick values mean
+&ldquo;later in time&rdquo; than lower tick values.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-state_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-replication-applier-state_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-state_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-replication-applier-state_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If set to <code>true</code>, returns the state of the global replication applier for all
+databases. If set to <code>false</code>, returns the state of the replication applier in the
+selected database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-state_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-replication-applier-state_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-state_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-replication-applier-state_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-applier-state_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-replication-applier-state_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Fetching the state of an inactive applier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/replication/applier-state</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>704</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;started&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:19Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;running&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;phase&#34;</span> : <span class=s2>&#34;inactive&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAppliedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastProcessedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAvailableContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;safeResumeTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;progress&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:20Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;message&#34;</span> : <span class=s2>&#34;applier shut down&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;failedConnects&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRequests&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFailedConnects&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalEvents&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalDocuments&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRemovals&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalResyncs&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalOperationsExcluded&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastError&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;errorNum&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:22Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;139702625518696&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Fetching the state of an active applier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/replication/applier-state</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>861</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;started&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:19Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;running&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;phase&#34;</span> : <span class=s2>&#34;inactive&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAppliedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastProcessedContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastAvailableContinuousTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;safeResumeTick&#34;</span> : null, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;progress&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:23Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;message&#34;</span> : <span class=s2>&#34;applier shut down&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;failedConnects&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRequests&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFailedConnects&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalEvents&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalDocuments&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRemovals&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalResyncs&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalOperationsExcluded&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageApplyTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;averageFetchTime&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastError&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;errorNum&#34;</span> : 1405, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:23Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;got same server id (139702625518696) from endpoint &#39;tcp://127.0.0.1:8529&#39; as the local applier server&#39;s id&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-03-11T19:04:23Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;139702625518696&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://127.0.0.1:8529&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=turn-a-server-into-a-follower-of-another>Turn a server into a follower of another <a href=/3.13/develop/http-api/replication/replication-applier/#turn-a-server-into-a-follower-of-another class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/make-follower</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>Calling this endpoint will synchronize data from the collections found on the
+remote leader to the local ArangoDB database. All data in the local collections
+will be purged and replaced with data from the leader. Use with caution!</div></div></div></div><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This command may take a long time to complete and return. This is because it
+will first do a full data synchronization with the leader, which will take time
+roughly proportional to the amount of data.</div></div></div></div><p>Changes the role to a follower and starts a full data synchronization from a
+remote endpoint into the local ArangoDB database and afterwards starts the
+continuous replication.</p><p>The operation works on a per-database level.</p><p>All local database data will be removed prior to the synchronization.</p><p>In case of success, the body of the response is a JSON object with the following
+attributes:</p><ul><li><p><code>state</code>: a JSON object with the following sub-attributes:</p><ul><li><p><code>running</code>: whether or not the applier is active and running</p></li><li><p><code>lastAppliedContinuousTick</code>: the last tick value from the continuous
+replication log the applier has applied.</p></li><li><p><code>lastProcessedContinuousTick</code>: the last tick value from the continuous
+replication log the applier has processed.</p><p>Regularly, the last applied and last processed tick values should be
+identical. For transactional operations, the replication applier will first
+process incoming log events before applying them, so the processed tick
+value might be higher than the applied tick value. This will be the case
+until the applier encounters the <em>transaction commit</em> log event for the
+transaction.</p></li><li><p><code>lastAvailableContinuousTick</code>: the last tick value the remote server can
+provide.</p></li><li><p><code>ticksBehind</code>: this attribute will be present only if the applier is currently
+running. It will provide the number of log ticks between what the applier
+has applied/seen and the last log tick value provided by the remote server.
+If this value is zero, then both servers are in sync. If this is non-zero,
+then the remote server has additional data that the applier has not yet
+fetched and processed, or the remote server may have more data that is not
+applicable to the applier.</p><p>Client applications can use it to determine approximately how far the applier
+is behind the remote server, and can periodically check if the value is
+increasing (applier is falling behind) or decreasing (applier is catching up).</p><p>Please note that as the remote server will only keep one last log tick value
+for all of its databases, but replication may be restricted to just certain
+databases on the applier, this value is more meaningful when the global applier
+is used.
+Additionally, the last log tick provided by the remote server may increase
+due to writes into system collections that are not replicated due to replication
+configuration. So the reported value may exaggerate the reality a bit for
+some scenarios.</p></li><li><p><code>time</code>: the time on the applier server.</p></li><li><p><code>totalRequests</code>: the total number of requests the applier has made to the
+endpoint.</p></li><li><p><code>totalFailedConnects</code>: the total number of failed connection attempts the
+applier has made.</p></li><li><p><code>totalEvents</code>: the total number of log events the applier has processed.</p></li><li><p><code>totalOperationsExcluded</code>: the total number of log events excluded because
+of <code>restrictCollections</code>.</p></li><li><p><code>progress</code>: a JSON object with details about the replication applier progress.
+It contains the following sub-attributes if there is progress to report:</p><ul><li><p><code>message</code>: a textual description of the progress</p></li><li><p><code>time</code>: the date and time the progress was logged</p></li><li><p><code>failedConnects</code>: the current number of failed connection attempts</p></li></ul></li><li><p><code>lastError</code>: a JSON object with details about the last error that happened on
+the applier. It contains the following sub-attributes if there was an error:</p><ul><li><p><code>errorNum</code>: a numerical error code</p></li><li><p><code>errorMessage</code>: a textual error description</p></li><li><p><code>time</code>: the date and time the error occurred</p></li></ul><p>In case no error has occurred, <code>lastError</code> will be empty.</p></li></ul></li><li><p><code>server</code>: a JSON object with the following sub-attributes:</p><ul><li><p><code>version</code>: the applier server&rsquo;s version</p></li><li><p><code>serverId</code>: the applier server&rsquo;s id</p></li></ul></li><li><p><code>endpoint</code>: the endpoint the applier is connected to (if applier is
+active) or will connect to (if applier is currently inactive)</p></li><li><p><code>database</code>: the name of the database the applier is connected to (if applier is
+active) or will connect to (if applier is currently inactive)</p></li></ul><p>Please note that all &ldquo;tick&rdquo; values returned do not have a specific unit. Tick
+values are only meaningful when compared to each other. Higher tick values mean
+&ldquo;later in time&rdquo; than lower tick values.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This endpoint is not supported on a Coordinator in a cluster deployment.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_adaptivePolling><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">adaptivePolling</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_adaptivePolling><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not the replication applier will use adaptive polling.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_autoResync><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">autoResync</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_autoResync><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not the follower should perform an automatic resynchronization with
+the leader in case the leader cannot serve log data requested by the follower,
+or when the replication is started and no tick value can be found.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_autoResyncRetries><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">autoResyncRetries</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_autoResyncRetries><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of resynchronization retries that will be performed in a row when
+automatic resynchronization is enabled and kicks in. Setting this to <code>0</code> will
+effectively disable <code>autoResync</code>. Setting it to some other value will limit
+the number of retries that are performed. This helps preventing endless retries
+in case resynchronizations always fail.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_chunkSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">chunkSize</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_chunkSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the requested maximum size for log transfer packets that
+is used when the endpoint is contacted.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_connectTimeout><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">connectTimeout</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_connectTimeout><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the timeout (in seconds) when attempting to connect to the
+endpoint. This value is used for each connection attempt.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_connectionRetryWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">connectionRetryWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_connectionRetryWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the time (in seconds) that the applier will intentionally idle before
+it retries connecting to the leader in case of connection problems.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_database><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_database><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the database name on the leader (if not specified, defaults to the
+name of the local current database).</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_endpoint><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">endpoint*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_endpoint><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the leader endpoint to connect to (e.g. &ldquo;tcp://192.168.173.13:8529&rdquo;).</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_idleMaxWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">idleMaxWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_idleMaxWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum wait time (in seconds) that the applier will intentionally idle
+before fetching more log data from the leader in case the leader has
+already sent all its log data and there have been previous log fetch attempts
+that resulted in no more log data. This wait time can be used to control the
+maximum frequency with which the replication applier sends HTTP log fetch
+requests to the leader in case there is no write activity on the leader for
+longer periods. This configuration value will only be used if the option
+<code>adaptivePolling</code> is set to <code>true</code>.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_idleMinWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">idleMinWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_idleMinWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the minimum wait time (in seconds) that the applier will intentionally idle
+before fetching more log data from the leader in case the leader has
+already sent all its log data. This wait time can be used to control the
+frequency with which the replication applier sends HTTP log fetch requests
+to the leader in case there is no write activity on the leader.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_includeSystem><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">includeSystem*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_includeSystem><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>whether or not system collection operations will be applied</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_initialSyncMaxWaitTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">initialSyncMaxWaitTime</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_initialSyncMaxWaitTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum wait time (in seconds) that the initial synchronization will
+wait for a response from the leader when fetching initial collection data.
+This wait time can be used to control after what time the initial synchronization
+will give up waiting for a response and fail. This value is relevant even
+for continuous replication when <code>autoResync</code> is set to <code>true</code> because this
+may re-start the initial synchronization when the leader cannot provide
+log data the follower requires.
+This value will be ignored if set to <code>0</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_maxConnectRetries><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">maxConnectRetries</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_maxConnectRetries><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum number of connection attempts the applier
+will make in a row. If the applier cannot establish a connection to the
+endpoint in this number of attempts, it will stop itself.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_password><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">password*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_password><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the password to use when connecting to the leader.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_requestTimeout><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestTimeout</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_requestTimeout><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the timeout (in seconds) for individual requests to the endpoint.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_requireFromPresent><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requireFromPresent</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_requireFromPresent><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>if set to <code>true</code>, then the replication applier will check
+at start of its continuous replication if the start tick from the dump phase
+is still present on the leader. If not, then there would be data loss. If
+<code>requireFromPresent</code> is <code>true</code>, the replication applier will abort with an
+appropriate error message. If set to <code>false</code>, then the replication applier will
+still start, and ignore the data loss.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_restrictCollections><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">restrictCollections</span>
+<span class=openapi-property-type><span class=bold-text>array of strings</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_restrictCollections><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>an optional array of collections for use with <code>restrictType</code>.
+If <code>restrictType</code> is <code>include</code>, only the specified collections
+will be synchronized. If <code>restrictType</code> is <code>exclude</code>, all but the specified
+collections will be synchronized.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_restrictType><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">restrictType</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_restrictType><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>an optional string value for collection filtering. When
+specified, the allowed values are <code>include</code> or <code>exclude</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_username><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">username</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_username><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>an optional ArangoDB username to use when connecting to the leader.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_body_verbose><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">verbose</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#turn-a-server-into-a-follower-of-another_body_verbose><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>if set to <code>true</code>, then a log line will be emitted for all operations
+performed by the replication applier. This should be used for debugging
+replication
+problems only.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#turn-a-server-into-a-follower-of-another_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#turn-a-server-into-a-follower-of-another_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the configuration is incomplete or malformed.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#turn-a-server-into-a-follower-of-another_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#turn-a-server-into-a-follower-of-another_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred during synchronization or when starting the
+continuous replication.</p></div></details></li><li class="openapi-table-row regular-font"><details id=turn-a-server-into-a-follower-of-another_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#turn-a-server-into-a-follower-of-another_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.13/develop/http-api/replication/replication-logger/><i class="fas fa-chevron-left fa-fw"></i><p>Replication Logger</p></a></span><span class=next><a class="nav nav-next link" href=/3.13/develop/http-api/replication/other-replication-commands/><p>Other Replication Commands</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.13/develop/http-api/replication/replication-applier.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#get-the-replication-applier-configuration>Get the replication applier configuration</a></div><div class=level-2><a href=#update-the-replication-applier-configuration>Update the replication applier configuration</a></div><div class=level-2><a href=#start-the-replication-applier>Start the replication applier</a></div><div class=level-2><a href=#stop-the-replication-applier>Stop the replication applier</a></div><div class=level-2><a href=#get-the-replication-applier-state>Get the replication applier state</a></div><div class=level-2><a href=#turn-a-server-into-a-follower-of-another>Turn a server into a follower of another</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

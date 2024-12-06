@@ -1,0 +1,455 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for batch requests lets you send multiple operations in a single HTTP request"><meta property="og:url" content="http://localhost/3.12/develop/http-api/batch-requests/"><meta property="og:title" content="HTTP interface for batch requests"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for batch requests lets you send multiple operations in a single HTTP request"><meta name=docsearch:version content="3.12"><title>HTTP interface for batch requests | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Batch Requests"><a itemprop=item class=link href=/3.12/develop/http-api/batch-requests/><span itemprop=name class=breadcrumb-entry>Batch Requests</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for batch requests</h1><p class=lead>The HTTP API for batch requests lets you send multiple operations in a single HTTP request</p></hgroup><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>The batch request API was deprecated in version 3.8.0 and has been removed in 3.12.3.</p><p>To send multiple documents at once to an ArangoDB instance, please use the
+<a href=/3.12/develop/http-api/documents/#multiple-document-operations class=link>HTTP interface for documents</a>
+that can insert, update, replace, or remove arrays of documents.</p></div></div></div></div><p>Clients normally send individual operations to ArangoDB in individual
+HTTP requests. This is straightforward and simple, but has the
+disadvantage that the network overhead can be significant if many
+small requests are issued in a row.</p><p>To mitigate this problem, ArangoDB offers a batch request API that
+clients can use to send multiple operations in one batch to
+ArangoDB. This method is especially useful when the client has to send
+many HTTP requests with a small body/payload and the individual
+request results do not depend on each other.</p><p>Clients can use ArangoDB&rsquo;s batch API by issuing a multipart HTTP POST
+request to the URL <em>/_api/batch</em> handler. The handler will accept the
+request if the Content-type is <em>multipart/form-data</em> and a boundary
+string is specified. ArangoDB will then decompose the batch request
+into its individual parts using this boundary. This also means that
+the boundary string itself must not be contained in any of the parts.
+When ArangoDB has split the multipart request into its individual
+parts, it will process all parts sequentially as if it were a
+standalone request. When all parts are processed, ArangoDB will
+generate a multipart HTTP response that contains one part for each
+part operation result. For example, if you send a multipart request
+with 5 parts, ArangoDB will send back a multipart response with 5
+parts as well.</p><p>The server expects each part message to start with exactly the
+following &ldquo;header&rdquo;:</p><pre tabindex=0><code>Content-type: application/x-arango-batchpart
+</code></pre><p>You can optionally specify a <em>Content-Id</em> &ldquo;header&rdquo; to uniquely
+identify each part message. The server will return the <em>Content-Id</em> in
+its response if it is specified. Otherwise, the server will not send a
+Content-Id &ldquo;header&rdquo; back. The server will not validate the uniqueness
+of the Content-Id. After the mandatory <em>Content-type</em> and the
+optional <em>Content-Id</em> header, two Windows line breaks
+(i.e. <em>\r\n\r\n</em>) must follow. Any deviation of this structure
+might lead to the part being rejected or incorrectly interpreted. The
+part request payload, formatted as a regular HTTP request, must follow
+the two Windows line breaks literal directly.</p><p>Note that the literal <em>Content-type: application/x-arango-batchpart</em>
+technically is the header of the MIME part, and the HTTP request
+(including its headers) is the body part of the MIME part.</p><p>An actual part request should start with the HTTP method, the called
+URL, and the HTTP protocol version as usual, followed by arbitrary
+HTTP headers. Its body should follow after the usual <em>\r\n\r\n</em>
+literal. Part requests are therefore regular HTTP requests, only
+embedded inside a multipart message.</p><p>The following example will send a batch with 3 individual document
+creation operations. The boundary used in this example is
+<em>XXXsubpartXXX</em>.</p><p><em>Examples</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&gt;</span> <span class=nx>curl</span> <span class=o>-</span><span class=nx>X</span> <span class=nx>POST</span> <span class=o>--</span><span class=nx>data</span><span class=o>-</span><span class=nx>binary</span> <span class=err>@</span><span class=o>-</span> <span class=o>--</span><span class=nx>header</span> <span class=s2>&#34;Content-type: multipart/form-data; boundary=XXXsubpartXXX&#34;</span> <span class=nx>http</span><span class=o>:</span><span class=c1>//localhost:8529/_api/batch
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>POST</span> <span class=o>/</span><span class=nx>_api</span><span class=o>/</span><span class=nb>document</span><span class=o>?</span><span class=nx>collection</span><span class=o>=</span><span class=nx>xyz</span> <span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=o>:</span><span class=mi>1</span><span class=p>,</span><span class=s2>&#34;b&#34;</span><span class=o>:</span><span class=mi>2</span><span class=p>,</span><span class=s2>&#34;c&#34;</span><span class=o>:</span><span class=mi>3</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>POST</span> <span class=o>/</span><span class=nx>_api</span><span class=o>/</span><span class=nb>document</span><span class=o>?</span><span class=nx>collection</span><span class=o>=</span><span class=nx>xyz</span> <span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=o>:</span><span class=mi>1</span><span class=p>,</span><span class=s2>&#34;b&#34;</span><span class=o>:</span><span class=mi>2</span><span class=p>,</span><span class=s2>&#34;c&#34;</span><span class=o>:</span><span class=mi>3</span><span class=p>,</span><span class=s2>&#34;d&#34;</span><span class=o>:</span><span class=mi>4</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>POST</span> <span class=o>/</span><span class=nx>_api</span><span class=o>/</span><span class=nb>document</span><span class=o>?</span><span class=nx>collection</span><span class=o>=</span><span class=nx>xyz</span> <span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=o>:</span><span class=mi>1</span><span class=p>,</span><span class=s2>&#34;b&#34;</span><span class=o>:</span><span class=mi>2</span><span class=p>,</span><span class=s2>&#34;c&#34;</span><span class=o>:</span><span class=mi>3</span><span class=p>,</span><span class=s2>&#34;d&#34;</span><span class=o>:</span><span class=mi>4</span><span class=p>,</span><span class=s2>&#34;e&#34;</span><span class=o>:</span><span class=mi>5</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span><span class=o>--</span></span></span></code></pre></div><p>The server will then respond with one multipart message, containing
+the overall status and the individual results for the part
+operations. The overall status should be 200 except there was an error
+while inspecting and processing the multipart message. The overall
+status therefore does not indicate the success of each part operation,
+but only indicates whether the multipart message could be handled
+successfully.</p><p>Each part operation will return its own status value. As the part
+operation results are regular HTTP responses (just included in one
+multipart response), the part operation status is returned as a HTTP
+status code. The status codes of the part operations are exactly the
+same as if you called the individual operations standalone. Each part
+operation might also return arbitrary HTTP headers and a body/payload:</p><p><em>Examples</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>200</span> <span class=nx>OK</span>
+</span></span><span class=line><span class=cl><span class=nx>Connection</span><span class=o>:</span> <span class=nx>Keep</span><span class=o>-</span><span class=nx>Alive</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>multipart</span><span class=o>/</span><span class=nx>form</span><span class=o>-</span><span class=nx>data</span><span class=p>;</span> <span class=nx>boundary</span><span class=o>=</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>1055</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>202</span> <span class=nx>Accepted</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>json</span><span class=p>;</span> <span class=nx>charset</span><span class=o>=</span><span class=nx>utf</span><span class=o>-</span><span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=nx>ETag</span><span class=o>:</span> <span class=s2>&#34;9514299&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>53</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;error&#34;</span><span class=o>:</span><span class=kc>false</span><span class=p>,</span><span class=s2>&#34;_id&#34;</span><span class=o>:</span><span class=s2>&#34;xyz/9514299&#34;</span><span class=p>,</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span><span class=s2>&#34;9514299&#34;</span><span class=p>,</span><span class=s2>&#34;_rev&#34;</span><span class=o>:</span><span class=s2>&#34;9514299&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>202</span> <span class=nx>Accepted</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>json</span><span class=p>;</span> <span class=nx>charset</span><span class=o>=</span><span class=nx>utf</span><span class=o>-</span><span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=nx>ETag</span><span class=o>:</span> <span class=s2>&#34;9579835&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>53</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;error&#34;</span><span class=o>:</span><span class=kc>false</span><span class=p>,</span><span class=s2>&#34;_id&#34;</span><span class=o>:</span><span class=s2>&#34;xyz/9579835&#34;</span><span class=p>,</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span><span class=s2>&#34;9579835&#34;</span><span class=p>,</span><span class=s2>&#34;_rev&#34;</span><span class=o>:</span><span class=s2>&#34;9579835&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>Id</span><span class=o>:</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>202</span> <span class=nx>Accepted</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>json</span><span class=p>;</span> <span class=nx>charset</span><span class=o>=</span><span class=nx>utf</span><span class=o>-</span><span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=nx>ETag</span><span class=o>:</span> <span class=s2>&#34;9645371&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>53</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;error&#34;</span><span class=o>:</span><span class=kc>false</span><span class=p>,</span><span class=s2>&#34;_id&#34;</span><span class=o>:</span><span class=s2>&#34;xyz/9645371&#34;</span><span class=p>,</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span><span class=s2>&#34;9645371&#34;</span><span class=p>,</span><span class=s2>&#34;_rev&#34;</span><span class=o>:</span><span class=s2>&#34;9645371&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span><span class=o>--</span></span></span></code></pre></div><p>In the above example, the server returned an overall status code of
+200, and each part response contains its own status value (202 in the
+example):</p><p>When constructing the multipart HTTP response, the server will use the
+same boundary that the client supplied. If any of the part responses
+has a status code of 400 or greater, the server will also return an
+HTTP header <em>x-arango-errors</em> containing the overall number of part
+requests that produced errors:</p><p><em>Examples</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&gt;</span> <span class=nx>curl</span> <span class=o>-</span><span class=nx>X</span> <span class=nx>POST</span> <span class=o>--</span><span class=nx>data</span><span class=o>-</span><span class=nx>binary</span> <span class=err>@</span><span class=o>-</span> <span class=o>--</span><span class=nx>header</span> <span class=s2>&#34;Content-type: multipart/form-data; boundary=XXXsubpartXXX&#34;</span> <span class=nx>http</span><span class=o>:</span><span class=c1>//localhost:8529/_api/batch
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>POST</span> <span class=o>/</span><span class=nx>_api</span><span class=o>/</span><span class=nb>document</span><span class=o>?</span><span class=nx>collection</span><span class=o>=</span><span class=nx>nonexisting</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=o>:</span><span class=mi>1</span><span class=p>,</span><span class=s2>&#34;b&#34;</span><span class=o>:</span><span class=mi>2</span><span class=p>,</span><span class=s2>&#34;c&#34;</span><span class=o>:</span><span class=mi>3</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>POST</span> <span class=o>/</span><span class=nx>_api</span><span class=o>/</span><span class=nb>document</span><span class=o>?</span><span class=nx>collection</span><span class=o>=</span><span class=nx>xyz</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=o>:</span><span class=mi>1</span><span class=p>,</span><span class=s2>&#34;b&#34;</span><span class=o>:</span><span class=mi>2</span><span class=p>,</span><span class=s2>&#34;c&#34;</span><span class=o>:</span><span class=mi>3</span><span class=p>,</span><span class=s2>&#34;d&#34;</span><span class=o>:</span><span class=mi>4</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span><span class=o>--</span></span></span></code></pre></div><p>In this example, the overall response code is 200, but as some of the
+part request failed (with status code 404), the <em>x-arango-errors</em>
+header of the overall response is <em>1</em>:</p><p><em>Examples</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>200</span> <span class=nx>OK</span>
+</span></span><span class=line><span class=cl><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>errors</span><span class=o>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>multipart</span><span class=o>/</span><span class=nx>form</span><span class=o>-</span><span class=nx>data</span><span class=p>;</span> <span class=nx>boundary</span><span class=o>=</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>711</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>404</span> <span class=nx>Not</span> <span class=nx>Found</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>json</span><span class=p>;</span> <span class=nx>charset</span><span class=o>=</span><span class=nx>utf</span><span class=o>-</span><span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>111</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;error&#34;</span><span class=o>:</span><span class=kc>true</span><span class=p>,</span><span class=s2>&#34;code&#34;</span><span class=o>:</span><span class=mi>404</span><span class=p>,</span><span class=s2>&#34;errorNum&#34;</span><span class=o>:</span><span class=mi>1203</span><span class=p>,</span><span class=s2>&#34;errorMessage&#34;</span><span class=o>:</span><span class=s2>&#34;collection \/_api\/collection\/nonexisting not found&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>x</span><span class=o>-</span><span class=nx>arango</span><span class=o>-</span><span class=nx>batchpart</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>HTTP</span><span class=o>/</span><span class=mf>1.1</span> <span class=mi>202</span> <span class=nx>Accepted</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>type</span><span class=o>:</span> <span class=nx>application</span><span class=o>/</span><span class=nx>json</span><span class=p>;</span> <span class=nx>charset</span><span class=o>=</span><span class=nx>utf</span><span class=o>-</span><span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=nx>ETag</span><span class=o>:</span> <span class=s2>&#34;9841979&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>Content</span><span class=o>-</span><span class=nx>length</span><span class=o>:</span> <span class=mi>53</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;error&#34;</span><span class=o>:</span><span class=kc>false</span><span class=p>,</span><span class=s2>&#34;_id&#34;</span><span class=o>:</span><span class=s2>&#34;xyz/9841979&#34;</span><span class=p>,</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span><span class=s2>&#34;9841979&#34;</span><span class=p>,</span><span class=s2>&#34;_rev&#34;</span><span class=o>:</span><span class=s2>&#34;9841979&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>--</span><span class=nx>XXXsubpartXXX</span><span class=o>--</span></span></span></code></pre></div><p>Please note that the database used for all part operations of a batch
+request is determined by scanning the original URL (the URL that contains
+<em>/_api/batch</em>). It is not possible to override the
+<a href=/3.12/concepts/data-structure/databases/#database-names class=link>database name</a> in
+part operations of a batch. When doing so, any other database name used
+in a batch part will be ignored.</p><h3 id=execute-a-batch-request>Execute a batch request <a href=/3.12/develop/http-api/batch-requests/#execute-a-batch-request class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>The <code>/_api/batch</code> endpoint was deprecated in v3.8.0 and has been removed
+in v3.12.3.</div></div></div></div><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_db/{database-name}/_api/batch</span></div><div class="openapi-description regular-font"><p>Executes a batch request. A batch request can contain any number of
+other requests that can be sent to ArangoDB in isolation. The benefit of
+using batch requests is that batching requests requires less client/server
+roundtrips than when sending isolated requests.</p><p>All parts of a batch request are executed serially on the server. The
+server will return the results of all parts in a single response when all
+parts are finished.</p><p>Technically, a batch request is a multipart HTTP request, with
+content-type <code>multipart/form-data</code>. A batch request consists of an
+envelope and the individual batch part actions. Batch part actions
+are &ldquo;regular&rdquo; HTTP requests, including full header and an optional body.
+Multiple batch parts are separated by a boundary identifier. The
+boundary identifier is declared in the batch envelope. The MIME content-type
+for each individual batch part must be <code>application/x-arango-batchpart</code>.</p><p>Please note that when constructing the individual batch parts, you must
+use CRLF (<code>\r\n</code>) as the line terminator as in regular HTTP messages.</p><p>The response sent by the server will be an <code>HTTP 200</code> response, with an
+optional error summary header <code>x-arango-errors</code>. This header contains the
+number of batch part operations that failed with an HTTP error code of at
+least 400. This header is only present in the response if the number of
+errors is greater than zero.</p><p>The response sent by the server is a multipart response, too. It contains
+the individual HTTP responses for all batch parts, including the full HTTP
+result header (with status code and other potential headers) and an
+optional result body. The individual batch parts in the result are
+separated using the same boundary value as specified in the request.</p><p>The order of batch parts in the response will be the same as in the
+original client request. Client can additionally use the <code>Content-Id</code>
+MIME header in a batch part to define an individual id for each batch part.
+The server will return this id is the batch part responses, too.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=execute-a-batch-request_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#execute-a-batch-request_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=execute-a-batch-request_body_body><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">body*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#execute-a-batch-request_body_body><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The multipart batch request, consisting of the envelope and the individual
+batch parts.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=execute-a-batch-request_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#execute-a-batch-request_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the batch was received successfully. HTTP 200 is returned
+even if one or multiple batch part actions failed.</p></div></details></li><li class="openapi-table-row regular-font"><details id=execute-a-batch-request_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#execute-a-batch-request_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the batch envelope is malformed or incorrectly formatted.
+This code will also be returned if the content-type of the overall batch
+request or the individual MIME parts is not as expected.</p></div></details></li><li class="openapi-table-row regular-font"><details id=execute-a-batch-request_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#execute-a-batch-request_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Sending a batch request with five batch parts:</p><ul><li>GET /_api/version</li><li>DELETE /_api/collection/products</li><li>POST /_api/collection/products</li><li>GET /_api/collection/products/figures</li><li>DELETE /_api/collection/products</li></ul><p>The boundary (<code>SomeBoundaryValue</code>) is passed to the server in the HTTP
+<code>Content-Type</code> HTTP header.</p><p>The server response is formatted for readability. The <code>↩</code> character denotes
+the original line breaks.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;Content-Type: multipart/form-data; boundary=SomeBoundaryValue&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/batch&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>Content-Id: myId1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>GET /_api/version HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>Content-Id: myId2
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>DELETE /_api/collection/products HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>Content-Id: someId
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>POST /_api/collection/products HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>{&#34;name&#34;: &#34;products&#34; }
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>Content-Id: nextId
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>GET /_api/collection/products/figures HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>Content-Id: otherId
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>DELETE /_api/collection/products HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue--
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: multipart/form-data
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>2319</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-errors: <span class=m>1</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>Content-Id: myId1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>61</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;arango&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.2&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>Content-Id: myId2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>87</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;collection or view not found&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>1203</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>Content-Id: someId
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>446</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writeConcern&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;waitForSync&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68439&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;hDA74058C1843/68439&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68440&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>Content-Id: nextId
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Location: /_db/_system/_api/collection/products/figures
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>565</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;figures&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;indexes&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;size&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;documentsSize&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheInUse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheSize&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheUsage&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writeConcern&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;waitForSync&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68439&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;hDA74058C1843/68439&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68440&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>Content-Id: otherId
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>39</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68439&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue--
+</span></span></code></pre></div></div></div><p>Sending a batch request, setting the boundary implicitly. The server tries
+to find the boundary at the beginning of the request body in this case.</p><p>The server response is formatted for readability. The <code>↩</code> character denotes
+the original line breaks.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/batch&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>DELETE /_api/collection/nonexistent1 HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue
+</span></span></span><span class=line><span class=cl><span class=s>Content-Type: application/x-arango-batchpart
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>DELETE _api/collection/nonexistent2 HTTP/1.1
+</span></span></span><span class=line><span class=cl><span class=s>--SomeBoundaryValue--
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: <span class=nb>unset</span>
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>598</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-errors: <span class=m>2</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>87</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;collection or view not found&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>1203</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue
+</span></span><span class=line><span class=cl>Content-Type: application/x-arango-batchpart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>Server: 
+</span></span><span class=line><span class=cl>Connection: Close 
+</span></span><span class=line><span class=cl>Content-Type: application/json<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>Content-Length: <span class=m>101</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;unknown path &#39;_api/collection/nonexistent2&#39;&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>↩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--SomeBoundaryValue--
+</span></span></code></pre></div></div></div><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/tasks/><i class="fas fa-chevron-left fa-fw"></i><p>Tasks</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/replication/><p>Replication</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/batch-requests.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

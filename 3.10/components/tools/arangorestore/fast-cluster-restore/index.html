@@ -1,0 +1,185 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The Fast Cluster Restore procedure documented in this page is recommended to speed-up the performance of arangorestore in a Cluster environment"><meta property="og:url" content="http://localhost/3.10/components/tools/arangorestore/fast-cluster-restore/"><meta property="og:title" content="Version 0.3"><meta property="og:type" content="website"><meta property="og:description" content="The Fast Cluster Restore procedure documented in this page is recommended to speed-up the performance of arangorestore in a Cluster environment"><meta name=docsearch:version content="3.10"><title>Version 0.3 | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.10"><a itemprop=item class=link href=/3.10/><span itemprop=name class=breadcrumb-entry>3.10.14</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.10/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Tools"><a itemprop=item class=link href=/3.10/components/tools/><span itemprop=name class=breadcrumb-entry>Tools</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangorestore"><a itemprop=item class=link href=/3.10/components/tools/arangorestore/><span itemprop=name class=breadcrumb-entry>arangorestore</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Fast Cluster Restore"><a itemprop=item class=link href=/3.10/components/tools/arangorestore/fast-cluster-restore/><span itemprop=name class=breadcrumb-entry>Fast Cluster Restore</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.10 reached End of Life (EOL) and is no longer supported.</p><p>This documentation is outdated. Please see the most recent <a href=/3.12/ class=link>stable version</a>.</p></div></div></div></div><hgroup><h1>Version 0.3</h1><p class=lead>The Fast Cluster Restore procedure documented in this page is recommended to speed-up the performance of arangorestore in a Cluster environment</p></hgroup><p>The <em>Fast Cluster Restore</em> procedure documented in this page is recommended
+to speed-up the performance of <a href=/3.10/components/tools/arangorestore/ class=link><em>arangorestore</em></a>
+in a Cluster environment.</p><p>It is assumed that a Cluster environment is running and a <em>logical</em> backup
+with <a href=/3.10/components/tools/arangodump/ class=link><em>arangodump</em></a> has already been taken.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>The procedure described in this page is particularly useful for ArangoDB
+version 3.3, but can be used in 3.4 and later versions as well. Note that
+from v3.4, <em>arangorestore</em> includes the option <code>--threads</code> which can be a first
+good step already in achieving restore parallelization and its speed benefit.
+In ArangoDB 3.8 and later, you should create dumps with <em>arangodump</em> in the
+<a href=/3.10/components/tools/arangodump/examples/#dump-output-format class=link>non-enveloped format</a>,
+as this will allow <em>arangorestore</em> to restore single collections with multiple
+threads.
+However, the procedure below allows for even further parallelization (making
+use of different <em>Coordinators</em>), and the part regarding temporarily setting
+<em>replication factor</em> to 1 is still useful in 3.4 and later versions.</div></div></div></div><p>The speed improvement obtained by the procedure below is achieved by:</p><ol><li>Restoring into a Cluster that has <em>replication factor</em> 1, thus reducing
+number of network hops needed during the restore operation (<em>replication factor</em>
+is reverted to initial value at the end of the procedure - steps #2, #3 and #6).</li><li>Restoring in parallel multiple collections on different <em>Coordinators</em>
+(steps #4 and #5).</li></ol><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Please refer to the
+<a href=/3.10/components/tools/arangorestore/examples/#factors-affecting-speed-of-arangorestore-in-a-cluster class=link>arangorestore examples</a>
+for further context on the factors affecting restore speed when restoring
+using <em>arangorestore</em> in a Cluster.</div></div></div></div><h2 id=step-1-copy-the-_dump_-directory-to-all-_coordinators_>Step 1: Copy the <em>dump</em> directory to all <em>Coordinators</em> <a href=/3.10/components/tools/arangorestore/fast-cluster-restore/#step-1-copy-the-_dump_-directory-to-all-_coordinators_ class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The first step is to copy the directory that contains the <em>dump</em> to all machines
+where <em>Coordinators</em> are running.</p><div class="box notices cstyle tip"><div class=box-content-container><div class=box-content><i class="fas fa-check"></i><div class=box-text>This step is not strictly required as the backup can be restored over the
+network. However, if the restore is executed locally the restore speed is
+significantly improved.</div></div></div></div><h2 id=step-2-restore-collection-structures>Step 2: Restore collection structures <a href=/3.10/components/tools/arangorestore/fast-cluster-restore/#step-2-restore-collection-structures class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The collection structures have to be restored from exactly one <em>Coordinator</em> (any
+<em>Coordinator</em> can be used) with a command similar to the following one. Please add
+any additional needed option for your specific use case, e.g. <code>--create-database</code>
+if the database where you want to restore does not exist yet:</p><pre tabindex=0><code>arangorestore
+  --server.endpoint &lt;endpoint-of-a-coordinator&gt;
+  --server.database &lt;database-name&gt;
+  --server.password &lt;password&gt;
+  --import-data false
+  --input-directory &lt;dump-directory&gt;
+  --replication-factor 1
+</code></pre><p>The option <code>--import-data false</code> tells <em>arangorestore</em> to restore only the
+collection structure and no data.</p><h2 id=step-3-create-parallel-restore-scripts>Step 3: Create parallel restore scripts <a href=/3.10/components/tools/arangorestore/fast-cluster-restore/#step-3-create-parallel-restore-scripts class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Now that the Cluster is prepared, the <code>parallelRestore</code> script will be used.</p><p>Please create the below <code>parallelRestore</code> script in any of your <em>Coordinators</em>.</p><p>When executed (see below for further details), this script will create other scripts
+that can be then copied and executed on each <em>Coordinator</em>.</p><pre tabindex=0><code>#!/bin/sh
+#
+#
+# Release Notes:
+# - v0.3: fixed a bug that was happening when the collection name included an underscore 
+# - v0.2: compatibility with version 3.4: now each coordinator_&lt;number-of-coordinator&gt;.sh
+#         includes a single restore command (instead of one for each collection)
+#         which allows making using of the --threads option in v3.4.0 and later
+# - v0.1: initial version
+
+if test -z &#34;$ARANGOSH&#34; ; then
+  export ARANGOSH=arangosh
+fi
+cat &gt; /tmp/parallelRestore$$.js &lt;&lt;&#39;EOF&#39;
+var fs = require(&#34;fs&#34;);
+var print = require(&#34;internal&#34;).print;
+var exit = require(&#34;internal&#34;).exit;
+var arangorestore = &#34;arangorestore&#34;;
+var env = require(&#34;internal&#34;).env;
+if (env.hasOwnProperty(&#34;ARANGORESTORE&#34;)) {
+  arangorestore = env[&#34;ARANGORESTORE&#34;];
+}
+
+// Check ARGUMENTS: dumpDir coordinator1 coordinator2 ...
+
+if (ARGUMENTS.length &lt; 2) {
+  print(&#34;Need at least two arguments DUMPDIR and COORDINATOR_ENDPOINTS!&#34;);
+  exit(1);
+}
+
+var dumpDir = ARGUMENTS[0];
+var coordinators = ARGUMENTS[1].split(&#34;,&#34;);
+var otherArgs = ARGUMENTS.slice(2);
+
+// Quickly check the dump dir:
+var files = fs.list(dumpDir).filter(f =&gt; !fs.isDirectory(f));
+var found = files.indexOf(&#34;ENCRYPTION&#34;);
+if (found === -1) {
+  print(&#34;This directory does not have an ENCRYPTION entry.&#34;);
+  exit(2);
+}
+// Remove ENCRYPTION entry:
+files = files.slice(0, found).concat(files.slice(found+1));
+
+for (let i = 0; i &lt; files.length; ++i) {
+  if (files[i].slice(-5) !== &#34;.json&#34;) {
+    print(&#34;This directory has files which do not end in &#39;.json&#39;!&#34;);
+    exit(3);
+  }
+}
+files = files.map(function(f) {
+  var fullName = fs.join(dumpDir, f);
+  var collName = &#34;&#34;;
+  if (f.slice(-10) === &#34;.data.json&#34;) {
+    var pos;
+    if (f.slice(0, 1) === &#34;_&#34;) {  // system collection
+      pos = f.slice(1).indexOf(&#34;_&#34;) + 1;
+      collName = &#34;_&#34; + f.slice(1, pos);
+    } else {
+      pos = f.lastIndexOf(&#34;_&#34;)
+      collName = f.slice(0, pos);
+    }
+  }
+  return {name: fullName, collName, size: fs.size(fullName)};
+});
+files = files.sort(function(a, b) { return b.size - a.size; });
+var dataFiles = [];
+for (let i = 0; i &lt; files.length; ++i) {
+  if (files[i].name.slice(-10) === &#34;.data.json&#34;) {
+    dataFiles.push(i);
+  }
+}
+
+// Produce the scripts, one for each Coordinator:
+var scripts = [];
+var collections = [];
+for (let i = 0; i &lt; coordinators.length; ++i) {
+  scripts.push([]);
+  collections.push([]);
+}
+
+var cnum = 0;
+var temp = &#39;&#39;;
+var collections = [];
+for (let i = 0; i &lt; dataFiles.length; ++i) {
+  var f = files[dataFiles[i]];
+  if (typeof collections[cnum] == &#39;undefined&#39;) {
+    collections[cnum] = (`--collection ${f.collName}`);
+  } else {
+    collections[cnum] += (` --collection ${f.collName}`);
+  }
+  cnum += 1;
+  if (cnum &gt;= coordinators.length) {
+    cnum = 0;
+  }
+}
+
+var cnum = 0;
+for (let i = 0; i &lt; coordinators.length; ++i) {
+  scripts[i].push(`${arangorestore} --input-directory ${dumpDir} --server.endpoint ${coordinators[i]} ` + collections[i] + &#39; &#39; + otherArgs.join(&#34; &#34;));
+}
+
+for (let i = 0; i &lt; coordinators.length; ++i) {
+  let f = &#34;coordinator_&#34; + i + &#34;.sh&#34;;
+  print(&#34;Writing file&#34;, f, &#34;...&#34;);
+  fs.writeFileSync(f, scripts[i].join(&#34;\n&#34;));
+}
+EOF
+
+${ARANGOSH} --javascript.execute /tmp/parallelRestore$$.js -- &#34;$@&#34;
+rm /tmp/parallelRestore$$.js
+</code></pre><p>To run this script, all <em>Coordinator</em> endpoints of the Cluster have to be
+provided. The script accepts all options of the tool <em>arangorestore</em>.</p><p>The command below can for instance be used on a Cluster with three
+<em>Coordinators</em>:</p><pre tabindex=0><code>./parallelRestore &lt;dump-directory&gt;
+  tcp://&lt;ip-of-coordinator1&gt;:&lt;port of coordinator1&gt;,
+  tcp://&lt;ip-of-coordinator2&gt;:&lt;port of coordinator2&gt;,
+  tcp://&lt;ip-of-coordinator3&gt;:&lt;port of coordinator3&gt;
+  --server.username &lt;username&gt;
+  --server.password &lt;password&gt;
+  --server.database &lt;database_name&gt;
+  --create-collection false
+</code></pre><p><strong>Notes:</strong></p><ul><li>The option <code>--create-collection false</code> is passed since the collection
+structures were created already in the previous step.</li><li>The <em>arangorestore</em> option <code>--threads N</code> can be
+passed to the command above, where <em>N</em> is an integer, to further parallelize
+the restore (the default is <code>--threads 2</code>).</li></ul><p>The above command will create three scripts, where three corresponds to
+the amount of listed <em>Coordinators</em>.</p><p>The resulting scripts are named <code>coordinator_&lt;number-of-coordinator>.sh</code> (e.g.
+<code>coordinator_0.sh</code>, <code>coordinator_1.sh</code>, <code>coordinator_2.sh</code>).</p><h2 id=step-4-execute-parallel-restore-scripts>Step 4: Execute parallel restore scripts <a href=/3.10/components/tools/arangorestore/fast-cluster-restore/#step-4-execute-parallel-restore-scripts class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The <code>coordinator_&lt;number-of-coordinator>.sh</code> scripts, that were created in the
+previous step, now have to be executed on each machine where a <em>Coordinator</em>
+is running. This will start a parallel restore of the dump.</p><h2 id=step-5-revert-to-the-initial-_replication-factor_>Step 5: Revert to the initial <em>Replication Factor</em> <a href=/3.10/components/tools/arangorestore/fast-cluster-restore/#step-5-revert-to-the-initial-_replication-factor_ class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Once the <em>arangorestore</em> process on every <em>Coordinator</em> is completed, the
+<em>replication factor</em> has to be set to its initial value.</p><p>Run the following command from exactly one <em>Coordinator</em> (any <em>Coordinator</em> can be
+used). Please adjust the <code>replicationFactor</code> value to your specific case (2 in the
+example below):</p><pre tabindex=0><code>echo &#39;db._collections().filter(function(c) { return c.name()[0] !== &#34;_&#34;; })
+.forEach(function(c) { print(&#34;collection:&#34;, c.name(), &#34;replicationFactor:&#34;,
+c.properties().replicationFactor); c.properties({ replicationFactor: 2 }); });&#39;
+| arangosh
+  --server.endpoint &lt;endpoint-of-a-coordinator&gt;
+  --server.database &lt;database-name&gt;
+  --server.username &lt;user-name&gt;
+  --server.password &lt;password&gt;
+</code></pre><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.10/components/tools/arangorestore/examples/><i class="fas fa-chevron-left fa-fw"></i><p>Examples</p></a></span><span class=next><a class="nav nav-next link" href=/3.10/components/tools/arangorestore/options/><p>Options</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.10/components/tools/arangorestore/fast-cluster-restore.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#step-1-copy-the-_dump_-directory-to-all-_coordinators_>Step 1: Copy the <em>dump</em> directory to all <em>Coordinators</em></a></div><div class=level-2><a href=#step-2-restore-collection-structures>Step 2: Restore collection structures</a></div><div class=level-2><a href=#step-3-create-parallel-restore-scripts>Step 3: Create parallel restore scripts</a></div><div class=level-2><a href=#step-4-execute-parallel-restore-scripts>Step 4: Execute parallel restore scripts</a></div><div class=level-2><a href=#step-5-revert-to-the-initial-_replication-factor_>Step 5: Revert to the initial <em>Replication Factor</em></a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

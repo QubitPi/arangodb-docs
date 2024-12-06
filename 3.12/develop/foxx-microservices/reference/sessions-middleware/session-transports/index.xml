@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Foxx Session Transports on ArangoDB Documentation</title><link>http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/</link><description>Recent content in Foxx Session Transports on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/index.xml" rel="self" type="application/rss+xml"/><item><title>Foxx Cookie Session Transport</title><link>http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/cookie-transport/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/cookie-transport/</guid><description>const cookieTransport = require('@arangodb/foxx/sessions/transports/cookie');
+The cookie transport stores session identifiers in cookies on the request and response object.
+Examples
+// Pass in a secure secret from the Foxx configuration const secret = module.context.configuration.cookieSecret; const sessions = sessionsMiddleware({ storage: module.context.collection(&amp;#39;sessions&amp;#39;), transport: cookieTransport({ name: &amp;#39;FOXXSESSID&amp;#39;, ttl: 60 * 60 * 24 * 7, // one week in seconds algorithm: &amp;#39;sha256&amp;#39;, secret: secret }) }); module.context.use(sessions); Creating a transport cookieTransport([options]): Transport
+Creates a Transport that can be used in the sessions middleware.</description></item><item><title>Foxx Header Session Transport</title><link>http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/header-transport/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/develop/foxx-microservices/reference/sessions-middleware/session-transports/header-transport/</guid><description>const headerTransport = require('@arangodb/foxx/sessions/transports/header');
+The header transport stores session identifiers in headers on the request and response objects.
+Examples
+const sessions = sessionsMiddleware({ storage: module.context.collection(&amp;#39;sessions&amp;#39;), transport: headerTransport(&amp;#39;X-FOXXSESSID&amp;#39;) }); module.context.use(sessions); Creating a transport headerTransport([options]): Transport
+Creates a Transport that can be used in the sessions middleware.
+Arguments
+options: Object (optional)
+An object with the following properties:
+name: string (Default: X-Session-Id)
+Name of the header that contains the session identifier (not case sensitive).</description></item></channel></rss>

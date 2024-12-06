@@ -1,0 +1,281 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="You can retrieve the positions of matches within strings when querying Views with ArangoSearch, to highlight what was found in search results"><meta property="og:url" content="http://localhost/3.10/index-and-search/arangosearch/search-highlighting/"><meta property="og:title" content="Search highlighting with ArangoSearch"><meta property="og:type" content="website"><meta property="og:description" content="You can retrieve the positions of matches within strings when querying Views with ArangoSearch, to highlight what was found in search results"><meta name=docsearch:version content="3.10"><title>Search highlighting with ArangoSearch | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.10"><a itemprop=item class=link href=/3.10/><span itemprop=name class=breadcrumb-entry>3.10.14</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Index and Search"><a itemprop=item class=link href=/3.10/index-and-search/><span itemprop=name class=breadcrumb-entry>Index and Search</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="ArangoSearch"><a itemprop=item class=link href=/3.10/index-and-search/arangosearch/><span itemprop=name class=breadcrumb-entry>ArangoSearch</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Search highlighting"><a itemprop=item class=link href=/3.10/index-and-search/arangosearch/search-highlighting/><span itemprop=name class=breadcrumb-entry>Search highlighting</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.10 reached End of Life (EOL) and is no longer supported.</p><p>This documentation is outdated. Please see the most recent <a href=/3.12/index-and-search/arangosearch/search-highlighting/ class=link>stable version</a>.</p></div></div></div></div><hgroup><h1>Search highlighting with ArangoSearch</h1><p class=lead>You can retrieve the positions of matches within strings when querying Views with ArangoSearch, to highlight what was found in search results</p></hgroup><p class=labels><span class=label>ArangoDB Enterprise Edition</span>
+<span class=label>ArangoGraph</span></p><p>ArangoSearch lets you search for terms and phrases in full-text, and more.
+It only returns matching documents, however. With search highlighting, you can
+get the exact locations of the matches.</p><p>A common use case is to emphasize the matching parts in client applications,
+for example, with a background color or an underline, so that users can easily
+see and understand the matches.</p><h2 id=how-to-use-search-highlighting>How to use search highlighting <a href=/3.10/index-and-search/arangosearch/search-highlighting/#how-to-use-search-highlighting class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>To use search highlighting, you need to index the respective attributes with
+Analyzers that have the <code>offset</code> feature enabled. The built-in <code>text</code> Analyzers
+don&rsquo;t have this feature enabled, you need to create custom Analyzers.</p><p>You can get the substring offsets of matches by calling the
+<a href=/3.10/aql/functions/arangosearch/#offset_info class=link><code>OFFSET_INFO()</code> function</a> in
+search queries. It takes the document emitted by the View (<code>FOR doc IN viewName</code>)
+and a list of paths like <code>"field.nested"</code> or <code>"array[0].field"</code>, defining for
+what attributes or array elements you want to retrieve the offsets for. For
+every path, it returns a list comprised of a <code>name</code> and <code>offsets</code>.</p><p>The <code>name</code> is the path of the value, but in a different form than you passed to
+the function, like <code>["field", "nested"]</code> or <code>["array", 0, "field"]</code>. You can
+look up the value with the <a href=/3.10/aql/functions/document-object/#value class=link><code>VALUE()</code> function</a>
+using this path description.</p><p>The <code>offsets</code> are a list of offset pairs, one for every match. Each pair is an
+array with two numbers, with the start offset and length of the match. There can be
+multiple matches per path. You can optionally cap how many matches are collected
+per path by setting limits when calling the <code>OFFSET_INFO()</code> function.</p><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>The start offsets and lengths describe the positions in bytes, not characters.
+You may need to account for characters encoded using multiple bytes.</div></div></div></div><h3 id=term-and-phrase-search-with-highlighting>Term and phrase search with highlighting <a href=/3.10/index-and-search/arangosearch/search-highlighting/#term-and-phrase-search-with-highlighting class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><h4 id=dataset>Dataset <a href=/3.10/index-and-search/arangosearch/search-highlighting/#dataset class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>A collection called <code>food</code> with the following documents:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;avocado&#34;</span><span class=p>,</span> <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=p>{</span> <span class=nt>&#34;en&#34;</span><span class=p>:</span> <span class=s2>&#34;The avocado is a medium-sized, evergreen tree, native to the Americas.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;carrot&#34;</span><span class=p>,</span> <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=p>{</span> <span class=nt>&#34;en&#34;</span><span class=p>:</span> <span class=s2>&#34;The carrot is a root vegetable, typically orange in color, native to Europe and Southwestern Asia.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;chili pepper&#34;</span><span class=p>,</span> <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=p>{</span> <span class=nt>&#34;en&#34;</span><span class=p>:</span> <span class=s2>&#34;Chili peppers are varieties of the berry-fruit of plants from the genus Capsicum, cultivated for their pungency.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;tomato&#34;</span><span class=p>,</span> <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=p>{</span> <span class=nt>&#34;en&#34;</span><span class=p>:</span> <span class=s2>&#34;The tomato is the edible berry of the tomato plant.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span></code></pre></div><h4 id=custom-analyzer>Custom Analyzer <a href=/3.10/index-and-search/arangosearch/search-highlighting/#custom-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>If you want to use an <code>arangosearch</code> View,
+create a <code>text</code> Analyzer in arangosh to tokenize text, like the built-in
+<code>text_en</code> Analyzer, but additionally set the <code>offset</code> feature, enabling
+search highlighting:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>analyzers</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;@arangodb/analyzers&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>analyzers</span><span class=p>.</span><span class=nx>save</span><span class=p>(</span><span class=s2>&#34;text_en_offset&#34;</span><span class=p>,</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>locale</span><span class=o>:</span> <span class=s2>&#34;en&#34;</span><span class=p>,</span> <span class=nx>stopwords</span><span class=o>:</span> <span class=p>[]</span> <span class=p>},</span> <span class=p>[</span><span class=s2>&#34;frequency&#34;</span><span class=p>,</span> <span class=s2>&#34;position&#34;</span><span class=p>,</span> <span class=s2>&#34;offset&#34;</span><span class=p>]);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;_system::text_en_offset&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;properties&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;locale&#34;</span> <span class=o>:</span> <span class=s2>&#34;en&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;case&#34;</span> <span class=o>:</span> <span class=s2>&#34;lower&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;stopwords&#34;</span> <span class=o>:</span> <span class=p>[</span> <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;accent&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;stemming&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;features&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;frequency&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;position&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;offset&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>]</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>The <code>frequency</code>, <code>position</code>, and <code>offset</code> <a href=/3.10/index-and-search/analyzers/#analyzer-features class=link>Analyzer features</a>
+are set because the examples on this page require them for the <code>OFFSET_INFO()</code>
+search highlighting function to work, and the <code>PHRASE()</code> filter function also
+requires the former two.</p><p>You can skip this step if you want to use a <code>search-alias</code> View, because the
+Analyzer features can be overwritten in the inverted index definition.</p><h4 id=view-definition>View definition <a href=/3.10/index-and-search/arangosearch/search-highlighting/#view-definition class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>food</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-text-offset&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;description.en&#34;</span><span class=p>,</span> <span class=nx>analyzer</span><span class=o>:</span> <span class=s2>&#34;text_en&#34;</span><span class=p>,</span> <span class=nx>features</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;frequency&#34;</span><span class=p>,</span> <span class=s2>&#34;position&#34;</span><span class=p>,</span> <span class=s2>&#34;offset&#34;</span><span class=p>]</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;food_view&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;food&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-text-offset&#34;</span> <span class=p>}</span> <span class=p>]</span> <span class=p>});</span></span></span></code></pre></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;food&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;en&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;analyzers&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;text_en_offset&#34;</span>
+</span></span><span class=line><span class=cl>              <span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><h4 id=aql-queries>AQL queries <a href=/3.10/index-and-search/arangosearch/search-highlighting/#aql-queries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>Search the View for descriptions that contain the tokens <code>avocado</code> or <code>tomato</code>,
+the phrase <code>cultivated ... pungency</code> with two arbitrary tokens between the two
+words, and for words that start with <code>cap</code>. Get the matching positions, and use
+this information to extract the substrings with the
+<a href=/3.10/aql/functions/string/#substring_bytes class=link><code>SUBSTRING_BYTES()</code> function</a>.</p><p>The <a href=/3.10/aql/functions/arangosearch/#offset_info class=link><code>OFFSET_INFO()</code> function</a>
+returns a <code>name</code> that describes the path of the attribute or array element with
+the match. You can use the <a href=/3.10/aql/functions/document-object/#value class=link><code>VALUE()</code> function</a>
+to dynamically get the respective value.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_create</span><span class=p>(</span><span class=s2>&#34;food&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>docs</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>food</span><span class=p>.</span><span class=nx>save</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;avocado&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The avocado is a medium-sized, evergreen tree, native to the Americas.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;carrot&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The carrot is a root vegetable, typically orange in color, native to Europe and Southwestern Asia.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;chili pepper&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;Chili peppers are varieties of the berry-fruit of plants from the genus Capsicum, cultivated for their pungency.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;tomato&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The tomato is the edible berry of the tomato plant.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>food</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-text-offset&#34;</span><span class=p>,</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;description.en&#34;</span><span class=p>,</span> <span class=nx>analyzer</span><span class=o>:</span> <span class=s2>&#34;text_en&#34;</span><span class=p>,</span> <span class=nx>features</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;frequency&#34;</span><span class=p>,</span> <span class=s2>&#34;position&#34;</span><span class=p>,</span> <span class=s2>&#34;offset&#34;</span><span class=p>]</span> <span class=p>}</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>view</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;food_view&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;food&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-text-offset&#34;</span> <span class=p>}</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_query</span><span class=p>(</span><span class=sb>`FOR doc IN food_view
+</span></span></span><span class=line><span class=cl><span class=sb>  SEARCH
+</span></span></span><span class=line><span class=cl><span class=sb>    TOKENS(&#34;avocado tomato&#34;, &#34;text_en&#34;) ANY == doc.description.en OR
+</span></span></span><span class=line><span class=cl><span class=sb>    PHRASE(doc.description.en, &#34;cultivated&#34;, 2, &#34;pungency&#34;) OR
+</span></span></span><span class=line><span class=cl><span class=sb>    STARTS_WITH(doc.description.en, &#34;cap&#34;)
+</span></span></span><span class=line><span class=cl><span class=sb>  FOR offsetInfo IN OFFSET_INFO(doc, [&#34;description.en&#34;])
+</span></span></span><span class=line><span class=cl><span class=sb>    RETURN {
+</span></span></span><span class=line><span class=cl><span class=sb>      description: doc.description,
+</span></span></span><span class=line><span class=cl><span class=sb>      name: offsetInfo.name,
+</span></span></span><span class=line><span class=cl><span class=sb>      matches: offsetInfo.offsets[* RETURN {
+</span></span></span><span class=line><span class=cl><span class=sb>        offset: CURRENT,
+</span></span></span><span class=line><span class=cl><span class=sb>        match: SUBSTRING_BYTES(VALUE(doc, offsetInfo.name), CURRENT[0], CURRENT[1])
+</span></span></span><span class=line><span class=cl><span class=sb>      }]
+</span></span></span><span class=line><span class=cl><span class=sb>    }`</span><span class=p>).</span><span class=nx>toArray</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;The avocado is a medium-sized, evergreen tree, native to the Americas.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>4</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>7</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;avocado&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;Chili peppers are varieties of the berry-fruit of plants from the genus Capsicum, cultivated for their pungency.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>82</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>29</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;cultivated for their pungency&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>},</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>72</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>8</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;Capsicum&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;The tomato is the edible berry of the tomato plant.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>4</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>6</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;tomato&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>},</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>38</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>6</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;tomato&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_create</span><span class=p>(</span><span class=s2>&#34;food&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>docs</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>food</span><span class=p>.</span><span class=nx>save</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;avocado&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The avocado is a medium-sized, evergreen tree, native to the Americas.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;carrot&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The carrot is a root vegetable, typically orange in color, native to Europe and Southwestern Asia.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;chili pepper&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;Chili peppers are varieties of the berry-fruit of plants from the genus Capsicum, cultivated for their pungency.&#34;</span> <span class=p>}</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;tomato&#34;</span><span class=p>,</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=s2>&#34;The tomato is the edible berry of the tomato plant.&#34;</span> <span class=p>}</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>analyzers</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;@arangodb/analyzers&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>analyzer</span> <span class=o>=</span> <span class=nx>analyzers</span><span class=p>.</span><span class=nx>save</span><span class=p>(</span><span class=s2>&#34;text_en_offset&#34;</span><span class=p>,</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>locale</span><span class=o>:</span> <span class=s2>&#34;en&#34;</span><span class=p>,</span> <span class=nx>stopwords</span><span class=o>:</span> <span class=p>[]</span> <span class=p>},</span> <span class=p>[</span><span class=s2>&#34;frequency&#34;</span><span class=p>,</span> <span class=s2>&#34;position&#34;</span><span class=p>,</span> <span class=s2>&#34;offset&#34;</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>view</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;food_view&#34;</span><span class=p>,</span> <span class=s2>&#34;arangosearch&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>links</span><span class=o>:</span> <span class=p>{</span> <span class=nx>food</span><span class=o>:</span> <span class=p>{</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>{</span> <span class=nx>description</span><span class=o>:</span> <span class=p>{</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>{</span> <span class=nx>en</span><span class=o>:</span> <span class=p>{</span> <span class=nx>analyzers</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;text_en_offset&#34;</span><span class=p>]</span> <span class=p>}</span> <span class=p>}</span> <span class=p>}</span> <span class=p>}</span> <span class=p>}</span> <span class=p>}</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_query</span><span class=p>(</span><span class=sb>`FOR doc IN food_view
+</span></span></span><span class=line><span class=cl><span class=sb>  SEARCH ANALYZER(
+</span></span></span><span class=line><span class=cl><span class=sb>    TOKENS(&#34;avocado tomato&#34;, &#34;text_en_offset&#34;) ANY == doc.description.en OR
+</span></span></span><span class=line><span class=cl><span class=sb>    PHRASE(doc.description.en, &#34;cultivated&#34;, 2, &#34;pungency&#34;) OR
+</span></span></span><span class=line><span class=cl><span class=sb>    STARTS_WITH(doc.description.en, &#34;cap&#34;)
+</span></span></span><span class=line><span class=cl><span class=sb>  , &#34;text_en_offset&#34;)
+</span></span></span><span class=line><span class=cl><span class=sb>  FOR offsetInfo IN OFFSET_INFO(doc, [&#34;description.en&#34;])
+</span></span></span><span class=line><span class=cl><span class=sb>    RETURN {
+</span></span></span><span class=line><span class=cl><span class=sb>      description: doc.description,
+</span></span></span><span class=line><span class=cl><span class=sb>      name: offsetInfo.name,
+</span></span></span><span class=line><span class=cl><span class=sb>      matches: offsetInfo.offsets[* RETURN {
+</span></span></span><span class=line><span class=cl><span class=sb>        offset: CURRENT,
+</span></span></span><span class=line><span class=cl><span class=sb>        match: SUBSTRING_BYTES(VALUE(doc, offsetInfo.name), CURRENT[0], CURRENT[1])
+</span></span></span><span class=line><span class=cl><span class=sb>      }]
+</span></span></span><span class=line><span class=cl><span class=sb>    }`</span><span class=p>).</span><span class=nx>toArray</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;The avocado is a medium-sized, evergreen tree, native to the Americas.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>4</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>7</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;avocado&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;Chili peppers are varieties of the berry-fruit of plants from the genus Capsicum, cultivated for their pungency.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>82</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>29</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;cultivated for their pungency&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>},</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>72</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>8</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;Capsicum&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;description&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> <span class=o>:</span> <span class=s2>&#34;The tomato is the edible berry of the tomato plant.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;en&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;matches&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>4</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>6</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;tomato&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>},</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;offset&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>38</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>          <span class=mi>6</span> 
+</span></span><span class=line><span class=cl>        <span class=p>],</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;match&#34;</span> <span class=o>:</span> <span class=s2>&#34;tomato&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>]</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br></div></div></div><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.10/index-and-search/arangosearch/geospatial-search/><i class="fas fa-chevron-left fa-fw"></i><p>Geospatial search</p></a></span><span class=next><a class="nav nav-next link" href=/3.10/index-and-search/arangosearch/nested-search/><p>Nested search</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.10/index-and-search/arangosearch/search-highlighting.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#how-to-use-search-highlighting>How to use search highlighting</a></div><div class=level-3><a href=#term-and-phrase-search-with-highlighting>Term and phrase search with highlighting</a></div><div class=level-4><a href=#dataset>Dataset</a></div><div class=level-4><a href=#custom-analyzer>Custom Analyzer</a></div><div class=level-4><a href=#view-definition>View definition</a></div><div class=level-4><a href=#aql-queries>AQL queries</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

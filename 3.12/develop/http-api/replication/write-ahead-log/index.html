@@ -1,0 +1,475 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.12/develop/http-api/replication/write-ahead-log/"><meta property="og:title" content="HTTP interface for WAL access"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.12"><title>HTTP interface for WAL access | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Replication"><a itemprop=item class=link href=/3.12/develop/http-api/replication/><span itemprop=name class=breadcrumb-entry>Replication</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Write-Ahead Log"><a itemprop=item class=link href=/3.12/develop/http-api/replication/write-ahead-log/><span itemprop=name class=breadcrumb-entry>Write-Ahead Log</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for WAL access</h1></hgroup><p>The WAL Access API is used to facilitate faster and
+more reliable asynchronous replication. The API offers access to the
+write-ahead log or operations log of the ArangoDB server. As a public
+API, it is only supported to access these REST endpoints on a single-server
+instance. While these APIs are also available on DB-Server instances, accessing them
+as a user is not supported. This API replaces some of the APIs in <code>/_api/replication</code>.</p><p>{% comment -%}
+Since the removal of AF, DC2DC, and Leader/Follower replication, the only async
+replication remaining is used to initialize new DB-Servers for clusters
+(snapshot transfer / SynchronizeShard) - and this is done using the below endpoints.
+They can also be used for testing cluster replication code without running a
+full cluster and can thus not be removed until Replication 1 is gone.
+{% endcomment -%}</p><h2 id=get-the-tick-ranges-available-in-the-wal>Get the tick ranges available in the WAL <a href=/3.12/develop/http-api/replication/write-ahead-log/#get-the-tick-ranges-available-in-the-wal class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/wal/range</span></div><div class="openapi-description regular-font"><p>Returns the currently available ranges of tick values for all Write-Ahead Log
+(WAL) files. The tick values can be used to determine if certain
+data (identified by tick value) are still available for replication.</p><p>The body of the response contains a JSON object.</p><ul><li><code>tickMin</code>: minimum tick available</li><li><code>tickMax</code>: maximum tick available</li><li><code>time</code>: the server time as string in format <code>YYYY-MM-DDTHH:MM:SSZ</code></li><li><code>server</code>: An object with fields <code>version</code> and <code>serverId</code></li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-tick-ranges-available-in-the-wal_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. The user account you authenticate with needs
+at least read access to this database and administrate access to the
+<code>_system</code> database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-tick-ranges-available-in-the-wal_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the tick ranges could be determined successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-tick-ranges-available-in-the-wal_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-tick-ranges-available-in-the-wal_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the server operations state could not be determined.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#get-the-tick-ranges-available-in-the-wal_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Returns the available tick ranges.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/wal/range&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>123</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-10-30T18:09:45Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;184200&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.3&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;260723835027708&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-last-available-tick-value>Get the last available tick value <a href=/3.12/develop/http-api/replication/write-ahead-log/#get-the-last-available-tick-value class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/wal/lastTick</span></div><div class="openapi-description regular-font"><p>Returns the last available tick value that can be served from the server&rsquo;s
+replication log. This corresponds to the tick of the latest successful operation.</p><p>The result is a JSON object containing the attributes <code>tick</code>, <code>time</code> and <code>server</code>.</p><ul><li><code>tick</code>: contains the last available tick, <code>time</code></li><li><code>time</code>: the server time as string in format <code>YYYY-MM-DDTHH:MM:SSZ</code></li><li><code>server</code>: An object with fields <code>version</code> and <code>serverId</code></li></ul><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This method is not supported on a Coordinator in a cluster deployment.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-last-available-tick-value_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-last-available-tick-value_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. The user account you authenticate with needs
+at least read access to this database and administrate access to the
+<code>_system</code> database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-last-available-tick-value_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-last-available-tick-value_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-last-available-tick-value_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-last-available-tick-value_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-last-available-tick-value_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-last-available-tick-value_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-last-available-tick-value_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#get-the-last-available-tick-value_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Returning the first available tick</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/wal/lastTick&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>106</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-10-30T18:09:45Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184200&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.3&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;260723835027708&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=tail-recent-server-operations>Tail recent server operations <a href=/3.12/develop/http-api/replication/write-ahead-log/#tail-recent-server-operations class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/wal/tail</span></div><div class="openapi-description regular-font"><p>Returns data from the server&rsquo;s write-ahead log (also named replication log). This method can be called
+by replication clients after an initial synchronization of data. The method
+returns all &ldquo;recent&rdquo; logged operations from the server. Clients
+can replay and apply these operations locally so they get to the same data
+state as the server.</p><p>Clients can call this method repeatedly to incrementally fetch all changes
+from the server. In this case, they should provide the <code>from</code> value so
+they only get returned the log events since their last fetch.</p><p>When the <code>from</code> query parameter is not used, the server returns log
+entries starting at the beginning of its replication log. When the <code>from</code>
+parameter is used, the server only returns log entries which have
+higher tick values than the specified <code>from</code> value (note: the log entry with a
+tick value equal to <code>from</code> is excluded). Use the <code>from</code> value when
+incrementally fetching log data.</p><p>The <code>to</code> query parameter can be used to optionally restrict the upper bound of
+the result to a certain tick value. If used, the result contains only log events
+with tick values up to (including) <code>to</code>. In incremental fetching, there is no
+need to use the <code>to</code> parameter. It only makes sense in special situations,
+when only parts of the change log are required.</p><p>The <code>chunkSize</code> query parameter can be used to control the size of the result.
+It must be specified in bytes. The <code>chunkSize</code> value is only honored
+approximately. Otherwise, a too low <code>chunkSize</code> value could cause the server
+to not be able to put just one log entry into the result and return it.
+Therefore, the <code>chunkSize</code> value is only consulted after a log entry has
+been written into the result. If the result size is then greater than
+<code>chunkSize</code>, the server responds with as many log entries as there are
+in the response already. If the result size is still less than <code>chunkSize</code>,
+the server tries to return more data if there&rsquo;s more data left to return.</p><p>If <code>chunkSize</code> is not specified, some server-side default value is used.</p><p>The <code>Content-Type</code> of the result is <code>application/x-arango-dump</code>. This is an
+easy-to-process format, with all log events going onto separate lines in the
+response body. Each log event itself is a JSON object, with at least the
+following attributes:</p><ul><li><p><code>tick</code>: the log event tick value</p></li><li><p><code>type</code>: the log event type</p></li></ul><p>Individual log events also have additional attributes, depending on the
+event type. A few common attributes which are used for multiple events types
+are:</p><ul><li><p><code>cuid</code>: globally unique id of the View or collection the event was for</p></li><li><p><code>db</code>: the database name the event was for</p></li><li><p><code>tid</code>: id of the transaction the event was contained in</p></li><li><p><code>data</code>: the original document data</p></li></ul><p>For a more detailed description of the individual replication event types
+and their data structures, see the Operation Types.</p><p>The response also contains the following HTTP headers:</p><ul><li><p><code>x-arango-replication-active</code>: whether or not the logger is active. Clients
+can use this flag as an indication for their polling frequency. If the
+logger is not active and there are no more replication events available, it
+might be sensible for a client to abort, or to go to sleep for a long time
+and try again later to check whether the logger has been activated.</p></li><li><p><code>x-arango-replication-lastincluded</code>: the tick value of the last included
+value in the result. In incremental log fetching, this value can be used
+as the <code>from</code> value for the following request. <strong>Note</strong> that if the result is
+empty, the value is <code>0</code>. This value should not be used as <code>from</code> value
+by clients in the next request (otherwise the server would return the log
+events from the start of the log again).</p></li><li><p><code>x-arango-replication-lastscanned</code>: the last tick the server scanned while
+computing the operation log. This might include operations the server did not
+returned to you due to various reasons (i.e. the value was filtered or skipped).
+You may use this value in the <code>lastScanned</code> header to allow the RocksDB storage engine
+to break up requests over multiple responses.</p></li><li><p><code>x-arango-replication-lasttick</code>: the last tick value the server has
+logged in its write ahead log (not necessarily included in the result). By comparing the last
+tick and last included tick values, clients have an approximate indication of
+how many events there are still left to fetch.</p></li><li><p><code>x-arango-replication-frompresent</code>: is set to <em>true</em> if server returned
+all tick values starting from the specified tick in the <em>from</em> parameter.
+Should this be set to false the server did not have these operations anymore
+and the client might have missed operations.</p></li><li><p><code>x-arango-replication-checkmore</code>: whether or not there already exists more
+log data which the client could fetch immediately. If there is more log data
+available, the client could call the tailing API again with an adjusted <code>from</code>
+value to fetch remaining log entries until there are no more.</p><p>If there isn&rsquo;t any more log data to fetch, the client might decide to go
+to sleep for a while before calling the logger again.</p></li></ul><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This method is not supported on a Coordinator in a cluster deployment.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#tail-recent-server-operations_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. The user account you authenticate with needs
+at least read access to this database and administrate access to the
+<code>_system</code> database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_global><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">global</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#tail-recent-server-operations_query_global><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether operations for all databases should be included. If set to <code>false</code>,
+only the operations for the current database are included. The value <code>true</code> is
+only valid on the <code>_system</code> database. The default is <code>false</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_from><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">from</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_from><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Exclusive lower bound tick value for results. On successive calls
+to this API you should set this to the value returned
+with the <code>x-arango-replication-lastincluded</code> header (unless that header
+contains 0).</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_to><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">to</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_to><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Inclusive upper bound tick value for results.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_lastScanned><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">lastScanned</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_lastScanned><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Should be set to the value of the <code>x-arango-replication-lastscanned</code> header
+or alternatively <code>0</code> on the first try. This allows the RocksDB storage engine to break up
+large transactions over multiple responses.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_chunkSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">chunkSize</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_chunkSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Approximate maximum size of the returned result.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_syncerId><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">syncerId</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_syncerId><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ID of the client used to tail results. The server uses this to
+keep operations until the client has fetched them. Must be a positive integer.<div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Either <code>syncerId</code> or <code>serverId</code> is required to fetch all operations.</div></div></div></div></p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_serverId><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">serverId</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#tail-recent-server-operations_query_serverId><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ID of the client machine. If <code>syncerId</code> is unset, the server uses
+this to keep operations until the client has fetched them. Must be a positive
+integer.<div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Either <code>syncerId</code> or <code>serverId</code> is required to fetch all operations.</div></div></div></div></p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_query_clientInfo><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">clientInfo</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#tail-recent-server-operations_query_clientInfo><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Short description of the client, used for informative purposes only.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#tail-recent-server-operations_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully, and there are log
+events available for the requested range. The response body is not empty
+in this case.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_204><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">204</span>
+<span class="openapi-property-type bold-text">No Content</span>
+<a href=#tail-recent-server-operations_res_204><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully, but there are no log
+events available for the requested range. The response body is empty
+in this case.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#tail-recent-server-operations_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if either the <code>from</code> or <code>to</code> values are invalid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#tail-recent-server-operations_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#tail-recent-server-operations_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li><li class="openapi-table-row regular-font"><details id=tail-recent-server-operations_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#tail-recent-server-operations_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>No log events available</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/wal/tail?from=184200&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>204</span> No Content
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>false</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>0</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184197</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184200</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff</span></span></code></pre></div></div></div><br><p>A few log events <em>(One JSON document per line)</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/wal/tail?from=184200&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>74</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>184216</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184235</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184235</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184216&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2001, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;db&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cuid&#34;</span> : <span class=s2>&#34;hED207F9240FC/72100&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>More events than would fit into the response</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/wal/tail?from=184235&amp;chunkSize=400&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>74</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>184251</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184261</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184261</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184251&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2001, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;db&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cuid&#34;</span> : <span class=s2>&#34;hED207F9240FC/72117&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=operation-types>Operation Types <a href=/3.12/develop/http-api/replication/write-ahead-log/#operation-types class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>There are several different operation types thar an ArangoDB server might print.
+All operations include a <code>tick</code> value which identified their place in the operations log.
+The numeric fields <em>tick</em> and <em>tid</em> always contain stringified numbers to avoid problems with
+drivers where numbers in JSON might be mishandled.</p><p>The following operation types are used in ArangoDB:</p><h3 id=create-database-1100>Create Database (1100) <a href=/3.12/develop/http-api/replication/write-ahead-log/#create-database-1100 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Create a database. Contains the field <em>db</em> with the database name and the field <em>data</em>,
+contains the database definition.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;2103&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>1100</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;database&#34;</span><span class=p>:</span> <span class=mi>337</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;337&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=drop-database-1101>Drop Database (1101) <a href=/3.12/develop/http-api/replication/write-ahead-log/#drop-database-1101 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Drop a database. Contains the field <em>db</em> with the database name.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3453&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>1101</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=create-collection-2000>Create Collection (2000) <a href=/3.12/develop/http-api/replication/write-ahead-log/#create-collection-2000 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Create a collection. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection. The <em>data</em> attribute contains the collection definition.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3702&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hC0CF79DA83B4/555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2000</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;allowUserKeys&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;cacheEnabled&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;cid&#34;</span><span class=p>:</span> <span class=s2>&#34;555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;deleted&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;globallyUniqueId&#34;</span><span class=p>:</span> <span class=s2>&#34;hC0CF79DA83B4/555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;indexes&#34;</span><span class=p>:</span> <span class=p>[],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;isSystem&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;keyOptions&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;allowUserKeys&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;lastValue&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;traditional&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=drop-collection-2001>Drop Collection (2001) <a href=/3.12/develop/http-api/replication/write-ahead-log/#drop-collection-2001 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Drop a collection. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;154&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2001</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/555&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=rename-collection-2002>Rename Collection (2002) <a href=/3.12/develop/http-api/replication/write-ahead-log/#rename-collection-2002 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Rename a collection. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection. The <em>data</em> field contains the <em>name</em> field
+with the new name</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;385&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/135&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2002</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;other&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=change-collection-2003>Change Collection (2003) <a href=/3.12/develop/http-api/replication/write-ahead-log/#change-collection-2003 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Change collection properties. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection. The <em>data</em> attribute contains the updated collection definition.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;154&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2003</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;waitForSync&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=truncate-collection-2004>Truncate Collection (2004) <a href=/3.12/develop/http-api/replication/write-ahead-log/#truncate-collection-2004 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Truncate a collection. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;154&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2004</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/555&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=create-index-2100>Create Index (2100) <a href=/3.12/develop/http-api/replication/write-ahead-log/#create-index-2100 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Create an index. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection. The field <em>data</em> contains the index
+definition.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;1327&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2100</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;deduplicate&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;260&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;selectivityEstimate&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;sparse&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;unique&#34;</span><span class=p>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=drop-index-2101>Drop Index (2101) <a href=/3.12/develop/http-api/replication/write-ahead-log/#drop-index-2101 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Drop an index. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this collection. The field <em>data</em> contains the field
+<em>id</em> with the index id.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;1522&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2101</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/555&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;260&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=create-view-2110>Create View (2110) <a href=/3.12/develop/http-api/replication/write-ahead-log/#create-view-2110 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Create a view. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this view. The field <em>data</em> contains the view definition</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;1833&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2110</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/322&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;cleanupIntervalStep&#34;</span><span class=p>:</span> <span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;collections&#34;</span><span class=p>:</span> <span class=p>[],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;commitIntervalMsec&#34;</span><span class=p>:</span> <span class=mi>60000</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;consolidate&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;segmentThreshold&#34;</span><span class=p>:</span> <span class=mi>300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;threshold&#34;</span><span class=p>:</span> <span class=mf>0.8500000238418579</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;tier&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;deleted&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;globallyUniqueId&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/322&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;322&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;isSystem&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;locale&#34;</span><span class=p>:</span> <span class=s2>&#34;C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;myview&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;arangosearch&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=drop-view-2111>Drop View (2111) <a href=/3.12/develop/http-api/replication/write-ahead-log/#drop-view-2111 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Drop a view. Contains the field <em>db</em> with the database name, and <em>cuid</em> with the
+globally unique id to identify this view.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3113&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2111</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/322&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=change-view-2112>Change View (2112) <a href=/3.12/develop/http-api/replication/write-ahead-log/#change-view-2112 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Change view properties (including the name). Contains the field <em>db</em> with the database name and <em>cuid</em> with the
+globally unique id to identify this view. The <em>data</em> attribute contain the updated properties.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3014&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2112</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/457&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;cleanupIntervalStep&#34;</span><span class=p>:</span> <span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;collections&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=mi>135</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;commitIntervalMsec&#34;</span><span class=p>:</span> <span class=mi>60000</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;consolidate&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;segmentThreshold&#34;</span><span class=p>:</span> <span class=mi>300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;threshold&#34;</span><span class=p>:</span> <span class=mf>0.8500000238418579</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;tier&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;deleted&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;globallyUniqueId&#34;</span><span class=p>:</span> <span class=s2>&#34;hD15F8FE99859/457&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;457&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;isSystem&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;locale&#34;</span><span class=p>:</span> <span class=s2>&#34;C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;renamedview&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;arangosearch&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=start-transaction-2200>Start Transaction (2200) <a href=/3.12/develop/http-api/replication/write-ahead-log/#start-transaction-2200 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Mark the beginning of a transaction. Contains the field <em>db</em> with the database name
+and the field <em>tid</em> for the transaction id. This log entry might be followed
+by zero or more document operations and then either one commit <strong>or</strong> an abort operation
+(i.e. types <em>2300</em>, <em>2302</em> and <em>2201</em> / <em>2202</em>) with the same <em>tid</em> value.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3651&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2200</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tid&#34;</span><span class=p>:</span> <span class=s2>&#34;556&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=commit-transaction-2201>Commit Transaction (2201) <a href=/3.12/develop/http-api/replication/write-ahead-log/#commit-transaction-2201 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Mark the successful end of a transaction. Contains the field <em>db</em> with the database name
+and the field <em>tid</em> for the transaction id.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3652&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2201</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tid&#34;</span><span class=p>:</span> <span class=s2>&#34;556&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=abort-transaction-2202>Abort Transaction (2202) <a href=/3.12/develop/http-api/replication/write-ahead-log/#abort-transaction-2202 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Mark the abortion of a transaction. Contains the field <em>db</em> with the database name
+and the field <em>tid</em> for the transaction id.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;3654&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2202</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tid&#34;</span><span class=p>:</span> <span class=s2>&#34;556&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=insert--replace-document-2300>Insert / Replace Document (2300) <a href=/3.12/develop/http-api/replication/write-ahead-log/#insert--replace-document-2300 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Insert or replace a document. Contains the field <em>db</em> with the database name,
+<em>cuid</em> with the globally unique id to identify the collection and the field <em>tid</em> for
+the transaction id. The field <em>tid</em> might contain the value <em>&ldquo;0&rdquo;</em> to identify a single
+operation that is not part of a multi-document transaction. The field <em>data</em> contains the
+document. If the field <em>_rev</em> exists the client can choose to perform a revision check against
+a locally available version of the document to ensure consistency.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;196&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tid&#34;</span><span class=p>:</span> <span class=s2>&#34;0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hE0E3D7BE511D/119&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_id&#34;</span><span class=p>:</span> <span class=s2>&#34;users/194&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;194&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_rev&#34;</span><span class=p>:</span> <span class=s2>&#34;_XUJFD3C---&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;value&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=remove-document-2302>Remove Document (2302) <a href=/3.12/develop/http-api/replication/write-ahead-log/#remove-document-2302 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Remove a document. Contains the field <em>db</em> with the database name,
+<em>cuid</em> with the globally unique id to identify the collection and the field <em>tid</em> for
+the transaction id. The field <em>tid</em> might contain the value <em>&ldquo;0&rdquo;</em> to identify a single
+operation that is not part of a multi-document transaction. The field <em>data</em> contains the
+<em>_key</em> and <em>_rev</em> of the removed document. The client can choose to perform a revision check against
+a locally available version of the document to ensure consistency.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;cuid&#34;</span><span class=p>:</span> <span class=s2>&#34;hE0E3D7BE511D/119&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;194&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_rev&#34;</span><span class=p>:</span> <span class=s2>&#34;_XUJIbS---_&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;db&#34;</span><span class=p>:</span> <span class=s2>&#34;_system&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tick&#34;</span><span class=p>:</span> <span class=s2>&#34;397&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tid&#34;</span><span class=p>:</span> <span class=s2>&#34;0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=mi>2302</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/replication/other-replication-commands/><i class="fas fa-chevron-left fa-fw"></i><p>Other Replication Commands</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/monitoring/><p>Monitoring</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/replication/write-ahead-log.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#get-the-tick-ranges-available-in-the-wal>Get the tick ranges available in the WAL</a></div><div class=level-2><a href=#get-the-last-available-tick-value>Get the last available tick value</a></div><div class=level-2><a href=#tail-recent-server-operations>Tail recent server operations</a></div><div class=level-2><a href=#operation-types>Operation Types</a></div><div class=level-3><a href=#create-database-1100>Create Database (1100)</a></div><div class=level-3><a href=#drop-database-1101>Drop Database (1101)</a></div><div class=level-3><a href=#create-collection-2000>Create Collection (2000)</a></div><div class=level-3><a href=#drop-collection-2001>Drop Collection (2001)</a></div><div class=level-3><a href=#rename-collection-2002>Rename Collection (2002)</a></div><div class=level-3><a href=#change-collection-2003>Change Collection (2003)</a></div><div class=level-3><a href=#truncate-collection-2004>Truncate Collection (2004)</a></div><div class=level-3><a href=#create-index-2100>Create Index (2100)</a></div><div class=level-3><a href=#drop-index-2101>Drop Index (2101)</a></div><div class=level-3><a href=#create-view-2110>Create View (2110)</a></div><div class=level-3><a href=#drop-view-2111>Drop View (2111)</a></div><div class=level-3><a href=#change-view-2112>Change View (2112)</a></div><div class=level-3><a href=#start-transaction-2200>Start Transaction (2200)</a></div><div class=level-3><a href=#commit-transaction-2201>Commit Transaction (2201)</a></div><div class=level-3><a href=#abort-transaction-2202>Abort Transaction (2202)</a></div><div class=level-3><a href=#insert--replace-document-2300>Insert / Replace Document (2300)</a></div><div class=level-3><a href=#remove-document-2302>Remove Document (2302)</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

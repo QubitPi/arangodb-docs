@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Foxx Session Storages on ArangoDB Documentation</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/</link><description>Recent content in Foxx Session Storages on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/index.xml" rel="self" type="application/rss+xml"/><item><title>Foxx Collection Session Storage</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/collection-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/collection-storage/</guid><description>const collectionStorage = require('@arangodb/foxx/sessions/storages/collection');
+The collection session storage persists sessions to a collection in the database.
+Creating a storage collectionStorage(options): Storage
+Creates a Storage that can be used in the sessions middleware.
+Arguments
+options: Object
+An object with the following properties:
+collection: ArangoCollection
+The collection that should be used to persist the sessions. If a string is passed instead of a collection it is assumed to be the fully qualified name of a collection in the current database.</description></item><item><title>Foxx JWT Session Storage</title><link>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/jwt-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.13/develop/foxx-microservices/reference/sessions-middleware/session-storages/jwt-storage/</guid><description>const jwtStorage = require('@arangodb/foxx/sessions/storages/jwt');
+The JWT session storage converts sessions to and from JSON Web Tokens&amp;nbsp;.
+Examples
+// Pass in a secure secret from the Foxx configuration const secret = module.context.configuration.jwtSecret; const sessions = sessionsMiddleware({ storage: jwtStorage(secret), transport: &amp;#39;header&amp;#39; }); module.context.use(sessions); Creating a storage jwtStorage(options): Storage
+Creates a Storage that can be used in the sessions middleware.
+Note: while the &amp;ldquo;none&amp;rdquo; algorithm (i.e. no signature) is supported this dummy algorithm provides no security and allows clients to make arbitrary modifications to the payload and should not be used unless you are certain you specifically need it.</description></item></channel></rss>

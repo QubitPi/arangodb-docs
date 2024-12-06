@@ -1,0 +1,264 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB exposes its API via HTTP, making the server accessible easily with a variety of clients and tools"><meta property="og:url" content="http://localhost/3.12/develop/http-api/general-request-handling/"><meta property="og:title" content="HTTP request handling in ArangoDB"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB exposes its API via HTTP, making the server accessible easily with a variety of clients and tools"><meta name=docsearch:version content="3.12"><title>HTTP request handling in ArangoDB | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="General request handling"><a itemprop=item class=link href=/3.12/develop/http-api/general-request-handling/><span itemprop=name class=breadcrumb-entry>General request handling</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP request handling in ArangoDB</h1><p class=lead>ArangoDB exposes its API via HTTP, making the server accessible easily with a variety of clients and tools</p></hgroup><h2 id=protocol>Protocol <a href=/3.12/develop/http-api/general-request-handling/#protocol class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>ArangoDB exposes its API via HTTP, making the server accessible easily with
+a variety of clients and tools (e.g. browsers, curl, telnet). The communication
+can optionally be SSL-encrypted.</p><p>ArangoDB uses the standard HTTP methods (e.g. <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>) plus
+the <code>PATCH</code> method described in <a href=http://tools.ietf.org/html/rfc5789 target=_blank rel="noopener noreferrer" class=link>RFC 5789</a>&nbsp;<i class="fas fa-external-link-alt"></i>.</p><p>Most server APIs expect clients to send any payload data in <a href=http://www.json.org target=_blank rel="noopener noreferrer" class=link>JSON</a>&nbsp;<i class="fas fa-external-link-alt"></i>
+format or ArangoDB&rsquo;s custom <a href=https://github.com/arangodb/velocypack target=_blank rel="noopener noreferrer" class=link>VelocyPack</a>&nbsp;<i class="fas fa-external-link-alt"></i>
+binary format. Details on the expected format and JSON attributes can be found
+in the documentation of the individual API endpoints.</p><p>Clients sending requests to ArangoDB must use either of the following protocols:</p><ul><li>HTTP 1.1</li><li>HTTP 2</li></ul><p>Other HTTP versions or protocols are not supported by ArangoDB.</p><p>Clients are required to include the <code>Content-Length</code> HTTP header with the
+correct content length in every request that can have a body (e.g. <code>POST</code>,
+<code>PUT</code> or <code>PATCH</code>) request. ArangoDB will not process requests without a
+<code>Content-Length</code> header - thus chunked transfer encoding for POST-documents
+is not supported.</p><h2 id=http-keep-alive>HTTP Keep-Alive <a href=/3.12/develop/http-api/general-request-handling/#http-keep-alive class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>ArangoDB supports HTTP keep-alive. If the client does not send a <code>Connection</code>
+header in its request, ArangoDB will assume the client wants to keep alive the
+connection.
+If clients do not wish to use the keep-alive feature, they should
+explicitly indicate that by sending a <code>Connection: Close</code> HTTP header in
+the request.</p><p>The default Keep-Alive timeout can be specified at server start using the
+<code>--http.keep-alive-timeout</code> startup option.</p><p>Establishing TCP connections is expensive, since it takes several round-trips
+between the communication parties. Therefore you can use connection keep-alive
+to send several HTTP request over one TCP-connection;
+each request is treated independently by definition. You can use this feature
+to build up a so called <strong>connection pool</strong> with several established
+connections in your client application, and dynamically re-use
+one of those then idle connections for subsequent requests.</p><h2 id=switch-protocols>Switch protocols <a href=/3.12/develop/http-api/general-request-handling/#switch-protocols class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Connections are initialized expecting the HTTP 1.1 protocol by default. To use
+other protocols the client must indicate this to the server so that the
+protocol may be switched.</p><p>Upgrading to HTTP 2 is supported according to the ways outlined in
+<a href=https://tools.ietf.org/html/rfc7540#section-3 target=_blank rel="noopener noreferrer" class=link>RFC 7540 Section 3</a>&nbsp;<i class="fas fa-external-link-alt"></i>,
+from non-encrypted connections as well as encrypted connections.</p><p>On non-encrypted connections with <code>http</code> scheme in the URI clients may use
+HTTP 1.1 initially until an upgrade is performed. Upgrading the connection is
+initiated by sending a request with the <code>Upgrade: h2c</code> header and exactly one
+<code>HTTP2-Settings</code> header. The server will then respond with <code>101 Switching Protocols</code>
+and begin using HTTP/2. See the RFC for details.</p><p>For non-encrypted TCP connections ArangoDB also supports
+<em>Starting HTTP/2 with Prior Knowledge</em>, as specified in
+<a href=https://tools.ietf.org/html/rfc7540#section-3.4 target=_blank rel="noopener noreferrer" class=link>RFC 7540 Section 3.4</a>&nbsp;<i class="fas fa-external-link-alt"></i>.
+The server will check the first 24 octets received over the connection and compare
+it to the HTTP 2 connection preface <code>PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</code>, as outlined
+in <a href=https://tools.ietf.org/html/rfc7540#section-5 target=_blank rel="noopener noreferrer" class=link>Section 5</a>&nbsp;<i class="fas fa-external-link-alt"></i>.</p><p>On TLS encrypted connections with <code>https</code> scheme in the URI ArangoDB supports the
+ALPN extension with the <code>h2</code> protocol identifier. This means the connection may
+switch to using HTTP/2 right away after a successful TLS handshake.</p><h2 id=request-execution>Request execution <a href=/3.12/develop/http-api/general-request-handling/#request-execution class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>ArangoDB supports both blocking and non-blocking HTTP requests.
+Clients can choose the appropriate method on a per-request level based on their
+throughput, control flow, and durability requirements.</p><h3 id=blocking-execution>Blocking execution <a href=/3.12/develop/http-api/general-request-handling/#blocking-execution class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB is a multi-threaded server, allowing the processing of multiple
+client requests at the same time. Communication handling and the actual work can
+be performed by multiple worker threads in parallel.</p><p>Still, clients need to wait for their requests to be processed by the server,
+and thus keep one connection of a pool occupied.
+By default, the server fully processes an incoming request and then returns
+the result to the client when the operation has finished. The client must
+wait for the server&rsquo;s HTTP response before it can send additional requests over
+the same connection. For clients that are single-threaded, or blocking on I/O
+themselves, or both, it may not be optimal to wait idle for the full server response.</p><p>Furthermore, note that even if the client closes the HTTP connection, the request
+running on the server still continues until it completes and only then notices
+that the client no longer listens for the result.
+Thus closing the connection does not help to abort a long running query.</p><h3 id=non-blocking-execution>Non-blocking execution <a href=/3.12/develop/http-api/general-request-handling/#non-blocking-execution class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>You can let ArangoDB execute requests asynchronously in two different ways:</p><ul><li><p>Submit requests for async execution, without the ability to cancel requests
+or access the results (&ldquo;Fire and forget&rdquo;)</p></li><li><p>Submit requests for async execution and let the server store the results for
+later retrieval</p></li></ul><h4 id=fire-and-forget>Fire and forget <a href=/3.12/develop/http-api/general-request-handling/#fire-and-forget class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>To reduce blocking on the client-side, ArangoDB offers a generic mechanism for
+non-blocking, asynchronous execution: clients can add a <code>x-arango-async: true</code>
+HTTP header to any of their requests, marking them as to be executed
+asynchronously on the server.</p><p>ArangoDB puts asynchronous requests into an in-memory job queue and instantly
+returns an HTTP <code>202 Accepted</code> status code to the client and thus finishes this
+HTTP request. The server executes the jobs from the queue asynchronously as fast
+as possible, while clients can continue to do other work.</p><p>If the server queue is full (i.e. contains as many jobs as specified by the
+<a href=/3.12/components/arangodb-server/options/#--servermaximal-queue-size class=link><code>--server.maximal-queue-size</code></a>
+startup option), then the request is rejected instantly with an HTTP
+<code>503 Service Unavailable</code> status code.</p><p>Asynchronous execution decouples the request/response handling from the actual
+work to be performed, allowing fast server responses and greatly reducing wait
+time for clients. Overall this allows for much higher throughput than if
+clients would always wait for the server&rsquo;s response.</p><p>Keep in mind that the asynchronous execution is just &ldquo;fire and forget&rdquo;.
+Clients get any of their asynchronous requests answered with a generic
+HTTP <code>202 Accepted</code> response. At the time the server sends this response, it does
+not know whether the requested operation can be carried out successfully, as the
+actual operation execution happens at some later point. Therefore, clients
+cannot make a decision based on the server response and must rely on their
+requests being valid and processable by the server.</p><p>Additionally, the server&rsquo;s asynchronous job queue is an in-memory data
+structure, meaning not-yet processed jobs from the queue are lost in
+case of a crash. Client will not know whether they were processed or not and
+should therefore not use the asynchronous feature when they have strict
+durability requirements or if they rely on the immediate result of the request
+they send.</p><p>Finally, note that it is not possible to cancel such a fire and forget job,
+since you don&rsquo;t get any job identifier to identify it later on.
+If you need to cancel requests, use
+<a href=#async-execution-and-later-result-retrieval class=link>Async execution and later result retrieval</a>.</p><h4 id=async-execution-and-later-result-retrieval>Async execution and later result retrieval <a href=/3.12/develop/http-api/general-request-handling/#async-execution-and-later-result-retrieval class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>By adding a <code>x-arango-async: store</code> HTTP header to a request, clients can instruct
+the ArangoDB server to execute the operation asynchronously but also store the
+operation result in memory for a later retrieval. The server returns a job ID in
+the <code>x-arango-async-id</code> HTTP response header. The client can use this ID in
+conjunction with the <code>/_api/job</code> endpoint to access the result. See the
+<a href=/3.12/develop/http-api/jobs/ class=link>HTTP interface for jobs</a> for details.</p><p>Clients can ask the ArangoDB server via the async jobs API which results are
+ready for retrieval, and which are not. Clients can also use the async jobs API to
+retrieve the original results of an already executed async job by passing it the
+originally returned job ID. The server then returns the job result as if the job was
+executed normally. Furthermore, clients can cancel running async jobs by
+their job ID.</p><p>ArangoDB keeps all results of jobs initiated with the <code>x-arango-async: store</code>
+header. Results are removed from the server only if a client explicitly asks the
+server for a specific result.</p><p>The async jobs API also provides methods for garbage collection that clients can
+use to get rid of &ldquo;old&rdquo;, not fetched results. Clients should call this method periodically
+because ArangoDB does not artificially limit the number of not-yet-fetched results.</p><p>It is thus a client responsibility to store only as many results as needed and to fetch
+available results as soon as possible, or at least to clean up not fetched results
+from time to time.</p><p>The job queue and the results are kept in-memory only on the server, which means
+they are lost in case of a crash.</p><h5 id=canceling-asynchronous-jobs>Canceling asynchronous jobs <a href=/3.12/develop/http-api/general-request-handling/#canceling-asynchronous-jobs class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h5><p>A running async query can internally be executed by C++ code or by JavaScript
+code. For example, CRUD operations are executed directly in C++, whereas AQL
+queries and transactions may be executed by JavaScript code, depending on the
+AQL functions and the transaction type you use. The job cancelation only works
+for JavaScript code, since the mechanism used is simply to trigger an uncatchable
+exception in the JavaScript thread, which is caught on the C++ level, which in
+turn leads to the cancelation of the job. No result can be retrieved later
+because all data about the request is discarded.</p><p>If you cancel a job running on a Coordinator of a cluster, then only the code
+running on the Coordinator is stopped. There may remain tasks within the cluster
+which have already been distributed to the DB-Servers and it is not possible to
+cancel them as well.</p><h5 id=async-execution-and-authentication>Async execution and authentication <a href=/3.12/develop/http-api/general-request-handling/#async-execution-and-authentication class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h5><p>If a request requires authentication, the authentication procedure is run before
+queueing. The request is only queued if the authentication is successful. If the
+Otherwise, it is not queued but rejected instantly in the same way as a regular,
+non-queued request.</p><h2 id=error-handling>Error handling <a href=/3.12/develop/http-api/general-request-handling/#error-handling class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The following should be noted about how ArangoDB handles client errors in its
+HTTP layer:</p><ul><li><p>client requests using an HTTP version signature different than <code>HTTP/1.0</code> or
+<code>HTTP/1.1</code> will get an <strong>HTTP 505</strong> (HTTP Version Not Supported) error in return.</p></li><li><p>ArangoDB will reject client requests with a negative value in the
+<code>Content-Length</code> request header by closing the connection.</p></li><li><p>ArangoDB doesn&rsquo;t support POST with <code>Transfer-Encoding: chunked</code> which forbids
+the <code>Content-Length</code> header above.</p></li><li><p>the maximum URL length accepted by ArangoDB is 16K. Incoming requests with
+longer URLs will be rejected with an <strong>HTTP 414</strong> (Request-URI too long) error.</p></li><li><p>if the client sends a <code>Content-Length</code> header with a value greater than 0 for
+an HTTP GET, HEAD, or DELETE request, ArangoDB will process the request, but
+will write a warning to its log file.</p></li><li><p>when the client sends a <code>Content-Length</code> header that has a value that is lower
+than the actual size of the body sent, ArangoDB will respond with <strong>HTTP 400</strong>
+(Bad Request).</p></li><li><p>if clients send a <code>Content-Length</code> value greater than the actual size of the
+body of the request, ArangoDB will wait for about 90 seconds for the client to
+complete its request. If the client does not send the remaining body data
+within this time, ArangoDB will close the connection. Clients should avoid
+sending such malformed requests as this will block one TCP connection,
+and may lead to a temporary file descriptor leak.</p></li><li><p>when clients send a body or a <code>Content-Length</code> value greater than the maximum
+allowed value (1 GB), ArangoDB will respond with <strong>HTTP 413</strong> (Payload Too Large).</p></li><li><p>if the overall length of the HTTP headers a client sends for one request
+exceeds the maximum allowed size (1 MB), the server will fail with <strong>HTTP 431</strong>
+(Request Header Fields Too Large).</p></li><li><p>if clients request an HTTP method that is not supported by the server, ArangoDB
+will return with <strong>HTTP 405</strong> (Method Not Allowed). ArangoDB offers general
+support for the following HTTP methods:</p><ul><li>GET</li><li>POST</li><li>PUT</li><li>DELETE</li><li>HEAD</li><li>PATCH</li><li>OPTIONS</li></ul><p>Please note that not all server actions allow using all of these HTTP methods.
+You should look up the supported methods for each method you intend to use
+in the manual.</p><p>Requests using any other HTTP method (such as for example CONNECT, TRACE etc.)
+will be rejected by ArangoDB as mentioned before.</p></li><li><p>if the backend is temporarily unavailable, the server will return <strong>HTTP 503</strong>
+(Service Unavailable). Common circumstances are:</p><ul><li>during server start or shutdown, when the network port is open but the HTTP
+service is not available</li><li>when the queue is full</li><li>when a Coordinator cannot reach a DB-Server</li></ul><p>Clients may retry requests but they might not be idempotent.</p></li></ul><h2 id=cross-origin-resource-sharing-cors-requests>Cross-Origin Resource Sharing (CORS) requests <a href=/3.12/develop/http-api/general-request-handling/#cross-origin-resource-sharing-cors-requests class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>ArangoDB automatically handles CORS requests as described below.</p><h3 id=preflight>Preflight <a href=/3.12/develop/http-api/general-request-handling/#preflight class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>When a browser is told to make a cross-origin request that includes explicit
+headers, credentials or uses HTTP methods other than <code>GET</code> or <code>POST</code>, it will
+first perform a so-called preflight request using the <code>OPTIONS</code> method.</p><p>ArangoDB will respond to <code>OPTIONS</code> requests with an HTTP 200 status response
+with an empty body. Since preflight requests are not expected to include or
+even indicate the presence of authentication credentials even when they will
+be present in the actual request, ArangoDB does not enforce authentication for
+<code>OPTIONS</code> requests even when authentication is enabled.</p><p>ArangoDB will set the following headers in the response:</p><ul><li><p><code>access-control-allow-credentials</code>: will be set to <code>false</code> by default.
+For details on when it will be set to <code>true</code> see the next section on cookies.</p></li><li><p><code>access-control-allow-headers</code>: will be set to the exact value of the
+request&rsquo;s <code>access-control-request-headers</code> header or omitted if no such
+header was sent in the request.</p></li><li><p><code>access-control-allow-methods</code>: will be set to a list of all supported HTTP
+headers regardless of the target endpoint. In other words that a method is
+listed in this header does not guarantee that it will be supported by the
+endpoint in the actual request.</p></li><li><p><code>access-control-allow-origin</code>: will be set to the exact value of the
+request&rsquo;s <code>origin</code> header.</p></li><li><p><code>access-control-expose-headers</code>: will be set to a list of response headers used
+by the ArangoDB HTTP API.</p></li><li><p><code>access-control-max-age</code>: will be set to an implementation-specific value.</p></li></ul><h3 id=actual-request>Actual request <a href=/3.12/develop/http-api/general-request-handling/#actual-request class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>If a request using any other HTTP method than <code>OPTIONS</code> includes an <code>origin</code> header,
+ArangoDB will add the following headers to the response:</p><ul><li><p><code>access-control-allow-credentials</code>: will be set to <code>false</code> by default.
+For details on when it will be set to <code>true</code> see the next section on cookies.</p></li><li><p><code>access-control-allow-origin</code>: will be set to the exact value of the
+request&rsquo;s <code>origin</code> header.</p></li><li><p><code>access-control-expose-headers</code>: will be set to a list of response headers used
+by the ArangoDB HTTP API.</p></li></ul><p>When making CORS requests to endpoints of Foxx services, the value of the
+<code>access-control-expose-headers</code> header will instead be set to a list of
+response headers used in the response itself (but not including the
+<code>access-control-</code> headers). Note that
+<a href=/3.12/develop/foxx-microservices/guides/access-from-the-browser/#cross-origin-resource-sharing-cors class=link>Foxx services may override this behavior</a>.</p><h3 id=cookies-and-authentication>Cookies and authentication <a href=/3.12/develop/http-api/general-request-handling/#cookies-and-authentication class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>In order for the client to be allowed to correctly provide authentication
+credentials or handle cookies, ArangoDB needs to set the
+<code>access-control-allow-credentials</code> response header to <code>true</code> instead of <code>false</code>.</p><p>ArangoDB will automatically set this header to <code>true</code> if the value of the
+request&rsquo;s <code>origin</code> header matches a trusted origin in the <code>http.trusted-origin</code>
+configuration option. To make ArangoDB trust a certain origin, you can provide
+a startup option when running <code>arangod</code> like this:</p><p><code>--http.trusted-origin "http://localhost:8529"</code></p><p>To specify multiple trusted origins, the option can be specified multiple times.
+Alternatively you can use the special value <code>"*"</code> to trust any origin:</p><p><code>--http.trusted-origin "*"</code></p><p>Note that browsers will not actually include credentials or cookies in cross-origin
+requests unless explicitly told to do so:</p><ul><li><p>When using the Fetch API you need to set the
+<a href=https://fetch.spec.whatwg.org/#cors-protocol-and-credentials target=_blank rel="noopener noreferrer" class=link><code>credentials</code> option to <code>include</code></a>&nbsp;<i class="fas fa-external-link-alt"></i>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fetch</span><span class=p>(</span><span class=s2>&#34;./&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>credentials</span><span class=o>:</span><span class=s2>&#34;include&#34;</span> <span class=p>}).</span><span class=nx>then</span><span class=p>(</span><span class=cm>/* … */</span><span class=p>)</span></span></span></code></pre></div></li><li><p>When using <code>XMLHttpRequest</code> you need to set the
+<a href=https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials target=_blank rel="noopener noreferrer" class=link><code>withCredentials</code> option to <code>true</code></a>&nbsp;<i class="fas fa-external-link-alt"></i>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>xhr</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>XMLHttpRequest</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>xhr</span><span class=p>.</span><span class=nx>open</span><span class=p>(</span><span class=s1>&#39;GET&#39;</span><span class=p>,</span> <span class=s1>&#39;https://example.com/&#39;</span><span class=p>,</span> <span class=kc>true</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>xhr</span><span class=p>.</span><span class=nx>withCredentials</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>xhr</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=kc>null</span><span class=p>);</span></span></span></code></pre></div></li><li><p>When using jQuery you need to set the <code>xhrFields</code> option:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>$</span><span class=p>.</span><span class=nx>ajax</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>   <span class=nx>url</span><span class=o>:</span> <span class=s1>&#39;https://example.com&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>   <span class=nx>xhrFields</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>withCredentials</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>   <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span></span></span></code></pre></div></li></ul><h2 id=load-balancer-support>Load-balancer support <a href=/3.12/develop/http-api/general-request-handling/#load-balancer-support class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>When running in cluster mode, ArangoDB exposes some APIs which store request
+state data on specific Coordinator nodes, and thus subsequent requests which
+require access to this state must be served by the Coordinator node which owns
+this state data. In order to support function behind a load-balancer, ArangoDB
+can transparently forward requests within the cluster to the correct node. If a
+request is forwarded, the response will contain the following custom HTTP header
+whose value will be the ID of the node which actually answered the request:</p><ul><li><code>x-arango-request-forwarded-to</code></li></ul><p>The following APIs may use request forwarding:</p><ul><li><code>/_api/cursor</code></li><li><code>/_api/job</code></li><li><code>/_api/replication</code></li><li><code>/_api/query</code></li><li><code>/_api/tasks</code></li><li><code>/_api/transaction</code></li></ul><p>Note: since forwarding such requests requires an additional cluster-internal HTTP
+request, they should be avoided when possible for best performance. Typically
+this is accomplished either by directing the requests to the correct Coordinator
+at a client-level or by enabling request &ldquo;stickiness&rdquo; on a load balancer. Since
+these approaches are not always possible in a given environment, we support the
+request forwarding as a fall-back solution.</p><p>Note: some endpoints which return &ldquo;global&rdquo; data, such as <code>GET /_api/tasks</code> will
+only return data corresponding to the server on which the request is executed.
+These endpoints will generally not work well with load-balancers.</p><h2 id=overload-control>Overload control <a href=/3.12/develop/http-api/general-request-handling/#overload-control class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.9.0</small></p><p><em>arangod</em> returns an <code>x-arango-queue-time-seconds</code> HTTP
+header with all responses. This header contains the most recent request
+queueing/dequeuing time (in seconds) as tracked by the server&rsquo;s scheduler.
+This value can be used by client applications and drivers to detect server
+overload and react on it.</p><p>The arangod startup option <code>--http.return-queue-time-header</code> can be set to
+<code>false</code> to suppress these headers in responses sent by arangod.</p><p>In a cluster, the value returned in the <code>x-arango-queue-time-seconds</code> header
+is the most recent queueing/dequeuing request time of the Coordinator the
+request was sent to, except if the request is forwarded by the Coordinator to
+another Coordinator. In that case, the value will indicate the current
+queueing/dequeuing time of the forwarded-to Coordinator.</p><p>In addition, client applications and drivers can optionally augment the
+requests they send to arangod with the header <code>x-arango-queue-time-seconds</code>.
+If set, the value of the header should contain the maximum server-side
+queuing time (in seconds) that the client application is willing to accept.
+If the header is set in an incoming request, arangod will compare the current
+dequeuing time from its scheduler with the maximum queue time value contained
+in the request header. If the current queueing time exceeds the value set
+in the header, arangod will reject the request and return HTTP 412
+(precondition failed) with the error code 21004 (queue time violated).
+Using a value of 0 or a non-numeric value in the header will lead to the
+header value being ignored by arangod.</p><p>There is also a metric <code>arangodb_scheduler_queue_time_violations_total</code>
+that is increased whenever a request is dropped because of the requested
+queue time not being satisfiable. Administrators can use this metric to monitor
+overload situations. Although all instance types will expose this metric,
+it will likely always be <code>0</code> on DB-Servers and Agency instances because the
+<code>x-arango-queue-time-seconds</code> header is not used in cluster-internal requests.</p><p>In a cluster, the <code>x-arango-queue-time-seconds</code> request header will be
+checked on the receiving Coordinator, before any request forwarding. If the
+request is forwarded by the Coordinator to a different Coordinator, the
+receiving Coordinator will also check the header on its own.
+Apart from that, the header will not be included in cluster-internal requests
+executed by the Coordinator, e.g. when the Coordinator issues sub-requests
+to DB-Servers or Agency instances.</p><h2 id=respond-to-liveliness-probes>Respond to liveliness probes <a href=/3.12/develop/http-api/general-request-handling/#respond-to-liveliness-probes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.10.0</small></p><p>By default, the HTTP REST interface of an <em>arangod</em> instance is opened late
+during the startup sequence. The instance responds with HTTP 503
+(Service unavailable) until all REST APIs are available and usable.</p><p>You can optionally start the HTTP REST interface early in the startup sequence
+by setting the <code>--server.early-connections</code> startup option to <code>true</code>.
+This configuration allows an instance to respond to a limited set of REST APIs
+during the startup, even during the recovery procedure. This can be useful
+because the recovery procedure can take time proportional to the amount of data
+to be recovered.</p><p>The following APIs can reply early with an HTTP 200 status:</p><ul><li><code>GET /_api/version</code> and <code>GET /_admin/version</code>:
+These APIs return the server version number, but can also be used as a
+liveliness probe, to check if the instance is responding to incoming HTTP requests.</li><li><code>GET /_admin/status</code>:
+This API returns information about the instance&rsquo;s status, including the recovery
+progress and information about which server feature is currently starting.</li></ul><p>During the early startup phase, all APIs other than the ones listed above are
+responded to with an HTTP response code 503, so that callers can see that the
+instance is not fully ready yet.</p><p>If <code>--server.authentication</code> is enabled, then only JWT authentication can be
+used during the early startup phase. Incoming requests relying on other
+authentication mechanisms that require access to the database data
+(e.g. HTTP basic authentication) are also responded to with HTTP 503 errors,
+even if correct credentials are used. This is because access to the database
+data is not possible early during the startup.</p><p>The <code>GET /_admin/status</code> API now also returns startup and recovery information.
+This can be used to determine the instance&rsquo;s progress during startup. The new
+<code>progress</code> attribute will be returned inside the <code>serverInfo</code> object with the
+following sub-attributes:</p><ul><li><code>phase</code>:
+Name of the lifecycle phase the instance is currently in. Normally one of
+<code>"in prepare"</code>, <code>"in start"</code>, <code>"in wait"</code>, <code>"in shutdown"</code>, <code>"in stop"</code>,
+or <code>"in unprepare"</code>.</li><li><code>feature</code>:
+Internal name of the feature that is currently being prepared, started,
+stopped or unprepared.</li><li><code>recoveryTick</code>:
+Current recovery sequence number value, if the instance is currently recovering.
+If the instance is already past the recovery, this attribute contains the
+last handled recovery sequence number.</li></ul><p>The exact values of these attributes should not be relied on, i.e. client
+applications should not check for any exact values in them. Feature and phase
+names are subject to change between different versions of ArangoDB.
+The progress attributes can still be used to determine whether the instance has made
+progress between two calls: if <code>phase</code>, <code>feature</code>, and <code>recoveryTick</code> don&rsquo;t
+change, then there hasn&rsquo;t been progress. Note that this is only true if the
+instance is still starting up. Once the instance has fully started and has
+opened the complete REST interface, the values in the <code>progress</code> attribute are
+expected to not change until shutdown.</p><p>Note that the <code>maintenance</code> attribute in responses to <code>GET /_admin/status</code> can
+still be used to determine whether the instance is fully available for arbitrary
+requests.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/><i class="fas fa-chevron-left fa-fw"></i><p>HTTP API</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/authentication/><p>Authentication</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/general-request-handling.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#protocol>Protocol</a></div><div class=level-2><a href=#http-keep-alive>HTTP Keep-Alive</a></div><div class=level-2><a href=#switch-protocols>Switch protocols</a></div><div class=level-2><a href=#request-execution>Request execution</a></div><div class=level-3><a href=#blocking-execution>Blocking execution</a></div><div class=level-3><a href=#non-blocking-execution>Non-blocking execution</a></div><div class=level-4><a href=#fire-and-forget>Fire and forget</a></div><div class=level-4><a href=#async-execution-and-later-result-retrieval>Async execution and later result retrieval</a></div><div class=level-5><a href=#canceling-asynchronous-jobs>Canceling asynchronous jobs</a></div><div class=level-5><a href=#async-execution-and-authentication>Async execution and authentication</a></div><div class=level-2><a href=#error-handling>Error handling</a></div><div class=level-2><a href=#cross-origin-resource-sharing-cors-requests>Cross-Origin Resource Sharing (CORS) requests</a></div><div class=level-3><a href=#preflight>Preflight</a></div><div class=level-3><a href=#actual-request>Actual request</a></div><div class=level-3><a href=#cookies-and-authentication>Cookies and authentication</a></div><div class=level-2><a href=#load-balancer-support>Load-balancer support</a></div><div class=level-2><a href=#overload-control>Overload control</a></div><div class=level-2><a href=#respond-to-liveliness-probes>Respond to liveliness probes</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>arangobench on ArangoDB Documentation</title><link>http://localhost/3.12/components/tools/arangobench/</link><description>Recent content in arangobench on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.12/components/tools/arangobench/index.xml" rel="self" type="application/rss+xml"/><item><title>_arangobench_ Startup Options</title><link>http://localhost/3.12/components/tools/arangobench/options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/components/tools/arangobench/options/</guid><description>Usage: arangobench [&amp;lt;options&amp;gt;]
+Examples
+Run the version test case with 1000 requests, without threads:
+arangobench --test-case version --requests 1000 --threads 1 Run the document test case with 2000 requests, with two concurrent threads:
+arangobench --test-case document --requests 1000 --threads 2 Run the document test case with 2000 requests, with threads 2, with async requests:
+arangobench --test-case document --requests 1000 --threads 2 --async true General --async Type: boolean
+Send asynchronous requests.</description></item></channel></rss>

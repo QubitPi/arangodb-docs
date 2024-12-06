@@ -1,0 +1,596 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.12/develop/http-api/replication/replication-logger/"><meta property="og:title" content="Replication logger commands"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.12"><title>Replication logger commands | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Replication"><a itemprop=item class=link href=/3.12/develop/http-api/replication/><span itemprop=name class=breadcrumb-entry>Replication</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Replication Logger"><a itemprop=item class=link href=/3.12/develop/http-api/replication/replication-logger/><span itemprop=name class=breadcrumb-entry>Replication Logger</span></a></li></ol></nav><article class=default><hgroup><h1>Replication logger commands</h1></hgroup><p>All data-modification operations are written to the server&rsquo;s write-ahead log and are
+not handled by a separate replication logger.</p><p>You can query the current state of the logger and fetch the latest changes
+written by the logger with the <code>logger-state</code> method. The operations return the
+state and data from the write-ahead log.</p><p>To query the latest changes logged by the replication logger, the HTTP interface
+also provides the <code>logger-follow</code> method. This method should be used by
+replication clients to incrementally fetch updates from an ArangoDB database.</p><p>To check what range of changes is available (identified by tick values), the HTTP
+interface provides the methods <code>logger-first-tick</code> and <code>logger-tick-ranges</code>.
+Replication clients can use the methods to determine if certain data (identified
+by a tick <em>date</em>) is still available on the Leader.</p><h2 id=get-the-replication-logger-state>Get the replication logger state <a href=/3.12/develop/http-api/replication/replication-logger/#get-the-replication-logger-state class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/logger-state</span></div><div class="openapi-description regular-font"><p>Returns the current state of the server&rsquo;s replication logger. The state will
+include information about whether the logger is running and about the last
+logged tick value. This tick value is important for incremental fetching of
+data.</p><p>The body of the response contains a JSON object with the following
+attributes:</p><ul><li><p><code>state</code>: the current logger state as a JSON object with the following
+sub-attributes:</p><ul><li><p><code>running</code>: whether or not the logger is running</p></li><li><p><code>lastLogTick</code>: the tick value of the latest tick the logger has logged.
+This value can be used for incremental fetching of log data.</p></li><li><p><code>totalEvents</code>: total number of events logged since the server was started.
+The value is not reset between multiple stops and re-starts of the logger.</p></li><li><p><code>time</code>: the current date and time on the logger server</p></li></ul></li><li><p><code>server</code>: a JSON object with the following sub-attributes:</p><ul><li><p><code>version</code>: the logger server&rsquo;s version</p></li><li><p><code>serverId</code>: the logger server&rsquo;s id</p></li></ul></li><li><p><code>clients</code>: returns the last fetch status by replication clients connected to
+the logger. Each client is returned as a JSON object with the following attributes:</p><ul><li><p><code>syncerId</code>: id of the client syncer</p></li><li><p><code>serverId</code>: server id of client</p></li><li><p><code>lastServedTick</code>: last tick value served to this client via the WAL tailing API</p></li><li><p><code>time</code>: date and time when this client last called the WAL tailing API</p></li></ul></li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-logger-state_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-replication-logger-state_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-replication-logger-state_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-replication-logger-state_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the logger state could be determined successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-logger-state_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-replication-logger-state_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-replication-logger-state_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-replication-logger-state_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the logger state could not be determined.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Returns the state of the replication logger.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-state&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>225</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;running&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastLogTick&#34;</span> : <span class=s2>&#34;184142&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastUncommittedLogTick&#34;</span> : <span class=s2>&#34;184142&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalEvents&#34;</span> : 184142, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;time&#34;</span> : <span class=s2>&#34;2024-10-30T18:09:43Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.3&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;260723835027708&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;engine&#34;</span> : <span class=s2>&#34;rocksdb&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;clients&#34;</span> : <span class=o>[</span> <span class=o>]</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-replication-log-entries-deprecated>Get replication log entries (deprecated) <a href=/3.12/develop/http-api/replication/replication-logger/#get-replication-log-entries-deprecated class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/logger-follow</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>This route should no longer be used.
+It is considered as deprecated from version 3.4.0 on. Client applications
+should use the REST API endpoint <code>/_api/wal/tail</code> instead.</div></div></div></div><p>Returns data from the server&rsquo;s replication log. This method can be called
+by replication clients after an initial synchronization of data. The method
+will return all &ldquo;recent&rdquo; log entries from the logger server, and the clients
+can replay and apply these entries locally so they get to the same data
+state as the logger server.</p><p>Clients can call this method repeatedly to incrementally fetch all changes
+from the logger server. In this case, they should provide the <code>from</code> value so
+they will only get returned the log events since their last fetch.</p><p>When the <code>from</code> query parameter is not used, the logger server will return log
+entries starting at the beginning of its replication log. When the <code>from</code>
+parameter is used, the logger server will only return log entries which have
+higher tick values than the specified <code>from</code> value (note: the log entry with a
+tick value equal to <code>from</code> will be excluded). Use the <code>from</code> value when
+incrementally fetching log data.</p><p>The <code>to</code> query parameter can be used to optionally restrict the upper bound of
+the result to a certain tick value. If used, the result will contain only log events
+with tick values up to (including) <code>to</code>. In incremental fetching, there is no
+need to use the <code>to</code> parameter. It only makes sense in special situations,
+when only parts of the change log are required.</p><p>The <code>chunkSize</code> query parameter can be used to control the size of the result.
+It must be specified in bytes. The <code>chunkSize</code> value will only be honored
+approximately. Otherwise a too low <code>chunkSize</code> value could cause the server
+to not be able to put just one log entry into the result and return it.
+Therefore, the <code>chunkSize</code> value will only be consulted after a log entry has
+been written into the result. If the result size is then greater than
+<code>chunkSize</code>, the server will respond with as many log entries as there are
+in the response already. If the result size is still less than <code>chunkSize</code>,
+the server will try to return more data if there&rsquo;s more data left to return.</p><p>If <code>chunkSize</code> is not specified, some server-side default value will be used.</p><p>The <code>Content-Type</code> of the result is <code>application/x-arango-dump</code>. This is an
+easy-to-process format, with all log events going onto separate lines in the
+response body. Each log event itself is a JSON object, with at least the
+following attributes:</p><ul><li><p><code>tick</code>: the log event tick value</p></li><li><p><code>type</code>: the log event type</p></li></ul><p>Individual log events will also have additional attributes, depending on the
+event type. A few common attributes which are used for multiple events types
+are:</p><ul><li><p><code>cid</code>: id of the collection the event was for</p></li><li><p><code>tid</code>: id of the transaction the event was contained in</p></li><li><p><code>key</code>: document key</p></li><li><p><code>rev</code>: document revision id</p></li><li><p><code>data</code>: the original document data</p></li></ul><p>The response will also contain the following HTTP headers:</p><ul><li><p><code>x-arango-replication-active</code>: whether or not the logger is active. Clients
+can use this flag as an indication for their polling frequency. If the
+logger is not active and there are no more replication events available, it
+might be sensible for a client to abort, or to go to sleep for a long time
+and try again later to check whether the logger has been activated.</p></li><li><p><code>x-arango-replication-lastincluded</code>: the tick value of the last included
+value in the result. In incremental log fetching, this value can be used
+as the <code>from</code> value for the following request. <strong>Note</strong> that if the result is
+empty, the value will be <code>0</code>. This value should not be used as <code>from</code> value
+by clients in the next request (otherwise the server would return the log
+events from the start of the log again).</p></li><li><p><code>x-arango-replication-lasttick</code>: the last tick value the logger server has
+logged (not necessarily included in the result). By comparing the last
+tick and last included tick values, clients have an approximate indication of
+how many events there are still left to fetch.</p></li><li><p><code>x-arango-replication-checkmore</code>: whether or not there already exists more
+log data which the client could fetch immediately. If there is more log data
+available, the client could call <code>logger-follow</code> again with an adjusted <code>from</code>
+value to fetch remaining log entries until there are no more.</p><p>If there isn&rsquo;t any more log data to fetch, the client might decide to go
+to sleep for a while before calling the logger again.</p></li></ul><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This method is not supported on a Coordinator in a cluster deployment.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-replication-log-entries-deprecated_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_query_from><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">from</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-replication-log-entries-deprecated_query_from><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Exclusive lower bound tick value for results.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_query_to><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">to</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-replication-log-entries-deprecated_query_to><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Inclusive upper bound tick value for results.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_query_chunkSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">chunkSize</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-replication-log-entries-deprecated_query_chunkSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Approximate maximum size of the returned result.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_query_includeSystem><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">includeSystem</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-replication-log-entries-deprecated_query_includeSystem><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Include system collections in the result. The default value is <code>true</code>.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-replication-log-entries-deprecated_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully, and there are log
+events available for the requested range. The response body will not be empty
+in this case.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_204><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">204</span>
+<span class="openapi-property-type bold-text">No Content</span>
+<a href=#get-replication-log-entries-deprecated_res_204><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully, but there are no log
+events available for the requested range. The response body will be empty
+in this case.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#get-replication-log-entries-deprecated_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if either the <code>from</code> or <code>to</code> values are invalid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-replication-log-entries-deprecated_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-replication-log-entries-deprecated_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-replication-log-entries-deprecated_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#get-replication-log-entries-deprecated_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>No log events available</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-follow?from=184142&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>204</span> No Content
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-active: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>false</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>0</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184142</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184142</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff</span></span></code></pre></div></div></div><br><p>A few log events <em>(One JSON document per line)</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-follow?from=184142&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>1798</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-active: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>false</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>184174</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184174</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184174</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184145&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2300, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tid&#34;</span> : <span class=s2>&#34;0&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cid&#34;</span> : <span class=s2>&#34;3&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cname&#34;</span> : <span class=s2>&#34;_users&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;data&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;_users/87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_ir4cfCK---&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;authData&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;active&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;simple&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;hash&#34;</span> : <span class=s2>&#34;516c98654cba507c79ad1ca032221b5e750775cc3561da10dc4435ce376b1be2&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;salt&#34;</span> : <span class=s2>&#34;1f078e20&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;method&#34;</span> : <span class=s2>&#34;sha256&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;databases&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_system&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;demo&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;mycollection&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;ignore&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;animals&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;products&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;products1&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184158&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2001, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cuid&#34;</span> : <span class=s2>&#34;hED207F9240FC/72072&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cid&#34;</span> : <span class=s2>&#34;72072&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;data&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72072&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184166&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2300, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tid&#34;</span> : <span class=s2>&#34;0&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cid&#34;</span> : <span class=s2>&#34;3&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cname&#34;</span> : <span class=s2>&#34;_users&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;data&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;_users/87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_ir4cfCS--_&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;authData&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;active&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;simple&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;hash&#34;</span> : <span class=s2>&#34;516c98654cba507c79ad1ca032221b5e750775cc3561da10dc4435ce376b1be2&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;salt&#34;</span> : <span class=s2>&#34;1f078e20&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;method&#34;</span> : <span class=s2>&#34;sha256&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;databases&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_system&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;products1&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;animals&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;ignore&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;mycollection&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;demo&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>More events than would fit into the response</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-follow?from=184174&amp;chunkSize=400&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/x-arango-dump
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>866</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-arango-replication-active: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-checkmore: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-frompresent: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastincluded: <span class=m>184179</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lastscanned: <span class=m>184176</span>
+</span></span><span class=line><span class=cl>x-arango-replication-lasttick: <span class=m>184200</span>
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tick&#34;</span> : <span class=s2>&#34;184177&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2300, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;tid&#34;</span> : <span class=s2>&#34;0&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cid&#34;</span> : <span class=s2>&#34;3&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cname&#34;</span> : <span class=s2>&#34;_users&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;data&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;_users/87&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_ir4cgCq---&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;authData&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;active&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;simple&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;hash&#34;</span> : <span class=s2>&#34;516c98654cba507c79ad1ca032221b5e750775cc3561da10dc4435ce376b1be2&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;salt&#34;</span> : <span class=s2>&#34;1f078e20&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;method&#34;</span> : <span class=s2>&#34;sha256&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;databases&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_system&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;collections&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;demo&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;*&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;mycollection&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;ignore&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;animals&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;products&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;products1&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;permissions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;read&#34;</span> : true, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;write&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-first-available-replication-tick-value>Get the first available replication tick value <a href=/3.12/develop/http-api/replication/replication-logger/#get-the-first-available-replication-tick-value class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/logger-first-tick</span></div><div class="openapi-description regular-font"><p>Returns the first available tick value that can be served from the server&rsquo;s
+replication log. This method can be called by replication clients after to
+determine if certain data (identified by a tick value) is still available
+for replication.</p><p>The result is a JSON object containing the attribute <code>firstTick</code>. This
+attribute contains the minimum tick value available in the server&rsquo;s
+replication
+log.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>This method is not supported on a Coordinator in a cluster deployment.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-first-available-replication-tick-value_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-first-available-replication-tick-value_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-first-available-replication-tick-value_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-first-available-replication-tick-value_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the request was executed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-first-available-replication-tick-value_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-first-available-replication-tick-value_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-first-available-replication-tick-value_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-first-available-replication-tick-value_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if an error occurred while assembling the response.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-first-available-replication-tick-value_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#get-the-first-available-replication-tick-value_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Returning the first available tick</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-first-tick&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>17</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;firstTick&#34;</span> : <span class=s2>&#34;1&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-tick-ranges-available-in-the-wal-logfiles>Get the tick ranges available in the WAL logfiles <a href=/3.12/develop/http-api/replication/replication-logger/#get-the-tick-ranges-available-in-the-wal-logfiles class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/replication/logger-tick-ranges</span></div><div class="openapi-description regular-font"><p>Returns the currently available ranges of tick values for all currently
+available WAL logfiles. The tick values can be used to determine if certain
+data (identified by tick value) are still available for replication.</p><p>The body of the response contains a JSON array. Each array member is an
+object
+that describes a single logfile. Each object has the following attributes:</p><ul><li><p><code>datafile</code>: name of the logfile</p></li><li><p><code>status</code>: status of the datafile, in textual form (e.g. &ldquo;sealed&rdquo;, &ldquo;open&rdquo;)</p></li><li><p><code>tickMin</code>: minimum tick value contained in logfile</p></li><li><p><code>tickMax</code>: maximum tick value contained in logfile</p></li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal-logfiles_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-tick-ranges-available-in-the-wal-logfiles_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal-logfiles_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-tick-ranges-available-in-the-wal-logfiles_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the tick ranges could be determined successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal-logfiles_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#get-the-tick-ranges-available-in-the-wal-logfiles_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when an invalid HTTP method is used.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal-logfiles_res_500><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">500</span>
+<span class="openapi-property-type bold-text">Internal Server Error</span>
+<a href=#get-the-tick-ranges-available-in-the-wal-logfiles_res_500><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the logger state could not be determined.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-tick-ranges-available-in-the-wal-logfiles_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
+<span class="openapi-property-type bold-text">Not Implemented</span>
+<a href=#get-the-tick-ranges-available-in-the-wal-logfiles_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned when this operation is called on a Coordinator in a cluster deployment.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Returns the available tick ranges.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/replication/logger-tick-ranges&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>1205</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000004.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;178064&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000048.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;178064&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;178554&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000059.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;178554&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;178573&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000064.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;178573&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179690&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000073.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179690&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179732&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000082.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179732&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179840&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000109.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179840&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179889&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000116.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179889&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179938&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000119.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179938&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;179987&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000121.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;179987&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;180036&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000124.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;180036&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;180085&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/archive/000126.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;collected&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;180085&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;180145&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datafile&#34;</span> : <span class=s2>&#34;/000130.log&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;open&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMin&#34;</span> : <span class=s2>&#34;180145&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;tickMax&#34;</span> : <span class=s2>&#34;184200&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/replication/replication-dump/><i class="fas fa-chevron-left fa-fw"></i><p>Replication Dump</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/replication/replication-applier/><p>Replication Applier</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/replication/replication-logger.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#get-the-replication-logger-state>Get the replication logger state</a></div><div class=level-2><a href=#get-replication-log-entries-deprecated>Get replication log entries (deprecated)</a></div><div class=level-2><a href=#get-the-first-available-replication-tick-value>Get the first available replication tick value</a></div><div class=level-2><a href=#get-the-tick-ranges-available-in-the-wal-logfiles>Get the tick ranges available in the WAL logfiles</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

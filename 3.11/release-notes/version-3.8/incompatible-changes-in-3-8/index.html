@@ -1,0 +1,276 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Check the following list of potential breaking changes before upgrading to this ArangoDB version and adjust any client applications if necessary"><meta property="og:url" content="http://localhost/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/"><meta property="og:title" content="Incompatible changes in ArangoDB 3.8"><meta property="og:type" content="website"><meta property="og:description" content="Check the following list of potential breaking changes before upgrading to this ArangoDB version and adjust any client applications if necessary"><meta name=docsearch:version content="3.11"><title>Incompatible changes in ArangoDB 3.8 | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Release Notes"><a itemprop=item class=link href=/3.11/release-notes/><span itemprop=name class=breadcrumb-entry>Release Notes</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Version 3.8"><a itemprop=item class=link href=/3.11/release-notes/version-3.8/><span itemprop=name class=breadcrumb-entry>Version 3.8</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Incompatible changes in 3.8"><a itemprop=item class=link href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/><span itemprop=name class=breadcrumb-entry>Incompatible changes in 3.8</span></a></li></ol></nav><article class=default><hgroup><h1>Incompatible changes in ArangoDB 3.8</h1><p class=lead>Check the following list of potential breaking changes <strong>before</strong> upgrading to this ArangoDB version and adjust any client applications if necessary</p></hgroup><h2 id=foxx>Foxx <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#foxx class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The default value of the startup option <code>--foxx.force-update-on-startup</code> changes
+from <code>true</code> to <code>false</code> in ArangoDB 3.8.
+This option controls whether the startup procedure should synchronize all Foxx
+apps in all databases before making them available, or whether startup should
+proceed without ensuring all Foxx apps are in sync. In the latter case, the
+synchronization will happen eventually.</p><p>In ArangoDB 3.6 and 3.7, the option&rsquo;s default value is <code>true</code>, meaning all Foxx apps
+in all databases will be synchronized on server startup. This can delay the startup
+procedure for installations with many databases, and is unnecessary in case no
+Foxx apps are used.</p><p>In ArangoDB 3.8 the default value for the option is <code>false</code>, meaning a server will
+complete the boot sequence faster, and the Foxx services will be synchronized in
+a background operation. Until that operation has completed, any requests to a
+Foxx app may be responded to with an HTTP 503 error and message</p><pre tabindex=0><code>waiting for initialization of Foxx services in this database
+</code></pre><p>This can cause an unavailability window for Foxx apps for the initial requests to
+Foxx apps.</p><p>This option only has an effect for cluster setups. On single servers and in
+active failover mode, all Foxx apps will always be initialized completely when
+the server starts up, and there will be no unavailability window.</p><h2 id=collection-attributes>Collection attributes <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#collection-attributes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The collection properties <code>indexBuckets</code>, <code>journalSize</code>, <code>doCompact</code> and
+<code>isVolatile</code> only had a meaning for the MMFiles storage engine, which is not
+available anymore since ArangoDB 3.7.</p><p>ArangoDB 3.8 now removes any special handling for these obsolete collection
+properties, meaning these attributes will not be processed by the server and
+not be returned by any server APIs. Using these attributes in any API call
+will be ignored, and will not trigger any errors.</p><p>Client applications and tests that rely on the behavior that setting any of
+these obsolete properties produces an error on the server side may need to
+be adjusted now.</p><h2 id=startup-options>Startup options <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#startup-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=renamed-options>Renamed options <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#renamed-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following startup options have been renamed in ArangoDB 3.8:</p><table><thead><tr><th style=text-align:left>Old name</th><th style=text-align:left>New name</th></tr></thead><tbody><tr><td style=text-align:left><code>--javascript.startup-options-whitelist</code></td><td style=text-align:left><code>--javascript.startup-options-allowlist</code></td></tr><tr><td style=text-align:left><code>--javascript.startup-options-blacklist</code></td><td style=text-align:left><code>--javascript.startup-options-denylist</code></td></tr><tr><td style=text-align:left><code>--javascript.environment-variables-whitelist</code></td><td style=text-align:left><code>--javascript.environment-variables-allowlist</code></td></tr><tr><td style=text-align:left><code>--javascript.environment-variables-blacklist</code></td><td style=text-align:left><code>--javascript.environment-variables-denylist</code></td></tr><tr><td style=text-align:left><code>--javascript.endpoints-whitelist</code></td><td style=text-align:left><code>--javascript.endpoints-allowlist</code></td></tr><tr><td style=text-align:left><code>--javascript.endpoints-blacklist</code></td><td style=text-align:left><code>--javascript.endpoints-denylist</code></td></tr><tr><td style=text-align:left><code>--javascript.files-whitelist</code></td><td style=text-align:left><code>--javascript.files-allowlist</code></td></tr></tbody></table><p>Using the old option names will still work in ArangoDB 3.8, but is discouraged.</p><h3 id=deprecated-options>Deprecated options <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#deprecated-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following server startup options have been obsoleted in ArangoDB 3.8:</p><ul><li><code>--database.throw-collection-not-loaded-error</code></li><li><code>--ttl.only-loaded-collection</code></li></ul><p>These options were meaningful for the MMFiles storage engine only, but for
+the RocksDB storage engine they did not make any difference. Using these startup
+options is still possible, but will have no effect other than generating a
+warning at server startup.</p><p>The following arangosearch-related startup options are deprecated in ArangoDB 3.8:</p><ul><li><code>--arangosearch.threads</code></li><li><code>--arangosearch.threads-limit</code></li></ul><p>There are two new options for each of the deprecated options, now allowing to
+set the minimum and maximum number of threads for committing and consolidation
+separately. If either <code>--arangosearch.commit-threads</code> or
+<code>--arangosearch.consolidation-threads</code> is set, then both deprecated options are
+ignored. If only the legacy options are set, then they are used to calculate
+the thread count. See
+<a href=/3.11/components/arangodb-server/options/#arangosearch class=link>ArangoDB Server ArangoSearch Options</a>.</p><h3 id=changed-default-values>Changed default values <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#changed-default-values class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><h4 id=system-collections>System collections <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#system-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The default value for the startup option <code>--database.old-system-collections</code> is
+changed from <code>true</code> to <code>false</code> in ArangoDB 3.8.</p><p>This means that by default the system collections <code>_modules</code> and <code>_fishbowl</code> will
+not be created anymore when a new database is created. These collections are useful
+only in very few cases, so it is normally not worth to create them in all databases.</p><p>Already existing <code>_modules</code> and <code>_fishbowl</code> system collections will not be modified
+by this default value change, even though they will likely be empty and unused.</p><p>The long-term side effects of this change will be:</p><ul><li>there will be no iteration over all databases at server startup just to check
+the contents of all <code>_modules</code> collections.</li><li>less collections/shards will be around for deployments that create a large
+number of databases (and thus the default system collections).</li></ul><p>Any functionality related to the <code>_modules</code> system collection is deprecated in
+ArangoDB 3.8 and will be removed in ArangoDB 3.9.</p><h4 id=foxx-1>Foxx <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#foxx-1 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The default value for <code>--foxx.force-update-on-startup</code> changed from <code>true</code> in
+previous version to <code>false</code> in ArangoDB 3.8, also see <a href=#foxx class=link>Foxx</a> above.</p><h4 id=rocksdb>RocksDB <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#rocksdb class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The value of the startup option <code>--rocksdb.block-cache-size</code> is limited to 1 GB
+for agent instances to reduce agency RAM usage, unless the option is explicitly
+configured otherwise.</p><p>In addition, the value of <code>--rocksdb.total-write-buffer-size</code> is limited to 512 MB
+on agent instances for the same reason, unless otherwise configuration.</p><p>No limitations apply for DB-Server instances or single servers.</p><h4 id=network>Network <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#network class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The default value for the number of network I/O threads <code>--network.io-threads</code>
+was changed to <code>2</code> in ArangoDB 3.8, up from a value of <code>1</code> in previous version.</p><h4 id=stream-transactions>Stream Transactions <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#stream-transactions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The idle timeout for Stream Transactions was raised from 10 seconds to 60
+seconds in ArangoDB 3.8. The default value can be adjusted via the new startup
+option <code>--transaction.streaming-idle-timeout</code>. The maximum value is 120 seconds.</p><p>Stream Transactions will automatically time out after the configured idle
+period if no further operations are posted into them. Posting an operation into
+a non-expired Stream Transaction will reset the transaction&rsquo;s timeout to the
+configured idle timeout.</p><p>Previous versions of ArangoDB had a hard-coded idle timeout for
+Stream Transactions which could not be adjusted.</p><h4 id=file-descriptors>File descriptors <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#file-descriptors class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The default value for <code>--server.descriptors-minimum</code> changed from <code>0</code> in previous
+versions to <code>8192</code> in ArangoDB 3.8.
+This change means that on Linux and macOS, the system limits need to allow the
+arangod process to use at least 8192 file descriptors.
+If less file descriptors are available to the arangod process, then the startup
+process of the arangod server is automatically aborted.</p><p>Even the chosen minimum value of 8192 will often not be high enough to store
+considerable amounts of data. However, no higher value was chosen in order to not
+make too many existing installations fail after upgrading.</p><p>The required number of file descriptors can be configured using the startup option
+<code>--server.descriptors-minimum</code>. It now defaults to 8192, but it can be increased
+to ensure that arangod can make use of a sufficiently high number of files.</p><p>Setting <code>--server.descriptors-minimum</code> to a value of <code>0</code> will make the startup
+require only an absolute minimum limit of 1024 file descriptors, effectively
+disabling the change. Such low values should only be used to bypass the file
+descriptors check in case of an emergency, but this is not recommended for production.</p><h4 id=scheduler>Scheduler <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#scheduler class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The default value of the startup option <code>--server.unavailability-queue-fill-grade</code>
+has been changed from value <code>1</code> in previous versions to a value of <code>0.75</code> in ArangoDB
+3.8.</p><p>This change has a consequence for the <code>/_admin/server/availability</code> REST API only,
+which is often called by load-balancers and other availability probing systems.</p><p>The <code>/_admin/server/availability</code> API will return HTTP 200 if the fill grade of the
+scheduler&rsquo;s queue is below the configured value, or HTTP 503 if the fill grade is
+above it. This can be used to flag a server as unavailable in case it is already
+highly loaded.</p><p>The default value change for this option will lead to server&rsquo;s reporting their
+unavailability earlier than previous versions of ArangoDB. With only the default
+values used, ArangoDB versions prior to 3.8 reported unavailability only if the
+queue was completely full, which means 4096 pending requests in the queue.
+ArangoDB 3.8 will report as unavailable if the queue is 75% full, i.e when 3072
+or more jobs are queued in the scheduler.</p><p>Although this is a behavior change, 75% is still a high watermark and should not
+cause unavailability false-positives.
+However, to restore the pre-3.8 behavior, it is possible to set the value of
+this option to <code>1</code>. The value can even be set to <code>0</code> to disable using the
+scheduler&rsquo;s queue fill grade as an (un)availability indicator.</p><h3 id=aql-query-memory-usage>AQL query memory usage <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#aql-query-memory-usage class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><h4 id=per-query-memory-limit>Per-query memory limit <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#per-query-memory-limit class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>ArangoDB 3.8 introduces a default per-query memory limit to prevent rogue AQL
+queries from consuming the entire memory available to an arangod instance.</p><p>The per-query memory limit is introduced via changing the default value of the
+startup option <code>--query.memory-limit</code> from previously <code>0</code> (meaning: no limit)
+to a dynamically calculated value. The per-query memory limit defaults are now:</p><pre tabindex=0><code>Available memory:            0      (0MiB)  Limit:            0   unlimited, %mem:  n/a
+Available memory:    134217728    (128MiB)  Limit:     33554432     (32MiB), %mem: 25.0
+Available memory:    268435456    (256MiB)  Limit:     67108864     (64MiB), %mem: 25.0
+Available memory:    536870912    (512MiB)  Limit:    201326592    (192MiB), %mem: 37.5
+Available memory:    805306368    (768MiB)  Limit:    402653184    (384MiB), %mem: 50.0
+Available memory:   1073741824   (1024MiB)  Limit:    603979776    (576MiB), %mem: 56.2
+Available memory:   2147483648   (2048MiB)  Limit:   1288490189   (1228MiB), %mem: 60.0
+Available memory:   4294967296   (4096MiB)  Limit:   2576980377   (2457MiB), %mem: 60.0
+Available memory:   8589934592   (8192MiB)  Limit:   5153960755   (4915MiB), %mem: 60.0
+Available memory:  17179869184  (16384MiB)  Limit:  10307921511   (9830MiB), %mem: 60.0
+Available memory:  25769803776  (24576MiB)  Limit:  15461882265  (14745MiB), %mem: 60.0
+Available memory:  34359738368  (32768MiB)  Limit:  20615843021  (19660MiB), %mem: 60.0
+Available memory:  42949672960  (40960MiB)  Limit:  25769803776  (24576MiB), %mem: 60.0
+Available memory:  68719476736  (65536MiB)  Limit:  41231686041  (39321MiB), %mem: 60.0
+Available memory: 103079215104  (98304MiB)  Limit:  61847529063  (58982MiB), %mem: 60.0
+Available memory: 137438953472 (131072MiB)  Limit:  82463372083  (78643MiB), %mem: 60.0
+Available memory: 274877906944 (262144MiB)  Limit: 164926744167 (157286MiB), %mem: 60.0
+Available memory: 549755813888 (524288MiB)  Limit: 329853488333 (314572MiB), %mem: 60.0
+</code></pre><p>As before, a memory limit value of <code>0</code> means no per-query limitation.
+The limit values are per AQL query, so they may still be too high in case
+queries run in parallel. The defaults are intentionally high in order to not
+stop too many existing and valid queries from working that use <em>a lot</em> of memory.</p><p>Using a per-query memory limit by default is a downwards-incompatible change in
+ArangoDB 3.8 and may make queries fail if they use a lot of memory. If this
+happens, it may be useful to increase the value of <code>--query.memory-limit</code> or
+even set it to <code>0</code> (meaning no limitation).
+There is a metric <code>arangodb_aql_local_query_memory_limit_reached</code> that can be
+used to check how many times queries reached the per-query memory limit.</p><h4 id=global-memory-limit>Global memory limit <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#global-memory-limit class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>ArangoDB 3.8 also introduces a global memory limit for all AQL queries that
+limits the total amount of memory that can be used by concurrently running
+queries. Such global memory limit did not exist in previous versions of ArangoDB.</p><p>The global query memory limit can be controlled via the new startup option
+<code>--query.global-memory-limit</code>, which has a default value that depends on the
+amount of available RAM:</p><pre tabindex=0><code>Available memory:            0      (0MiB)  Limit:            0   unlimited, %mem:  n/a
+Available memory:    134217728    (128MiB)  Limit:     33554432     (32MiB), %mem: 25.0
+Available memory:    268435456    (256MiB)  Limit:     67108864     (64MiB), %mem: 25.0
+Available memory:    536870912    (512MiB)  Limit:    255013683    (243MiB), %mem: 47.5
+Available memory:    805306368    (768MiB)  Limit:    510027366    (486MiB), %mem: 63.3
+Available memory:   1073741824   (1024MiB)  Limit:    765041049    (729MiB), %mem: 71.2
+Available memory:   2147483648   (2048MiB)  Limit:   1785095782   (1702MiB), %mem: 83.1
+Available memory:   4294967296   (4096MiB)  Limit:   3825205248   (3648MiB), %mem: 89.0
+Available memory:   8589934592   (8192MiB)  Limit:   7752415969   (7393MiB), %mem: 90.2
+Available memory:  17179869184  (16384MiB)  Limit:  15504831938  (14786MiB), %mem: 90.2
+Available memory:  25769803776  (24576MiB)  Limit:  23257247908  (22179MiB), %mem: 90.2
+Available memory:  34359738368  (32768MiB)  Limit:  31009663877  (29573MiB), %mem: 90.2
+Available memory:  42949672960  (40960MiB)  Limit:  38762079846  (36966MiB), %mem: 90.2
+Available memory:  68719476736  (65536MiB)  Limit:  62019327755  (59146MiB), %mem: 90.2
+Available memory: 103079215104  (98304MiB)  Limit:  93028991631  (88719MiB), %mem: 90.2
+Available memory: 137438953472 (131072MiB)  Limit: 124038655509 (118292MiB), %mem: 90.2
+Available memory: 274877906944 (262144MiB)  Limit: 248077311017 (236584MiB), %mem: 90.2
+Available memory: 549755813888 (524288MiB)  Limit: 496154622034 (473169MiB), %mem: 90.2
+</code></pre><p>Using a global memory limit for all queries by default is a
+downwards-incompatible change in ArangoDB 3.8 and may make queries fail if they
+use a lot of memory. If this happens, it may be useful to increase the value of
+<code>--query.global-memory-limit</code> or even set it to <code>0</code> (meaning no limitation).
+There is a metric <code>arangodb_aql_global_query_memory_limit_reached</code> that can be
+used to check how many times queries reached the global memory limit.</p><h4 id=memory-usage-granularity>Memory usage granularity <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#memory-usage-granularity class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>In ArangoDB 3.8, the per-query memory and global query memory tracking have a
+granularity of 32 KB chunks. That means checking for memory limits such as &ldquo;1&rdquo;
+(e.g. for testing) may not make a query fail if the total memory allocations
+in the query will not exceed 32 KB. The effective lowest memory limit value
+that can be enforced is thus 32 KB. Memory limit values higher than 32 KB will
+be checked whenever the total memory allocations cross a 32 KB boundary.</p><p>The peak memory usage reported for AQL queries will also only return full
+multiples of 32 KB in ArangoDB 3.8, whereas in previous versions it may have
+reported values with higher granularity.</p><h3 id=audit-logging-enterprise-edition>Audit Logging (Enterprise Edition) <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#audit-logging-enterprise-edition class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The Enterprise Edition&rsquo;s audit log feature now honors the configured
+date/time output format. Previously, the audit logging always logged date/time
+values in the server&rsquo;s local time in the format <code>YYYY-MM-DDTHH:MM:SS</code>.</p><p>From 3.8 onwards, the audit logging will honor the date/time format specified
+via the <code>--log.time-format</code> startup option, which defaults to <code>utc-datestring</code>.
+That means the audit logging will log all dates/times in UTC time by default.</p><p>To restore the pre-3.8 format, please set the option <code>--log.time-format</code> to
+<code>local-datestring</code>, which will make the audit logger (and all other server log
+messages) use the server&rsquo;s local time.</p><h2 id=http-restful-api>HTTP RESTful API <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#http-restful-api class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=www-authenticate-response-header>Www-Authenticate response header <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#www-authenticate-response-header class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB 3.8 adds back the <code>Www-Authenticate</code> response header for HTTP server
+responses with a status code of 401. Returning the <code>Www-Authenticate</code> header for
+401 responses is required by the HTTP/1.1 specification and was also advertised
+functionality in the ArangoDB documentation, but wasn&rsquo;t happening in practice.</p><p>Now the functionality of returning <code>Www-Authenticate</code> response headers for HTTP
+401 responses is restored, along with the already advertised functionality of
+suppressing this header in case the client sends an <code>X-Omit-Www-Authenticate</code>
+header with the request.</p><p>This change should not have any impact for client applications that use ArangoDB
+as a database only. It may have an effect for Foxx applications that use HTTP
+401 status code responses and that will now see this extra header getting returned.</p><h3 id=endpoint-return-value-changes>Endpoint return value changes <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#endpoint-return-value-changes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><ul><li><p>The endpoint <code>/_api/replication/clusterInventory</code> returns, among other things,
+an array of the existing collections. Each collection has a <code>planVersion</code>
+attribute, which in ArangoDB 3.8 is now hard-coded to the value of 1.</p><p>Before 3.7, the most recent Plan version from the agency was returned inside
+<code>planVersion</code> for each collection. In 3.7, the attribute contained the Plan
+version that was in use when the in-memory LogicalCollection object was last
+constructed. The object was always reconstructed in case the underlying Plan
+data for the collection changed, or when a collection contained links to
+ArangoSearch Views. This made the attribute relatively useless for any
+real-world use cases, and so we are now hard-coding it to simplify the internal
+code. Using the attribute in client applications is also deprecated, because
+it will be removed from the API&rsquo;s return value in future versions of ArangoDB.</p></li><li><p>The endpoint <code>/_admin/metrics</code> for server metrics is unchanged but is
+declared obsolete from 3.8 on. This is, because we have moved to a new
+endpoint <code>/_admin/metrics/v2</code>, which is more in line with Prometheus
+conventions. See <a href=/3.11/release-notes/version-3.8/whats-new-in-3-8/#metrics class=link>Features and Improvements in 3.8</a>.</p><p>The migration from 3.7 to 3.8 is straightforward: You can keep your old
+metrics collection in Prometheus using the old endpoint and thus have
+continuous collection of metrics and simply keep your old dashboards
+for a while after the upgrade. However, you should then add metrics
+collections from the new endpoint <code>/_admin/metrics/v2</code> and use the new
+dashboards we deliver for 3.8. The new dashboards know all the new
+names and the new, corrected format of the output. Over time, you can
+then retire your old metrics collection process and dashboards.</p></li><li><p>Changed the encoding of revision IDs returned by the below listed REST APIs.</p><p><small>Introduced in: v3.8.8</small></p><ul><li><code>GET /_api/collection/&lt;collection-name>/revision</code>: The revision ID was
+previously returned as numeric value, and now it is returned as
+a string value with either numeric encoding or HLC-encoding inside.</li><li><code>GET /_api/collection/&lt;collection-name>/checksum</code>: The revision ID in
+the <code>revision</code> attribute was previously encoded as a numeric value
+in single server, and as a string in cluster. This is now unified so
+that the <code>revision</code> attribute always contains a string value with
+either numeric encoding or HLC-encoding inside.</li></ul></li></ul><h3 id=optional-lockdown-of-_admincluster-rest-api>Optional lockdown of <code>/_admin/cluster</code> REST API <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#optional-lockdown-of-_admincluster-rest-api class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB 3.8 provides a new startup option <code>--cluster.api-jwt-policy</code> that
+allows <em>additional</em> checking for valid JWTs in all requests to sub-routes of
+the <code>/_admin/cluster</code> REST API endpoint.
+This is a security option to restrict access to these cluster APIs to
+operator tools and privileged users.</p><p>The possible values for the startup option are:</p><ul><li><code>jwt-all</code>: requires a valid JWT for all accesses to <code>/_admin/cluster</code> and
+its sub-routes. If this configuration is used, the <em>CLUSTER</em> and <em>NODES</em>
+sections of the web interface will be disabled, as they are relying on the
+ability to read data from several cluster APIs.</li><li><code>jwt-write</code>: requires a valid JWT for write accesses (all HTTP methods
+except HTTP GET) to <code>/_admin/cluster</code>. This setting can be used to allow
+privileged users to read data from the cluster APIs, but not to do any
+modifications. All existing permissions checks for the cluster API routes
+are still in effect with this setting, meaning that read operations without
+a valid JWT may still require dedicated other permissions (as in v3.7).</li><li><code>jwt-compat</code>: no <em>additional</em> access checks are in place for the cluster
+APIs. However, all existing permissions checks for the cluster API routes
+are still in effect with this setting, meaning that all operations may
+still require dedicated other permissions (as in v3.7).</li></ul><p>The default value for the option is <code>jwt-compat</code>, which means this option will
+not cause any <em>extra</em> JWT checks compared to v3.7.</p><p>If this option is changed to either <code>jwt-all</code> or <code>jwt-write</code>, non-conforming
+requests without valid JWTs will be responded with HTTP 403 (Forbidden) errors.
+This can have impact on custom tooling and monitoring etc.</p><h2 id=aql>AQL <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#aql class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=graph-traversal-option-bfs-deprecated>Graph traversal option <code>bfs</code> deprecated <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#graph-traversal-option-bfs-deprecated class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The graph traversal option <code>bfs</code> is now deprecated and superseded by the new
+option <code>order</code>.</p><p>The preferred way to start a breadth-first search from now on is with
+<code>order: "bfs"</code>. The default remains depth-first search if no <code>order</code> is
+specified, but can also be explicitly requested with <code>order: "dfs"</code>.</p><h3 id=new-window-keyword>New <code>WINDOW</code> keyword <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#new-window-keyword class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>A new keyword <code>WINDOW</code> was added to AQL in ArangoDB 3.8. Any existing AQL
+queries that use <code>WINDOW</code> (in any capitalization) as a variable name,
+collection or View name or refer to an attribute named <code>WINDOW</code> will likely
+run into parse errors when upgrading to ArangoDB 3.8.</p><p>When a query is affect, the fix is to put the name <code>WINDOW</code> into backticks
+inside the query, in the same way as when using other reserved keywords as
+identifiers/names in AQL queries.</p><p>For example, the query:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>status</span> <span class=kr>IN</span> <span class=kr>Window</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>status</span><span class=p>.</span><span class=n>open</span></span></span></code></pre></div><p>… will need to be adjusted to:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>status</span> <span class=kr>IN</span> <span class=n>`Window`</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>status</span><span class=p>.</span><span class=n>open</span></span></span></code></pre></div><h2 id=subqueries>Subqueries <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#subqueries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The AQL optimizer rule <code>splice-subqueries</code> was introduced in ArangoDB 3.6 to
+optimize most subqueries, and it was extended in 3.7 to work with all types
+of subqueries. It was always turned on by default, but it still could be
+deactivated manually using a startup option (<code>--query.optimizer-rules</code>) or
+for individual queries via the <code>optimizer.rules</code> query option.</p><p>In ArangoDB 3.8, the optimizer rule <code>splice-subqueries</code> is now required for
+subquery execution, and cannot be turned off. Trying to disable it via the
+mentioned startup option or query option has no effect, as the optimizer rule
+will always run for queries containing subqueries.</p><h3 id=update-queries-with-keepnull-false>UPDATE queries with <code>keepNull: false</code> <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#update-queries-with-keepnull-false class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>AQL update queries using the <code>keepNull</code> option set to false had an inconsistent
+behavior in previous versions of ArangoDB.</p><p>For example, given a collection <code>test</code> with an empty document with just key
+<code>testDoc</code>, the following query would return different results when running for
+the first time and the second time:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>UPDATE</span> <span class=s1>&#39;testDoc&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>WITH</span> <span class=p>{</span> <span class=n>test</span><span class=o>:</span> <span class=p>{</span> <span class=n>sub1</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span> <span class=n>sub2</span><span class=o>:</span> <span class=kc>null</span> <span class=p>}</span> <span class=p>}</span> <span class=kr>IN</span> <span class=n>test</span>
+</span></span><span class=line><span class=cl><span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>keepNull</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span> <span class=n>mergeObjects</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span></span></span></code></pre></div><p>On its first run, the query would return:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;testDoc&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;test&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;sub1&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;sub2&#34;</span><span class=p>:</span> <span class=kc>null</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>(with the <code>null</code> attribute value not being removed). For all subsequent runs,
+the same query would return:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;testDoc&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;test&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;sub1&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>(with the <code>null</code> value removed as requested).</p><p>This inconsistency was due to how the <code>keepNull</code> attribute was handled if
+the attribute already existed in the to-be-updated document or not. The
+behavior is now consistent, so <code>null</code> values are now properly removed from
+sub-attributes even if in the to-be-updated document the target attribute
+did not yet exist. This makes such updates idempotent again.</p><p>This a behavior change compared previous versions, but it will only have
+effect when <code>keepNull</code> is set to <code>false</code> (the default value is <code>true</code>),
+and only when just-inserted object sub-attributes contained <code>null</code> values.</p><h2 id=pregel>Pregel <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#pregel class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The HTTP and JavaScript APIs for controlling Pregel jobs now also accept
+stringified execution number values, in addition to numeric ones.</p><p>This allows passing larger execution numbers as strings, so that any data
+loss due to numeric data type conversion (uint32 => double) can be avoided.
+This change is downwards-compatible.</p><p>However, the HTTP and JavaScript APIs for starting Pregel runs now also
+return a stringified execution number, e.g. &ldquo;12345&rdquo; instead of 12345.
+This is not downwards-compatible, so all client applications that depend
+on the return value being a numeric value need to be adjusted to handle
+a string return value and convert that string into a number.</p><h2 id=document-operations>Document operations <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#document-operations class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=update-operations-with-keepnull-false>Update operations with <code>keepNull: false</code> <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#update-operations-with-keepnull-false class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Non-AQL document update operations using the <code>keepNull</code> option set to false had
+an inconsistent behavior in previous versions of ArangoDB.</p><p>For example, given a collection <code>test</code> with an empty document with just key <code>testDoc</code>,
+the following operation would produce different documents when running for the first
+time and the second time:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>test</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=s2>&#34;testDoc&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>test</span><span class=o>:</span> <span class=p>{</span> <span class=nx>sub1</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span> <span class=nx>sub2</span><span class=o>:</span> <span class=kc>null</span> <span class=p>}</span> <span class=p>},</span> <span class=p>{</span> <span class=nx>keepNull</span><span class=o>:</span> <span class=kc>false</span> <span class=p>});</span></span></span></code></pre></div><p>Also see <a href=#update-queries-with-keepnull-false class=link>AQL UPDATE queries with <code>keepNull: false</code></a></p><h2 id=client-tools>Client tools <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#client-tools class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=arangoimport>arangoimport <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#arangoimport class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The default value for arangoimport&rsquo;s <code>--batch-size</code> option was raised from
+1 MB to 8 MB. This means that arangoimport can send larger batches containing
+more documents.</p><p><em>arangoimport</em> also has a rate limiting feature, which was turned on by default
+previously. This rate limiting feature limited the import rate to 1 MB per
+second, which is probably too low for most use cases. In ArangoDB 3.8, the
+rate limiting for arangoimport is now turned off by default, but can be
+enabled on demand using the new <code>--auto-rate-limit</code> option. When enabled, it
+will start sending batches with up to <code>--batch-size</code> bytes, and then adapt
+the loading rate dynamically.</p><h3 id=arangodump>arangodump <a href=/3.11/release-notes/version-3.8/incompatible-changes-in-3-8/#arangodump class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>arangodump can now dump multiple shards of cluster collections in parallel.
+While this normally helps with dump performance, it may lead to more arangodump
+issuing more concurrent requests to a cluster than it did before.</p><p>Previously, arangodump&rsquo;s <code>--threads</code> option controlled how many collections were
+dumped concurrently, at most. As arangodump can now dump the shards of
+collections in parallel, <code>--threads</code> now controls the maximum amount of shards
+that are dumped concurrently.</p><p>If arangodump now causes too much load on a cluster with a high degree of
+parallelism, it is possible to reduce it by decreasing arangodump&rsquo;s <code>--threads</code>
+value. The value of <code>--threads</code> will the determine the maximum parallelism
+used by arangodump.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/release-notes/version-3.8/known-issues-in-3-8/><i class="fas fa-chevron-left fa-fw"></i><p>Known Issues in 3.8</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/release-notes/version-3.8/api-changes-in-3-8/><p>API changes in 3.8</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/release-notes/version-3.8/incompatible-changes-in-3-8.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#foxx>Foxx</a></div><div class=level-2><a href=#collection-attributes>Collection attributes</a></div><div class=level-2><a href=#startup-options>Startup options</a></div><div class=level-3><a href=#renamed-options>Renamed options</a></div><div class=level-3><a href=#deprecated-options>Deprecated options</a></div><div class=level-3><a href=#changed-default-values>Changed default values</a></div><div class=level-4><a href=#system-collections>System collections</a></div><div class=level-4><a href=#foxx-1>Foxx</a></div><div class=level-4><a href=#rocksdb>RocksDB</a></div><div class=level-4><a href=#network>Network</a></div><div class=level-4><a href=#stream-transactions>Stream Transactions</a></div><div class=level-4><a href=#file-descriptors>File descriptors</a></div><div class=level-4><a href=#scheduler>Scheduler</a></div><div class=level-3><a href=#aql-query-memory-usage>AQL query memory usage</a></div><div class=level-4><a href=#per-query-memory-limit>Per-query memory limit</a></div><div class=level-4><a href=#global-memory-limit>Global memory limit</a></div><div class=level-4><a href=#memory-usage-granularity>Memory usage granularity</a></div><div class=level-3><a href=#audit-logging-enterprise-edition>Audit Logging (Enterprise Edition)</a></div><div class=level-2><a href=#http-restful-api>HTTP RESTful API</a></div><div class=level-3><a href=#www-authenticate-response-header>Www-Authenticate response header</a></div><div class=level-3><a href=#endpoint-return-value-changes>Endpoint return value changes</a></div><div class=level-3><a href=#optional-lockdown-of-_admincluster-rest-api>Optional lockdown of <code>/_admin/cluster</code> REST API</a></div><div class=level-2><a href=#aql>AQL</a></div><div class=level-3><a href=#graph-traversal-option-bfs-deprecated>Graph traversal option <code>bfs</code> deprecated</a></div><div class=level-3><a href=#new-window-keyword>New <code>WINDOW</code> keyword</a></div><div class=level-2><a href=#subqueries>Subqueries</a></div><div class=level-3><a href=#update-queries-with-keepnull-false>UPDATE queries with <code>keepNull: false</code></a></div><div class=level-2><a href=#pregel>Pregel</a></div><div class=level-2><a href=#document-operations>Document operations</a></div><div class=level-3><a href=#update-operations-with-keepnull-false>Update operations with <code>keepNull: false</code></a></div><div class=level-2><a href=#client-tools>Client tools</a></div><div class=level-3><a href=#arangoimport>arangoimport</a></div><div class=level-3><a href=#arangodump>arangodump</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

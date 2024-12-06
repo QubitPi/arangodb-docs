@@ -1,0 +1,458 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for Hot Backups lets you manage incremental, zero-downtime data backups"><meta property="og:url" content="http://localhost/3.11/develop/http-api/hot-backups/"><meta property="og:title" content="HTTP interface for Hot Backups"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for Hot Backups lets you manage incremental, zero-downtime data backups"><meta name=docsearch:version content="3.11"><title>HTTP interface for Hot Backups | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Hot Backups"><a itemprop=item class=link href=/3.11/develop/http-api/hot-backups/><span itemprop=name class=breadcrumb-entry>Hot Backups</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for Hot Backups</h1><p class=lead>The HTTP API for Hot Backups lets you manage incremental, zero-downtime data backups</p></hgroup><p class=labels><span class=label>ArangoDB Enterprise Edition</span></p><p>Hot Backups are near instantaneous consistent snapshots of an
+<strong>entire</strong> ArangoDB deployment. This includes all databases, collections,
+indexes, Views, graphs, and users at any given time.</p><p>For creations a label may be specified, which if omitted
+is replaced with a generated UUID. This label is then combined with a
+timestamp to generate an identifier for the created
+hot backup. Subsequently, all other APIs operate on these identifiers.</p><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>Make sure to understand all aspects of <a href=/3.11/operations/backup-and-restore/#hot-backups class=link>Hot Backups</a>,
+most of all the <a href=/3.11/operations/backup-and-restore/#hot-backup-limitations class=link>requirements and limitations</a>,
+before using the API.</div></div></div></div><p>The permissions required to use the <code>/_admin/backup/*</code> endpoints depends on the
+setting of the <a href=/3.11/components/arangodb-server/options/#--serveroptions-api class=link><code>--backup.options-api</code> startup option</a>.</p><h2 id=create-a-backup>Create a backup <a href=/3.11/develop/http-api/hot-backups/#create-a-backup class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/create</span></div><div class="openapi-description regular-font">Creates a consistent local backup &ldquo;as soon as possible&rdquo;, very much
+like a snapshot in time, with a given label. The ambiguity in the
+phrase &ldquo;as soon as possible&rdquo; refers to the next window during which a
+global write lock across all databases can be obtained in order to
+guarantee consistency. Note that the backup at first resides on the
+same machine and hard drive as the original data. Make sure to upload
+it to a remote site for an actual backup.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-a-backup_body_allowInconsistent><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">allowInconsistent</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#create-a-backup_body_allowInconsistent><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If this flag is set to <code>true</code> and no global transaction lock can be
+acquired within the given timeout, a possibly inconsistent backup
+is taken. The default for this flag is <code>false</code> and in this case
+a timeout results in an HTTP 408 error.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-backup_body_force><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">force</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#create-a-backup_body_force><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If this flag is set to <code>true</code> and no global transaction lock can be acquired
+within the given timeout, all running transactions are forcefully aborted to
+ensure that a consistent backup can be created. This does not include
+JavaScript transactions. It waits for the transactions to be aborted at most
+<code>timeout</code> seconds. Thus using <code>force</code> the request timeout is doubled.
+To abort transactions is almost certainly not what you want for your application.
+In the presence of intermediate commits it can even destroy the atomicity of your
+transactions. Use at your own risk, and only if you need a consistent backup at
+all costs. The default and recommended value is <code>false</code>. If both
+<code>allowInconsistent</code> and <code>force</code> are set to <code>true</code>, then the latter takes
+precedence and transactions are aborted. This is only available in the cluster.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-backup_body_label><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">label</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-a-backup_body_label><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The label for this backup. The label is used together with a
+timestamp string create a unique backup identifier, <code>&lt;timestamp>_&lt;label></code>.
+If no label is specified, the empty string is assumed and a default
+UUID is created for this part of the ID.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-backup_body_timeout><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">timeout</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#create-a-backup_body_timeout><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The time in seconds that the operation tries to get a consistent
+snapshot. The default is 120 seconds.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-a-backup_res_201><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">201</span>
+<span class="openapi-property-type bold-text">Created</span>
+<a href=#create-a-backup_res_201><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 201 is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-backup_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#create-a-backup_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the create command is invoked with bad parameters or any HTTP
+method other than <code>POST</code>, then an <em>HTTP 400</em> is returned. The specifics
+are detailed in the returned error document.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-backup_res_408><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">408</span>
+<span class="openapi-property-type bold-text">Request Timeout</span>
+<a href=#create-a-backup_res_408><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the operation cannot obtain a global transaction lock
+within the timeout, then an <em>HTTP 408</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/create&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;label&#34;: &#34;foo&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>186</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 201, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.43Z_foo&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;potentiallyInconsistent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sizeInBytes&#34;</span> : 7966372, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;datetime&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:43Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;nrDBServers&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;nrFiles&#34;</span> : <span class=m>28</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=restore-a-backup>Restore a backup <a href=/3.11/develop/http-api/hot-backups/#restore-a-backup class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/restore</span></div><div class="openapi-description regular-font">Restores a consistent local backup from a
+snapshot in time, with a given id. The backup snapshot must reside on
+the ArangoDB service locally.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=restore-a-backup_body_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#restore-a-backup_body_id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The id of the backup to restore from.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=restore-a-backup_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#restore-a-backup_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Is returned if the backup could be restored. Note that there is an
+inevitable discrepancy between the single server and the cluster. In a
+single server, the request returns successfully, but the restore is
+only executed afterwards. In the cluster, the request only returns when
+the restore operation has been completed successfully. The cluster
+behavior is obviously the desired one, but in a single instance, one
+cannot keep a connection open across a restart.</p></div></details></li><li class="openapi-table-row regular-font"><details id=restore-a-backup_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#restore-a-backup_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the restore command is invoked with bad parameters or any HTTP
+method other than <code>POST</code>, then an <em>HTTP 400</em> is returned. The specifics
+are detailed in the returned error document.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/restore&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;id&#34;: &#34;2024-11-06T11.55.43Z_7e669f1d-afa8-485f-8554-190c847bea32&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>97</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;previous&#34;</span> : <span class=s2>&#34;/var/lib/arangodb3/backups/DIRECTORY_TO_DELETE&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=delete-a-backup>Delete a backup <a href=/3.11/develop/http-api/hot-backups/#delete-a-backup class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/delete</span></div><div class="openapi-description regular-font">Delete a specific local backup identified by the given <code>id</code>.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-a-backup_body_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-a-backup_body_id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier for this backup.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-a-backup_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#delete-a-backup_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, this code 200 is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-a-backup_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#delete-a-backup_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the delete command is invoked with bad parameters or any HTTP
+method other than <code>POST</code>, then an <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-a-backup_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#delete-a-backup_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If a backup corresponding to the identifier <code>id</code> cannot be found.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/delete&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;id&#34;: &#34;2024-11-06T11.55.46Z_8cc65ed5-a51e-435e-bf1f-46a9e471cc75&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>38</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=list-all-backups>List all backups <a href=/3.11/develop/http-api/hot-backups/#list-all-backups class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/list</span></div><div class="openapi-description regular-font">Lists all locally found backups.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-backups_body_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-all-backups_body_id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The body can either be empty (in which case all available backups are
+listed), or it can be an object with an attribute <code>id</code>, which
+is a string. In the latter case the returned list
+is restricted to the backup with the given id.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-backups_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#list-all-backups_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 200 is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-backups_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#list-all-backups_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the list command is invoked with bad parameters, then an <em>HTTP 400</em>
+is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-backups_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#list-all-backups_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If an <code>id</code> or a list of ids was given and the given ids were not found
+as identifiers of a backup, an <em>HTTP 404 Not Found</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-backups_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
+<span class="openapi-property-type bold-text">Method Not Allowed</span>
+<a href=#list-all-backups_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the list command is invoked with any HTTP
+method other than <code>POST</code>, then an <em>HTTP 405 Method Not Allowed</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/list&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>1397</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;SNGL-21b960e0-6c54-4409-ad64-61f4c5de3033&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;list&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;2024-11-06T11.55.46Z_8687a850-3adc-486b-bbaf-9f3110635880&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.46Z_8687a850-3adc-486b-bbaf-9f3110635880&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.11.12&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;datetime&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:46Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;keys&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sizeInBytes&#34;</span> : 7963238, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrFiles&#34;</span> : 29, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrDBServers&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;available&#34;</span> : true, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrPiecesPresent&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;potentiallyInconsistent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;countIncludesFilesOnly&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;2024-11-06T11.55.46Z_a85d99c8-6f22-404d-a074-9fdecbd910ec&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.46Z_a85d99c8-6f22-404d-a074-9fdecbd910ec&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.11.12&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;datetime&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:46Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;keys&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sizeInBytes&#34;</span> : 7963143, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrFiles&#34;</span> : 28, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrDBServers&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;available&#34;</span> : true, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrPiecesPresent&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;potentiallyInconsistent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;countIncludesFilesOnly&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;2024-11-06T11.55.43Z_7e669f1d-afa8-485f-8554-190c847bea32&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.43Z_7e669f1d-afa8-485f-8554-190c847bea32&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.11.12&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;datetime&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:43Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;keys&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sizeInBytes&#34;</span> : 7986548, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrFiles&#34;</span> : 31, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrDBServers&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;available&#34;</span> : true, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrPiecesPresent&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;potentiallyInconsistent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;countIncludesFilesOnly&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;2024-11-06T11.55.43Z_foo&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.43Z_foo&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.11.12&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;datetime&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:43Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;keys&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sizeInBytes&#34;</span> : 7966372, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrFiles&#34;</span> : 28, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrDBServers&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;available&#34;</span> : true, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;nrPiecesPresent&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;potentiallyInconsistent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;countIncludesFilesOnly&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=upload-a-backup-to-a-remote-repository>Upload a backup to a remote repository <a href=/3.11/develop/http-api/hot-backups/#upload-a-backup-to-a-remote-repository class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/upload</span></div><div class="openapi-description regular-font">Upload a specific local backup to a remote repository, or query
+progress on a previously scheduled upload operation, or abort
+a running upload operation.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_body_abort><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">abort</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#upload-a-backup-to-a-remote-repository_body_abort><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Set this to <code>true</code> if a running upload operation should be aborted. In
+this case, the only other body parameter which is needed is <code>uploadId</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_body_config><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">config</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#upload-a-backup-to-a-remote-repository_body_config><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Configuration of remote repository. This is required when an upload
+operation is scheduled. In this case leave out the <code>uploadId</code>
+attribute. See the description of the <em>arangobackup</em> program in the manual
+for a description of the <code>config</code> object.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_body_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#upload-a-backup-to-a-remote-repository_body_id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier for this backup. This is required when an upload
+operation is scheduled. In this case leave out the <code>uploadId</code>
+attribute.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_body_remoteRepository><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">remoteRepository</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#upload-a-backup-to-a-remote-repository_body_remoteRepository><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>URL of remote repository. This is required when an upload operation is
+scheduled. In this case leave out the <code>uploadId</code> attribute. Provided repository
+URLs are normalized and validated as follows: One single colon must appear
+separating the configuration section name and the path. The URL prefix up to
+the colon must exist as a key in the config object below. No slashes must
+appear before the colon. Multiple back to back slashes are collapsed to one, as
+<code>..</code> and <code>.</code> are applied accordingly. Local repositories must be absolute
+paths and must begin with a <code>/</code>. Trailing <code>/</code> are removed.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_body_uploadId><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">uploadId</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#upload-a-backup-to-a-remote-repository_body_uploadId><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Upload ID to specify for which upload operation progress is queried or
+the upload operation to abort.
+If you specify this, leave out all the above body parameters.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#upload-a-backup-to-a-remote-repository_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 200 is returned if progress is inquired or the
+operation is aborted.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_res_202><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">202</span>
+<span class="openapi-property-type bold-text">Accepted</span>
+<a href=#upload-a-backup-to-a-remote-repository_res_202><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 202 is returned if a new operation is scheduled.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#upload-a-backup-to-a-remote-repository_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the upload command is invoked with bad parameters or any HTTP
+method other than <code>POST</code>, then an <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_res_401><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">401</span>
+<span class="openapi-property-type bold-text">Unauthorized</span>
+<a href=#upload-a-backup-to-a-remote-repository_res_401><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the authentication to the remote repository fails, then an <em>HTTP
+400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=upload-a-backup-to-a-remote-repository_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#upload-a-backup-to-a-remote-repository_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If a backup corresponding to the identifier <code>id</code> cannot be found, or if
+there is no known upload operation with the given <code>uploadId</code>.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/upload&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;id&#34;: &#34;2024-11-06T11.55.46Z_c76dcb98-8aae-4ba5-9036-39c9e8f8e029&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;remoteRepository&#34;: &#34;local://tmp/backups&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;config&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;local&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>      &#34;type&#34;: &#34;local&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>  }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>56</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 202, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;uploadId&#34;</span> : <span class=s2>&#34;68374&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>The <code>result</code> object of the body holds the <code>uploadId</code> string attribute which can
+be used to follow the upload process.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/upload&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;uploadId&#34;: &#34;68375&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>222</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;Timestamp&#34;</span> : <span class=s2>&#34;2024-11-06T11:55:46Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;UploadId&#34;</span> : <span class=s2>&#34;68375&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;Cancelled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BackupId&#34;</span> : <span class=s2>&#34;2024-11-06T11.55.46Z_add1f013-ef9f-4dc7-8879-be73c5d0467d&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;DBServers&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;SNGL&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Status&#34;</span> : <span class=s2>&#34;STARTED&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=download-a-backup-from-a-remote-repository>Download a backup from a remote repository <a href=/3.11/develop/http-api/hot-backups/#download-a-backup-from-a-remote-repository class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_admin/backup/download</span></div><div class="openapi-description regular-font">Download a specific local backup from a remote repository, or query
+progress on a previously scheduled download operation, or abort
+a running download operation.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_body_abort><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">abort</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#download-a-backup-from-a-remote-repository_body_abort><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Set this to <code>true</code> if a running download operation should be aborted. In
+this case, the only other body parameter which is needed is <code>downloadId</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_body_config><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">config*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#download-a-backup-from-a-remote-repository_body_config><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Configuration of remote repository. This is required when a download
+operation is scheduled. In this case leave out the <code>downloadId</code>
+attribute. See the description of the <em>arangobackup</em> program in the manual
+for a description of the <code>config</code> object.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_body_downloadId><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">downloadId</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#download-a-backup-from-a-remote-repository_body_downloadId><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Download ID to specify for which download operation progress is queried, or
+the download operation to abort.
+If you specify this, leave out all the above body parameters.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_body_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#download-a-backup-from-a-remote-repository_body_id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier for this backup. This is required when a download
+operation is scheduled. In this case leave out the <code>downloadId</code>
+attribute.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_body_remoteRepository><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">remoteRepository*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#download-a-backup-from-a-remote-repository_body_remoteRepository><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>URL of remote repository. This is required when a download operation is
+scheduled. In this case leave out the <code>downloadId</code> attribute. Provided
+repository URLs are normalized and validated as follows: One single colon must
+appear separating the configuration section name and the path. The URL prefix
+up to the colon must exist as a key in the config object below. No slashes must
+appear before the colon. Multiple back to back slashes are collapsed to one, as
+<code>..</code> and <code>.</code> are applied accordingly. Local repositories must be absolute paths
+and must begin with a <code>/</code>. Trailing <code>/</code> are removed.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#download-a-backup-from-a-remote-repository_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 200 is returned if progress is inquired or the
+operation is aborted.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_res_202><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">202</span>
+<span class="openapi-property-type bold-text">Accepted</span>
+<a href=#download-a-backup-from-a-remote-repository_res_202><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If all is well, code 202 is returned if a new operation is scheduled.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#download-a-backup-from-a-remote-repository_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the download command is invoked with bad parameters or any HTTP
+method other than <code>POST</code>, then an <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_res_401><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">401</span>
+<span class="openapi-property-type bold-text">Unauthorized</span>
+<a href=#download-a-backup-from-a-remote-repository_res_401><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the authentication to the remote repository fails, then an <em>HTTP
+401</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=download-a-backup-from-a-remote-repository_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#download-a-backup-from-a-remote-repository_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If a backup corresponding to the identifier <code>id</code> cannot be found, or if
+there is no known download operation with the given <code>downloadId</code>.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/download&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;id&#34;: &#34;2024-11-06T11.55.46Z_d82034df-44be-4aca-a65e-31dca5eca6f4&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;remoteRepository&#34;: &#34;local://tmp/backups&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;config&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;local&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>      &#34;type&#34;: &#34;local&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>  }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>58</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 202, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;downloadId&#34;</span> : <span class=s2>&#34;68381&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>The <code>result</code> object of the body holds the <code>downloadId</code> string attribute which
+can be used to follow the download process.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_admin/backup/download&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;downloadId&#34;: &#34;68391&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>224</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;Timestamp&#34;</span> : <span class=s2>&#34;2024-11-06T11:56:16Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;DownloadId&#34;</span> : <span class=s2>&#34;68391&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;Cancelled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BackupId&#34;</span> : <span class=s2>&#34;2024-11-06T11.56.01Z_b8f0cf56-555e-4612-b7c7-ce23408969ea&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;DBServers&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;SNGL&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Status&#34;</span> : <span class=s2>&#34;STARTED&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/develop/http-api/cluster/><i class="fas fa-chevron-left fa-fw"></i><p>Cluster</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/develop/error-codes-and-meanings/><p>Error codes and meanings</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/develop/http-api/hot-backups.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#create-a-backup>Create a backup</a></div><div class=level-2><a href=#restore-a-backup>Restore a backup</a></div><div class=level-2><a href=#delete-a-backup>Delete a backup</a></div><div class=level-2><a href=#list-all-backups>List all backups</a></div><div class=level-2><a href=#upload-a-backup-to-a-remote-repository>Upload a backup to a remote repository</a></div><div class=level-2><a href=#download-a-backup-from-a-remote-repository>Download a backup from a remote repository</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

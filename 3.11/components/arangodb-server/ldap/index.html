@@ -1,0 +1,294 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="LDAP authentication options in the ArangoDB server"><meta property="og:url" content="http://localhost/3.11/components/arangodb-server/ldap/"><meta property="og:title" content="ArangoDB Server LDAP Options"><meta property="og:type" content="website"><meta property="og:description" content="LDAP authentication options in the ArangoDB server"><meta name=docsearch:version content="3.11"><title>ArangoDB Server LDAP Options | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.11/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="ArangoDB Server"><a itemprop=item class=link href=/3.11/components/arangodb-server/><span itemprop=name class=breadcrumb-entry>ArangoDB Server</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="LDAP"><a itemprop=item class=link href=/3.11/components/arangodb-server/ldap/><span itemprop=name class=breadcrumb-entry>LDAP</span></a></li></ol></nav><article class=default><hgroup><h1>ArangoDB Server LDAP Options</h1><p class=lead>LDAP authentication options in the ArangoDB server</p></hgroup><p class=labels><span class=label>ArangoDB Enterprise Edition</span>
+<span class=label>ArangoGraph</span></p><h2 id=basics-concepts>Basics Concepts <a href=/3.11/components/arangodb-server/ldap/#basics-concepts class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The basic idea is that one can keep the user authentication setup for
+an ArangoDB instance (single or cluster) outside of ArangoDB in an LDAP
+server. A crucial feature of this is that one can add and withdraw users
+and permissions by only changing the LDAP server and in particular
+without touching the ArangoDB instance. Changes are effective in
+ArangoDB within a few minutes.</p><p>Since there are many different possible LDAP setups, we must support a
+variety of possibilities for authentication and authorization. Here is
+a short overview:</p><p>To map ArangoDB user names to LDAP users there are two authentication
+methods called &ldquo;simple&rdquo; and &ldquo;search&rdquo;. In the &ldquo;simple&rdquo; method the LDAP bind
+user is derived from the ArangoDB user name by prepending a prefix and
+appending a suffix. For example, a user &ldquo;alice&rdquo; could be mapped to the
+distinguished name <code>uid=alice,dc=arangodb,dc=com</code> to perform the LDAP
+bind and authentication.
+See <a href=#simple-authentication-method class=link>Simple authentication method</a>
+below for details and configuration options.</p><p>In the &ldquo;search&rdquo; method there are two phases. In Phase 1 a generic
+read-only admin LDAP user account is used to bind to the LDAP server
+first and search for an LDAP user matching the ArangoDB user name. In
+Phase 2, the actual authentication is then performed against the LDAP
+user that was found in phase 1. Both methods are sensible and are
+recommended to use in production.
+See <a href=#search-authentication-method class=link>Search authentication method</a>
+below for details and configuration options.</p><p>Once the user is authenticated, there are now two methods for
+authorization: (a) &ldquo;roles attribute&rdquo; and (b) &ldquo;roles search&rdquo;.</p><p>In method (a) ArangoDB acquires a list of roles the authenticated LDAP
+user has from the LDAP server. The actual access rights to databases
+and collections for these roles are configured in ArangoDB itself.
+Users effectively have the union of all access rights of all roles
+they have. This method is probably the most common one for production use
+cases. It combines the advantages of managing users and roles outside of
+ArangoDB in the LDAP server with the fine grained access control within
+ArangoDB for the individual roles. See <a href=#roles-attribute class=link>Roles attribute</a>
+below for details about method (a) and for the associated configuration
+options.</p><p>Method (b) is very similar and only differs from (a) in the way the
+actual list of roles of a user is derived from the LDAP server.
+See <a href=#roles-search class=link>Roles search</a> below for details about method (b)
+and for the associated configuration options.</p><h2 id=fundamental-options>Fundamental options <a href=/3.11/components/arangodb-server/ldap/#fundamental-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The fundamental options for specifying how to access the LDAP server are
+the following:</p><ul><li><code>--ldap.enabled</code> this is a boolean option which must be set to
+<code>true</code> to activate the LDAP feature</li><li><code>--ldap.server</code> is a string specifying the host name or IP address
+of the LDAP server</li><li><code>--ldap.port</code> is an integer specifying the port the LDAP server is
+running on, the default is <code>389</code></li><li><code>--ldap.basedn</code> specifies the base distinguished name under which
+the search takes place (can alternatively be set via <code>--ldap.url</code>)</li><li><code>--ldap.binddn</code> and <code>--ldap.bindpasswd</code> are distinguished name and
+password for a read-only LDAP user to which ArangoDB can bind to
+search the LDAP server. Note that it is necessary to configure these
+for both the &ldquo;simple&rdquo; and &ldquo;search&rdquo; authentication methods, since
+even in the &ldquo;simple&rdquo; method, ArangoDB occasionally has to refresh
+the authorization information from the LDAP server
+even if the user session persists and no new authentication is
+needed! It is, however, allowed to leave both empty, but then the
+LDAP server must be readable with anonymous access.</li><li><code>--ldap.refresh-rate</code> is a floating point value in seconds. The
+default is 300, which means that ArangoDB refreshes the
+authorization information for authenticated users after at most 5
+minutes. This means that changes in the LDAP server like removed
+users or added or removed roles for a user are effective after
+at most 5 minutes.</li></ul><p>Note that the <code>--ldap.server</code> and <code>--ldap.port</code> options can
+alternatively be specified in the <code>--ldap.url</code> string together with
+other configuration options. For details see Section &ldquo;LDAP URLs&rdquo; below.</p><p>Here is an example on how to configure the connection to the LDAP server,
+with anonymous bind:</p><pre tabindex=0><code>--ldap.enabled=true \
+--ldap.server=ldap.arangodb.com \
+--ldap.basedn=dc=arangodb,dc=com
+</code></pre><p>With this configuration ArangoDB binds anonymously to the LDAP server
+on host <code>ldap.arangodb.com</code> on the default port 389 and executes all searches
+under the base distinguished name <code>dc=arangodb,dc=com</code>.</p><p>If we need a user to read in LDAP here is the example for it:</p><pre tabindex=0><code>--ldap.enabled=true \
+--ldap.server=ldap.arangodb.com \
+--ldap.basedn=dc=arangodb,dc=com \
+--ldap.binddn=uid=arangoadmin,dc=arangodb,dc=com \
+--ldap.bindpasswd=supersecretpassword
+</code></pre><p>The connection is identical but the searches are executed with the
+given distinguished name in <code>binddn</code>.</p><p>Note here:
+The given user (or the anonymous one) needs at least read access on
+all user objects to find them and in the case of Roles search
+also read access on the objects storing the roles.</p><p>Up to this point ArangoDB can now connect to a given LDAP server
+but it is not yet able to authenticate users properly with it.
+For this pick one of the following two authentication methods.</p><h3 id=ldap-urls>LDAP URLs <a href=/3.11/components/arangodb-server/ldap/#ldap-urls class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>As an alternative one can specify the values of multiple LDAP related configuration
+options by specifying a single LDAP URL. Here is an example:</p><pre tabindex=0><code>--ldap.url ldap://ldap.arangodb.com:1234/dc=arangodb,dc=com?uid?sub
+</code></pre><p>This one option has the combined effect of setting the following:</p><pre tabindex=0><code>--ldap.server=ldap.arangodb.com \
+--ldap.port=1234 \
+--ldap.basedn=dc=arangodb,dc=com \
+--ldap.searchAttribute=uid \
+--ldap.searchScope=sub
+</code></pre><p>That is, the LDAP URL consists of the LDAP <code>server</code> and <code>port</code>, a <code>basedn</code>, a
+<code>searchAttribute</code>, and a <code>searchScope</code> which can be one of <code>base</code>, <code>one</code>, or
+<code>sub</code>. There is also the possibility to use the <code>ldaps</code> protocol as in:</p><pre tabindex=0><code>--ldap.url ldaps://ldap.arangodb.com:636/dc=arangodb,dc=com?uid?sub
+</code></pre><p>This does exactly the same as the one above, except that it uses the
+LDAP over TLS protocol. This is a non-standard method which does not
+involve using the STARTTLS protocol. Note that this does not work in the
+Windows version! We suggest to use the <code>ldap</code> protocol and STARTTLS
+as described in the next section.</p><h3 id=tls-options>TLS options <a href=/3.11/components/arangodb-server/ldap/#tls-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>TLS is not supported in the Windows version of ArangoDB!</div></div></div></div><p>To configure the usage of encrypted TLS to communicate with the LDAP server
+the following options are available:</p><ul><li><code>--ldap.tls</code>: the main switch to active TLS. can either be
+<code>true</code> (use TLS) or <code>false</code> (do not use TLS). It is switched
+off by default. If you switch this on and do not use the <code>ldaps</code>
+protocol via the <a href=#ldap-urls class=link>LDAP URL</a>, then ArangoDB
+uses the <code>STARTTLS</code> protocol to initiate TLS. This is the
+recommended approach.</li><li><code>--ldap.tls-version</code>: the minimal TLS version that ArangoDB should accept.
+Available versions are <code>1.0</code>, <code>1.1</code> and <code>1.2</code>. The default is <code>1.2</code>. If
+your LDAP server does not support Version 1.2, you have to change
+this setting.</li><li><code>--ldap.tls-cert-check-strategy</code>: strategy to validate the LDAP server
+certificate. Available strategies are <code>never</code>, <code>hard</code>,
+<code>demand</code>, <code>allow</code> and <code>try</code>. The default is <code>hard</code>.</li><li><code>--ldap.tls-cacert-file</code>: a file path to one or more (concatenated)
+certificate authority certificates in PEM format.
+As default no file path is configured. This certificate
+is used to validate the server response.</li><li><code>--ldap.tls-cacert-dir</code>: a directory path to certificate authority certificates in
+<a href=https://www.openssl.org/docs/man3.0/man1/c_rehash.html target=_blank rel="noopener noreferrer" class=link>c_rehash</a>&nbsp;<i class="fas fa-external-link-alt"></i>
+format. As default no directory path is configured.</li></ul><p>Assuming you have the TLS CAcert file that is given to the server at
+<code>/path/to/certificate.pem</code>, here is an example on how to configure TLS:</p><pre tabindex=0><code>--ldap.tls true \
+--ldap.tls-cacert-file /path/to/certificate.pem
+</code></pre><p>You can use TLS with any of the following authentication mechanisms.</p><h3 id=secondary-server-options-ldap2>Secondary server options (<code>ldap2</code>) <a href=/3.11/components/arangodb-server/ldap/#secondary-server-options-ldap2 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The <code>ldap.*</code> options configure the primary LDAP server. It is possible to
+configure a secondary server with the <code>ldap2.*</code> options to use it as a
+fail-over for the case that the primary server is not reachable, but also to
+let the primary servers handle some users and the secondary others.</p><p>Instead of <code>--ldap.&lt;OPTION></code> you need to specify <code>--ldap2.&lt;OPTION></code>.
+Authentication / authorization first checks the primary LDAP server.
+If this server cannot authenticate a user, it tries the secondary one.</p><p>It is possible to specify a file containing all users that the primary
+LDAP server is handling by specifying the option <code>--ldap.responsible-for</code>.
+This file must contain the usernames line-by-line. This is also supported for
+the secondary server, which can be used to exclude certain users completely.</p><h3 id=esoteric-options>Esoteric options <a href=/3.11/components/arangodb-server/ldap/#esoteric-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following options can be used to configure advanced options for LDAP
+connectivity:</p><ul><li><code>--ldap.serialized</code>: whether or not calls into the underlying LDAP library should be serialized.
+This option can be used to work around thread-unsafe LDAP library functionality.</li><li><code>--ldap.serialize-timeout</code>: sets the timeout value that is used when waiting to enter the
+LDAP library call serialization lock. This is only meaningful when <code>--ldap.serialized</code> has been
+set to <code>true</code>.</li><li><code>--ldap.retries</code>: number of tries to attempt a connection. Setting this to values greater than
+one will make ArangoDB retry to contact the LDAP server in case no connection can be made
+initially.</li></ul><p>Please note that some of the following options are platform-specific and may not work
+with all LDAP servers reliably:</p><ul><li><code>--ldap.restart</code>: whether or not the LDAP library should implicitly restart connections</li><li><code>--ldap.referrals</code>: whether or not the LDAP library should implicitly chase referrals</li></ul><p>The following options can be used to adjust the LDAP configuration on Linux and macOS
+platforms only, but does not work on Windows:</p><ul><li><code>--ldap.debug</code>: turn on internal OpenLDAP library output (warning: prints to stdout).</li><li><code>--ldap.timeout</code>: timeout value (in seconds) for synchronous LDAP API calls (a value of 0
+means default timeout).</li><li><code>--ldap.network-timeout</code>: timeout value (in seconds) after which network operations
+following the initial connection return in case of no activity (a value of 0 means default timeout).</li><li><code>--ldap.async-connect</code>: whether or not the connection to the LDAP library is done
+asynchronously.</li></ul><h2 id=authentication-methods>Authentication methods <a href=/3.11/components/arangodb-server/ldap/#authentication-methods class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>In order to authenticate users in LDAP we have two options available.
+We need to pick exactly one them.</p><h3 id=simple-authentication-method>Simple authentication method <a href=/3.11/components/arangodb-server/ldap/#simple-authentication-method class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The simple authentication method is used if and only if both the
+<code>--ldap.prefix</code> and <code>--ldap.suffix</code> configuration options are specified
+and are non-empty. In all other cases the
+<a href=#search-authentication-method class=link>&ldquo;search&rdquo; authentication method</a> is used.</p><p>In the &ldquo;simple&rdquo; method the LDAP bind user is derived from the ArangoDB
+user name by prepending the value of the <code>--ldap.prefix</code> configuration
+option and by appending the value of the <code>--ldap.suffix</code> configuration
+option. For example, an ArangoDB user &ldquo;alice&rdquo; would be mapped to the
+distinguished name <code>uid=alice,dc=arangodb,dc=com</code> to perform the LDAP
+bind and authentication, if <code>--ldap.prefix</code> is set to <code>uid=</code> and
+<code>--ldap.suffix</code> is set to <code>,dc=arangodb,dc=com</code>.</p><p>ArangoDB binds to the LDAP server and authenticates with the
+distinguished name and the password provided by the client. If
+the LDAP server successfully verifies the password then the user is
+authenticated.</p><p>If you want to use this method add the following example to your
+ArangoDB configuration together with the fundamental configuration:</p><pre tabindex=0><code>--ldap.prefix uid= \
+--ldap.suffix ,dc=arangodb,dc=com
+</code></pre><p>This method authenticates an LDAP user with the distinguished name
+<code>{PREFIX}{USERNAME}{SUFFIX}</code>, in this case for the ArangoDB user <code>alice</code>.
+It searches for: <code>uid=alice,dc=arangodb,dc=com</code>.
+This distinguished name is used as <code>{USER}</code> for the roles later on.</p><h3 id=search-authentication-method>Search authentication method <a href=/3.11/components/arangodb-server/ldap/#search-authentication-method class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The search authentication method is used if at least one of the two
+options <code>--ldap.prefix</code> and <code>--ldap.suffix</code> is empty or not specified.
+ArangoDB uses the LDAP user credentials given by the <code>--ldap.binddn</code> and
+<code>--ldap.bindpasswd</code> to perform a search for LDAP users.
+In this case, the values of the options <code>--ldap.basedn</code>,
+<code>--ldap.search-attribute</code>, <code>--ldap.search-filter</code> and <code>--ldap.search-scope</code>
+are used in the following way:</p><ul><li><code>--ldap.search-scope</code> is an LDAP search scope with possible values
+<code>base</code> (just search the base distinguished name),
+<code>sub</code> (recursive search under the base distinguished name) or
+<code>one</code> (search the base&rsquo;s immediate children) (default: <code>sub</code>)</li><li><code>--ldap.search-filter</code> is an LDAP filter expression which limits the
+set of LDAP users being considered (default: <code>objectClass=*</code> which
+means all objects). The placeholder <code>{USER}</code> is replaced by the
+supplied username.</li><li><code>--ldap.search-attribute</code> specifies the attribute in the user objects
+which is used to match the ArangoDB user name (default: <code>uid</code>)</li></ul><p>Here is an example on how to configure the search method.
+Assume we have users like the following stored in LDAP:</p><pre tabindex=0><code>dn: uid=alice,dc=arangodb,dc=com
+uid: alice
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+objectClass: person 
+</code></pre><p>Where <code>uid</code> is the username used in ArangoDB, and we only search
+for objects of type <code>person</code> then we can add the following to our
+fundamental LDAP configuration:</p><pre tabindex=0><code>--ldap.search-attribute=uid \
+--ldap.search-filter=objectClass=person
+</code></pre><p>This uses the <code>sub</code> search scope by default and finds
+all <code>person</code> objects where the <code>uid</code> is equal to the given username.
+From these, the <code>dn</code> is extracted and used as <code>{USER}</code> in
+the roles later on.</p><h2 id=fetching-roles-for-a-user>Fetching roles for a user <a href=/3.11/components/arangodb-server/ldap/#fetching-roles-for-a-user class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>After authentication, the next step is to derive authorization
+information from the authenticated LDAP user.
+In order to fetch the roles and thereby the access rights
+for a user we again have two possible options and need to pick
+one of them. We can combine each authentication method
+with each role method.
+In any case a user can have no role or more than one.
+If a user has no role, the user does not get any access
+to ArangoDB at all.
+If a user has multiple roles with different rights,
+then the rights are combined and the <em>strongest</em>
+right wins. Example:</p><ul><li><code>alice</code> has the roles <code>project-a</code> and <code>project-b</code>.</li><li><code>project-a</code> has no access to collection <code>BData</code>.</li><li><code>project-b</code> has <code>rw</code> access to collection <code>BData</code>,</li><li>hence <code>alice</code> has <code>rw</code> access on <code>BData</code>.</li></ul><p>Note that the actual database and collection access rights
+are configured in ArangoDB itself by roles in the users module.
+The role name is always prefixed with <code>:role:</code>, e.g.: <code>:role:project-a</code>
+and <code>:role:project-b</code> respectively. You can use the normal user
+permissions tools in the Web interface or <code>arangosh</code> to configure these.</p><h3 id=roles-attribute>Roles attribute <a href=/3.11/components/arangodb-server/ldap/#roles-attribute class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The most important method for this is to read off the roles an LDAP
+user is associated with from an attribute in the LDAP user object.
+If the</p><pre tabindex=0><code>--ldap.roles-attribute-name
+</code></pre><p>configuration option is set, then the value of that
+option is the name of the attribute being used.</p><p>Here is the example to add to the overall configuration:</p><pre tabindex=0><code>--ldap.roles-attribute-name=role
+</code></pre><p>If we have the user stored like the following in LDAP:</p><pre tabindex=0><code>dn: uid=alice,dc=arangodb,dc=com
+uid: alice
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+objectClass: person 
+role: project-a
+role: project-b
+</code></pre><p>Then the request grants the roles <code>project-a</code> and <code>project-b</code>
+for the user <code>alice</code> after successful authentication,
+as they are stored within the <code>role</code> on the user object.</p><h3 id=roles-search>Roles search <a href=/3.11/components/arangodb-server/ldap/#roles-search class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>An alternative method for authorization is to conduct a search in the
+LDAP server for LDAP objects representing roles a user has. If the</p><pre tabindex=0><code>--ldap.roles-search=&lt;search-expression&gt;
+</code></pre><p>configuration option
+is given, then the string <code>{USER}</code> in <code>&lt;search-expression></code> is replaced
+with the distinguished name of the authenticated LDAP user and the
+resulting search expression is used to match distinguished names of
+LDAP objects representing roles of that user.</p><p>Example:</p><pre tabindex=0><code>--ldap.roles-search &#39;(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER}))&#39;
+</code></pre><p>After a LDAP user is found and authenticated as described in the
+authentication section above, the <code>{USER}</code> in the search expression
+is replaced by its distinguished name, e.g. <code>uid=alice,dc=arangodb,dc=com</code>,
+and thus with the above search expression the actual search expression
+ends up being:</p><pre tabindex=0><code>(&amp;(objectClass=groupOfUniqueNames)(uniqueMember=uid=alice,dc=arangodb,dc=com}))
+</code></pre><p>This search finds all objects of <code>groupOfUniqueNames</code> where
+at least one <code>uniqueMember</code> has the <code>dn</code> of <code>alice</code>.
+The list of results of that search would be the list of roles given by
+the values of the <code>dn</code> attributes of the found role objects.</p><h3 id=role-transformations-and-filters>Role transformations and filters <a href=/3.11/components/arangodb-server/ldap/#role-transformations-and-filters class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>For both of the above authorization methods there are further
+configuration options to tune the role lookup. In this section we
+describe these further options:</p><ul><li><p><code>--ldap.roles-include</code> can be used to specify a regular expression
+that is used to filter roles. Only roles that match the regular
+expression are used.</p></li><li><p><code>--ldap.roles-exclude</code> can be used to specify a regular expression
+that is used to filter roles. Only roles that do not match the regular
+expression are used.</p></li><li><p><code>--ldap.roles-transformation</code> can be used to specify a regular
+expression and replacement text as <code>/re/text/</code>. This regular
+expression is applied to the role name found. This is especially
+useful in the roles-search variant to extract the real role name
+out of the <code>dn</code> value.</p></li><li><p><code>--ldap.superuser-role</code> can be used to specify the role associated
+with the superuser. Any user belonging to this role gains superuser
+status. This role is checked after applying the roles-transformation
+expression.</p></li></ul><p>Example:</p><pre tabindex=0><code>--ldap.roles-include &#34;^arangodb&#34; 
+</code></pre><p>This setting only considers roles that start with <code>arangodb</code>.</p><pre tabindex=0><code>--ldap.roles-exclude=disabled
+</code></pre><p>This setting only considers roles that do contain the word <code>disabled</code>.</p><pre tabindex=0><code>--ldap.superuser-role &#34;arangodb-admin&#34; 
+</code></pre><p>Anyone belonging to the group <code>arangodb-admin</code> become a superuser.</p><p>The roles-transformation deserves a larger example. Assume we are using
+roles search and have stored roles in the following way:</p><pre tabindex=0><code>dn: cn=project-a,dc=arangodb,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: uid=alice,dc=arangodb,dc=com
+uniqueMember: uid=bob,dc=arangodb,dc=com
+cn: project-a
+description: Internal project A
+
+dn: cn=project-b,dc=arangodb,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: uid=alice,dc=arangodb,dc=com
+uniqueMember: uid=charlie,dc=arangodb,dc=com
+cn: project-b
+description: External project B
+</code></pre><p>In this case, we find <code>cn=project-a,dc=arangodb,dc=com</code> as one
+role of <code>alice</code>. However, we actually want to configure a role name
+<code>:role:project-a</code>, which is easier to read and maintain for our
+administrators.</p><p>If we now apply the following transformation:</p><pre tabindex=0><code>--ldap.roles-transformation=/^cn=([^,]*),.*$/$1/
+</code></pre><p>The regex extracts out <code>project-a</code> respectively <code>project-b</code> of the
+<code>dn</code> attribute.</p><p>In combination with the <code>superuser-role</code> we could make all
+<code>project-a</code> members arangodb admins by using:</p><pre tabindex=0><code>--ldap.roles-transformation=/^cn=([^,]*),.*$/$1/ \
+--ldap.superuser-role=project-a
+</code></pre><h2 id=complete-configuration-examples>Complete configuration examples <a href=/3.11/components/arangodb-server/ldap/#complete-configuration-examples class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>In this section we would like to present complete examples
+for a successful LDAP configuration of ArangoDB.
+All of the following are just combinations of the details described above.</p><p><strong>Simple authentication with role-search, using anonymous LDAP user</strong></p><p>This example connects to the LDAP server with an anonymous read-only
+user. We use the simple authentication mode (<code>prefix</code> + <code>suffix</code>)
+to authenticate users and apply a role search for <code>groupOfUniqueNames</code> objects
+where the user is a <code>uniqueMember</code>. Furthermore we extract only the <code>cn</code>
+out of the distinguished role name.</p><pre tabindex=0><code>--ldap.enabled=true \
+--ldap.server=ldap.arangodb.com \
+--ldap.basedn=dc=arangodb,dc=com \
+--ldap.prefix uid= \
+--ldap.suffix ,dc=arangodb,dc=com \
+--ldap.roles-search &#39;(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER}))&#39; \
+--ldap.roles-transformation=/^cn=([^,]*),.*$/$1/ \
+--ldap.superuser-role=project-a
+</code></pre><p><strong>Search authentication with roles attribute using LDAP admin user having TLS enabled</strong></p><p>This example connects to the LDAP server with a given distinguished name of an
+admin user + password.
+Furthermore we activate TLS and give the certificate file to validate server responses.
+We use the search authentication searching for the <code>uid</code> attribute of <code>person</code> objects.
+These <code>person</code> objects have <code>role</code> attribute(s) containing the role(s) of a user.</p><pre tabindex=0><code>--ldap.enabled=true \
+--ldap.server=ldap.arangodb.com \
+--ldap.basedn=dc=arangodb,dc=com \
+--ldap.binddn=uid=arangoadmin,dc=arangodb,dc=com \
+--ldap.bindpasswd=supersecretpassword \
+--ldap.tls true \
+--ldap.tls-cacert-file /path/to/certificate.pem \
+--ldap.search-attribute=uid \
+--ldap.search-filter=objectClass=person \
+--ldap.roles-attribute-name=role
+</code></pre><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/components/arangodb-server/options/><i class="fas fa-chevron-left fa-fw"></i><p>Options</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/components/arangodb-server/environment-variables/><p>Environment variables</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/components/arangodb-server/ldap.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#basics-concepts>Basics Concepts</a></div><div class=level-2><a href=#fundamental-options>Fundamental options</a></div><div class=level-3><a href=#ldap-urls>LDAP URLs</a></div><div class=level-3><a href=#tls-options>TLS options</a></div><div class=level-3><a href=#secondary-server-options-ldap2>Secondary server options (<code>ldap2</code>)</a></div><div class=level-3><a href=#esoteric-options>Esoteric options</a></div><div class=level-2><a href=#authentication-methods>Authentication methods</a></div><div class=level-3><a href=#simple-authentication-method>Simple authentication method</a></div><div class=level-3><a href=#search-authentication-method>Search authentication method</a></div><div class=level-2><a href=#fetching-roles-for-a-user>Fetching roles for a user</a></div><div class=level-3><a href=#roles-attribute>Roles attribute</a></div><div class=level-3><a href=#roles-search>Roles search</a></div><div class=level-3><a href=#role-transformations-and-filters>Role transformations and filters</a></div><div class=level-2><a href=#complete-configuration-examples>Complete configuration examples</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

@@ -1,0 +1,709 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for jobs lets you access the results of asynchronously executed requests and check the status of such jobs"><meta property="og:url" content="http://localhost/3.12/develop/http-api/jobs/"><meta property="og:title" content="HTTP interface for jobs"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for jobs lets you access the results of asynchronously executed requests and check the status of such jobs"><meta name=docsearch:version content="3.12"><title>HTTP interface for jobs | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Jobs"><a itemprop=item class=link href=/3.12/develop/http-api/jobs/><span itemprop=name class=breadcrumb-entry>Jobs</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for jobs</h1><p class=lead>The HTTP API for jobs lets you access the results of asynchronously executed requests and check the status of such jobs</p></hgroup><p>For an introduction to non-blocking execution of requests and how to create
+async jobs with the <code>x-arango-async</code> request header, see
+<a href=/3.12/develop/http-api/general-request-handling/#non-blocking-execution class=link>HTTP request handling in ArangoDB</a>.</p><h2 id=get-the-results-of-an-async-job>Get the results of an async job <a href=/3.12/develop/http-api/jobs/#get-the-results-of-an-async-job class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/job/{job-id}</span></div><div class="openapi-description regular-font"><p>Returns the result of an async job identified by <code>job-id</code> if it&rsquo;s ready.</p><p>If the async job result is available on the server, the endpoint returns
+the original operation&rsquo;s result headers and body, plus the additional
+<code>x-arango-async-job-id</code> HTTP header. The result and job are then removed
+which means that you can retrieve the result exactly once.</p><p>If the result is not available yet or if the job is not known (anymore),
+the additional header is not present and you can tell the status from
+the HTTP status code.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-results-of-an-async-job_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_path_job-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">job-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-results-of-an-async-job_path_job-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The async job id.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_204><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">204</span>
+<span class="openapi-property-type bold-text">No Content</span>
+<a href=#get-the-results-of-an-async-job_res_204><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job is still in the queue of pending (or not yet finished) jobs.
+In this case, no <code>x-arango-async-id</code> HTTP header is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#get-the-results-of-an-async-job_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>job-id</code> is missing in the request or has an invalid value.
+In this case, no <code>x-arango-async-id</code> HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_400_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-results-of-an-async-job_res_400_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_400_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-results-of-an-async-job_res_400_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_400_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-results-of-an-async-job_res_400_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_400_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-results-of-an-async-job_res_400_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-the-results-of-an-async-job_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job cannot be found or has already been deleted, or the result
+has already been fetched. In this case, no <code>x-arango-async-id</code>
+HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_404_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-results-of-an-async-job_res_404_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_404_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-results-of-an-async-job_res_404_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_404_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-results-of-an-async-job_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-results-of-an-async-job_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-results-of-an-async-job_res_default><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">default</span>
+<span class="openapi-property-type bold-text">(Varying HTTP status codes)</span>
+<a href=#get-the-results-of-an-async-job_res_default><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the job has finished, you get the result with the headers of the
+original operation with an additional <code>x-arango-async-id</code> HTTP header.
+The HTTP status code is also that of the operation that executed
+asynchronously, which can be a success or error code depending on
+the outcome of the operation.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Not providing a <code>job-id</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>400</span> Bad Request
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>71</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 400, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;bad parameter&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>400</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Providing a <code>job-id</code> for a non-existing job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/notthere&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>67</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;not found&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>404</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Fetching the result of an HTTP GET job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69510&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69510</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>61</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69510</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;arango&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.3&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Fetching the result of an HTTP POST job that failed:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/collection&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;name&#34;: &#34; this name is invalid &#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69511&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69511</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>400</span> Bad Request
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>114</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69511</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 400, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;expected PUT /_api/collection/&lt;collection-name&gt;/&lt;action&gt;&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>400</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=cancel-an-async-job>Cancel an async job <a href=/3.12/develop/http-api/jobs/#cancel-an-async-job class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_db/{database-name}/_api/job/{job-id}/cancel</span></div><div class="openapi-description regular-font">Cancels the currently running job identified by <code>job-id</code>. Note that it still
+might take some time to actually cancel the running async job.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#cancel-an-async-job_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_path_job-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">job-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#cancel-an-async-job_path_job-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The async job id.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#cancel-an-async-job_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job cancellation has been initiated.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_200_result><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">result*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#cancel-an-async-job_res_200_result><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Always <code>true</code>.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#cancel-an-async-job_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>job-id</code> is missing in the request or has an invalid value.
+In this case, no <code>x-arango-async-id</code> HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_400_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#cancel-an-async-job_res_400_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_400_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#cancel-an-async-job_res_400_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_400_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#cancel-an-async-job_res_400_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_400_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#cancel-an-async-job_res_400_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#cancel-an-async-job_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job cannot be found or has already been deleted, or the result
+has already been fetched. In this case, no <code>x-arango-async-id</code>
+HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_404_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#cancel-an-async-job_res_404_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_404_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#cancel-an-async-job_res_404_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_404_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#cancel-an-async-job_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=cancel-an-async-job_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#cancel-an-async-job_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;query&#34;: &#34;FOR i IN 1..10 FOR j IN 1..10 LET x = sleep(1.0) FILTER i == 5 &amp;&amp; j == 5 RETURN 42&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/pending&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69512/cancel&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/pending&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69512</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>9</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69512&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>15</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>9</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69512&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><h2 id=delete-async-job-results>Delete async job results <a href=/3.12/develop/http-api/jobs/#delete-async-job-results class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
+<span class=endpoint-path>/_db/{database-name}/_api/job/{job-id}</span></div><div class="openapi-description regular-font">Deletes either all job results, expired job results, or the result of a
+specific job.
+Clients can use this method to perform an eventual garbage collection of job
+results.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-async-job-results_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-async-job-results_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_path_job-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">job-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-async-job-results_path_job-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The ID of the job to delete. The ID can be:</p><ul><li><code>all</code>: Deletes all jobs results. Currently executing or queued async
+jobs are not stopped by this call.</li><li><code>expired</code>: Deletes expired results. To determine the expiration status of a
+result, pass the stamp query parameter. stamp needs to be a Unix timestamp,
+and all async job results created before this time are deleted.</li><li><strong>A numeric job ID</strong>: In this case, the call removes the result of the
+specified async job. If the job is currently executing or queued, it is
+not aborted.</li></ul></p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-async-job-results_query_stamp><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">stamp</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#delete-async-job-results_query_stamp><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A Unix timestamp specifying the expiration threshold for when the <code>job-id</code> is
+set to <code>expired</code>.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#delete-async-job-results_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The result of a specific job has been deleted successfully.
+This code is also returned if the deletion of <code>all</code> or <code>expired</code>
+jobs has been requested, including if no results were deleted.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_200_result><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">result*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#delete-async-job-results_res_200_result><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Always <code>true</code>.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#delete-async-job-results_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>job-id</code> is missing in the request or has an invalid value.
+In this case, no <code>x-arango-async-id</code> HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_400_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#delete-async-job-results_res_400_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_400_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#delete-async-job-results_res_400_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_400_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-async-job-results_res_400_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_400_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#delete-async-job-results_res_400_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#delete-async-job-results_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job cannot be found or has already been deleted, or the result
+has already been fetched. In this case, no <code>x-arango-async-id</code>
+HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_404_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#delete-async-job-results_res_404_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_404_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#delete-async-job-results_res_404_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_404_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-async-job-results_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-async-job-results_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#delete-async-job-results_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Deleting all jobs:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/all&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69520</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>15</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Deleting expired jobs:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/time&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/expired?stamp=1730311779.8642187&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/pending&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69521</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>55</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : 1730311779.8642187 
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>15</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>2</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> <span class=o>]</span></span></span></code></pre></div></div></div><br><p>Deleting the result of a specific job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69522&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69522</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>15</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Deleting the result of a non-existing job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/AreYouThere&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>67</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 404, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;not found&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>404</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=list-async-jobs-by-status-or-get-the-status-of-specific-job>List async jobs by status or get the status of specific job <a href=/3.12/develop/http-api/jobs/#list-async-jobs-by-status-or-get-the-status-of-specific-job class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/job/{job-id}</span></div><div class="openapi-description regular-font"><p>This endpoint returns either of the following, depending on the specified value
+for the <code>job-id</code> parameter:</p><ul><li>The IDs of async jobs with a specific status</li><li>The processing status of a specific async job</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_path_job-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">job-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_path_job-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>If you provide a value of <code>pending</code> or <code>done</code>, then the endpoint returns an
+array of strings with the job IDs of ongoing or completed async jobs.</p><p>If you provide a numeric job ID, then the endpoint returns the status of the
+specific async job in the form of an HTTP reply without payload. Check the
+HTTP status code of the response for the job status.</p></p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_query_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_query_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The maximum number of job IDs to return per call. If not specified, a
+server-defined maximum value is used. Only applicable if you specify <code>pending</code>
+or <code>done</code> as <code>job-id</code> to list jobs.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job has finished and you can fetch the result (the response has
+no body in this case), or your request for the list of <code>pending</code> or
+<code>done</code> jobs has been successful.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span></div><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_200_><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text no-border"></span>
+<span class=openapi-property-type><span class=bold-text>array of strings</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_200_><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A list of job IDs. The list can be empty.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_204><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">204</span>
+<span class="openapi-property-type bold-text">No Content</span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_204><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job is still in the queue of pending (or not yet finished) jobs.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>job-id</code> is missing in the request or has an invalid value.
+In this case, no <code>x-arango-async-id</code> HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_400_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The job cannot be found or has already been deleted, or the result
+has already been fetched. In this case, no <code>x-arango-async-id</code>
+HTTP header is returned.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP response status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A flag indicating that an error occurred.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Querying the status of a done job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69523&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69523</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff</span></span></code></pre></div></div></div><br><p>Querying the status of a pending job:
+(therefore we create a long running job&mldr;)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/transaction&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;collections&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;read&#34;: [
+</span></span></span><span class=line><span class=cl><span class=s>      &#34;_aqlfunctions&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    ]
+</span></span></span><span class=line><span class=cl><span class=s>  },
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;action&#34;: &#34;function () {require(&#39;internal&#39;).sleep(15.0);}&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69524&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69524</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>204</span> No Content
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff</span></span></code></pre></div></div></div><br><p>Fetching the list of <code>done</code> jobs:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/done&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69526</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>17</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69526&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69523&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Fetching the list of <code>pending</code> jobs:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/pending&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69527</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>9</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69524&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Fetching the list of a <code>pending</code> jobs while a long-running job is executing
+(and aborting it):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;x-arango-async: store&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/transaction&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;collections&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;read&#34;: [
+</span></span></span><span class=line><span class=cl><span class=s>      &#34;_frontend&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    ]
+</span></span></span><span class=line><span class=cl><span class=s>  },
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;action&#34;: &#34;function () {require(&#39;internal&#39;).sleep(15.0);}&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/pending&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/job/69528&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>content-type: text/plain
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-async-id: <span class=m>69528</span>
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>17</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69528&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;69524&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>15</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/foxx/><i class="fas fa-chevron-left fa-fw"></i><p>Foxx</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/tasks/><p>Tasks</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/jobs.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#get-the-results-of-an-async-job>Get the results of an async job</a></div><div class=level-2><a href=#cancel-an-async-job>Cancel an async job</a></div><div class=level-2><a href=#delete-async-job-results>Delete async job results</a></div><div class=level-2><a href=#list-async-jobs-by-status-or-get-the-status-of-specific-job>List async jobs by status or get the status of specific job</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

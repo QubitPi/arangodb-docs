@@ -1,0 +1,497 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="You can improve the performance of View and inverted index queries with a primary sort order, stored values and other optimizations"><meta property="og:url" content="http://localhost/3.13/index-and-search/arangosearch/performance/"><meta property="og:title" content="Optimizing View and inverted index query performance"><meta property="og:type" content="website"><meta property="og:description" content="You can improve the performance of View and inverted index queries with a primary sort order, stored values and other optimizations"><meta name=docsearch:version content="3.13"><title>Optimizing View and inverted index query performance | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Index and Search"><a itemprop=item class=link href=/3.13/index-and-search/><span itemprop=name class=breadcrumb-entry>Index and Search</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="ArangoSearch"><a itemprop=item class=link href=/3.13/index-and-search/arangosearch/><span itemprop=name class=breadcrumb-entry>ArangoSearch</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Performance"><a itemprop=item class=link href=/3.13/index-and-search/arangosearch/performance/><span itemprop=name class=breadcrumb-entry>Performance</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.13 is under development and not released yet.
+This documentation is not final and potentially incomplete.</p></div></div></div></div><hgroup><h1>Optimizing View and inverted index query performance</h1><p class=lead>You can improve the performance of View and inverted index queries with a primary sort order, stored values and other optimizations</p></hgroup><h2 id=primary-sort-order>Primary Sort Order <a href=/3.13/index-and-search/arangosearch/performance/#primary-sort-order class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Inverted indexes and <code>arangosearch</code> Views can have a primary sort order.
+A direction can be specified upon their creation for each uniquely named
+attribute (ascending or descending), to enable an optimization for AQL
+queries which iterate over a collection or View and sort by one or multiple of the
+indexed attributes. If the field(s) and the sorting direction(s) match, then the
+data can be read directly from the index without actual sort operation.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><p>You can define a primary sort order when creating inverted indexes and utilize it
+using inverted indexes standalone or via <code>search-alias</code> Views.</p><p>Definition of an inverted index with a <code>primarySort</code> property:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=s2>&#34;date&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span></span></span></code></pre></div><p>AQL query example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>coll</span> <span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>indexHint</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span> <span class=n>forceIndexHint</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=n>doc</span><span class=p>.</span><span class=n>date</span> <span class=kr>DESC</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Execution plan <strong>without</strong> a sorted index being used:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=n>Execution</span> <span class=n>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>NodeType</span>                  <span class=n>Est</span><span class=p>.</span>   <span class=n>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>SingletonNode</span>                <span class=mi>1</span>   <span class=o>*</span> <span class=n>ROOT</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=n>EnumerateCollectionNode</span>      <span class=mi>0</span>     <span class=o>-</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>coll</span>   <span class=cm>/* full collection scan  */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>3</span>   <span class=n>CalculationNode</span>              <span class=mi>0</span>       <span class=o>-</span> <span class=kd>LET</span> <span class=nl>#1</span> <span class=o>=</span> <span class=n>doc</span><span class=p>.</span><span class=n>`date`</span>   <span class=cm>/* attribute expression */</span>   <span class=cm>/* collections used: doc : coll */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>4</span>   <span class=n>SortNode</span>                     <span class=mi>0</span>       <span class=o>-</span> <span class=kr>SORT</span> <span class=nl>#1</span> <span class=kr>DESC</span>   <span class=cm>/* sorting strategy: standard */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=n>ReturnNode</span>                   <span class=mi>0</span>       <span class=o>-</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Execution plan with the primary sort order of the index being utilized:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=n>Execution</span> <span class=n>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>NodeType</span>        <span class=n>Est</span><span class=p>.</span>   <span class=n>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>SingletonNode</span>      <span class=mi>1</span>   <span class=o>*</span> <span class=n>ROOT</span>
+</span></span><span class=line><span class=cl>  <span class=mi>6</span>   <span class=n>IndexNode</span>          <span class=mi>0</span>     <span class=o>-</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>coll</span>   <span class=cm>/* reverse inverted index scan, index scan + document lookup */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=n>ReturnNode</span>         <span class=mi>0</span>       <span class=o>-</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>You can add the inverted index to a <code>search-alias</code> View. Queries against the
+View can benefit from the primary sort order, too:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;viewName&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;coll&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_query</span><span class=p>(</span><span class=sb>`FOR doc IN viewName
+</span></span></span><span class=line><span class=cl><span class=sb>  SORT doc.date DESC
+</span></span></span><span class=line><span class=cl><span class=sb>  RETURN doc`</span><span class=p>);</span></span></span></code></pre></div><p>To define more than one attribute to sort by, use multiple sub-objects in the
+<code>primarySort</code> array:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=s2>&#34;date&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;asc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span></span></span></code></pre></div><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>If you mix directions in the primary sort order, the inverted index cannot be
+utilized for fully optimizing out a matching <code>SORT</code> operation if you use the
+inverted index standalone.</div></div></div></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe src=https://www.youtube.com/embed/bKeKzexInm0 style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll1&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll2&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>You can only set the <code>primarySort</code> option and the related
+<code>primarySortCompression</code> and <code>primarySortCache</code> options on View creation.</p><p>AQL query example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>viewName</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=n>doc</span><span class=p>.</span><span class=n>date</span> <span class=kr>DESC</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Execution plan <strong>without</strong> a sorted index being used:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=n>Execution</span> <span class=n>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>NodeType</span>            <span class=n>Est</span><span class=p>.</span>   <span class=n>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>SingletonNode</span>          <span class=mi>1</span>   <span class=o>*</span> <span class=n>ROOT</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=n>EnumerateViewNode</span>      <span class=mi>1</span>     <span class=o>-</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>viewName</span>   <span class=cm>/* view query */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>3</span>   <span class=n>CalculationNode</span>        <span class=mi>1</span>       <span class=o>-</span> <span class=kd>LET</span> <span class=nl>#1</span> <span class=o>=</span> <span class=n>doc</span><span class=p>.</span><span class=n>`date`</span>   <span class=cm>/* attribute expression */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>4</span>   <span class=n>SortNode</span>               <span class=mi>1</span>       <span class=o>-</span> <span class=kr>SORT</span> <span class=nl>#1</span> <span class=kr>DESC</span>   <span class=cm>/* sorting strategy: standard */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=n>ReturnNode</span>             <span class=mi>1</span>       <span class=o>-</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>Execution plan with the primary sort order of the index being utilized:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=n>Execution</span> <span class=n>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>NodeType</span>            <span class=n>Est</span><span class=p>.</span>   <span class=n>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>SingletonNode</span>          <span class=mi>1</span>   <span class=o>*</span> <span class=n>ROOT</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=n>EnumerateViewNode</span>      <span class=mi>1</span>     <span class=o>-</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>viewName</span> <span class=kr>SORT</span> <span class=n>doc</span><span class=p>.</span><span class=n>`date`</span> <span class=kr>DESC</span>   <span class=cm>/* view query */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=n>ReturnNode</span>             <span class=mi>1</span>       <span class=o>-</span> <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>To define more than one attribute to sort by, use multiple sub-objects in the
+<code>primarySort</code> array:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll1&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll2&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;asc&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><p>The optimization can be applied to queries which sort by both fields as
+defined (<code>SORT doc.date DESC, doc.text</code>), but also if they sort in descending
+order by the <code>date</code> attribute only (<code>SORT doc.date DESC</code>). Queries which sort
+by <code>text</code> alone (<code>SORT doc.text</code>) are not eligible, because the index is sorted
+by <code>date</code> first. This is similar to persistent indexes, but inverted sorting
+directions are not covered by the View index
+(e.g. <code>SORT doc.date, doc.text DESC</code>).</p><p>You can disable the <strong>primary sort compression</strong> on View or index creation to
+trade space for speed. The primary sort data is LZ4-compressed by default (<code>"lz4"</code>).</p><ul><li><code>arangosearch</code> Views: <code>primarySortCompression: "none"</code></li><li>Inverted indexes: <code>primarySort: { compression: "none" }</code></li></ul><p>You can additionally enable the <strong>primary sort cache</strong> to always cache the primary
+sort columns in memory, which can improve the query performance.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><p>For inverted indexes, set the <code>cache</code> option of the
+<a href=/3.13/develop/http-api/indexes/inverted/ class=link><code>primarySort</code> property</a> to <code>true</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=s2>&#34;date&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;asc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cache</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;myView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;coll&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><p>Set the <a href=/3.13/index-and-search/arangosearch/arangosearch-views-reference/#view-properties class=link><code>primarySortCache</code> View property</a>
+to <code>true</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll1&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{},</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;date&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll2&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;date&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;text&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;asc&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;primarySortCache&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><h2 id=wand-optimization>WAND optimization <a href=/3.13/index-and-search/arangosearch/performance/#wand-optimization class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.12.0</small></p><p>You can define a list of sort expressions that you intend to use in View queries
+later. You can then retrieve search results for the highest-ranking matches from
+Views faster.</p><p>This is possible if you query a View with the <code>SEARCH</code> operation in combination
+with a <code>SORT</code> and <code>LIMIT</code> operation. The <code>SORT</code> expression needs to match one of
+the previously defined expressions and has to sort by the result of a
+<a href=/3.13/aql/functions/arangosearch/#scoring-functions class=link>scoring function</a> in
+descending order (<code>DESC</code>). Asking for the highest-ranking matches this way with
+some <code>LIMIT</code> to the number of results allows ArangoSearch to efficiently fetch
+the results from the View index (the top <em>k</em> ranking results), skipping anything
+with a too-low score.</p><p>To use this optimization, specify the <code>optimizeTopK</code> property when creating an
+<code>arangosearch</code> View or an inverted index. In case of the inverted index, you
+need to add it to a <code>search-alias</code> View because only Views are capable of
+ranking results. The property value needs to be an array of strings with the
+sort expressions that shall be optimized. Use <code>@doc</code> in each expression as the
+first argument to the scoring function, regardless of how the document variable
+will be named in View queries.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>articles</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;categories[*]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>optimizeTopK</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BM25(@doc) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BM25(@doc, 1.2, 1) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;TFIDF(@doc) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;TFIDF(@doc, true) DESC&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;myView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;articles&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div><p>See the <a href=/3.13/develop/http-api/indexes/inverted/ class=link>inverted index <code>optimizeTopK</code> property</a>
+for details.</p></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;articles&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;categories&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;optimizeTopK&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BM25(@doc) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;BM25(@doc, 1.2, 1) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;TFIDF(@doc) DESC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;TFIDF(@doc, true) DESC&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>See the <a href=/3.13/index-and-search/arangosearch/arangosearch-views-reference/#view-properties class=link><code>optimizeTopK</code> View property</a>
+for details.</p></div></div></div><p>The following search query can benefit from the WAND optimization because a
+limited number of matches, ordered by highest score, are returned by the query,
+and the sort expression matches one of the expressions defined in the
+<code>optimizeTopK</code> property:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>myView</span>
+</span></span><span class=line><span class=cl>  <span class=kp>SEARCH</span> <span class=p>[</span><span class=s2>&#34;travel&#34;</span><span class=p>,</span> <span class=s2>&#34;health&#34;</span><span class=p>]</span> <span class=kr>ALL</span> <span class=o>==</span> <span class=n>doc</span><span class=p>.</span><span class=n>categories</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=nf>BM25</span><span class=p>(</span><span class=n>doc</span><span class=p>,</span> <span class=mf>1.2</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span> <span class=kr>DESC</span>
+</span></span><span class=line><span class=cl>  <span class=kr>LIMIT</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><h2 id=stored-values>Stored Values <a href=/3.13/index-and-search/arangosearch/performance/#stored-values class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>It is possible to directly store the values of document attributes in
+<code>arangosearch</code> View indexes and inverted indexes with the <code>storedValues</code>
+property (not to be confused with <code>storeValues</code>). You can only set this
+option on View and index creation.</p><p>View indexes and inverted indexes may fully cover search queries by using
+stored values, improving the query performance.
+While late document materialization reduces the amount of fetched documents,
+this optimization can avoid to access the storage engine entirely.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>articles</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;categories[*]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>storedValues</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span> <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;articlesView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;articles&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;articles&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;categories&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;storedValues&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span> <span class=p>]</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><p>In above View definitions, the document attribute <code>categories</code> is indexed for
+searching, <code>publishedAt</code> is used as primary sort order, and <code>title</code> as well as
+<code>categories</code> are stored in the index using the new <code>storedValues</code> property.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>articlesView</span>
+</span></span><span class=line><span class=cl>  <span class=kp>SEARCH</span> <span class=n>doc</span><span class=p>.</span><span class=n>categories</span> <span class=o>==</span> <span class=s2>&#34;recipes&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=n>doc</span><span class=p>.</span><span class=n>publishedAt</span> <span class=kr>DESC</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>title</span><span class=o>:</span> <span class=n>doc</span><span class=p>.</span><span class=n>title</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>date</span><span class=o>:</span> <span class=n>doc</span><span class=p>.</span><span class=n>publishedAt</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>tags</span><span class=o>:</span> <span class=n>doc</span><span class=p>.</span><span class=n>categories</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span></span></span></code></pre></div><p>The query searches for articles which contain a certain tag in the <code>categories</code>
+array and returns title, date and tags. All three values are stored in the View
+(<code>publishedAt</code> via <code>primarySort</code> and the two other via <code>storedValues</code>), thus
+no documents need to be fetched from the storage engine to answer the query.
+This is shown in the execution plan as a comment to the <code>EnumerateViewNode</code>:
+<code>/* view query without materialization */</code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=n>Execution</span> <span class=n>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>NodeType</span>            <span class=n>Est</span><span class=p>.</span>   <span class=n>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>SingletonNode</span>          <span class=mi>1</span>   <span class=o>*</span> <span class=n>ROOT</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=n>EnumerateViewNode</span>      <span class=mi>1</span>     <span class=o>-</span> <span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>articlesView</span> <span class=kp>SEARCH</span> <span class=p>(</span><span class=n>doc</span><span class=p>.</span><span class=n>`categories`</span> <span class=o>==</span> <span class=s2>&#34;recipes&#34;</span><span class=p>)</span> <span class=kr>SORT</span> <span class=n>doc</span><span class=p>.</span><span class=n>`publishedAt`</span> <span class=kr>DESC</span> <span class=kd>LET</span> <span class=nl>#1</span> <span class=o>=</span> <span class=n>doc</span><span class=p>.</span><span class=n>`publishedAt`</span> <span class=kd>LET</span> <span class=nl>#7</span> <span class=o>=</span> <span class=n>doc</span><span class=p>.</span><span class=n>`categories`</span> <span class=kd>LET</span> <span class=nl>#5</span> <span class=o>=</span> <span class=n>doc</span><span class=p>.</span><span class=n>`title`</span>   <span class=cm>/* view query without materialization */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=n>CalculationNode</span>        <span class=mi>1</span>       <span class=o>-</span> <span class=kd>LET</span> <span class=nl>#3</span> <span class=o>=</span> <span class=p>{</span> <span class=s2>&#34;title&#34;</span> <span class=o>:</span> <span class=nl>#5</span><span class=p>,</span> <span class=s2>&#34;date&#34;</span> <span class=o>:</span> <span class=nl>#1</span><span class=p>,</span> <span class=s2>&#34;tags&#34;</span> <span class=o>:</span> <span class=nl>#7</span> <span class=p>}</span>   <span class=cm>/* simple expression */</span>
+</span></span><span class=line><span class=cl>  <span class=mi>6</span>   <span class=n>ReturnNode</span>             <span class=mi>1</span>       <span class=o>-</span> <span class=kr>RETURN</span> <span class=nl>#3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Indexes</span> <span class=n>used</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=kr>none</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Optimization</span> <span class=n>rules</span> <span class=n>applied</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=n>Id</span>   <span class=n>RuleName</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=n>move</span><span class=o>-</span><span class=n>calculations</span><span class=o>-</span><span class=n>up</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=n>move</span><span class=o>-</span><span class=n>calculations</span><span class=o>-</span><span class=n>up</span><span class=o>-</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl>  <span class=mi>3</span>   <span class=n>handle</span><span class=o>-</span><span class=n>arangosearch</span><span class=o>-</span><span class=n>views</span></span></span></code></pre></div><p>The stored values data is LZ4-compressed by default (<code>"lz4"</code>).
+Set it to <code>"none"</code> on View or index creation to trade space for speed.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>articles</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;categories[*]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>storedValues</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nx>compression</span><span class=o>:</span> <span class=s2>&#34;none&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;articlesView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;articles&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;articles&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;categories&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;storedValues&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span> <span class=p>],</span> <span class=nt>&#34;compression&#34;</span><span class=p>:</span> <span class=s2>&#34;none&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><p>You can additionally enable the ArangoSearch column cache for stored values by
+setting the <code>cache</code> option in the <code>storedValues</code> definition of
+<code>arangosearch</code> Views or inverted indexes to <code>true</code>. This always caches
+stored values in memory, which can improve the query performance.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>articles</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;categories[*]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primarySort</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>field</span><span class=o>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nx>direction</span><span class=o>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>storedValues</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nx>cache</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;articlesView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;articles&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div><p>See the <a href=/3.13/develop/http-api/indexes/inverted/ class=link>inverted index <code>storedValues</code> property</a>
+for details.</p></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;articles&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;categories&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;primarySort&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;field&#34;</span><span class=p>:</span> <span class=s2>&#34;publishedAt&#34;</span><span class=p>,</span> <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;desc&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;storedValues&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span> <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;title&#34;</span><span class=p>,</span> <span class=s2>&#34;categories&#34;</span> <span class=p>],</span> <span class=nt>&#34;cache&#34;</span><span class=p>:</span> <span class=kc>true</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>See the <a href=/3.13/index-and-search/arangosearch/arangosearch-views-reference/#view-properties class=link><code>storedValues</code> View property</a>
+for details.</p></div></div></div><h2 id=condition-optimization-options>Condition Optimization Options <a href=/3.13/index-and-search/arangosearch/performance/#condition-optimization-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The <code>SEARCH</code> operation in AQL accepts an option <code>conditionOptimization</code> to
+give you control over the search criteria optimization:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>myView</span>
+</span></span><span class=line><span class=cl>  <span class=kp>SEARCH</span> <span class=n>doc</span><span class=p>.</span><span class=n>val</span> <span class=o>&gt;</span> <span class=mi>10</span> <span class=kr>AND</span> <span class=n>doc</span><span class=p>.</span><span class=n>val</span> <span class=o>&gt;</span> <span class=mi>5</span> <span class=cm>/* more conditions */</span>
+</span></span><span class=line><span class=cl>  <span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>conditionOptimization</span><span class=o>:</span> <span class=s2>&#34;none&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span></span></span></code></pre></div><p>By default, all conditions get converted into disjunctive normal form (DNF).
+Numerous optimizations can be applied, like removing redundant or overlapping
+conditions (such as <code>doc.val > 10</code> which is included by <code>doc.val > 5</code>).
+However, converting to DNF and optimizing the conditions can take quite some
+time even for a low number of nested conditions which produce dozens of
+conjunctions / disjunctions. It can be faster to just search the index without
+optimizations.</p><p>Also see the <a href=/3.13/aql/high-level-operations/search/#search-options class=link><code>SEARCH</code> operation</a>.</p><h2 id=count-approximation>Count Approximation <a href=/3.13/index-and-search/arangosearch/performance/#count-approximation class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The <code>SEARCH</code> operation in AQL accepts an option <code>countApproximate</code> to control
+how the total count of rows is calculated if the <code>fullCount</code> option is enabled
+for a query or when a <code>COLLECT WITH COUNT</code> clause is executed.</p><p>By default, rows are actually enumerated for a precise count. In some cases, an
+estimate might be good enough, however. You can set <code>countApproximate</code> to
+<code>"cost"</code> for a cost-based approximation. It does not enumerate rows and returns
+an approximate result with O(1) complexity. It gives a precise result if the
+<code>SEARCH</code> condition is empty or if it contains a single term query only
+(e.g. <code>SEARCH doc.field == "value"</code>), the usual eventual consistency
+of Views aside.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>viewName</span>
+</span></span><span class=line><span class=cl>  <span class=kp>SEARCH</span> <span class=n>doc</span><span class=p>.</span><span class=n>name</span> <span class=o>==</span> <span class=s2>&#34;Carol&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>countApproximate</span><span class=o>:</span> <span class=s2>&#34;cost&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>COLLECT</span> <span class=kr>WITH</span> <span class=kp>COUNT</span> <span class=kr>INTO</span> <span class=n>count</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>count</span></span></span></code></pre></div><p>Also see <a href=/3.13/index-and-search/arangosearch/faceted-search/ class=link>Faceted Search with ArangoSearch</a>.</p><h2 id=field-normalization-value-caching-and-caching-of-geo-analyzer-auxiliary-data>Field normalization value caching and caching of Geo Analyzer auxiliary data <a href=/3.13/index-and-search/arangosearch/performance/#field-normalization-value-caching-and-caching-of-geo-analyzer-auxiliary-data class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p class=labels><span class=label>ArangoDB Enterprise Edition</span>
+<span class=label>ArangoGraph</span></p><p><small>Introduced in: v3.9.5, v3.10.2</small></p><p>Normalization values are computed for fields which are processed with Analyzers
+that have the <a href=/3.13/index-and-search/analyzers/#analyzer-features class=link><code>"norm"</code> feature</a> enabled.
+These values are used to score fairer if the same tokens occur repeatedly, to
+emphasize these documents less.</p><p>You can set the <code>cache</code> option to <code>true</code> for individual View links or fields of
+<code>arangosearch</code> Views, as well as for inverted indexes as the default or for
+specific fields, to always cache the field normalization values in memory.
+This can improve the performance of scoring and ranking queries.</p><p>You can also enable this option to always cache auxiliary data used for querying
+fields that are indexed with Geo Analyzers in memory, as the default or for
+specific fields. This can improve the performance of geo-spatial queries.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll1</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;attr&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>analyzer</span><span class=o>:</span> <span class=s2>&#34;text_en&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>cache</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll2</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>analyzer</span><span class=o>:</span> <span class=s2>&#34;text_en&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;attr1&#34;</span><span class=p>,</span> <span class=s2>&#34;attr2&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>cache</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;myView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;coll1&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;coll2&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div><p>See the <a href=/3.13/develop/http-api/indexes/inverted/ class=link>inverted index <code>cache</code> property</a> for details.</p></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll1&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;attr&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;analyzers&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;text_en&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;cache&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;coll2&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;includeAllFields&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;analyzers&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;text_en&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;cache&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>See the <a href=/3.13/index-and-search/arangosearch/arangosearch-views-reference/#link-properties class=link><code>cache</code> Link property</a>
+for details.</p></div></div></div><p>The <code>"norm"</code> Analyzer feature has performance implications even if the cache is
+used. You can create custom Analyzers without this feature to disable the
+normalization and improve the performance. Make sure that the result ranking
+still matches your expectations without normalization. It is recommended to
+use normalization for a good scoring behavior.</p><h2 id=primary-key-caching>Primary key caching <a href=/3.13/index-and-search/arangosearch/performance/#primary-key-caching class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.9.6, v3.10.2</small></p><p>You can always cache the primary key columns in memory. This can improve the
+performance of queries that return many documents, making it faster to map
+document IDs in the index to actual documents.</p><div class=tab-panel><div class=tab-content><div class=tab-nav><button data-tab-group=view-definition data-tab-item="`search-alias` View" class="tab-nav-button selected" onclick='switchTab("view-definition","`search-alias` View",event)'>
+<span><code>search-alias</code> View</span></button>
+<button data-tab-group=view-definition data-tab-item="`arangosearch` View" class=tab-nav-button onclick='switchTab("view-definition","`arangosearch` View",event)'>
+<span><code>arangosearch</code> View</span></button></div><div data-tab-item="`search-alias` View" data-tab-group=view-definition class="tab-item
+selected"><p>To enable this feature for inverted indexes and by extension <code>search-alias</code> Views,
+set the <a href=/3.13/develop/http-api/indexes/inverted/ class=link><code>primaryKeyCache</code> property</a>
+to <code>true</code> when creating inverted indexes.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>articles</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;categories[*]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>primaryKeyCache</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_createView</span><span class=p>(</span><span class=s2>&#34;articlesView&#34;</span><span class=p>,</span> <span class=s2>&#34;search-alias&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>indexes</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>collection</span><span class=o>:</span> <span class=s2>&#34;articles&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span> <span class=p>});</span></span></span></code></pre></div></div><div data-tab-item="`arangosearch` View" data-tab-group=view-definition class=tab-item><p>To enable this feature for <code>arangosearch</code> Views, set the
+<a href=/3.13/index-and-search/arangosearch/arangosearch-views-reference/#view-properties class=link><code>primaryKeyCache</code> View property</a>
+to <code>true</code> on View creation.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;links&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;articles&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;categories&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;primaryKeyCache&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></div></div><h2 id=parallel-index-segment-processing>Parallel index segment processing <a href=/3.13/index-and-search/arangosearch/performance/#parallel-index-segment-processing class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.12.0</small></p><p>You can speed up <code>SEARCH</code> queries against Views using the <code>parallelism</code> option
+to process index segment using multiple threads.</p><p>See <a href=/3.13/aql/high-level-operations/search/#parallelism class=link><code>SEARCH</code> operation in AQL</a>
+for details.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.13/index-and-search/arangosearch/ranking/><i class="fas fa-chevron-left fa-fw"></i><p>Ranking</p></a></span><span class=next><a class="nav nav-next link" href=/3.13/index-and-search/arangosearch/search-alias-views-reference/><p><code>search-alias</code> Views Reference</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.13/index-and-search/arangosearch/performance.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#primary-sort-order>Primary Sort Order</a></div><div class=level-2><a href=#wand-optimization>WAND optimization</a></div><div class=level-2><a href=#stored-values>Stored Values</a></div><div class=level-2><a href=#condition-optimization-options>Condition Optimization Options</a></div><div class=level-2><a href=#count-approximation>Count Approximation</a></div><div class=level-2><a href=#field-normalization-value-caching-and-caching-of-geo-analyzer-auxiliary-data>Field normalization value caching and caching of Geo Analyzer auxiliary data</a></div><div class=level-2><a href=#primary-key-caching>Primary key caching</a></div><div class=level-2><a href=#parallel-index-segment-processing>Parallel index segment processing</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

@@ -1,0 +1,142 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.11/components/tools/arangodump/examples/"><meta property="og:title" content="arangodump Examples"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.11"><title>arangodump Examples | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.11/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Tools"><a itemprop=item class=link href=/3.11/components/tools/><span itemprop=name class=breadcrumb-entry>Tools</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangodump"><a itemprop=item class=link href=/3.11/components/tools/arangodump/><span itemprop=name class=breadcrumb-entry>arangodump</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Examples"><a itemprop=item class=link href=/3.11/components/tools/arangodump/examples/><span itemprop=name class=breadcrumb-entry>Examples</span></a></li></ol></nav><article class=default><hgroup><h1><em>arangodump</em> Examples</h1></hgroup><p><em>arangodump</em> can be invoked in a command line by executing the following command:</p><pre tabindex=0><code>arangodump --output-directory &#34;dump&#34;
+</code></pre><p>This connects to an ArangoDB server and dump all non-system collections from
+the default database (<code>_system</code>) into an output directory named <code>dump</code>.
+Invoking <em>arangodump</em> fails if the output directory already exists. This is
+an intentional security measure to prevent you from accidentally overwriting already
+dumped data. If you are positive that you want to overwrite data in the output
+directory, you can use the parameter <code>--overwrite true</code> to confirm this:</p><pre tabindex=0><code>arangodump --output-directory &#34;dump&#34; --overwrite true
+</code></pre><p><em>arangodump</em> connects to the <code>_system</code> database by default using the default
+endpoint. To override the endpoint, or specify a different user, use one of the
+following startup options:</p><ul><li><code>--server.endpoint &lt;string></code>: endpoint to connect to</li><li><code>--server.username &lt;string></code>: username</li><li><code>--server.password &lt;string></code>: password to use (omit this and you&rsquo;ll be prompted for the
+password)</li><li><code>--server.authentication &lt;bool></code>: whether or not to use authentication</li></ul><p>If you want to connect to a different database or dump all databases you can additionally
+use the following startup options:</p><ul><li><code>--all-databases true</code>: must have access to all databases, and not specify a database.</li><li><code>--server.database &lt;string></code>: name of the database to connect to</li></ul><p>Note that the specified user must have access to the databases.</p><p>Here&rsquo;s an example of dumping data from a non-standard endpoint, using a dedicated
+<a href=/3.11/concepts/data-structure/databases/#database-names class=link>database name</a>:</p><pre tabindex=0><code>arangodump \
+  --server.endpoint tcp://192.168.173.13:8531 \
+  --server.username backup \
+  --server.database mydb \
+  --output-directory &#34;dump&#34;
+</code></pre><p>In contrast to the above call <code>--server.database</code> must not be specified when dumping
+all databases using <code>--all-databases true</code>:</p><pre tabindex=0><code>arangodump \
+  --server.endpoint tcp://192.168.173.13:8531 \
+  --server.username backup \
+  --all-databases true \
+  --output-directory &#34;dump-multiple&#34;
+</code></pre><p>When finished, <em>arangodump</em> prints out a summary line with some aggregate
+statistics about what it did, e.g.:</p><pre tabindex=0><code>Processed 43 collection(s), wrote 408173500 byte(s) into datafiles, sent 88 batch(es)
+</code></pre><p>Also, more than one endpoint can be provided, such as:</p><pre tabindex=0><code>arangodump \
+  --server.endpoint tcp://192.168.173.13:8531 \
+  --server.endpoint tcp://192.168.173.13:8532 \
+  --server.username backup \
+  --all-databases true \
+  --output-directory &#34;dump-multiple&#34;
+</code></pre><p>By default, <em>arangodump</em> dumps both structural information and documents from all
+non-system collections. To adjust this, there are the following command-line
+arguments:</p><ul><li><code>--dump-data &lt;bool></code>: set to <code>true</code> to include documents in the dump. Set to <code>false</code>
+to exclude documents. The default value is <code>true</code>.</li><li><code>--include-system-collections &lt;bool></code>: whether or not to include system collections
+in the dump. The default value is <code>false</code>. <strong>Set to <em>true</em> if you are using named
+graphs that you are interested in restoring.</strong></li></ul><p>For example, to only dump structural information of all collections (including system
+collections), use:</p><pre tabindex=0><code>arangodump --dump-data false --include-system-collections true --output-directory &#34;dump&#34;
+</code></pre><p>To restrict the dump to just specific collections, use the <code>--collection</code> option.
+You can specify it multiple times if required:</p><pre tabindex=0><code>arangodump --collection myusers --collection myvalues --output-directory &#34;dump&#34;
+</code></pre><p>Structural information for a collection is saved in files with name pattern
+<code>&lt;collection-name>.structure.json</code>. Each structure file contains a JSON object
+with these attributes:</p><ul><li><code>parameters</code>: contains the collection properties</li><li><code>indexes</code>: contains the collection indexes</li></ul><p>Document data for a collection is saved in files with name pattern
+<code>&lt;collection-name>.data.json</code>. Each line in a data file is a document insertion/update or
+deletion marker, alongside with some meta data.</p><h2 id=cluster-backup>Cluster Backup <a href=/3.11/components/tools/arangodump/examples/#cluster-backup class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The <em>arangodump</em> tool supports sharding and can be used to backup data from a Cluster.
+Simply point it to one of the <em>Coordinators</em> and it
+behaves exactly as described above, working on sharded collections
+in the Cluster.</p><p>Please see the <a href=/3.11/components/tools/arangodump/limitations/ class=link>Limitations</a>.</p><p>As above, the output is one structure description file and one data
+file per sharded collection. Note that the data in the data file is
+sorted first by shards and within each shard by ascending timestamp. The
+structural information of the collection contains the number of shards
+and the shard keys.</p><p>Note that the version of the arangodump client tool needs to match the
+version of the ArangoDB server it connects to.</p><h3 id=dumping-collections-with-sharding-prototypes>Dumping collections with sharding prototypes <a href=/3.11/components/tools/arangodump/examples/#dumping-collections-with-sharding-prototypes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Collections may be created with the shard distribution identical to an existing
+prototypical collection (see <a href=/3.11/develop/javascript-api/@arangodb/db-object/#db_createcollection-name--properties--type--options class=link><code>distributeShardsLike</code></a>);
+i.e. shards are distributed in the very same pattern as in the prototype collection.
+Such collections cannot be dumped without the referenced collection or arangodump
+yields an error.</p><pre tabindex=0><code>arangodump --collection clonedCollection --output-directory &#34;dump&#34;
+
+ERROR [f7ff5] {dump} An error occurred: Collection clonedCollection&#39;s shard distribution is based on that of collection prototypeCollection, which is not dumped along.
+</code></pre><p>You need to dump the prototype collection as well:</p><pre tabindex=0><code>arangodump --collection clonedCollection --collection prototypeCollection --output-directory &#34;dump&#34;
+
+...
+INFO [66c0e] {dump} Processed 2 collection(s) from 1 database(s) in 0.132990 s total time. Wrote 0 bytes into datafiles, sent 6 batch(es) in total.
+</code></pre><h2 id=encryption>Encryption <a href=/3.11/components/tools/arangodump/examples/#encryption class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p class=labels><span class=label>ArangoDB Enterprise Edition</span>
+<span class=label>ArangoGraph</span></p><p>You can encrypt dumps using an encryption keyfile, which must contain exactly 32
+bytes of data (required by the AES block cipher).</p><p>The keyfile can be created by an external program, or, on Linux, by using a command
+like the following:</p><pre tabindex=0><code>dd if=/dev/random bs=1 count=32 of=yourSecretKeyFile
+</code></pre><p>For security reasons, it is best to create these keys offline (away from your
+database servers) and directly store them in your secret management
+tool.</p><p>In order to create an encrypted backup, add the <code>--encryption.keyfile</code>
+option when invoking <em>arangodump</em>, in addition to any other option you
+are already using. The following example assumes that your secret key
+is stored in ~/SECRET-KEY:</p><pre tabindex=0><code>arangodump --collection &#34;secret-collection&#34; dump --encryption.keyfile ~/SECRET-KEY
+</code></pre><p>Note that <em>arangodump</em> does not store the key anywhere. It is the responsibility
+of the user to find a safe place for the key. However, <em>arangodump</em> stores
+the used encryption method in a file named <code>ENCRYPTION</code> in the dump directory.
+That way <em>arangorestore</em> can later find out whether it is dealing with an
+encrypted dump or not.</p><p>Trying to restore the encrypted dump without specifying the key fails
+and <em>arangorestore</em> reports an error:</p><pre tabindex=0><code>arangorestore --collection &#34;secret-collection&#34; dump --create-collection true
+...
+the dump data seems to be encrypted with aes-256-ctr, but no key information was specified to decrypt the dump
+it is recommended to specify either `--encryption.keyfile` or `--encryption.key-generator` when invoking arangorestore with an encrypted dump
+</code></pre><p>It is required to use the exact same key when restoring the data. Again this is
+done by providing the <code>--encryption.keyfile</code> parameter:</p><pre tabindex=0><code>arangorestore --collection &#34;secret-collection&#34; dump --create-collection true --encryption.keyfile ~/SECRET-KEY
+</code></pre><p>Using a different key leads to the backup being non-recoverable.</p><p>Note that encrypted backups can be used together with the already existing
+RocksDB encryption-at-rest feature.</p><h2 id=compression>Compression <a href=/3.11/components/tools/arangodump/examples/#compression class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><code>--compress-output</code></p><p>Data can optionally be dumped in a compressed format to save space on disk.
+The <code>--compress-output</code> option cannot be used together with <a href=#encryption class=link>Encryption</a>.</p><p>If compression is enabled, no <code>.data.json</code> files are written. Instead, the
+collection data gets compressed using the Gzip algorithm and for each collection
+a <code>.data.json.gz</code> file is written. Metadata files such as <code>.structure.json</code> and
+<code>.view.json</code> do not get compressed.</p><pre tabindex=0><code>arangodump --output-directory &#34;dump&#34; --compress-output
+</code></pre><p>Compressed dumps can be restored with <em>arangorestore</em>, which automatically
+detects whether the data is compressed or not based on the file extension.</p><pre tabindex=0><code>arangorestore --input-directory &#34;dump&#34;
+</code></pre><h2 id=dump-output-format>Dump output format <a href=/3.11/components/tools/arangodump/examples/#dump-output-format class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.8.0</small></p><p>Since its inception, <em>arangodump</em> wrapped each dumped document into an extra
+JSON envelope, such as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span><span class=nt>&#34;type&#34;</span><span class=p>:</span><span class=mi>2300</span><span class=p>,</span><span class=nt>&#34;key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;data&#34;</span><span class=p>:{</span><span class=nt>&#34;_key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;_rev&#34;</span><span class=p>:</span><span class=err>...</span><span class=p>,</span> <span class=err>...</span><span class=p>}}</span>
+</span></span></code></pre></div><p>This original dump format was useful when there was the MMFiles storage engine,
+which could use different <code>type</code> values in its datafiles.
+However, the RocksDB storage engine only uses <code>"type":2300</code> (document) when
+dumping data, so the JSON wrapper provides no further benefit except
+compatibility with older versions of ArangoDB.</p><p>In case a dump taken with v3.8.0 or higher is known to never be used in older
+ArangoDB versions, the JSON envelopes can be turned off. The startup option
+<code>--envelope</code> controls this. The option defaults to <code>true</code>, meaning dumped
+documents are wrapped in envelopes, which makes new dumps compatible with
+older versions of ArangoDB.</p><p>If that is not needed, the <code>--envelope</code> option can be set to <code>false</code>.
+In this case, the dump files only contain the raw documents, without any
+envelopes around them:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span><span class=nt>&#34;_key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;_rev&#34;</span><span class=p>:</span><span class=err>...</span><span class=p>,</span> <span class=err>...</span><span class=p>}</span>
+</span></span></code></pre></div><p>Disabling the envelopes can <strong>reduce dump sizes</strong> a lot, especially if documents
+are small on average and the relative cost of the envelopes is high. Omitting
+the envelopes can also help to <strong>save a bit on memory usage and bandwidth</strong> for
+building up the dump results and sending them over the wire.</p><p>As a bonus, turning off the envelopes turns <em>arangodump</em> into a fast, concurrent
+JSONL exporter for one or multiple collections:</p><pre tabindex=0><code>arangodump --collection &#34;collection&#34; --threads 8 --envelope false --compress-output false dump
+</code></pre><p>The JSONL format is also supported by <em>arangoimport</em> natively.</p><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>Dumps created with the <code>--envelope false</code> setting cannot be restored into any
+ArangoDB versions older than v3.8.0!</div></div></div></div><h2 id=threads>Threads <a href=/3.11/components/tools/arangodump/examples/#threads class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><em>arangodump</em> can use multiple threads for dumping database data in
+parallel. To speed up the dump of a database with multiple collections, it is
+often beneficial to increase the number of <em>arangodump</em> threads.
+The number of threads can be controlled via the <code>--threads</code> option. The default
+value is the maximum of <code>2</code> and the number of available CPU cores.</p><p>The <code>--threads</code> option works dynamically, its value depends on the number of
+available CPU cores. If the amount of available CPU cores is less than <code>3</code>, a
+threads value of <code>2</code> is used. Otherwise the value of threads is set to the
+number of available CPU cores.</p><p>For example:</p><ul><li>If a system has 8 cores, then max(2,8) = 8, i.e. 8 threads are used.</li><li>If it has 1 core, then max(2,1) = 2, i.e. 2 threads are used.</li></ul><p><em>arangodump</em> versions prior to v3.8.0 distribute dump jobs for individual
+collections to concurrent worker threads, which is optimal for dumping many
+collections of approximately the same size, but does not help for dumping few
+large collections or few large collections with many shards.</p><p>Since v3.8.0, <em>arangodump</em> can also dispatch dump jobs for individual shards of
+each collection, allowing higher parallelism if there are many shards to dump
+but only few collections. Keep in mind that even when concurrently dumping the
+data from multiple shards of the same collection in parallel, the individual
+shards&rsquo; results are still written into a single result file for the collection.
+With a massive number of concurrent dump threads, some contention on that shared
+file should be expected. Also note that when dumping the data of multiple shards
+from the same collection, each thread&rsquo;s results are written to the result
+file in a non-deterministic order. This should not be a problem when restoring
+such dump, as <em>arangorestore</em> does not assume any order of input.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/components/tools/arangodump/><i class="fas fa-chevron-left fa-fw"></i><p>arangodump</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/components/tools/arangodump/options/><p>Options</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/components/tools/arangodump/examples.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#cluster-backup>Cluster Backup</a></div><div class=level-3><a href=#dumping-collections-with-sharding-prototypes>Dumping collections with sharding prototypes</a></div><div class=level-2><a href=#encryption>Encryption</a></div><div class=level-2><a href=#compression>Compression</a></div><div class=level-2><a href=#dump-output-format>Dump output format</a></div><div class=level-2><a href=#threads>Threads</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

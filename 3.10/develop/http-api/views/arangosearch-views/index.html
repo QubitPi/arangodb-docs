@@ -1,0 +1,763 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for Views lets you manage arangosearch Views, including handling the general View properties and View links"><meta property="og:url" content="http://localhost/3.10/develop/http-api/views/arangosearch-views/"><meta property="og:title" content="HTTP interface for arangosearch Views"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for Views lets you manage arangosearch Views, including handling the general View properties and View links"><meta name=docsearch:version content="3.10"><title>HTTP interface for arangosearch Views | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.10"><a itemprop=item class=link href=/3.10/><span itemprop=name class=breadcrumb-entry>3.10.14</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.10/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.10/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Views"><a itemprop=item class=link href=/3.10/develop/http-api/views/><span itemprop=name class=breadcrumb-entry>Views</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangosearch Views"><a itemprop=item class=link href=/3.10/develop/http-api/views/arangosearch-views/><span itemprop=name class=breadcrumb-entry><code>arangosearch</code> Views</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.10 reached End of Life (EOL) and is no longer supported.</p><p>This documentation is outdated. Please see the most recent <a href=/3.12/develop/http-api/views/arangosearch-views/ class=link>stable version</a>.</p></div></div></div></div><hgroup><h1>HTTP interface for arangosearch Views</h1><p class=lead>The HTTP API for Views lets you manage <code>arangosearch</code> Views, including handling the general View properties and View links</p></hgroup><h2 id=create-an-arangosearch-view>Create an arangosearch View <a href=/3.10/develop/http-api/views/arangosearch-views/#create-an-arangosearch-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_api/view</span></div><div class="openapi-description regular-font">Creates a new View with a given name and properties if it does not
+already exist.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_cleanupIntervalStep><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">cleanupIntervalStep</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_cleanupIntervalStep><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many commits between removing unused files in the
+ArangoSearch data directory (default: 2, to disable use: 0).
+For the case where the consolidation policies merge segments often (i.e. a lot
+of commit+consolidate), a lower value causes a lot of disk space to be
+wasted.
+For the case where the consolidation policies rarely merge segments (i.e. few
+inserts/deletes), a higher value impacts performance without any added
+benefits.</p><p><em>Background:</em>
+With every &ldquo;commit&rdquo; or &ldquo;consolidate&rdquo; operation a new state of the View&rsquo;s
+internal data structures is created on disk.
+Old states/snapshots are released once there are no longer any users
+remaining.
+However, the files for the released states/snapshots are left on disk, and
+only removed by &ldquo;cleanup&rdquo; operation.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_commitIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">commitIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_commitIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between committing View data store
+changes and making documents visible to queries (default: 1000, to disable
+use: 0).
+For the case where there are a lot of inserts/updates, a higher value causes the
+index not to account for them and memory usage continues to grow until the commit.
+A lower value impacts performance, including the case where there are no or only a
+few inserts/updates because of synchronous locking, and it wastes disk space for
+each commit call.</p><p><em>Background:</em>
+For data retrieval, ArangoSearch follows the concept of
+&ldquo;eventually-consistent&rdquo;, i.e. eventually all the data in ArangoDB will be
+matched by corresponding query expressions.
+The concept of ArangoSearch &ldquo;commit&rdquo; operations is introduced to
+control the upper-bound on the time until document addition/removals are
+actually reflected by corresponding query expressions.
+Once a &ldquo;commit&rdquo; operation is complete, all documents added/removed prior to
+the start of the &ldquo;commit&rdquo; operation will be reflected by queries invoked in
+subsequent ArangoDB transactions, in-progress ArangoDB transactions will
+still continue to return a repeatable-read state.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_consolidationIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_consolidationIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between applying <code>consolidationPolicy</code> to
+consolidate the View data store and possibly release space on the filesystem
+(default: 10000, to disable use: 0).
+For the case where there are a lot of data modification operations, a higher
+value could potentially have the data store consume more space and file handles.
+For the case where there are a few data modification operations, a lower value
+impacts performance due to no segment candidates being available for
+consolidation.</p><p><em>Background:</em>
+For data modification, ArangoSearch follows the concept of a
+&ldquo;versioned data store&rdquo;. Thus old versions of data may be removed once there
+are no longer any users of the old data. The frequency of the cleanup and
+compaction operations are governed by <code>consolidationIntervalMsec</code> and the
+candidates for compaction are selected via <code>consolidationPolicy</code>.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_consolidationPolicy><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationPolicy</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#create-an-arangosearch-view_body_consolidationPolicy><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The consolidation policy to apply for selecting which segments should be merged
+(default: {})</p><p><em>Background:</em>
+With each ArangoDB transaction that inserts documents, one or more
+ArangoSearch-internal segments get created.
+Similarly, for removed documents, the segments that contain such documents
+have these documents marked as &lsquo;deleted&rsquo;.
+Over time, this approach causes a lot of small and sparse segments to be
+created.
+A &ldquo;consolidation&rdquo; operation selects one or more segments and copies all of
+their valid documents into a single new segment, thereby allowing the
+search algorithm to perform more optimally and for extra file handles to be
+released once old segments are no longer used.</p><p>Sub-properties:</p><ul><li><code>type</code> (string, <em>optional</em>):
+The segment candidates for the &ldquo;consolidation&rdquo; operation are selected based
+upon several possible configurable formulas as defined by their types.
+The currently supported types are:<ul><li><code>"tier"</code> (default): consolidate based on segment byte size and live
+document count as dictated by the customization attributes. If this type
+is used, then below <code>segments*</code> and <code>minScore</code> properties are available.</li><li><code>"bytes_accum"</code>: consolidate if and only if
+<code>{threshold} > (segment_bytes + sum_of_merge_candidate_segment_bytes) / all_segment_bytes</code>
+i.e. the sum of all candidate segment byte size is less than the total
+segment byte size multiplied by the <code>{threshold}</code>. If this type is used,
+then below <code>threshold</code> property is available.</li></ul></li><li><code>threshold</code> (number, <em>optional</em>): value in the range <code>[0.0, 1.0]</code></li><li><code>segmentsBytesFloor</code> (number, <em>optional</em>): Defines the value (in bytes) to
+treat all smaller segments as equal for consolidation selection
+(default: 2097152)</li><li><code>segmentsBytesMax</code> (number, <em>optional</em>): Maximum allowed size of all
+consolidated segments in bytes (default: 5368709120)</li><li><code>segmentsMax</code> (number, <em>optional</em>): The maximum number of segments that are
+evaluated as candidates for consolidation (default: 10)</li><li><code>segmentsMin</code> (number, <em>optional</em>): The minimum number of segments that are
+evaluated as candidates for consolidation (default: 1)</li><li><code>minScore</code> (number, <em>optional</em>): (default: 0)</li></ul></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_links><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">links</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#create-an-arangosearch-view_body_links><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Expects an object with the attribute keys being names of to be linked collections,
+and the link properties as attribute values. See
+<a href=/3.10/index-and-search/arangosearch/arangosearch-views-reference/#link-properties class=link><code>arangosearch</code> View Link Properties</a>
+for details.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-arangosearch-view_body_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_primaryKeyCache><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">primaryKeyCache</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#create-an-arangosearch-view_body_primaryKeyCache><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>If you enable this option, then the primary key columns are always cached in
+memory (introduced in v3.9.6, Enterprise Edition only). This can improve the
+performance of queries that return many documents. Otherwise, these values are
+memory-mapped and it is up to the operating system to load them from disk into
+memory and to evict them from memory.</p><p>This option is immutable.</p><p>See the <code>--arangosearch.columns-cache-limit</code> startup option to control the
+memory consumption of this cache. You can reduce the memory usage of the column
+cache in cluster deployments by only using the cache for leader shards, see the
+<code>--arangosearch.columns-cache-only-leader</code> startup option (introduced in v3.10.6).</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_primarySort><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">primarySort</span>
+<span class=openapi-property-type><span class=bold-text>array of objects</span></span>
+<a href=#create-an-arangosearch-view_body_primarySort><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>A primary sort order can be defined to enable an AQL optimization. If a query
+iterates over all documents of a View, wants to sort them by attribute values
+and the (left-most) fields to sort by as well as their sorting direction match
+with the <code>primarySort</code> definition, then the <code>SORT</code> operation is optimized away.
+This option is immutable.</p><p>Expects an array of objects, each specifying a field (attribute path) and a
+sort direction (<code>"asc</code> for ascending, <code>"desc"</code> for descending):
+<code>[ { "field": "attr", "direction": "asc"}, … ]</code></p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_primarySortCache><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">primarySortCache</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#create-an-arangosearch-view_body_primarySortCache><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>If you enable this option, then the primary sort columns are always cached in
+memory (introduced in v3.9.6, Enterprise Edition only). This can improve the
+performance of queries that utilize the primary sort order. Otherwise, these
+values are memory-mapped and it is up to the operating system to load them from
+disk into memory and to evict them from memory.</p><p>This option is immutable.</p><p>See the <code>--arangosearch.columns-cache-limit</code> startup option to control the
+memory consumption of this cache. You can reduce the memory usage of the column
+cache in cluster deployments by only using the cache for leader shards, see the
+<code>--arangosearch.columns-cache-only-leader</code> startup option (introduced in v3.10.6).</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_primarySortCompression><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">primarySortCompression</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-arangosearch-view_body_primarySortCompression><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Defines how to compress the primary sort data (introduced in v3.7.1).
+ArangoDB v3.5 and v3.6 always compress the index using LZ4.</p><p>This option is immutable.</p><ul><li><code>"lz4"</code> (default): use LZ4 fast compression.</li><li><code>"none"</code>: disable compression to trade space for speed.</li></ul></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_storedValues><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">storedValues</span>
+<span class=openapi-property-type><span class=bold-text>array of objects</span></span>
+<a href=#create-an-arangosearch-view_body_storedValues><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>An array of objects to describe which document attributes to store in the View
+index (introduced in v3.7.1). It can then cover search queries, which means the
+data can be taken from the index directly and accessing the storage engine can
+be avoided.</p><p>This option is immutable.</p><p>Each object is expected in the following form:</p><p><code>{ "fields": [ "attr1", "attr2", ... "attrN" ], "compression": "none", "cache": false }</code></p><ul><li><p>The required <code>fields</code> attribute is an array of strings with one or more
+document attribute paths. The specified attributes are placed into a single
+column of the index. A column with all fields that are involved in common
+search queries is ideal for performance. The column should not include too
+many unneeded fields, however.</p></li><li><p>The optional <code>compression</code> attribute defines the compression type used for
+the internal column-store, which can be <code>"lz4"</code> (LZ4 fast compression, default)
+or <code>"none"</code> (no compression).</p></li><li><p>The optional <code>cache</code> attribute allows you to always cache stored values in
+memory (introduced in v3.9.5, Enterprise Edition only). This can improve
+the query performance if stored values are involved. Otherwise, these values
+are memory-mapped and it is up to the operating system to load them from disk
+into memory and to evict them from memory.</p><p>See the <code>--arangosearch.columns-cache-limit</code> startup option
+to control the memory consumption of this cache. You can reduce the memory
+usage of the column cache in cluster deployments by only using the cache for
+leader shards, see the <code>--arangosearch.columns-cache-only-leader</code> startup
+option (introduced in v3.10.6).</p><p>You may use the following shorthand notations on View creation instead of
+an array of objects as described above. The default compression and cache
+settings are used in this case:</p><ul><li><p>An array of strings, like <code>["attr1", "attr2"]</code>, to place each attribute into
+a separate column of the index (introduced in v3.10.3).</p></li><li><p>An array of arrays of strings, like <code>[["attr1", "attr2"]]</code>, to place the
+attributes into a single column of the index, or <code>[["attr1"], ["attr2"]]</code>
+to place each attribute into a separate column. You can also mix it with the
+full form:</p></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>[</span><span class=s2>&#34;attr1&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=p>[</span><span class=s2>&#34;attr2&#34;</span><span class=p>,</span> <span class=s2>&#34;attr3&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attr4&#34;</span><span class=p>,</span> <span class=s2>&#34;attr5&#34;</span><span class=p>],</span> <span class=nt>&#34;cache&#34;</span><span class=p>:</span> <span class=kc>true</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span></code></pre></div></li></ul><p>The <code>storedValues</code> option is not to be confused with the <code>storeValues</code> option,
+which allows to store meta data about attribute values in the View index.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-arangosearch-view_body_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The type of the View. Must be equal to <code>"arangosearch"</code>.
+This option is immutable.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_writebufferActive><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">writebufferActive</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_writebufferActive><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Maximum number of concurrent active writers (segments) that perform a
+transaction. Other writers (segments) wait till current active writers
+(segments) finish (default: 0, use 0 to disable, immutable)</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_writebufferIdle><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">writebufferIdle</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_writebufferIdle><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Maximum number of writers (segments) cached in the pool
+(default: 64, use 0 to disable, immutable)</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_body_writebufferSizeMax><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">writebufferSizeMax</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#create-an-arangosearch-view_body_writebufferSizeMax><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Maximum memory byte size per writer (segment) before a writer (segment) flush
+is triggered. <code>0</code> value turns off this limit for any writer (buffer) and data
+is flushed periodically based on the value defined for the flush thread
+(ArangoDB server startup option). <code>0</code> value should be used carefully due to
+high potential memory consumption
+(default: 33554432, use 0 to disable, immutable)</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#create-an-arangosearch-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <em>name</em> or <em>type</em> attribute are missing or invalid, then an <em>HTTP 400</em>
+error is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-arangosearch-view_res_409><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">409</span>
+<span class="openapi-property-type bold-text">Conflict</span>
+<a href=#create-an-arangosearch-view_res_409><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If a View called <em>name</em> already exists, then an <em>HTTP 409</em> error is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - http://localhost:8529/_api/view
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span>: <span class=s2>&#34;products&#34;</span>,
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span>: <span class=s2>&#34;arangosearch&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>471</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71402&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71402&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-information-about-a-view>Get information about a View <a href=/3.10/develop/http-api/views/arangosearch-views/#get-information-about-a-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_api/view/{view-name}</span></div><div class="openapi-description regular-font"><p>The result is an object briefly describing the View with the following attributes:</p><ul><li><code>id</code>: The identifier of the View</li><li><code>name</code>: The name of the View</li><li><code>type</code>: The type of the View as string</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-a-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-information-about-a-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-a-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-information-about-a-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/71485</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>124</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71485&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71485&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Using a name:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/productsView</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>124</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71489&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71489&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-properties-of-a-view>Get the properties of a View <a href=/3.10/develop/http-api/views/arangosearch-views/#get-the-properties-of-a-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_api/view/{view-name}/properties</span></div><div class="openapi-description regular-font"><p>Returns an object containing the definition of the View identified by <code>view-name</code>.</p><p>The result is an object with a full description of a specific View, including
+View type dependent properties.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-properties-of-a-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-properties-of-a-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-properties-of-a-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#get-the-properties-of-a-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is missing, then a <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-properties-of-a-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-the-properties-of-a-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/71419/properties</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>652</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;books&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;analyzers&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;identity&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;title&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;analyzers&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;text_en&#34;</span> 
+</span></span><span class=line><span class=cl>          <span class=o>]</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;includeAllFields&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;storeValues&#34;</span> : <span class=s2>&#34;none&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;trackListPositions&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71419&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71419&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Using a name:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/productsView/properties</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>652</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;books&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;analyzers&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;identity&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;title&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;analyzers&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;text_en&#34;</span> 
+</span></span><span class=line><span class=cl>          <span class=o>]</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;includeAllFields&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;storeValues&#34;</span> : <span class=s2>&#34;none&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;trackListPositions&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71435&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71435&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=list-all-views>List all Views <a href=/3.10/develop/http-api/views/arangosearch-views/#list-all-views class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_api/view</span></div><div class="openapi-description regular-font"><p>Returns an object containing a listing of all Views in a database, regardless
+of their type. It is an array of objects with the following attributes:</p><ul><li><code>id</code></li><li><code>name</code></li><li><code>type</code></li></ul></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-views_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#list-all-views_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The list of Views</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Return information about all Views:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>328</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/128&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;128&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;demoView&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71513&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71513&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;search-alias&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71514&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71514&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;reviewsView&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=replace-the-properties-of-an-arangosearch-view>Replace the properties of an arangosearch View <a href=/3.10/develop/http-api/views/arangosearch-views/#replace-the-properties-of-an-arangosearch-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_api/view/{view-name}/properties</span></div><div class="openapi-description regular-font"><p>Changes all properties of a View by replacing them.</p><p>On success an object with the following attributes is returned:</p><ul><li><code>id</code>: The identifier of the View</li><li><code>name</code>: The name of the View</li><li><code>type</code>: The View type</li><li>all additional <code>arangosearch</code> View implementation-specific properties</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_body_cleanupIntervalStep><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">cleanupIntervalStep</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_body_cleanupIntervalStep><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many commits between removing unused files in the
+ArangoSearch data directory (default: 2, to disable use: 0).
+For the case where the consolidation policies merge segments often (i.e. a lot
+of commit+consolidate), a lower value causes a lot of disk space to be
+wasted.
+For the case where the consolidation policies rarely merge segments (i.e. few
+inserts/deletes), a higher value impacts performance without any added
+benefits.</p><p><em>Background:</em>
+With every &ldquo;commit&rdquo; or &ldquo;consolidate&rdquo; operation, a new state of the View'
+internal data structures is created on disk.
+Old states/snapshots are released once there are no longer any users
+remaining.
+However, the files for the released states/snapshots are left on disk, and
+only removed by &ldquo;cleanup&rdquo; operation.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_body_commitIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">commitIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_body_commitIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between committing View data store
+changes and making documents visible to queries (default: 1000, to disable
+use: 0).
+For the case where there are a lot of inserts/updates, a higher value causes the
+index not to account for them and memory usage continues to grow until the commit.
+A lower value impacts performance, including the case where there are no or only a
+few inserts/updates because of synchronous locking, and it wastes disk space for
+each commit call.</p><p><em>Background:</em>
+For data retrieval, ArangoSearch follows the concept of
+&ldquo;eventually-consistent&rdquo;, i.e. eventually all the data in ArangoDB will be
+matched by corresponding query expressions.
+The concept of ArangoSearch &ldquo;commit&rdquo; operations is introduced to
+control the upper-bound on the time until document addition/removals are
+actually reflected by corresponding query expressions.
+Once a &ldquo;commit&rdquo; operation is complete, all documents added/removed prior to
+the start of the &ldquo;commit&rdquo; operation will be reflected by queries invoked in
+subsequent ArangoDB transactions, in-progress ArangoDB transactions will
+still continue to return a repeatable-read state.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_body_consolidationIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_body_consolidationIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between applying <code>consolidationPolicy</code> to
+consolidate the View data store and possibly release space on the filesystem
+(default: 10000, to disable use: 0).
+For the case where there are a lot of data modification operations, a higher
+value could potentially have the data store consume more space and file handles.
+For the case where there are a few data modification operations, a lower value
+impacts performance due to no segment candidates being available for
+consolidation.</p><p><em>Background:</em>
+For data modification, ArangoSearch follows the concept of a
+&ldquo;versioned data store&rdquo;. Thus old versions of data may be removed once there
+are no longer any users of the old data. The frequency of the cleanup and
+compaction operations are governed by <code>consolidationIntervalMsec</code> and the
+candidates for compaction are selected via <code>consolidationPolicy</code>.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_body_consolidationPolicy><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationPolicy</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_body_consolidationPolicy><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The consolidation policy to apply for selecting which segments should be merged
+(default: {})</p><p><em>Background:</em>
+With each ArangoDB transaction that inserts documents, one or more
+ArangoSearch-internal segments get created.
+Similarly, for removed documents, the segments that contain such documents
+have these documents marked as &lsquo;deleted&rsquo;.
+Over time, this approach causes a lot of small and sparse segments to be
+created.
+A &ldquo;consolidation&rdquo; operation selects one or more segments and copies all of
+their valid documents into a single new segment, thereby allowing the
+search algorithm to perform more optimally and for extra file handles to be
+released once old segments are no longer used.</p><p>Sub-properties:</p><ul><li><code>type</code> (string, <em>optional</em>):
+The segment candidates for the &ldquo;consolidation&rdquo; operation are selected based
+upon several possible configurable formulas as defined by their types.
+The currently supported types are:<ul><li><code>"tier"</code> (default): consolidate based on segment byte size and live
+document count as dictated by the customization attributes. If this type
+is used, then below <code>segments*</code> and <code>minScore</code> properties are available.</li><li><code>"bytes_accum"</code>: consolidate if and only if
+<code>{threshold} > (segment_bytes + sum_of_merge_candidate_segment_bytes) / all_segment_bytes</code>
+i.e. the sum of all candidate segment byte size is less than the total
+segment byte size multiplied by the <code>{threshold}</code>. If this type is used,
+then below <code>threshold</code> property is available.</li></ul></li><li><code>threshold</code> (number, <em>optional</em>): value in the range <code>[0.0, 1.0]</code></li><li><code>segmentsBytesFloor</code> (number, <em>optional</em>): Defines the value (in bytes) to
+treat all smaller segments as equal for consolidation selection
+(default: 2097152)</li><li><code>segmentsBytesMax</code> (number, <em>optional</em>): Maximum allowed size of all
+consolidated segments in bytes (default: 5368709120)</li><li><code>segmentsMax</code> (number, <em>optional</em>): The maximum number of segments that are
+evaluated as candidates for consolidation (default: 10)</li><li><code>segmentsMin</code> (number, <em>optional</em>): The minimum number of segments that
+evaluated as candidates for consolidation (default: 1)</li><li><code>minScore</code> (number, <em>optional</em>): (default: 0)</li></ul></p></div></details></li><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_body_links><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">links</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#replace-the-properties-of-an-arangosearch-view_body_links><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Expects an object with the attribute keys being names of to be linked collections,
+and the link properties as attribute values. See
+<a href=/3.10/index-and-search/arangosearch/arangosearch-views-reference/#link-properties class=link><code>arangosearch</code> View Link Properties</a>
+for details.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#replace-the-properties-of-an-arangosearch-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is missing, then a <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=replace-the-properties-of-an-arangosearch-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#replace-the-properties-of-an-arangosearch-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - http://localhost:8529/_api/view/productsView/properties
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;locale&#34;</span>: <span class=s2>&#34;en&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>475</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71452&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71452&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=update-the-properties-of-an-arangosearch-view>Update the properties of an arangosearch View <a href=/3.10/develop/http-api/views/arangosearch-views/#update-the-properties-of-an-arangosearch-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-patch">PATCH</span>
+<span class=endpoint-path>/_api/view/{view-name}/properties</span></div><div class="openapi-description regular-font"><p>Partially changes the properties of a View by updating the specified attributes.</p><p>On success an object with the following attributes is returned:</p><ul><li><code>id</code>: The identifier of the View</li><li><code>name</code>: The name of the View</li><li><code>type</code>: The View type</li><li>all additional <code>arangosearch</code> View implementation-specific properties</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_body_cleanupIntervalStep><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">cleanupIntervalStep</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_body_cleanupIntervalStep><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many commits between removing unused files in the
+ArangoSearch data directory (default: 2, to disable use: 0).
+For the case where the consolidation policies merge segments often (i.e. a lot
+of commit+consolidate), a lower value causes a lot of disk space to be
+wasted.
+For the case where the consolidation policies rarely merge segments (i.e. few
+inserts/deletes), a higher value impacts performance without any added
+benefits.</p><p><em>Background:</em>
+With every &ldquo;commit&rdquo; or &ldquo;consolidate&rdquo; operation, a new state of the View&rsquo;s
+internal data structures is created on disk.
+Old states/snapshots are released once there are no longer any users
+remaining.
+However, the files for the released states/snapshots are left on disk, and
+only removed by &ldquo;cleanup&rdquo; operation.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_body_commitIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">commitIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_body_commitIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between committing View data store
+changes and making documents visible to queries (default: 1000, to disable
+use: 0).
+For the case where there are a lot of inserts/updates, a higher value causes the
+index not to account for them and memory usage continues to grow until the commit.
+A lower value impacts performance, including the case where there are no or only a
+few inserts/updates because of synchronous locking, and it wastes disk space for
+each commit call.</p><p><em>Background:</em>
+For data retrieval, ArangoSearch follows the concept of
+&ldquo;eventually-consistent&rdquo;, i.e. eventually all the data in ArangoDB will be
+matched by corresponding query expressions.
+The concept of ArangoSearch &ldquo;commit&rdquo; operations is introduced to
+control the upper-bound on the time until document addition/removals are
+actually reflected by corresponding query expressions.
+Once a &ldquo;commit&rdquo; operation is complete, all documents added/removed prior to
+the start of the &ldquo;commit&rdquo; operation will be reflected by queries invoked in
+subsequent ArangoDB transactions, in-progress ArangoDB transactions will
+still continue to return a repeatable-read state.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_body_consolidationIntervalMsec><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationIntervalMsec</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_body_consolidationIntervalMsec><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Wait at least this many milliseconds between applying <code>consolidationPolicy</code> to
+consolidate the View data store and possibly release space on the filesystem
+(default: 10000, to disable use: 0).
+For the case where there are a lot of data modification operations, a higher
+value could potentially have the data store consume more space and file handles.
+For the case where there are a few data modification operations, a lower value
+impacts performance due to no segment candidates being available for
+consolidation.</p><p><em>Background:</em>
+For data modification, ArangoSearch follows the concept of a
+&ldquo;versioned data store&rdquo;. Thus old versions of data may be removed once there
+are no longer any users of the old data. The frequency of the cleanup and
+compaction operations are governed by <code>consolidationIntervalMsec</code> and the
+candidates for compaction are selected via <code>consolidationPolicy</code>.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_body_consolidationPolicy><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">consolidationPolicy</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_body_consolidationPolicy><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The consolidation policy to apply for selecting which segments should be merged
+(default: {})</p><p><em>Background:</em>
+With each ArangoDB transaction that inserts documents, one or more
+ArangoSearch-internal segments get created.
+Similarly, for removed documents, the segments that contain such documents
+have these documents marked as &lsquo;deleted&rsquo;.
+Over time, this approach causes a lot of small and sparse segments to be
+created.
+A &ldquo;consolidation&rdquo; operation selects one or more segments and copies all of
+their valid documents into a single new segment, thereby allowing the
+search algorithm to perform more optimally and for extra file handles to be
+released once old segments are no longer used.</p><p>Sub-properties:</p><ul><li><code>type</code> (string, <em>optional</em>):
+The segment candidates for the &ldquo;consolidation&rdquo; operation are selected based
+upon several possible configurable formulas as defined by their types.
+The currently supported types are:<ul><li><code>"tier"</code> (default): consolidate based on segment byte size and live
+document count as dictated by the customization attributes. If this type
+is used, then below <code>segments*</code> and <code>minScore</code> properties are available.</li><li><code>"bytes_accum"</code>: consolidate if and only if
+<code>{threshold} > (segment_bytes + sum_of_merge_candidate_segment_bytes) / all_segment_bytes</code>
+i.e. the sum of all candidate segment byte size is less than the total
+segment byte size multiplied by the <code>{threshold}</code>. If this type is used,
+then below <code>threshold</code> property is available.</li></ul></li><li><code>threshold</code> (number, <em>optional</em>): value in the range <code>[0.0, 1.0]</code></li><li><code>segmentsBytesFloor</code> (number, <em>optional</em>): Defines the value (in bytes) to
+treat all smaller segments as equal for consolidation selection
+(default: 2097152)</li><li><code>segmentsBytesMax</code> (number, <em>optional</em>): Maximum allowed size of all
+consolidated segments in bytes (default: 5368709120)</li><li><code>segmentsMax</code> (number, <em>optional</em>): The maximum number of segments that are
+evaluated as candidates for consolidation (default: 10)</li><li><code>segmentsMin</code> (number, <em>optional</em>): The minimum number of segments that are
+evaluated as candidates for consolidation (default: 1)</li><li><code>minScore</code> (number, <em>optional</em>): (default: 0)</li></ul></p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_body_links><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">links</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#update-the-properties-of-an-arangosearch-view_body_links><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Expects an object with the attribute keys being names of to be linked collections,
+and the link properties as attribute values. See
+<a href=/3.10/index-and-search/arangosearch/arangosearch-views-reference/#link-properties class=link><code>arangosearch</code> View Link Properties</a>
+for details.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#update-the-properties-of-an-arangosearch-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is missing, then a <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=update-the-properties-of-an-arangosearch-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#update-the-properties-of-an-arangosearch-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - http://localhost:8529/_api/view/productsView/properties
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;locale&#34;</span>: <span class=s2>&#34;en&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>475</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71458&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71458&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;productsView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=rename-a-view>Rename a View <a href=/3.10/develop/http-api/views/arangosearch-views/#rename-a-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
+<span class=endpoint-path>/_api/view/{view-name}/rename</span></div><div class="openapi-description regular-font"><p>Renames a View. Expects an object with the attribute(s)</p><ul><li><code>name</code>: The new name</li></ul><p>It returns an object with the attributes</p><ul><li><code>id</code>: The identifier of the View.</li><li><code>name</code>: The new name of the View.</li><li><code>type</code>: The View type.</li></ul><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Renaming Views is not supported in cluster deployments.</div></div></div></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=rename-a-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#rename-a-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View to rename.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=rename-a-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#rename-a-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is missing, then a <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=rename-a-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#rename-a-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - http://localhost:8529/_api/view/productsView/rename
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span>: <span class=s2>&#34;catalogView&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>474</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h1617A8BD8EEE/71545&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71545&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;catalogView&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;arangosearch&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cleanupIntervalStep&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;commitIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationIntervalMsec&#34;</span> : 1000, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;consolidationPolicy&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;tier&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesFloor&#34;</span> : 2097152, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsBytesMax&#34;</span> : 5368709120, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMax&#34;</span> : 10, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;segmentsMin&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minScore&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySort&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;primarySortCompression&#34;</span> : <span class=s2>&#34;lz4&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storedValues&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferActive&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferIdle&#34;</span> : 64, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;writebufferSizeMax&#34;</span> : 33554432, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;links&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=drop-a-view>Drop a View <a href=/3.10/develop/http-api/views/arangosearch-views/#drop-a-view class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
+<span class=endpoint-path>/_api/view/{view-name}</span></div><div class="openapi-description regular-font"><p>Drops the View identified by <code>view-name</code>.</p><p>If the View was successfully dropped, an object is returned with
+the following attributes:</p><ul><li><code>error</code>: <code>false</code></li><li><code>id</code>: The identifier of the dropped View</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=drop-a-view_path_view-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">view-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#drop-a-view_path_view-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the View to drop.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=drop-a-view_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#drop-a-view_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is missing, then a <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=drop-a-view_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#drop-a-view_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>view-name</code> is unknown, then a <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/71551</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>40</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Using a name:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/view/productsView</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>40</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.10/develop/http-api/views/search-alias-views/><i class="fas fa-chevron-left fa-fw"></i><p><code>search-alias</code> Views</p></a></span><span class=next><a class="nav nav-next link" href=/3.10/develop/http-api/analyzers/><p>Analyzers</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.10/develop/http-api/views/arangosearch-views.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#create-an-arangosearch-view>Create an arangosearch View</a></div><div class=level-2><a href=#get-information-about-a-view>Get information about a View</a></div><div class=level-2><a href=#get-the-properties-of-a-view>Get the properties of a View</a></div><div class=level-2><a href=#list-all-views>List all Views</a></div><div class=level-2><a href=#replace-the-properties-of-an-arangosearch-view>Replace the properties of an arangosearch View</a></div><div class=level-2><a href=#update-the-properties-of-an-arangosearch-view>Update the properties of an arangosearch View</a></div><div class=level-2><a href=#rename-a-view>Rename a View</a></div><div class=level-2><a href=#drop-a-view>Drop a View</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

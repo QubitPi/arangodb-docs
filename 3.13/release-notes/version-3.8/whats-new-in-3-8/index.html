@@ -1,0 +1,527 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Sliding window aggregation, new graph algorithms, powerful user-defined Analyzers, AQL performance and usability improvements"><meta property="og:url" content="http://localhost/3.13/release-notes/version-3.8/whats-new-in-3-8/"><meta property="og:title" content="Features and Improvements in ArangoDB 3.8"><meta property="og:type" content="website"><meta property="og:description" content="Sliding window aggregation, new graph algorithms, powerful user-defined Analyzers, AQL performance and usability improvements"><meta name=docsearch:version content="3.13"><title>Features and Improvements in ArangoDB 3.8 | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Release Notes"><a itemprop=item class=link href=/3.13/release-notes/><span itemprop=name class=breadcrumb-entry>Release Notes</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Version 3.8"><a itemprop=item class=link href=/3.13/release-notes/version-3.8/><span itemprop=name class=breadcrumb-entry>Version 3.8</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="What&rsquo;s New in 3.8"><a itemprop=item class=link href=/3.13/release-notes/version-3.8/whats-new-in-3-8/><span itemprop=name class=breadcrumb-entry>What&rsquo;s New in 3.8</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.13 is under development and not released yet.
+This documentation is not final and potentially incomplete.</p></div></div></div></div><hgroup><h1>Features and Improvements in ArangoDB 3.8</h1><p class=lead>Sliding window aggregation, new graph algorithms, powerful user-defined Analyzers, AQL performance and usability improvements</p></hgroup><p>The following list shows in detail which features have been added or improved in
+ArangoDB 3.8. ArangoDB 3.8 also contains several bug fixes that are not listed
+here.</p><h2 id=aql>AQL <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=aql-window-operations>AQL window operations <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-window-operations class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The <code>WINDOW</code> keyword can be used for aggregations over related rows, usually
+preceding and / or following rows.</p><p>The <code>WINDOW</code> operation performs a <code>COLLECT AGGREGATE</code>-like operation on a set
+of query rows. However, whereas a <code>COLLECT</code> operation groups multiple query
+rows into a single result group, a <code>WINDOW</code> operation produces a result for
+each query row:</p><ul><li>The row for which function evaluation occurs is called the current row.</li><li>The query rows related to the current row over which function evaluation
+occurs, comprise the window frame for the current row.</li></ul><p>Window frames are determined with respect to the current row:</p><ul><li>By defining a window frame to be all rows from the query start to the current
+row, you can compute running totals for each row.</li><li>By defining a frame as extending <em>N</em> rows on either side of the current row,
+you can compute rolling averages.</li></ul><p>See <a href=/3.13/aql/high-level-operations/window/ class=link><code>WINDOW</code> operation</a>.</p><h3 id=weighted-traversals>Weighted Traversals <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#weighted-traversals class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The graph traversal option <code>bfs</code> is now deprecated and superseded by the new
+option <code>order</code>. It supports a new traversal type <code>"weighted"</code>, which enumerate
+paths by increasing weights.</p><p>The cost of an edge can be read from an attribute which can be specified with
+the <code>weightAttribute</code> option.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>x</span><span class=p>,</span> <span class=n>v</span><span class=p>,</span> <span class=n>p</span> <span class=kr>IN</span> <span class=mf>0</span><span class=o>..</span><span class=mi>10</span> <span class=kr>OUTBOUND</span> <span class=s2>&#34;places/York&#34;</span> <span class=kr>GRAPH</span> <span class=s2>&#34;kShortestPathsGraph&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=kp>OPTIONS</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>order</span><span class=o>:</span> <span class=s2>&#34;weighted&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>weightAttribute</span><span class=o>:</span> <span class=s2>&#34;travelTime&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>uniqueVertices</span><span class=o>:</span> <span class=s2>&#34;path&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>FILTER</span> <span class=n>p</span><span class=p>.</span><span class=n>edges</span><span class=p>[</span><span class=o>*</span><span class=p>].</span><span class=n>travelTime</span> <span class=kr>ALL</span> <span class=o>&lt;</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>  <span class=kd>LET</span> <span class=n>totalTime</span> <span class=o>=</span> <span class=nf>LAST</span><span class=p>(</span><span class=n>p</span><span class=p>.</span><span class=n>weights</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kr>FILTER</span> <span class=n>totalTime</span> <span class=o>&lt;</span> <span class=mi>6</span>
+</span></span><span class=line><span class=cl>  <span class=kr>SORT</span> <span class=n>totalTime</span> <span class=kr>DESC</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>path</span><span class=o>:</span> <span class=n>p</span><span class=p>.</span><span class=n>vertices</span><span class=p>[</span><span class=o>*</span><span class=p>].</span><span class=n>_key</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>weight</span><span class=o>:</span> <span class=nf>LAST</span><span class=p>(</span><span class=n>p</span><span class=p>.</span><span class=n>weights</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>weights</span><span class=o>:</span> <span class=n>p</span><span class=p>.</span><span class=n>edges</span><span class=p>[</span><span class=o>*</span><span class=p>].</span><span class=n>travelTime</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span></span></span></code></pre></div><table><thead><tr><th style=text-align:left><code>path</code></th><th style=text-align:left><code>weight</code></th><th style=text-align:left><code>weights</code></th></tr></thead><tbody><tr><td style=text-align:left><code>["York","London","Birmingham","Carlisle"]</code></td><td style=text-align:left><code>5.3</code></td><td style=text-align:left><code>[1.8,2.5,1]</code></td></tr><tr><td style=text-align:left><code>["York","London","Birmingham"]</code></td><td style=text-align:left><code>4.3</code></td><td style=text-align:left><code>[1.8,2.5]</code></td></tr><tr><td style=text-align:left><code>["York","London","Brussels"]</code></td><td style=text-align:left><code>4.3</code></td><td style=text-align:left><code>[1.8,2.5]</code></td></tr><tr><td style=text-align:left><code>["York","London"]</code></td><td style=text-align:left><code>1.8</code></td><td style=text-align:left><code>[1.8]</code></td></tr><tr><td style=text-align:left><code>["York"]</code></td><td style=text-align:left><code>0</code></td><td style=text-align:left><code>[]</code></td></tr></tbody></table><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Weighted traversals do not support negative weights. If a document
+attribute (as specified by <code>weightAttribute</code>) with a negative value is
+encountered during traversal, or if <code>defaultWeight</code> is set to a negative
+number, then the query is aborted with an error.</div></div></div></div><p>The preferred way to start a breadth-first search from now on is with
+<code>order: "bfs"</code>. The default remains depth-first search if no <code>order</code> is
+specified, but can also be explicitly requested with <code>order: "dfs"</code>.</p><p>Also see <a href=/3.13/aql/graphs/traversals/ class=link>AQL graph traversals</a></p><h3 id=k-paths>k Paths <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#k-paths class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>A new graph traversal method <code>K_PATHS</code> was added to AQL. It will enumerate all
+paths between a source and a target vertex that match the given path length.</p><p>For example, the query:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>path</span> <span class=kr>IN</span> <span class=mf>2</span><span class=o>..</span><span class=mi>4</span> <span class=kr>OUTBOUND</span> <span class=kr>K_PATHS</span> <span class=s2>&#34;v/source&#34;</span> <span class=kp>TO</span> <span class=s2>&#34;v/target&#34;</span> <span class=kr>GRAPH</span> <span class=s2>&#34;g&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>path</span></span></span></code></pre></div><p>… will yield all paths in the format:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;vertices&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;v/source&#34;</span><span class=p>,</span> <span class=p>...</span> <span class=p>,</span> <span class=s2>&#34;v/target&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;edges&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;v/source&#34;</span> <span class=o>-&gt;</span> <span class=s2>&#34;v/1&#34;</span><span class=p>,</span> <span class=p>...</span> <span class=p>,</span> <span class=s2>&#34;v/n&#34;</span> <span class=o>-&gt;</span> <span class=s2>&#34;v/target&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><p>… that have length of exactly 2 or 3 or 4, start at <code>v/source</code> and end at
+<code>v/target</code>. No order is guaranteed for those paths in the result set.</p><p>For more details see <a href=/3.13/aql/graphs/k-paths/ class=link>AQL k Paths</a></p><h3 id=aql-bit-functions>AQL bit functions <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-bit-functions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB 3.8 adds the following bit handling functions to AQL:</p><ul><li><code>BIT_AND()</code>: and-combine two or more numbers</li><li><code>BIT_OR()</code>: or-combine two or more numbers</li><li><code>BIT_XOR()</code>: xor-combine two or more numbers</li><li><code>BIT_NEGATE()</code>: bitwise negation</li><li><code>BIT_TEST()</code>: test if bit is set at position</li><li><code>BIT_POPCOUNT()</code>: number of bits set</li><li><code>BIT_SHIFT_LEFT()</code>: bitwise shift-left</li><li><code>BIT_SHIFT_RIGHT()</code>: bitwise shift-right</li><li><code>BIT_CONSTRUCT()</code>: construct a number with bits set at given positions</li><li><code>BIT_DECONSTRUCT()</code>: deconstruct a number into an array with the positions of its set bits</li><li><code>BIT_TO_STRING()</code>: create a bitstring representation from a numeric value</li><li><code>BIT_FROM_STRING()</code>: parse a bitstring representation into a number</li></ul><p>Also see <a href=/3.13/aql/functions/bit/ class=link>Bit functions</a>.</p><p><code>BIT_AND()</code>, <code>BIT_OR()</code> and <code>BIT_XOR()</code> are also available as aggregate
+functions for usage inside <a href=/3.13/aql/high-level-operations/collect/#aggregation class=link><code>COLLECT AGGREGATE</code></a>.</p><p>All above bit operations support unsigned integer values with up to 32 bits.
+Using values outside the supported range will make any of these bit functions
+return <code>null</code> and register a warning.</p><p>This functionality has been backported to v3.7.7 as well.</p><h3 id=aql-binary-and-hexadecimal-integer-literals>AQL binary and hexadecimal integer literals <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-binary-and-hexadecimal-integer-literals class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB 3.8 allows using binary (base 2) and hexadecimal (base 16) integer
+literals in AQL. These literals can be used where regular (base 10) integer
+literals can be used.</p><ul><li>The prefix for binary integer literals is <code>0b</code>, e.g. <code>0b10101110</code>.</li><li>The prefix for hexadecimal integer literals is <code>0x</code>, e.g. <code>0xabcdef02</code>.</li></ul><p>Binary and hexadecimal integer literals can only be used for unsigned integers.
+The maximum supported value is 2<sup>32</sup> - 1, i.e.
+<code>0b11111111111111111111111111111111</code> (binary) or <code>0xffffffff</code> (hexadecimal).</p><p>This functionality has been backported to v3.7.7 as well.</p><h3 id=projections-on-sub-attributes>Projections on sub-attributes <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#projections-on-sub-attributes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>AQL now also support projections on sub-attributes (e.g. <code>a.b.c</code>).</p><p>In previous versions of ArangoDB, projections were only supported on top-level
+attributes. For example, in the query:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>collection</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span><span class=p>.</span><span class=n>a</span><span class=p>.</span><span class=n>b</span></span></span></code></pre></div><p>… the projection that was used was just <code>a</code>. Now the projection will be <code>a.b</code>,
+which can help reduce the amount of data to be extracted from documents, when
+only some sub-attributes are accessed.</p><p>In addition, indexes can now be used to extract the data of sub-attributes
+for projections. If for the above example query an index on <code>a.b</code> exists,
+it will be used now. Previously, no index could be used for this projection.</p><p>Projections now can also be fed by any attribute in a combined index.
+For example, in the query:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>collection</span>
+</span></span><span class=line><span class=cl>  <span class=kr>RETURN</span> <span class=n>doc</span><span class=p>.</span><span class=n>b</span></span></span></code></pre></div><p>… the projection can be satisfied by a single-attribute index on attribute <code>b</code>,
+but now also by a combined index on attributes <code>a</code> and <code>b</code> (or <code>b</code> and <code>a</code>).</p><h3 id=aql-optimizer-improvements>AQL optimizer improvements <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-optimizer-improvements class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The &ldquo;move-calculations-up&rdquo; optimizer rule was improved so that it can move
+calculations out of subqueries into the outer query, so that they will be
+executed less often.</p><p>In queries or subqueries that return only constant values and/or that assign
+constant values to variables, these constant values are now stored only once
+per query and not once input row. This can slightly improve memory usage and
+execution time of such queries.</p><p>Explaining a query now also shows the query optimizer rules with the highest
+execution times in the explain output.</p><h3 id=aql-performance-improvements>AQL performance improvements <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-performance-improvements class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The performance of AQL <code>standard</code> sort operations has been improved in ArangoDB
+3.8. This is true for sorts carried out explicitly by using the <code>SORT</code> keyword
+and for sorts that are implicitly executed due to using a sorting <code>COLLECT</code>
+operation. Sort performance is especially better for sorting numeric values.</p><p>The improvements are limited to SortNodes with the <code>standard</code> sorting strategy.
+SortNodes using the <code>constrained heap</code> strategy may not see a speedup.</p><p>There are also performance improvements for <code>COLLECT</code> operations that only
+count values or that aggregate values using <code>AGGREGATE</code>. The exact mileage
+can vary, but is substantial for some queries.</p><h3 id=aql-usability-options>AQL usability options <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-usability-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><h4 id=requiring-with-statements>Requiring <code>WITH</code> statements <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#requiring-with-statements class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The new startup option <code>--query.require-with</code> will make AQL queries in single
+server mode also require <code>WITH</code> clauses in AQL queries where a cluster
+installation would require them.
+The option is set to <em>false</em> by default, but can be turned on in single servers
+to remove this behavior difference between single servers and clusters, making
+a later transition from single server to cluster easier.</p><h4 id=allowing-the-usage-of-collection-names-in-aql-expressions>Allowing the usage of collection names in AQL expressions <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#allowing-the-usage-of-collection-names-in-aql-expressions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The new startup option <code>--query.allow-collections-in-expressions</code> controls
+whether using collection names in arbitrary places in AQL expressions is
+allowed, although using collection names like this is very likely unintended.</p><p>For example, consider the query</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>collection</span> <span class=kr>RETURN</span> <span class=n>collection</span></span></span></code></pre></div><p>Here, the collection name is <em>collection</em>, and its usage in the <code>FOR</code> loop is
+intended and valid. However, <em>collection</em> is also used in the <code>RETURN</code>
+statement, which is legal but potentially unintended. It should likely be
+<code>RETURN doc</code> or <code>RETURN doc.someAttribute</code> instead. Otherwise, the entire
+collection will be materialized and returned as many times as there are
+documents in the collection. This can take a long time and even lead to
+out-of-memory crashes in the worst case.</p><p>Setting the option <code>--query.allow-collections-in-expression</code> to <em>false</em> will
+prohibit such unintentional usage of collection names in queries, and instead
+make the query fail with error 1568 (&ldquo;collection used as expression operand&rdquo;).</p><p>The default value of the option is <em>true</em> in 3.8, meaning that potentially
+unintended usage of collection names in queries is still allowed. The default
+value for the option will change to <em>false</em> in 3.9. The option will also be
+deprecated in 3.9 and removed in future versions. From then on, unintended
+usage of collection names will always be disallowed.</p><p>Also see <a href=/3.13/components/arangodb-server/options/#--queryallow-collections-in-expressions class=link>ArangoDB Server Query Options</a></p><h2 id=arangosearch>ArangoSearch <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangosearch class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=pipeline-analyzer>Pipeline Analyzer <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#pipeline-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Added new Analyzer type <code>"pipeline"</code> for chaining effects of multiple Analyzers
+into one. It allows you to combine text normalization for a case insensitive
+search with <em>n</em>-gram tokenization, or to split text at multiple delimiting
+characters followed by stemming.</p><p>See <a href=/3.13/index-and-search/analyzers/#pipeline class=link>ArangoSearch Pipeline Analyzer</a></p><h3 id=aql-analyzer>AQL Analyzer <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#aql-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Added new Analyzer type <code>"aql"</code> capable of running an AQL query (with some
+restrictions) to perform data manipulation/filtering.</p><p>See <a href=/3.13/index-and-search/analyzers/#aql class=link>ArangoSearch AQL Analyzer</a></p><h3 id=geo-spatial-queries>Geo-spatial queries <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#geo-spatial-queries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Added two Geo Analyzers <a href=/3.13/index-and-search/analyzers/#geojson class=link><code>"geojson"</code></a>
+and <a href=/3.13/index-and-search/analyzers/#geopoint class=link><code>"geopoint"</code></a> as well as the
+following <a href=/3.13/aql/functions/arangosearch/#geo-functions class=link>ArangoSearch Geo functions</a>
+which enable geo-spatial queries backed by View indexes:</p><ul><li><code>GEO_CONTAINS()</code></li><li><code>GEO_DISTANCE()</code></li><li><code>GEO_IN_RANGE()</code></li><li><code>GEO_INTERSECTS()</code></li></ul><h3 id=stop-words-analyzer>Stop words Analyzer <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#stop-words-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><small>Introduced in: v3.8.1</small></p><p>Added new Analyzer <code>"stopwords"</code> capable of removing specified tokens from the
+input. It can be used standalone or be combined with other Analyzers via a
+pipeline Analyzer to add stop word functionality to them. Previously, only the
+text Analyzer type provided stop word support.</p><p>See <a href=/3.13/index-and-search/analyzers/#stopwords class=link>ArangoSearch <code>stopwords</code> Analyzer</a></p><h3 id=approximate-count>Approximate count <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#approximate-count class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Added a new option <code>countApproximate</code> for <code>SEARCH</code> queries to control how the
+total count of rows is calculated if the <code>fullCount</code> option is enabled for a
+query or when a <code>COLLECT WITH COUNT</code> clause is executed:</p><ul><li><code>"exact"</code> (default): rows are actually enumerated for a precise count.</li><li><code>"cost"</code>: a cost based approximation is used. Does not enumerate rows and
+returns an approximate result with O(1) complexity. Gives a precise result
+if the <code>SEARCH</code> condition is empty or if it contains a single term query
+only (e.g. <code>SEARCH doc.field == "value"</code>), the usual eventual consistency
+of Views aside.</li></ul><p>Also see: <a href=/3.13/aql/high-level-operations/search/#search-options class=link>AQL <code>SEARCH</code> Operation</a></p><p>This feature was also backported to v3.7.6.</p><h3 id=arangosearch-thread-control>ArangoSearch thread control <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangosearch-thread-control class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Added new command line options for fine-grained control over ArangoSearch&rsquo;s
+maintenance threads, now allowing to set the minimum and maximum number of
+threads for committing and consolidation separately:</p><ul><li><code>--arangosearch.commit-threads</code></li><li><code>--arangosearch.commit-threads-idle</code></li><li><code>--arangosearch.consolidation-threads</code></li><li><code>--arangosearch.consolidation-threads-idle</code></li></ul><p>They supersede the options <code>--arangosearch.threads</code> and
+<code>--arangosearch.threads-limit</code>. See
+<a href=/3.13/components/arangodb-server/options/#arangosearch class=link>ArangoDB Server ArangoSearch Options</a>.</p><p>This feature was also backported to v3.7.5.</p><h2 id=web-interface>Web interface <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#web-interface class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=dashboard>Dashboard <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#dashboard class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The cluster nodes overview in the web interface will now also display all Agent
+instances. Agent failures are now visible there, too. The overview also shows
+which agent is currently the leader.</p><h3 id=shard-distribution-overview>Shard distribution overview <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#shard-distribution-overview class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The web interface now provides a shard distribution overview for the entire
+cluster. The overview includes general details about cluster-wide distribution
+as well as per-server figures for the number of leader and follower shards.</p><p>The shard distribution overview is only available in the <code>_system</code> database.</p><h3 id=cluster-maintenance-mode>Cluster maintenance mode <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#cluster-maintenance-mode class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Inside the <code>_system</code> database of a cluster, the web interface now displays the
+cluster supervision maintenance status. This can be used to check if the cluster
+is currently in maintenance mode. For users with sufficient privileges, it is
+also possible to toggle the maintenance mode from there.</p><h3 id=collection-figures>Collection figures <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#collection-figures class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The web interface now displays the approximate size of the data in a collection
+for both indexes and documents, based on the estimates provided by RocksDB.</p><p>These are estimates which are intended to be calculated quickly, but are not
+perfectly accurate. The estimates can still be useful to get an idea of how
+&ldquo;big&rdquo; a collection approximately is. The sizing information is provided in the
+<em>Info</em> tab of each collection&rsquo;s detail view.</p><p>For collections in a cluster, the web interface now displays the number of
+documents in each shard (data distribution) plus the leader and follower
+DB-Servers for each shard.</p><h3 id=server-logs-in-cluster>Server logs in cluster <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#server-logs-in-cluster class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The web interface can now display the most recent server log entries for
+Coordinators and DB-Servers in a cluster. Logs are made available in the
+<code>_system</code> database via the <em>Nodes</em> menu item. Up to 2048 log entries will be
+kept on each instance.</p><p>The privileges for accessing server logs in the web interface are identical
+to the privileges required for accessing logs via the <code>GET /_admin/log</code> HTTP
+REST API. If security is a concern, in-memory logs buffering can be turned
+off entirely using the startup option <code>--log.in-memory false</code>, plus the log
+API can be turned off or restricted via the <code>--log.api-enabled false</code> or
+<code>--log.api-enabled jwt</code> startup options.</p><h3 id=server-metrics>Server metrics <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#server-metrics class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The statistics view in the web interface now provide some key metrics for
+DB-Servers in case the metrics API is enabled. Different statistics may be
+visible depending on the operating system.</p><p>The web interface can now display the servers&rsquo; current metrics (as exposed
+via the <code>/_admin/metrics/v2</code> API) for all Coordinators and DB-Servers in a cluster.
+The current metrics are provided in a tabular format output and can be downloaded
+from the UI for further analysis. This is not meant to be a 100% replacement for
+Grafana, but rather as a quick self-service alternative to check the servers'
+statuses.</p><h3 id=shard-synchronization-status>Shard synchronization status <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#shard-synchronization-status class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The shard synchronization overview in the web interface now provides a better
+overview of what the shard synchronization is currently doing, and what its
+progress is.</p><p>For shards that are currently not in sync it will display whether the
+followers are currently syncing or waiting for their turn to come (because
+the amount of parallelism for syncing multiple shards can be restricted).
+The progress values displayed for shard synchronization should also be more
+helpful for shards with more than one follower and in situations where one
+follower is in sync and the other is not (yet).</p><h2 id=memory-usage>Memory usage <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#memory-usage class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=agency-memory-usage>Agency memory usage <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#agency-memory-usage class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The in-memory object sizes for Agency data have been reduced in ArangoDB 3.8,
+which should reduce the memory usage of Agent instances for clusters with a
+larger amount of databases/collections/shards. On-disk sizes or sizes of Agency
+dumps retrieved via APIs should not change, however.</p><p>The change also helps Coordinators and DB-Servers, which since v3.7.4 also
+maintain an in-memory cache of Agency data so that they can reduce the number
+of requests to the Agency.</p><p>The default RocksDB settings for Agency instances have been adjusted so that
+the Agency memory usage consumed by RocksDB is limited to a 1 GB RocksDB block
+cache and to 512 MB for the total write buffer size. Previously, Agency memory
+usage could grow a lot higher for systems with a lot of memory if the startup
+parameters were not set explicitly.</p><h3 id=default-per-query-memory-limit>Default per-query memory limit <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#default-per-query-memory-limit class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>A default per-query memory limit has been introduced for queries, to prevent rogue
+AQL queries from consuming the too much memory of an arangod instance.</p><p>The per-query limit is introduced via changing the default value of the option
+<code>--query.memory-limit</code> from previously <code>0</code> (meaning no limit) to a dynamically
+calculated value. The per-query memory limit defaults are now (depending on the
+amount of available RAM):</p><pre tabindex=0><code>Available memory:            0      (0MiB)  Limit:            0   unlimited, %mem:  n/a
+Available memory:    134217728    (128MiB)  Limit:     33554432     (32MiB), %mem: 25.0
+Available memory:    268435456    (256MiB)  Limit:     67108864     (64MiB), %mem: 25.0
+Available memory:    536870912    (512MiB)  Limit:    201326592    (192MiB), %mem: 37.5
+Available memory:    805306368    (768MiB)  Limit:    402653184    (384MiB), %mem: 50.0
+Available memory:   1073741824   (1024MiB)  Limit:    603979776    (576MiB), %mem: 56.2
+Available memory:   2147483648   (2048MiB)  Limit:   1288490189   (1228MiB), %mem: 60.0
+Available memory:   4294967296   (4096MiB)  Limit:   2576980377   (2457MiB), %mem: 60.0
+Available memory:   8589934592   (8192MiB)  Limit:   5153960755   (4915MiB), %mem: 60.0
+Available memory:  17179869184  (16384MiB)  Limit:  10307921511   (9830MiB), %mem: 60.0
+Available memory:  25769803776  (24576MiB)  Limit:  15461882265  (14745MiB), %mem: 60.0
+Available memory:  34359738368  (32768MiB)  Limit:  20615843021  (19660MiB), %mem: 60.0
+Available memory:  42949672960  (40960MiB)  Limit:  25769803776  (24576MiB), %mem: 60.0
+Available memory:  68719476736  (65536MiB)  Limit:  41231686041  (39321MiB), %mem: 60.0
+Available memory: 103079215104  (98304MiB)  Limit:  61847529063  (58982MiB), %mem: 60.0
+Available memory: 137438953472 (131072MiB)  Limit:  82463372083  (78643MiB), %mem: 60.0
+Available memory: 274877906944 (262144MiB)  Limit: 164926744167 (157286MiB), %mem: 60.0
+Available memory: 549755813888 (524288MiB)  Limit: 329853488333 (314572MiB), %mem: 60.0
+</code></pre><p>As before, a per-query memory limit value of <code>0</code> means no limitation.
+The limit values are per AQL query, so they may still be too high in case
+queries run in parallel. The defaults are intentionally high in order to not
+stop any valid, previously working queries from succeeding.</p><p>Using a per-query memory limit by default is a downwards-incompatible change in
+ArangoDB 3.8 and may make queries fail if they use a lot of memory. If this
+happens, it may be useful to increase the value of <code>--query.memory-limit</code> or
+even set it to <code>0</code> (meaning no limitation).
+There is a metric <code>arangodb_aql_local_query_memory_limit_reached</code> that can be
+used to check how many times queries reached the per-query memory limit.</p><p>There is now also a startup option <code>--query.memory-limit-override</code> which can be
+used to control whether individual AQL queries can increase their memory limit
+via the <code>memoryLimit</code> query option. This is the default, so a query that
+increases its memory limit is allowed to use more memory than set via the
+<code>--query.memory-limit</code> startup option value. If the option is set to <code>false</code>,
+individual queries can only lower their maximum allowed memory usage but not
+increase it.</p><h3 id=global-aql-query-memory-limit>Global AQL query memory limit <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#global-aql-query-memory-limit class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The new startup option <code>--query.global-memory-limit</code> can be used to set a limit
+on the combined estimated memory usage of all AQL queries (in bytes). If this
+option has a value of <code>0</code>, then no global memory limit is in place. This is
+also the default value and the same behavior as in previous versions of ArangoDB.</p><p>Setting the option to a value greater than zero will mean that the total memory
+usage of all AQL queries will be limited approximately to the configured value.
+The limit is enforced by each server in a cluster independently, i.e. it can be
+set separately for Coordinators, DB-Servers etc. The memory usage of a query
+that runs on multiple servers in parallel is not summed up, but tracked
+separately on each server.</p><p>If a memory allocation in a query would lead to the violation of the configured
+global memory limit, then the query is aborted with error code 32
+(&ldquo;resource limit exceeded&rdquo;).</p><p>The global memory limit is approximate, in the same fashion as the per-query
+memory limit exposed by the option <code>--query.memory-limit</code> is. Some operations,
+namely calls to AQL functions and their intermediate results, are currently not
+properly tracked.</p><p>The global query memory limit in option <code>--query.global-memory-limit</code> has a
+default value that depends on the amount of available RAM:</p><pre tabindex=0><code>Available memory:            0      (0MiB)  Limit:            0   unlimited, %mem:  n/a
+Available memory:    134217728    (128MiB)  Limit:     33554432     (32MiB), %mem: 25.0
+Available memory:    268435456    (256MiB)  Limit:     67108864     (64MiB), %mem: 25.0
+Available memory:    536870912    (512MiB)  Limit:    255013683    (243MiB), %mem: 47.5
+Available memory:    805306368    (768MiB)  Limit:    510027366    (486MiB), %mem: 63.3
+Available memory:   1073741824   (1024MiB)  Limit:    765041049    (729MiB), %mem: 71.2
+Available memory:   2147483648   (2048MiB)  Limit:   1785095782   (1702MiB), %mem: 83.1
+Available memory:   4294967296   (4096MiB)  Limit:   3825205248   (3648MiB), %mem: 89.0
+Available memory:   8589934592   (8192MiB)  Limit:   7752415969   (7393MiB), %mem: 90.2
+Available memory:  17179869184  (16384MiB)  Limit:  15504831938  (14786MiB), %mem: 90.2
+Available memory:  25769803776  (24576MiB)  Limit:  23257247908  (22179MiB), %mem: 90.2
+Available memory:  34359738368  (32768MiB)  Limit:  31009663877  (29573MiB), %mem: 90.2
+Available memory:  42949672960  (40960MiB)  Limit:  38762079846  (36966MiB), %mem: 90.2
+Available memory:  68719476736  (65536MiB)  Limit:  62019327755  (59146MiB), %mem: 90.2
+Available memory: 103079215104  (98304MiB)  Limit:  93028991631  (88719MiB), %mem: 90.2
+Available memory: 137438953472 (131072MiB)  Limit: 124038655509 (118292MiB), %mem: 90.2
+Available memory: 274877906944 (262144MiB)  Limit: 248077311017 (236584MiB), %mem: 90.2
+Available memory: 549755813888 (524288MiB)  Limit: 496154622034 (473169MiB), %mem: 90.2
+</code></pre><p>Using a global memory limit for all queries by default is a
+downwards-incompatible change in ArangoDB 3.8 and may make queries fail if they
+use a lot of memory. If this happens, it may be useful to increase the value of
+<code>--query.global-memory-limit</code> or even set it to <code>0</code> (meaning no limitation).
+There is a metric <code>arangodb_aql_global_query_memory_limit_reached</code> that can be
+used to check how many times queries reached the global memory limit.</p><p>If both <code>--query.global-memory-limit</code> and <code>--query.memory-limit</code> are set, the
+former must be set at least as high as the latter.</p><h2 id=shard-synchronization>Shard synchronization <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#shard-synchronization class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=improvements-for-initial-synchronization>Improvements for initial synchronization <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#improvements-for-initial-synchronization class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The initial replication of collections/shards data is now faster by not wrapping
+each document in a separate <code>{"type":2300,"data":...}</code> envelope. In addition, the
+follower side of the replication will request initial shard data from leaders in
+VelocyPack format if the leader is running at least version 3.8.</p><p>Stripping the envelopes and using VelocyPack for data transfer allows for smaller
+data sizes when exchanging the documents and for faster processing, and thus can
+lead to time savings in document packing and unpacking as well as a reduction in
+the number of required roundtrips.</p><p>The shard synchronization protocol was also improved by only transferring the
+required parts of the inventory from leader to follower. Previously, for each
+shard the entire inventory was exchanged, which included all shards of the
+respective database with all their details. This change helps to reduce memory
+usage and speed up initial synchronization for databases with lots of collections
+or shards.</p><p>In addition, 3 cluster-internal requests are now saved per shard in the initial
+shard synchronization protocol by reusing already existing information in the
+different steps of the replication process. All these changes can speed up the
+getting-in-sync of followers after a server restart, or when provisioning new
+replicas.</p><h3 id=replication-protocol-based-on-merkle-trees>Replication protocol based on Merkle trees <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#replication-protocol-based-on-merkle-trees class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>For collections created with ArangoDB 3.8, a new internal data format is used
+that allows for a very fast synchronization of differences between the leader
+and a follower that is trying to reconnect.</p><p>The new format used in 3.8 is based on Merkle trees, making it more efficient
+to pin-point the data differences between the leader and a follower that is
+trying to reconnect.</p><p>The algorithmic complexity of the new protocol is determined by the amount of
+differences between the leader and follower shard data, meaning that if there
+are no or very few differences, the getting-in-sync protocol will run very fast.
+In previous versions of ArangoDB, the complexity of the protocol was determined
+by the number of documents in the shard, and the protocol required a scan over
+all documents in the shard on both the leader and the follower to find the
+differences.</p><p>The new protocol is used automatically for all collections/shards created with
+ArangoDB 3.8. Collections/shards created with earlier versions will use the
+old protocol, which is still fully supported.</p><p>New deployments created with ArangoDB 3.8 will automatically benefit from the
+new protocol, and existing deployments will benefit from the new protocol for
+any collections that are created with 3.8 onwards.
+Existing collections created with previous versions of ArangoDB will only benefit
+from the new protocol if the collections are dumped and recreated/restored using
+arangodump and arangorestore.</p><h2 id=index-selectivity-estimates>Index selectivity estimates <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#index-selectivity-estimates class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=compressed-estimates-format>Compressed estimates format <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#compressed-estimates-format class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>When index selectivity estimates are updated and written to disk, they are now
+written in a compressed format. This can greatly reduce the amount of data
+written to disk for each index estimate update. The compressed format is used
+automatically in ArangoDB 3.8 for all selectivity estimate writes.</p><h3 id=less-impact-of-selectivity-estimate-updates-for-system-collections>Less impact of selectivity estimate updates for system collections <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#less-impact-of-selectivity-estimate-updates-for-system-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Previous versions of ArangoDB could suffer from an &ldquo;idle writes&rdquo; problem, in
+which an otherwise idle arangod instance would still write a lot of data to
+disk over time. These writes happened because the server statistics feature
+periodically stored the current statistics in some system collections, so that
+they can be retrieved later and also be inspected from the web interface at
+any point.</p><p>With ArangoDB 3.8 these background writes to the statistics collections will
+still happen, but their impact has been greatly reduced: if the statistics
+collections are created with ArangoDB 3.8 (this will happen when creating a new
+deployment based on 3.8), there will be no updates to the index selectivity
+estimates of the statistics collections at all. This will save the majority of
+the write payload size. For deployments created with earlier versions of
+ArangoDB, the index selectivity estimates for the statistics collections will
+still be updated periodically, but they are written in the compressed index
+selectivity estimates format (see above).</p><h3 id=optional-selectivity-estimates-for-new-indexes>Optional selectivity estimates for new indexes <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#optional-selectivity-estimates-for-new-indexes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>For any user-defined index of type &ldquo;persistent&rdquo;, it is now also possible to
+disable index selectivity estimates for the index, by setting the <code>estimates</code>
+flag to <code>false</code> when creating the index, e.g.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>myCollection</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;value&#34;</span><span class=p>],</span> <span class=nx>estimates</span><span class=o>:</span> <span class=kc>false</span> <span class=p>});</span></span></span></code></pre></div><p>By default index selectivity estimates are maintained for all newly created
+indexes. Turning them off can have a slightly positive performance impact for
+write operations. The downside of turning off index selectivity estimates will
+be that the query optimizer will not be able to determine the usefulness of
+different competing indexes in AQL queries when there are multiple candidate
+indexes to choose from.</p><h2 id=encryption-at-rest>Encryption at Rest <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#encryption-at-rest class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The Encryption at Rest feature in the ArangoDB 3.8 Enterprise Edition will now
+automatically use hardware acceleration for encryption and decryption if
+available.</p><p>The AES-NI instruction set (Advanced Encryption Standard New Instructions)
+will be used if available on the target platform. This instruction set is
+available on major Intel and AMD processors for around a decade.</p><p>The benefits of using the hardware-accelerated version of AES are better
+performance than for a software-only implementation, plus resistance to
+side-channel attacks.</p><p>All other things equal, deployments that use
+<a href=/3.13/operations/security/encryption-at-rest/ class=link>Encryption at Rest</a> should see a reduction of CPU
+usage by using the hardware-accelerated encryption.</p><h2 id=http-security-options>HTTP security options <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#http-security-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>ArangoDB 3.8 provides a new startup option <code>--cluster.api-jwt-policy</code> that
+allows <em>additional</em> checking for valid JWTs in all requests to sub-routes of
+the <code>/_admin/cluster</code> REST API endpoint.
+This is a security option to restrict access to these cluster APIs to
+operator tools and privileged users.</p><p>The possible values for the startup option are:</p><ul><li><code>jwt-all</code>: requires a valid JWT for all accesses to <code>/_admin/cluster</code> and
+its sub-routes. If this configuration is used, the <em>CLUSTER</em> and <em>NODES</em>
+sections of the web interface will be disabled, as they are relying on the
+ability to read data from several cluster APIs.</li><li><code>jwt-write</code>: requires a valid JWT for write accesses (all HTTP methods
+except HTTP GET) to <code>/_admin/cluster</code>. This setting can be used to allow
+privileged users to read data from the cluster APIs, but not to do any
+modifications. All existing permissions checks for the cluster API routes
+are still in effect with this setting, meaning that read operations without
+a valid JWT may still require dedicated other permissions (as in v3.7).</li><li><code>jwt-compat</code>: no <em>additional</em> access checks are in place for the cluster
+APIs. However, all existing permissions checks for the cluster API routes
+are still in effect with this setting, meaning that all operations may
+still require dedicated other permissions (as in v3.7).</li></ul><p>The default value for the option is <code>jwt-compat</code>, which means this option will
+not cause any <em>extra</em> JWT checks compared to v3.7.</p><h2 id=javascript-security-options>JavaScript security options <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#javascript-security-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The following startup options have been added to optionally limit certain
+areas of JavaScript code execution:</p><ul><li><p><code>--javascript.tasks</code>: the default value for this option is <code>true</code>, meaning
+JavaScript tasks are available as before. However, with this option they can
+be turned off by admins to limit the amount of JavaScript user code that is
+executed.</p></li><li><p><code>--javascript.transactions</code>: the default value for this option is
+<code>true</code>, meaning JavaScript Transactions are available as before. However,
+with this option they can be turned off by admins to limit the amount of
+JavaScript user code that is executed.</p></li></ul><h2 id=metrics>Metrics <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#metrics class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>3.8 features a new metrics API under <code>/_admin/metrics/v2</code>.
+This became necessary, since the old metrics output was not following
+all Prometheus conventions for metrics. For example, the naming
+convention says that the name of a counters <strong>must end in</strong> <code>_total</code>.
+Furthermore, the histogram bucket counts <strong>must be reported</strong> cumulated.
+Fixing all these is a breaking change, therefore we continue to serve
+the old metrics output (with old names and uncumulated histograms)
+under <code>/_admin/metrics</code> and deprecate this API in 3.8. It will be
+removed in future versions.</p><p>The new API under <code>/_admin/metrics/v2</code> should be used from now on and
+we publish new dashboards for Grafana for it. We have defined multiple
+&ldquo;personas&rdquo; and build individual dashboards which each include a certain
+subset of the metrics tailored for the particular persona. So for
+example, a database admin would only see metrics which are relevant
+for the database administration work. Of course, there is also a
+dashboard with all metrics, neatly sorted into categories. In 3.8,
+we have over 200 metrics and nearly 300 graphs in the complete
+dashboard.</p><p>The complete list of metrics together with documentation can be found in the
+<a href=/3.13/develop/http-api/monitoring/metrics/ class=link>Metrics HTTP API</a>
+documentation.</p><p>The list of renamed metrics can be found under
+<a href=/3.13/release-notes/version-3.8/api-changes-in-3-8/#endpoints-added class=link>API Changes in 3.8</a>.</p><p>For the description of a seamless upgrade path see
+<a href=/3.13/release-notes/version-3.8/incompatible-changes-in-3-8/#endpoint-return-value-changes class=link>Incompatible changes in 3.8</a>.</p><h3 id=traffic-accounting-metrics>Traffic accounting metrics <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#traffic-accounting-metrics class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><small>Introduced in: v3.8.9</small></p><p>The following metrics for traffic accounting were added:</p><table><thead><tr><th style=text-align:left>Label</th><th style=text-align:left>Description</th></tr></thead><tbody><tr><td style=text-align:left><code>arangodb_client_user_connection_statistics_bytes_received</code></td><td style=text-align:left>Bytes received for requests, only user traffic.</td></tr><tr><td style=text-align:left><code>arangodb_client_user_connection_statistics_bytes_sent</code></td><td style=text-align:left>Bytes sent for responses, only user traffic.</td></tr><tr><td style=text-align:left><code>arangodb_http1_connections_total</code></td><td style=text-align:left>Total number of HTTP/1.1 connections accepted.</td></tr></tbody></table><h2 id=logging>Logging <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#logging class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=new-options-for-logging>New options for logging <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#new-options-for-logging class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following logging-related options have been added:</p><ul><li><p>added option <code>--log.use-json-format</code> to switch log output to JSON format.
+Each log message then produces a separate line with JSON-encoded log data,
+which can be consumed by applications.</p><p>The attributes produced for each log message JSON object are:</p><table><thead><tr><th style=text-align:left>Key</th><th style=text-align:left>Value</th></tr></thead><tbody><tr><td style=text-align:left><code>time</code></td><td style=text-align:left>date/time of log message, in format specified by <code>--log.time-format</code></td></tr><tr><td style=text-align:left><code>prefix</code></td><td style=text-align:left>only emitted if <code>--log.prefix</code> is set</td></tr><tr><td style=text-align:left><code>pid</code></td><td style=text-align:left>process id, only emitted if <code>--log.process</code> is set</td></tr><tr><td style=text-align:left><code>tid</code></td><td style=text-align:left>thread id, only emitted if <code>--log.thread</code> is set</td></tr><tr><td style=text-align:left><code>thread</code></td><td style=text-align:left>thread name, only emitted if <code>--log.thread-name</code> is set</td></tr><tr><td style=text-align:left><code>role</code></td><td style=text-align:left>server role (1 character), only emitted if <code>--log.role</code> is set</td></tr><tr><td style=text-align:left><code>level</code></td><td style=text-align:left>log level (e.g. <code>"WARN"</code>, <code>"INFO"</code>)</td></tr><tr><td style=text-align:left><code>file</code></td><td style=text-align:left>source file name of log message, only emitted if <code>--log.line-number</code> is set</td></tr><tr><td style=text-align:left><code>line</code></td><td style=text-align:left>source file line of log message, only emitted if <code>--log.line-number</code> is set</td></tr><tr><td style=text-align:left><code>function</code></td><td style=text-align:left>source file function name, only emitted if <code>--log.line-number</code> is set</td></tr><tr><td style=text-align:left><code>topic</code></td><td style=text-align:left>log topic name</td></tr><tr><td style=text-align:left><code>id</code></td><td style=text-align:left>log id (5 digit hexadecimal string), only emitted if <code>--log.ids</code> is set</td></tr><tr><td style=text-align:left><code>hostname</code></td><td style=text-align:left>hostname if <code>--log.hostname</code> is set</td></tr><tr><td style=text-align:left><code>message</code></td><td style=text-align:left>the actual log message payload</td></tr></tbody></table></li><li><p>added option <code>--log.process</code> to toggle the logging of the process id
+(pid) in log messages. Logging the process ID is useless when running
+arangod in Docker containers, as the pid will always be 1. So one may
+as well turn it off in these contexts with the new option.</p></li><li><p>added option <code>--log.hostname</code> to optionally log the current host&rsquo;s name
+at the beginning of each log message (or inside the <code>hostname</code> attribute for
+JSON-based logging). Setting <code>--log.hostname</code> to a value of <code>auto</code> will
+automatically determine the hostname and use that for logging.</p></li><li><p>added option <code>--log.in-memory</code> to toggle storing log messages in memory,
+from which they can be consumed via the <code>/_admin/log</code> HTTP API and by the
+Web UI. By default, this option is turned on, so log messages are consumable
+via the API and UI. Turning this option off will disable that functionality,
+save a tiny bit of memory for the in-memory log buffers and prevent potential
+log information leakage via these means.</p></li><li><p>added option <code>--log.in-memory-level</code> to control which log messages are
+preserved in memory (in case --log.in-memory is set to true). The default
+value is <code>info</code>, meaning all log messages of types <code>info</code>, <code>warning</code>, <code>error</code>
+and <code>fatal</code> will be stored by an instance in memory.
+By setting this option to <code>warning</code>, only warning log messages will be
+preserved in memory, and by setting the option to <code>error</code> only error messages
+will be kept.
+This option is useful because the number of in-memory log messages is limited
+to the latest 2048 messages, and these slots are by default shared between
+informational, warning and error messages.</p></li><li><p>added option <code>--log.max-entry-length</code> to control the maximum line length for
+individual log messages that are written into normal logfiles by arangod
+(note: this does not include audit log messages).
+Any log messages longer than the specified value will be truncated and the
+suffix &lsquo;&mldr;&rsquo; will be added to them.
+The purpose of this parameter is to shorten long log messages in case there is
+not a lot of space for logfiles, and to keep rogue log messages from overusing
+resources.
+The default value is 128 MB, which is very high and should effectively mean
+downwards-compatibility with previous arangod versions, which did not restrict
+the maximum size of log messages.</p></li><li><p>added option <code>--audit.max-entry-length</code> to control the maximum line length
+for individual audit log messages that are written into audit logs by arangod.
+Any audit log messages longer than the specified value will be truncated and
+the suffix &lsquo;&mldr;&rsquo; will be added to them.
+The default value is 128 MB, which is very high and should effectively mean
+downwards-compatibility with previous arangod versions, which did not restrict
+the maximum size of log messages.</p></li><li><p>added option <code>--audit.queue</code> to control audit logging queuing behavior
+(Enterprise Edition only):</p><p>The option controls whether audit log messages are submitted to a queue
+and written to disk in batches or if they should be written to disk directly
+without being queued.
+Queueing audit log entries may be beneficial for latency, but can lead to
+unqueued messages being lost in case of a power loss or crash. Setting
+this option to <code>false</code> mimics the behavior from 3.7 and before, where
+audit log messages were not queued but written in a blocking fashion.</p></li><li><p>any occurrence of <code>$PID</code> inside a log output value (e.g. <code>--log.output</code> or
+<code>--audit.output</code>) will be replaced at runtime with the actual process id.
+This enables logging to process-specific files.</p><p>Please note that the dollar sign in <code>$PID</code> may need extra escaping when
+specified from inside shells such as Bash.</p></li></ul><h3 id=other-logging-improvements>Other logging improvements <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#other-logging-improvements class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><ul><li><p>The maximum size of log messages buffered in memory was increased from 256
+bytes per log message to 512 bytes per log message. This should prevent most
+in-memory log messages returned by the <code>/_admin/log</code> HTTP API from being
+truncated unnecessarily.</p></li><li><p>Audit logging and slow query logging for AQL queries now also include the
+query&rsquo;s result code (success or error code in case the query ran into an
+error). This can be used to find queries which ran into errors (audit logging)
+or long-running queries which ran into errors (normal logging).</p></li><li><p>Audit logging now also honors the configured logging date/time output format
+for the regular logger. Previously the audit logging always logged date/time
+value in the server&rsquo;s local time, and used the format <code>YYYY-MM-DDTHH:MM:SS</code>.</p><p>From 3.8 onwards, the audit logger will use the format specified via the
+<code>--log.time-format</code> option, which defaults to <code>utc-datestring</code>. The means the
+audit logging will by default log all dates/times in UTC time. To restore the
+pre-3.8 behavior, please set the option to <code>local-datestring</code>, which will
+make the audit logger (and all other server log messages) use the server&rsquo;s
+local time.</p></li></ul><h2 id=timezone-conversion>Timezone conversion <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#timezone-conversion class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Added IANA timezone database <a href=https://www.iana.org/time-zones target=_blank rel="noopener noreferrer" class=link>tzdata</a>&nbsp;<i class="fas fa-external-link-alt"></i>.</p><p>The following AQL functions have been added for converting datetimes in UTC to
+any timezone in the world including historical daylight saving times and vice
+versa. An optional detail flag returns the timezone information including
+effect range, abbreviation, offset to UTC and whether daylight saving time is
+active:</p><ul><li><p><a href=/3.13/aql/functions/date/#date_utctolocal class=link>DATE_UTCTOLOCAL()</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_UTCTOLOCAL</span><span class=p>(</span><span class=s2>&#34;2020-10-15T01:00:00.999Z&#34;</span><span class=p>,</span> <span class=s2>&#34;America/New_York&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// [ &#34;2020-10-14T21:00:00.999&#34; ]
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_UTCTOLOCAL</span><span class=p>(</span><span class=s2>&#34;2020-10-15T01:00:00.999Z&#34;</span><span class=p>,</span> <span class=s2>&#34;America/New_York&#34;</span><span class=p>,</span> <span class=kc>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>  {
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;local&#34;: &#34;2020-10-14T21:00:00.999&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;tzdb&#34;: &#34;2020f&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;zoneInfo&#34;: {
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;name&#34;: &#34;EDT&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;begin&#34;: &#34;2020-03-08T07:00:00.000Z&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;end&#34;: &#34;2020-11-01T06:00:00.000Z&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;save&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;offset&#34;: -14400
+</span></span></span><span class=line><span class=cl><span class=cm>    }
+</span></span></span><span class=line><span class=cl><span class=cm>  }
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span></span></span></code></pre></div></li><li><p><a href=/3.13/aql/functions/date/#date_localtoutc class=link>DATE_LOCALTOUTC()</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_LOCALTOUTC</span><span class=p>(</span><span class=s2>&#34;2020-10-14T21:00:00.999&#34;</span><span class=p>,</span> <span class=s2>&#34;America/New_York&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// [ &#34;2020-10-15T01:00:00.999Z&#34; ]
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_LOCALTOUTC</span><span class=p>(</span><span class=s2>&#34;2020-10-14T21:00:00.999&#34;</span><span class=p>,</span> <span class=s2>&#34;America/New_York&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>  {
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;utc&#34;: &#34;2020-10-15T01:00:00.999Z&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;tzdb&#34;: &#34;2020f&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>    &#34;zoneInfo&#34;: {
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;name&#34;: &#34;EDT&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;begin&#34;: &#34;2020-03-08T07:00:00.000Z&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;end&#34;: &#34;2020-11-01T06:00:00.000Z&#34;,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;save&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=cm>      &#34;offset&#34;: -14400
+</span></span></span><span class=line><span class=cl><span class=cm>    }
+</span></span></span><span class=line><span class=cl><span class=cm>  }
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span></span></span></code></pre></div></li></ul><p>Also some functions have been added to acquire the system timezone ArangoDB is
+running on and to list all valid IANA timezone names including canonical,
+aliases and deprecated ones.</p><ul><li><p><a href=/3.13/aql/functions/date/#date_timezone class=link>DATE_TIMEZONE()</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_TIMEZONE</span><span class=p>()</span> <span class=c1>// [ &#34;Etc/UTC&#34; ]
+</span></span></span></code></pre></div></li><li><p><a href=/3.13/aql/functions/date/#date_timezones class=link>DATE_TIMEZONES()</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>RETURN</span> <span class=nf>DATE_TIMEZONES</span><span class=p>()</span> <span class=c1>// [ &#34;Africa/Abidjan&#34;, ..., &#34;Europe/Berlin&#34;, ..., &#34;Zulu&#34; ]
+</span></span></span></code></pre></div></li></ul><h2 id=client-tools>Client tools <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#client-tools class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=arangodump-concurrency--shard-parallelism>arangodump concurrency / shard-parallelism <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangodump-concurrency--shard-parallelism class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Since v3.4.0, <em>arangodump</em> can use multiple threads for dumping database data in
+parallel. <em>arangodump</em> versions prior to v3.8.0 distribute dump jobs for
+individual collections to concurrent worker threads, which is optimal for
+dumping many collections of approximately the same size, but does not help for
+dumping few large collections or few large collections with many shards.</p><p>Starting with v3.8.0, <em>arangodump</em> can also dispatch dump jobs for individual
+shards of each collection, allowing higher parallelism if there are many shards
+to dump but only few collections.</p><p>Also see <a href=/3.13/components/tools/arangodump/examples/#threads class=link><em>arangodump</em> Threads</a>.</p><h3 id=arangodump-output-format>arangodump output format <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangodump-output-format class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Since its inception, <em>arangodump</em> wrapped each dumped document into an extra
+JSON envelope, such as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span><span class=nt>&#34;type&#34;</span><span class=p>:</span><span class=mi>2300</span><span class=p>,</span><span class=nt>&#34;key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;data&#34;</span><span class=p>:{</span><span class=nt>&#34;_key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;_rev&#34;</span><span class=p>:</span><span class=err>...</span><span class=p>,</span> <span class=err>...</span><span class=p>}}</span>
+</span></span></code></pre></div><p>In case a dump taken with v3.8.0 or higher is known to never be used in older
+ArangoDB versions, the JSON envelopes can be turned off with the new startup
+option <code>--envelope false</code> to reduce the dump size and use a bit less memory
+and bandwidth:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span><span class=nt>&#34;_key&#34;</span><span class=p>:</span><span class=s2>&#34;test&#34;</span><span class=p>,</span><span class=nt>&#34;_rev&#34;</span><span class=p>:</span><span class=err>...</span><span class=p>,</span> <span class=err>...</span><span class=p>}</span>
+</span></span></code></pre></div><p>Using the new non-enveloped dump format also allows <em>arangorestore</em> to
+parallelize restore operations for individual collections. This is not possible
+with the old, enveloped format.</p><h3 id=arangorestore-parallelization-for-single-collections>arangorestore parallelization for single collections <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangorestore-parallelization-for-single-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangorestore</em> can now parallelize restore operations even for single
+collections, which can lead to increased restore performance.
+This requires that a dump in the new non-enveloped dump format is used, and that
+there are enough <em>arangorestore</em> threads to employ.</p><p>The dump format can be configured by specifying the <code>--envelope false</code> option
+when invoking arangodump, and the number of restore threads can be adjusted by
+setting <em>arangorestore</em>&rsquo;s <code>--threads</code> option.</p><h3 id=arangodump-dumping-of-individual-shards>arangodump dumping of individual shards <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangodump-dumping-of-individual-shards class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangodump</em> can now optionally dump individual shards only, by specifying the
+<code>--shard</code> option one or multiple times. This option can be used to split the
+dump of a large collection with multiple shards into multiple separate dump
+processes, which could be run against different Coordinators etc.</p><h3 id=arangodump-and-arangorestore-with-jwt-secret>arangodump and arangorestore with JWT secret <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangodump-and-arangorestore-with-jwt-secret class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangodump</em> and <em>arangorestore</em> can now also be invoked by providing the cluster&rsquo;s
+JWT secret instead of the username/password combination. Both tools now provide
+the options <code>--server.jwt-secret-keyfile</code> (to read the JWT secret from a file)
+and <code>--server.ask-jwt-secret</code> (to enter it manually).</p><h3 id=arangobench-with-custom-queries>arangobench with custom queries <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangobench-with-custom-queries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>In addition to executing the predefined benchmarks, the <em>arangobench</em> client tool
+now offers a new test case named <code>custom-query</code> for running arbitrary AQL
+queries against an ArangoDB installation.</p><p>To run a custom AQL query, the query needs to be specified in either the
+<code>--custom-query</code> option or the <code>--custom-query-file</code> option. In the former case
+the query string can be passed on the command-line, in the latter case the
+query string will be read from a file.</p><h3 id=continuing-arangorestore-operations>Continuing arangorestore operations <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#continuing-arangorestore-operations class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangorestore</em> now provides a <code>--continue</code> option. Setting it will make
+<em>arangorestore</em> keep track of the restore progress, so if the restore process
+gets aborted it can later be continued from the point it left off.</p><h3 id=controlling-the-number-of-documents-per-batch-for-arangoexport>Controlling the number of documents per batch for arangoexport <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#controlling-the-number-of-documents-per-batch-for-arangoexport class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangoexport</em> now has a <code>--documents-per-batch</code> option that can be used to limit
+the number of documents to be returned in each batch from the server. This is
+useful if a query is run on overly large documents, which would lead to the
+response sizes getting out of hand with the default number of documents per
+batch (1000).</p><h3 id=controlling-the-maximum-query-runtime-of-arangoexport>Controlling the maximum query runtime of arangoexport <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#controlling-the-maximum-query-runtime-of-arangoexport class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangoexport</em> now has a <code>--query-max-runtime</code> option to limit the runtime of
+queries it executes.</p><h3 id=arangorestore-option-to-enable-revision-trees>arangorestore option to enable revision trees <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#arangorestore-option-to-enable-revision-trees class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><small>Introduced in: v3.8.7, v3.9.2</small></p><p>A new <code>--enable-revision-trees</code> option has been added to <em>arangorestore</em>, which
+adds the <code>syncByRevision</code> and <code>usesRevisionsAsDocumentIds</code> attributes to the
+collection structure if they are missing. As a consequence, these collections
+created by arangorestore are able to use revision trees and a faster
+getting-in-sync procedure after a restart.</p><p>The option defaults to <code>true</code>, meaning that the attributes are added if they are
+missing. If you set the option to <code>false</code>, the attributes are not added to the
+collection structure. If the attributes are already present in the dump data, they
+are not modified by arangorestore, irrespective of the setting of this option.</p><h2 id=miscellaneous>Miscellaneous <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#miscellaneous class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=cluster-support-for-two-apis>Cluster support for two APIs <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#cluster-support-for-two-apis class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><ul><li><p>Added cluster support for the JavaScript API method <code>collection.checksum()</code>
+and the REST HTTP API endpoint <code>GET /_api/collection/{collection-name}/checksum</code>,
+which calculate CRC checksums for collections.</p></li><li><p>Added cluster support for the JavaScript API method <code>db._engineStats()</code>
+and the REST HTTP API endpoint <code>GET /_api/engine/stats</code>, which provide
+runtime information about the storage engine state.</p></li></ul><h3 id=io-heartbeat>I/O heartbeat <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#io-heartbeat class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><small>Introduced in: v3.8.7, v3.9.2</small></p><p>An I/O heartbeat has been added which checks that the underlying volume is
+writable with reasonable performance. The test is done every 15 seconds and can
+be switched off.</p><p>Use the accompanying new metrics to check for test failures:</p><table><thead><tr><th style=text-align:left>Label</th><th style=text-align:left>Description</th></tr></thead><tbody><tr><td style=text-align:left><code>arangodb_ioheartbeat_delays_total</code></td><td style=text-align:left>Total number of delayed I/O heartbeats.</td></tr><tr><td style=text-align:left><code>arangodb_ioheartbeat_duration</code></td><td style=text-align:left>Histogram of execution times in microseconds.</td></tr><tr><td style=text-align:left><code>arangodb_ioheartbeat_failures_total</code></td><td style=text-align:left>Total number of failures.</td></tr></tbody></table><p>These metrics are only populated if the new <code>--database.io-heartbeat</code> startup
+option is set to <code>true</code> (which is the default).</p><h2 id=internal-changes>Internal changes <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#internal-changes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=library-version-upgrades>Library version upgrades <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#library-version-upgrades class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The bundled version of the Snappy compression/decompression library has been
+upgraded to 1.1.8.</p><p>The bundled version of libunwind has been upgraded to 1.5.</p><p>For ArangoDB 3.8, the bundled version of rclone is 1.51.0.</p><h3 id=spliced-subqueries>Spliced subqueries <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#spliced-subqueries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The AQL optimizer rule &ldquo;splice-subqueries&rdquo; is now mandatory, in the sense that
+it cannot be disabled anymore. As a side effect of this change, there will no
+query execution plans created by 3.8 that contain execution nodes of type
+<code>SubqueryNode</code>. <code>SubqueryNode</code>s will only be used during query planning and
+optimization, but at the end of the query optimization phase will all have
+been replaced with nodes of types <code>SubqueryStartNode</code> and <code>SubqueryEndNode</code>.</p><p>The code to execute non-spliced subqueries remains in place so that 3.8 can
+still execute queries planned on a 3.7 instance with the &ldquo;splice-subqueries&rdquo;
+optimizer rule intentionally turned off. The code for executing non-spliced
+subqueries can be removed in 3.9.</p><h3 id=query-register-usage>Query register usage <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#query-register-usage class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>There is an AQL query execution plan register usage optimization that may
+positively affect some AQL queries that use a lot of variables that are only
+needed in certain parts of the query. The positive effect will come from saving
+registers, which directly translates to saving columns in <em>AqlItemBlocks</em>.</p><p>Previously, the number of registers that were planned for each depth level of
+the query never decreased when going from one level to the next. Even though
+unused registers were recycled since 3.7, this did not lead to unused registers
+being completely dismantled.</p><p>Now there is an extra step at the end of the register planning that keeps track
+of the actually used registers on each depth, and that will shrink the number
+of registers for the depth to the id of the maximum register. This is done for
+each depth separately. Unneeded registers on the right hand side of the maximum
+used register are now discarded. Unused registers on the left-hand side of the
+maximum used register id are not discarded, because we still need to guarantee
+that registers from depths above stay in the same slot when starting a new
+depth.</p><h3 id=better-protection-against-overwhelm>Better protection against overwhelm <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#better-protection-against-overwhelm class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The cluster now protects itself better against being overwhelmed by too
+many concurrent requests.</p><p>This is mostly achieved by limiting the total amount of requests from
+the low priority queue which are ongoing concurrently. There is a new option
+<code>--server.ongoing-low-priority-multiplier</code> (default is 4), which
+essentially says that only 4 times as many requests may be ongoing
+concurrently as there are worker threads. The default is chosen such
+that it is sensible for most workloads, but in special situations it
+can help to adjust the value.</p><p>See <a href=/3.13/components/arangodb-server/options/#--serverongoing-low-priority-multiplier class=link>ArangoDB Server <em>Server</em> Options</a>
+for details and hints for configuration.</p><p>There have been further improvements, in particular to ensure that
+certain APIs to diagnose the situation in the cluster still work, even
+when a lot of normal requests are piling up. For example, the cluster
+health API will still be available in such a case.</p><p>Furthermore, followers will now be dropped much later and only if they
+are actually failed, which leads to a lot fewer shard re-synchronizations
+in case of very high load.</p><p>Overall, these measures should all be below the surface and not be
+visible to the user at all (apart from preventing problems under high
+load).</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.13/release-notes/version-3.8/><i class="fas fa-chevron-left fa-fw"></i><p>Version 3.8</p></a></span><span class=next><a class="nav nav-next link" href=/3.13/release-notes/version-3.8/known-issues-in-3-8/><p>Known Issues in 3.8</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.13/release-notes/version-3.8/whats-new-in-3-8.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#aql>AQL</a></div><div class=level-3><a href=#aql-window-operations>AQL window operations</a></div><div class=level-3><a href=#weighted-traversals>Weighted Traversals</a></div><div class=level-3><a href=#k-paths>k Paths</a></div><div class=level-3><a href=#aql-bit-functions>AQL bit functions</a></div><div class=level-3><a href=#aql-binary-and-hexadecimal-integer-literals>AQL binary and hexadecimal integer literals</a></div><div class=level-3><a href=#projections-on-sub-attributes>Projections on sub-attributes</a></div><div class=level-3><a href=#aql-optimizer-improvements>AQL optimizer improvements</a></div><div class=level-3><a href=#aql-performance-improvements>AQL performance improvements</a></div><div class=level-3><a href=#aql-usability-options>AQL usability options</a></div><div class=level-4><a href=#requiring-with-statements>Requiring <code>WITH</code> statements</a></div><div class=level-4><a href=#allowing-the-usage-of-collection-names-in-aql-expressions>Allowing the usage of collection names in AQL expressions</a></div><div class=level-2><a href=#arangosearch>ArangoSearch</a></div><div class=level-3><a href=#pipeline-analyzer>Pipeline Analyzer</a></div><div class=level-3><a href=#aql-analyzer>AQL Analyzer</a></div><div class=level-3><a href=#geo-spatial-queries>Geo-spatial queries</a></div><div class=level-3><a href=#stop-words-analyzer>Stop words Analyzer</a></div><div class=level-3><a href=#approximate-count>Approximate count</a></div><div class=level-3><a href=#arangosearch-thread-control>ArangoSearch thread control</a></div><div class=level-2><a href=#web-interface>Web interface</a></div><div class=level-3><a href=#dashboard>Dashboard</a></div><div class=level-3><a href=#shard-distribution-overview>Shard distribution overview</a></div><div class=level-3><a href=#cluster-maintenance-mode>Cluster maintenance mode</a></div><div class=level-3><a href=#collection-figures>Collection figures</a></div><div class=level-3><a href=#server-logs-in-cluster>Server logs in cluster</a></div><div class=level-3><a href=#server-metrics>Server metrics</a></div><div class=level-3><a href=#shard-synchronization-status>Shard synchronization status</a></div><div class=level-2><a href=#memory-usage>Memory usage</a></div><div class=level-3><a href=#agency-memory-usage>Agency memory usage</a></div><div class=level-3><a href=#default-per-query-memory-limit>Default per-query memory limit</a></div><div class=level-3><a href=#global-aql-query-memory-limit>Global AQL query memory limit</a></div><div class=level-2><a href=#shard-synchronization>Shard synchronization</a></div><div class=level-3><a href=#improvements-for-initial-synchronization>Improvements for initial synchronization</a></div><div class=level-3><a href=#replication-protocol-based-on-merkle-trees>Replication protocol based on Merkle trees</a></div><div class=level-2><a href=#index-selectivity-estimates>Index selectivity estimates</a></div><div class=level-3><a href=#compressed-estimates-format>Compressed estimates format</a></div><div class=level-3><a href=#less-impact-of-selectivity-estimate-updates-for-system-collections>Less impact of selectivity estimate updates for system collections</a></div><div class=level-3><a href=#optional-selectivity-estimates-for-new-indexes>Optional selectivity estimates for new indexes</a></div><div class=level-2><a href=#encryption-at-rest>Encryption at Rest</a></div><div class=level-2><a href=#http-security-options>HTTP security options</a></div><div class=level-2><a href=#javascript-security-options>JavaScript security options</a></div><div class=level-2><a href=#metrics>Metrics</a></div><div class=level-3><a href=#traffic-accounting-metrics>Traffic accounting metrics</a></div><div class=level-2><a href=#logging>Logging</a></div><div class=level-3><a href=#new-options-for-logging>New options for logging</a></div><div class=level-3><a href=#other-logging-improvements>Other logging improvements</a></div><div class=level-2><a href=#timezone-conversion>Timezone conversion</a></div><div class=level-2><a href=#client-tools>Client tools</a></div><div class=level-3><a href=#arangodump-concurrency--shard-parallelism>arangodump concurrency / shard-parallelism</a></div><div class=level-3><a href=#arangodump-output-format>arangodump output format</a></div><div class=level-3><a href=#arangorestore-parallelization-for-single-collections>arangorestore parallelization for single collections</a></div><div class=level-3><a href=#arangodump-dumping-of-individual-shards>arangodump dumping of individual shards</a></div><div class=level-3><a href=#arangodump-and-arangorestore-with-jwt-secret>arangodump and arangorestore with JWT secret</a></div><div class=level-3><a href=#arangobench-with-custom-queries>arangobench with custom queries</a></div><div class=level-3><a href=#continuing-arangorestore-operations>Continuing arangorestore operations</a></div><div class=level-3><a href=#controlling-the-number-of-documents-per-batch-for-arangoexport>Controlling the number of documents per batch for arangoexport</a></div><div class=level-3><a href=#controlling-the-maximum-query-runtime-of-arangoexport>Controlling the maximum query runtime of arangoexport</a></div><div class=level-3><a href=#arangorestore-option-to-enable-revision-trees>arangorestore option to enable revision trees</a></div><div class=level-2><a href=#miscellaneous>Miscellaneous</a></div><div class=level-3><a href=#cluster-support-for-two-apis>Cluster support for two APIs</a></div><div class=level-3><a href=#io-heartbeat>I/O heartbeat</a></div><div class=level-2><a href=#internal-changes>Internal changes</a></div><div class=level-3><a href=#library-version-upgrades>Library version upgrades</a></div><div class=level-3><a href=#spliced-subqueries>Spliced subqueries</a></div><div class=level-3><a href=#query-register-usage>Query register usage</a></div><div class=level-3><a href=#better-protection-against-overwhelm>Better protection against overwhelm</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

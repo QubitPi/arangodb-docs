@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>_arangoexport_ on ArangoDB Documentation</title><link>http://localhost/3.10/components/tools/arangoexport/</link><description>Recent content in _arangoexport_ on ArangoDB Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://localhost/3.10/components/tools/arangoexport/index.xml" rel="self" type="application/rss+xml"/><item><title>_arangoexport_ Examples</title><link>http://localhost/3.10/components/tools/arangoexport/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.10/components/tools/arangoexport/examples/</guid><description>arangoexport can be invoked by executing the following command in a command line:
+arangoexport --collection test --output-directory &amp;#34;dump&amp;#34; This exports the test collection into the dump directory as one big JSON array. Every entry in this array is one document from the collection without a specific order.
+To export more than one collection at a time specify multiple --collection options.
+The default output directory is export.
+By default, arangoexport connects to the _system database using the default endpoint.</description></item><item><title>_arangoexport_ Options</title><link>http://localhost/3.10/components/tools/arangoexport/options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.10/components/tools/arangoexport/options/</guid><description>Usage: arangoexport [&amp;lt;options&amp;gt;]
+General --check-configuration Type: boolean
+Check the configuration and exit.
+This is a command, no value needs to be specified. The process terminates after executing the command.
+--collection Type: string&amp;hellip;
+Restrict the export to this collection name (can be specified multiple times).
+--compress-output Introduced in: v3.4.8, v3.5.1
+Type: boolean
+Compress files containing collection contents using the gzip format.
+This option can be specified without a value to enable it.</description></item></channel></rss>

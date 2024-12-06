@@ -1,0 +1,582 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="arangodump supports obfuscating and redacting information when dumping, to allow you sharing dumps without sensitive data with third parties"><meta property="og:url" content="http://localhost/3.12/components/tools/arangodump/maskings/"><meta property="og:title" content="arangodump Data Maskings"><meta property="og:type" content="website"><meta property="og:description" content="arangodump supports obfuscating and redacting information when dumping, to allow you sharing dumps without sensitive data with third parties"><meta name=docsearch:version content="3.12"><title>arangodump Data Maskings | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.12/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Tools"><a itemprop=item class=link href=/3.12/components/tools/><span itemprop=name class=breadcrumb-entry>Tools</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangodump"><a itemprop=item class=link href=/3.12/components/tools/arangodump/><span itemprop=name class=breadcrumb-entry>arangodump</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Maskings"><a itemprop=item class=link href=/3.12/components/tools/arangodump/maskings/><span itemprop=name class=breadcrumb-entry>Maskings</span></a></li></ol></nav><article class=default><hgroup><h1><em>arangodump</em> Data Maskings</h1><p class=lead><code>arangodump</code> supports obfuscating and redacting information when dumping, to allow you sharing dumps without sensitive data with third parties</p></hgroup><p>The masking feature allows you to define how sensitive data shall be dumped.
+It is possible to exclude collections entirely, limit the dump to the
+structural information of a collection (name, indexes, sharding etc.)
+or to obfuscate certain fields for a dump.</p><p>You can make use of the feature by specifying a configuration file using the
+<code>--maskings</code> startup option when invoking <code>arangodump</code>.</p><p>A JSON configuration file is used to define which collections and fields to mask
+and how. The general structure of the configuration file looks like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;&lt;collection-name-1&gt;&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;&lt;masking-type&gt;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;maskings&#34;</span><span class=o>:</span> <span class=p>[</span> <span class=c1>// if masking-type is &#34;masked&#34;
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=p>{</span> <span class=s2>&#34;path&#34;</span><span class=o>:</span> <span class=s2>&#34;&lt;attr1&gt;&#34;</span><span class=p>,</span> <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;&lt;masking-function&gt;&#34;</span><span class=p>,</span> <span class=p>...</span> <span class=p>},</span> <span class=c1>// rule 1
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=p>{</span> <span class=s2>&#34;path&#34;</span><span class=o>:</span> <span class=s2>&#34;&lt;attr2&gt;&#34;</span><span class=p>,</span> <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;&lt;masking-function&gt;&#34;</span><span class=p>,</span> <span class=p>...</span> <span class=p>},</span> <span class=c1>// rule 2
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=p>...</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;&lt;collection-name-2&gt;&#34;</span><span class=o>:</span> <span class=p>{</span> <span class=p>...</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;&lt;collection-name-3&gt;&#34;</span><span class=o>:</span> <span class=p>{</span> <span class=p>...</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;*&#34;</span><span class=o>:</span> <span class=p>{</span> <span class=p>...</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><p>At the top level, there is an object with collection names. The masking to be
+applied to the respective collection is defined by the <code>type</code> sub-attribute.
+If the <code>type</code> is <code>"masked"</code>, then a sibling <code>maskings</code> attribute is available
+to define rules for obfuscating documents.</p><p>Using <code>"*"</code> as collection name defines a default behavior for collections
+not listed explicitly.</p><h2 id=masking-types>Masking Types <a href=/3.12/components/tools/arangodump/maskings/#masking-types class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><code>type</code> is a string describing how to mask the given collection.
+Possible values are:</p><ul><li><p><code>"exclude"</code>: the collection is ignored completely and not even the
+structure data is dumped.</p></li><li><p><code>"structure"</code>: only the collection structure is dumped, but no data at all
+(the file <code>&lt;collection-name>.data.json</code> or <code>&lt;collection-name>.data.json.gz</code>
+respectively is still created, but will not contain data).</p></li><li><p><code>"masked"</code>: the collection structure and all data is dumped. However, the data
+is subject to obfuscation defined in the attribute <code>maskings</code>. It is an array
+of objects, with one object per masking rule. Each object needs at least a
+<code>path</code> and a <code>type</code> attribute to <a href=#path class=link>define which field to mask</a> and which
+<a href=#masking-functions class=link>masking function</a> to apply. Depending on the
+masking type, there may exist additional attributes to control the masking
+function behavior.</p></li><li><p><code>"full"</code>: the collection structure and all data is dumped. No masking is
+applied to this collection at all.</p></li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;private&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;exclude&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;temperature&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;full&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;log&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;structure&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;person&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.security_id&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><ul><li>The collection called <em>private</em> is completely ignored.</li><li>Only the structure of the collection <em>log</em> is dumped, but not the data itself.</li><li>The structure and data of the <em>temperature</em> collection is dumped without any
+obfuscation of document attributes.</li><li>The collection <em>person</em> is dumped completely but with maskings applied:<ul><li>The <em>name</em> field is masked if it occurs on the top-level.</li><li>It also masks fields with the name <em>security_id</em> anywhere in the document.</li><li>The masking function is of type <a href=#xify-front class=link><em>xifyFront</em></a> in both cases.
+The additional setting <code>unmaskedLength</code> is specific so <em>xifyFront</em>.</li></ul></li><li>All additional collections that might exist in the targeted database is
+ignored (like the collection <em>private</em>), as there is no attribute key
+<code>"*"</code> to specify a different default type for the remaining collections.</li></ul><h3 id=masking-vs-dump-data-option>Masking vs. dump-data option <a href=/3.12/components/tools/arangodump/maskings/#masking-vs-dump-data-option class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangodump</em> also supports a very coarse masking with the option
+<code>--dump-data false</code>, which leaves out all data for the dump.</p><p>You can either use <code>--maskings</code> or <code>--dump-data false</code>, but not both.</p><h3 id=masking-vs-collection-option>Masking vs. collection option <a href=/3.12/components/tools/arangodump/maskings/#masking-vs-collection-option class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangodump</em> also supports a very coarse masking with the option
+<code>--collection</code>. This restricts the collections that are
+dumped to the ones explicitly listed.</p><p>It is possible to combine <code>--maskings</code> and <code>--collection</code>.
+This takes the intersection of exportable collections.</p><h2 id=path>Path <a href=/3.12/components/tools/arangodump/maskings/#path class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><code>path</code> defines which field to obfuscate. There can only be a single
+path per masking, but an unlimited amount of maskings per collection.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;collection1&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;attr1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;attr2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;randomString&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=err>...</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;collection2&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;attr3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=err>...</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Top-level <strong>system attributes</strong> (<code>_key</code>, <code>_id</code>, <code>_rev</code>, <code>_from</code>, <code>_to</code>) are
+never masked.</p><p>To mask a top-level attribute value, the path is simply the attribute
+name, for instance <code>"name"</code> to mask the value <code>"foobar"</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;1234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;foobar&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>The path to a nested attribute <code>name</code> with a top-level attribute <code>person</code>
+as its parent is <code>"person.name"</code> (here: <code>"foobar"</code>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;1234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;person&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;foobar&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Example masking definition:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection-name&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;person.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;&lt;masking-function&gt;&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>If the path starts with a <code>.</code> then it matches any path ending in <code>name</code>.
+For example, <code>.name</code> matches the field <code>name</code> of all leaf attributes
+in the document. Leaf attributes are attributes whose value is <code>null</code>,
+<code>true</code>, <code>false</code>, or of data type <code>string</code>, <code>number</code> or <code>array</code>.
+That means, it matches <code>name</code> at the top level as well as at any nested level
+(e.g. <code>foo.bar.name</code>), but not nested objects themselves.</p><p>On the other hand, <code>name</code> only matches leaf attributes
+at top level. <code>person.name</code> matches the attribute <code>name</code> of a leaf
+in the top-level object <code>person</code>. If <code>person</code> was itself an object,
+then the masking settings for this path would be ignored, because it
+is not a leaf attribute.</p><p>If the attribute value is an <strong>array</strong> then the masking is applied to
+<strong>all array elements individually</strong>.</p><p>The special path <code>*</code> matches <strong>all</strong> leaf nodes of a document.</p><p>If you have an attribute key that contains a dot (like <code>{ "name.with.dots": … }</code>)
+or a top-level attribute with a single asterisk as full name (<code>{ "*": … }</code>)
+then you need to quote the name in ticks or backticks:</p><ul><li><code>"path": "´name.with.dots´"</code></li><li><code>"path": "`name.with.dots`"</code></li><li><code>"path": "´*´"</code></li><li><code>"path": "`*`"</code></li></ul><p><strong>Example</strong></p><p>The following configuration replaces the value of the <code>name</code>
+attribute with an &ldquo;xxxx&rdquo;-masked string:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>The document:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;top-level-name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;age&#34;</span><span class=p>:</span> <span class=mi>42</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;nicknames&#34;</span> <span class=p>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;hugo&#34;</span> <span class=p>},</span> <span class=s2>&#34;egon&#34;</span> <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;other&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;emil&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nt>&#34;secret&#34;</span><span class=p>:</span> <span class=s2>&#34;superman&#34;</span> <span class=p>}</span> <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… is changed as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;xxxxxxxxxxxxme&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;age&#34;</span><span class=p>:</span> <span class=mi>42</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;nicknames&#34;</span> <span class=p>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;xxgo&#34;</span> <span class=p>},</span> <span class=s2>&#34;egon&#34;</span> <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;other&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;xxil&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nt>&#34;secret&#34;</span><span class=p>:</span> <span class=s2>&#34;superman&#34;</span> <span class=p>}</span> <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>The values <code>"egon"</code> and <code>"superman"</code> are not replaced, because they
+are not contained in an attribute value of which the attribute name is
+<code>name</code>.</p><h3 id=nested-objects-and-arrays>Nested objects and arrays <a href=/3.12/components/tools/arangodump/maskings/#nested-objects-and-arrays class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>If you specify a path and the attribute value is an array then the
+masking decision is applied to each element of the array as if this
+was the value of the attribute. This applies to arrays inside the array too.</p><p>If the attribute value is an object, then it is ignored and the attribute
+does not get masked. To mask nested fields, specify the full path for each
+leaf attribute.</p><div class="box notices cstyle tip"><div class=box-content-container><div class=box-content><i class="fas fa-check"></i><div class=box-text><p>If some documents have an attribute <code>mail</code> with a string as value, but other
+documents store a nested object under the same attribute name, then make sure
+to set up proper masking for the latter case, in which sub-attributes are not
+masked if there is only a masking configured for the attribute <code>mail</code>
+but not its nested attributes.</p><p>You can use the special path <code>"*"</code> to <strong>match all leaf attributes</strong> in the
+document.</p></div></div></div></div><p><strong>Examples</strong></p><p>Masking <code>mail</code> with the <em>Xify Front</em> function:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;mail&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… converts this document:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;mail&#34;</span> <span class=p>:</span> <span class=s2>&#34;mail address&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… into:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;mail&#34;</span> <span class=p>:</span> <span class=s2>&#34;xxil xxxxxxss&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>because <code>mail</code> is a leaf attribute. The document:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;mail&#34;</span> <span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;address one&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;address two&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;address three&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… is converted into:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;mail&#34;</span> <span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;xxxxxss xne&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;xxxxxss xwo&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;xxxxxss xxxee&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… because the masking is applied to each array element individually
+including the elements of the sub-array. The document:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;mail&#34;</span> <span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;address&#34;</span> <span class=p>:</span> <span class=s2>&#34;mail address&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… is not masked because <code>mail</code> is not a leaf attribute.
+To mask the mail address, you could use the paths <code>mail.address</code>
+or <code>.address</code> in the masking definition:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>A catch-all <code>"path": "*"</code> would apply to the nested <code>address</code> attribute too,
+but it would mask all other string attributes as well, which may not be what
+you want. A syntax <code>"path": "mail.*</code> to only match the sub-attributes of the
+top-level <code>mail</code> attribute is not supported.</p><h3 id=rule-precedence>Rule precedence <a href=/3.12/components/tools/arangodump/maskings/#rule-precedence class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Masking rules may overlap, for instance if you specify the same path multiple
+times, or if you define a rule for a specific field but also one which matches
+all leaf attributes of the same name.</p><p>The precedence is determined by the order in which the rules are defined in the
+masking configuration file in such cases, giving priority to the first matching
+rule (i.e. the rule above the other ambiguous ones).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Above masking definition obfuscates the top-level attribute <code>address</code> with
+the <code>xifyFront</code> function, whereas all nested attributes with name <code>address</code>
+will use the <code>random</code> masking function. If the rules are defined in reverse
+order however, then all attributes called <code>address</code> are obfuscated using
+<code>random</code>. The second, overlapping rule is effectively ignored:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This behavior also applies to the catch-all path <code>"*"</code>, which means it should
+generally be placed below all other rules for a collection so that it is used
+for all unspecified attribute paths. Otherwise, all document attributes are
+processed by a single masking function, ignoring any other rules below it.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.address&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;*&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;email&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=masking-functions>Masking Functions <a href=/3.12/components/tools/arangodump/maskings/#masking-functions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p class=labels><span class=label>ArangoDB Enterprise Edition</span>
+<span class=label>ArangoGraph</span></p><ul><li><a href=#xify-front class=link>Xify Front</a></li><li><a href=#zip class=link>Zip</a></li><li><a href=#datetime class=link>Datetime</a></li><li><a href=#integer-number class=link>Integer Number</a></li><li><a href=#decimal-number class=link>Decimal Number</a></li><li><a href=#credit-card-number class=link>Credit Card Number</a></li><li><a href=#phone-number class=link>Phone Number</a></li><li><a href=#email-address class=link>Email Address</a></li></ul><p>The masking functions:</p><ul><li><a href=#random-string class=link>Random String</a></li><li><a href=#random class=link>Random</a></li></ul><p>… are available in the Community Edition as well as the Enterprise Edition.</p><h3 id=random-string>Random String <a href=/3.12/components/tools/arangodump/maskings/#random-string class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces all values of attributes whose values are strings
+with key <code>name</code> with an anonymized string. It is not guaranteed that the
+string is of the same length. Attribute whose values are not strings
+are not modified.</p><p>A hash of the original string is computed. If the original string is
+shorter, then the hash is used. This results in a longer
+replacement string. If the string is longer than the hash, then
+characters are repeated as many times as needed to reach the full
+original string length.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"randomString"</code></li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;randomString&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Above masking setting applies to all leaf attributes with name <code>.name</code>.
+A document like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span> <span class=p>:</span> <span class=s2>&#34;1234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span> <span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;My Name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;other&#34;</span> <span class=p>:</span> <span class=s2>&#34;Hallo Name&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;Name One&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;Name Two&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>1.0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>1234</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;This is a very long name&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;deeply&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;nested&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;John Doe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;not-a-name&#34;</span><span class=p>:</span> <span class=s2>&#34;Pizza&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… is converted to:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;1234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;+y5OQiYmp/o=&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;other&#34;</span><span class=p>:</span> <span class=s2>&#34;Hallo Name&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;ihCTrlsKKdk=&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;yo/55hfla0U=&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>1.0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>1234</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;hwjAfNe5BGw=hwjAfNe5BGw=&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;deeply&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;nested&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;55fHctEM/wY=&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;not-a-name&#34;</span><span class=p>:</span> <span class=s2>&#34;Pizza&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=random>Random <a href=/3.12/components/tools/arangodump/maskings/#random class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type substitutes leaf attribute values of all data types with
+random values of the same kind:</p><ul><li>Strings are replaced with <a href=#random-string class=link>random strings</a>.</li><li>Numbers are replaced with random integer or decimal numbers, depending on
+the original value (but not keeping sign or scientific notation).
+The generated numbers are between -1000 and 1000.</li><li>Booleans are randomly replaced with <code>true</code> or <code>false</code>.</li><li><code>null</code> values remain <code>null</code>.</li></ul><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"random"</code></li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;collection&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;*&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;random&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Using above masking configuration, all leaf attributes of the documents in
+<em>collection</em> would be randomized. A possible input document:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span> <span class=p>:</span> <span class=s2>&#34;1121535&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_id&#34;</span> <span class=p>:</span> <span class=s2>&#34;coll/1121535&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_rev&#34;</span> <span class=p>:</span> <span class=s2>&#34;_Z3AKGjW--_&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;nullValue&#34;</span> <span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;bool&#34;</span> <span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;int&#34;</span> <span class=p>:</span> <span class=mi>1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;decimal&#34;</span> <span class=p>:</span> <span class=mf>2.34</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;string&#34;</span> <span class=p>:</span> <span class=s2>&#34;hello&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;array&#34;</span> <span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>-123</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>0.45</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>6e7</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>-0.8e-3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;nine&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;Lorem ipsum sit dolor amet.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=kc>false</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;obj&#34;</span> <span class=p>:</span> <span class=s2>&#34;nested&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… could result in an output like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;1121535&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_id&#34;</span><span class=p>:</span> <span class=s2>&#34;coll/1121535&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;_rev&#34;</span><span class=p>:</span> <span class=s2>&#34;_Z3AKGjW--_&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;nullValue&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;bool&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;int&#34;</span><span class=p>:</span> <span class=mi>-900</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;decimal&#34;</span><span class=p>:</span> <span class=mf>-4.27</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;string&#34;</span><span class=p>:</span> <span class=s2>&#34;etxfOC+K0HM=&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;array&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>754</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>-692</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>2.64</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mi>834</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=mf>1.69</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;NGf7NKGrMYw=&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;G0czIlvaGw4=G0czIlvaGw4=G0c&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;obj&#34;</span><span class=p>:</span> <span class=s2>&#34;eCGe36xiRho=&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=xify-front>Xify Front <a href=/3.12/components/tools/arangodump/maskings/#xify-front class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces the front characters with <code>x</code> and
+blanks. Alphanumeric characters, <code>_</code> and <code>-</code> are replaced by <code>x</code>,
+everything else is replaced by a blank.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"xifyFront"</code></li><li><code>unmaskedLength</code> (number, <em>default: <code>2</code></em>): how many characters to
+leave as-is on the right-hand side of each word as integer value</li><li><code>hash</code> (bool, <em>default: <code>false</code></em>): whether to append a hash value to the
+masked string to avoid possible unique constraint violations caused by
+the obfuscation</li><li><code>seed</code> (integer, <em>default: <code>0</code></em>): used as secret for computing the hash.
+A value of <code>0</code> means a random seed</li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;&lt;collection&gt;&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;masked&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;maskings&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This affects attributes with key <code>"name"</code> at any level by masking all
+alphanumeric characters of a word except the last two characters. Words of
+length 1 and 2 remain unmasked. If the attribute value is not a string but
+boolean or numeric, then the result is <code>"xxxx"</code> (fixed length).
+<code>null</code> values remain <code>null</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;This is a test!Do you agree?&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;bool&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;number&#34;</span><span class=p>:</span> <span class=mf>1.23</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;null&#34;</span><span class=p>:</span> <span class=kc>null</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… becomes:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;xxis is a xxst Do xou xxxee &#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;bool&#34;</span><span class=p>:</span> <span class=s2>&#34;xxxx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;number&#34;</span><span class=p>:</span> <span class=s2>&#34;xxxx&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;null&#34;</span><span class=p>:</span> <span class=kc>null</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>There is a catch. If you have an index on the attribute the masking
+might distort the index efficiency or even cause errors in case of a
+unique index.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;hash&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This adds a hash at the end of the string.</p><pre tabindex=0><code>&#34;This is a test!Do you agree?&#34;
+</code></pre><p>… becomes</p><pre tabindex=0><code>&#34;xxis is a xxst Do xou xxxee  NAATm8c9hVQ=&#34;
+</code></pre><p>Note that the hash is based on a random secret that is different for
+each run. This avoids dictionary attacks which could be used to guess
+values based pre-computations on dictionaries.</p><p>If you need reproducible results, i.e. hashes that do not change between
+different runs of <em>arangodump</em>, you need to specify a secret as seed,
+a number which must not be <code>0</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.name&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;xifyFront&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;unmaskedLength&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;hash&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;seed&#34;</span><span class=p>:</span> <span class=mi>246781478647</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=zip>Zip <a href=/3.12/components/tools/arangodump/maskings/#zip class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces a zip code with a random one.
+It uses the following rules:</p><ul><li>If a character of the original zip code is a digit, it is replaced
+by a random digit.</li><li>If a character of the original zip code is a letter, it
+is replaced by a random letter keeping the case.</li><li>If the attribute value is not a string then the default value is used.</li></ul><p>Note that this generates random zip codes. Therefore there is a
+chance that the same zip code value is generated multiple times, which can
+cause unique constraint violations if a unique index is or will be
+used on the zip code attribute.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"zip"</code></li><li><code>default</code> (string, <em>default: <code>"12345"</code></em>): if the input field is not of
+data type <code>string</code>, then this value is used</li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.code&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;zip&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This replaces real zip codes stored in fields called <code>code</code> at any level
+with random ones. <code>"12345"</code> is used as fallback value.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.code&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;zip&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;default&#34;</span><span class=p>:</span> <span class=s2>&#34;abcdef&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>If the original zip code is:</p><pre tabindex=0><code>50674
+</code></pre><p>… it is replaced by e.g.:</p><pre tabindex=0><code>98146
+</code></pre><p>If the original zip code is:</p><pre tabindex=0><code>SA34-EA
+</code></pre><p>… it is replaced by e.g.:</p><pre tabindex=0><code>OW91-JI
+</code></pre><p>If the original zip code is <code>null</code>, <code>true</code>, <code>false</code> or a number, then the
+user-defined default value of <code>"abcdef"</code> is used.</p><h3 id=datetime>Datetime <a href=/3.12/components/tools/arangodump/maskings/#datetime class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces the value of the attribute with a random
+date between two configured dates in a customizable format.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"datetime"</code></li><li><code>begin</code> (string, <em>default: <code>"1970-01-01T00:00:00.000"</code></em>):
+earliest point in time to return. Date time string in ISO 8601 format.</li><li><code>end</code> (string, <em>default: now</em>):
+latest point in time to return. Date time string in ISO 8601 format.
+In case a partial date time string is provided (e.g. <code>2010-06</code> without day
+and time) the earliest date and time is assumed (<code>2010-06-01T00:00:00.000</code>).
+The default value is the current system date and time.</li><li><code>format</code> (string, <em>default: <code>""</code></em>): the formatting string format is
+described in <a href=/3.12/aql/functions/date/#date_format class=link><code>DATE_FORMAT()</code></a>.
+If no format is specified, then the result is an empty string.</li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;eventDate&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;datetime&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;begin&#34;</span> <span class=p>:</span> <span class=s2>&#34;2019-01-01&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;end&#34;</span><span class=p>:</span> <span class=s2>&#34;2019-12-31&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;format&#34;</span><span class=p>:</span> <span class=s2>&#34;%yyyy-%mm-%dd&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Above example masks the field <code>eventDate</code> by returning a random date time
+string in the range of January 1st and December 31st in 2019 using a format
+like <code>2019-06-17</code>.</p><h3 id=integer-number>Integer Number <a href=/3.12/components/tools/arangodump/maskings/#integer-number class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces the value of the attribute with a random
+integer number. It replaces the value even if it is a string,
+Boolean, or <code>null</code>.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"integer"</code></li><li><code>lower</code> (number, <em>default: <code>-100</code></em>): smallest integer value to return</li><li><code>upper</code> (number, <em>default: <code>100</code></em>): largest integer value to return</li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;count&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;integer&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;lower&#34;</span> <span class=p>:</span> <span class=mi>-100</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;upper&#34;</span><span class=p>:</span> <span class=mi>100</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This masks the field <code>count</code> with a random number between
+-100 and 100 (inclusive).</p><h3 id=decimal-number>Decimal Number <a href=/3.12/components/tools/arangodump/maskings/#decimal-number class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces the value of the attribute with a random
+floating point number. It replaces the value even if it is a string,
+Boolean, or <code>null</code>.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"decimal"</code></li><li><code>lower</code> (number, <em>default: <code>-1</code></em>): smallest floating point value to return</li><li><code>upper</code> (number, <em>default: <code>1</code></em>): largest floating point value to return</li><li><code>scale</code> (number, <em>default: <code>2</code></em>): maximal amount of digits in the
+decimal fraction part</li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;rating&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;decimal&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;lower&#34;</span> <span class=p>:</span> <span class=mf>-0.3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;upper&#34;</span><span class=p>:</span> <span class=mf>0.3</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This masks the field <code>rating</code> with a random floating point number between
+-0.3 and +0.3 (inclusive). By default, the decimal has a scale of 2.
+That means, it has at most 2 digits after the dot.</p><p>The configuration:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;rating&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;decimal&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;lower&#34;</span> <span class=p>:</span> <span class=mf>-0.3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;upper&#34;</span><span class=p>:</span> <span class=mf>0.3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;scale&#34;</span><span class=p>:</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>… generates numbers with at most 3 decimal digits.</p><h3 id=credit-card-number>Credit Card Number <a href=/3.12/components/tools/arangodump/maskings/#credit-card-number class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces the value of the attribute with a random
+credit card number (as integer number).
+See <a href=https://en.wikipedia.org/wiki/Luhn_algorithm target=_blank rel="noopener noreferrer" class=link>Luhn algorithm</a>&nbsp;<i class="fas fa-external-link-alt"></i>
+for details.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"creditCard"</code></li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;ccNumber&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;creditCard&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This generates a random credit card number to mask field <code>ccNumber</code>,
+e.g. <code>4111111414443302</code>.</p><h3 id=phone-number>Phone Number <a href=/3.12/components/tools/arangodump/maskings/#phone-number class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type replaces a phone number with a random one.
+It uses the following rule:</p><ul><li>If a character of the original number is a digit
+it is replaced by a random digit.</li><li>If it is a letter it is replaced by a random letter.</li><li>All other characters are left unchanged.</li><li>If the attribute value is not a string it is replaced by the
+default value.</li></ul><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"phone"</code></li><li><code>default</code> (string, <em>default: <code>"+1234567890"</code></em>): if the input field
+is not of data type <code>string</code>, then this value is used</li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;phone.landline&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;phone&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This replaces an existing phone number with a random one, for instance
+<code>"+31 66-77-88-xx"</code> might get substituted by <code>"+75 10-79-52-sb"</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;phone.landline&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;phone&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;default&#34;</span><span class=p>:</span> <span class=s2>&#34;+49 12345 123456789&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This masks a phone number as before, but falls back to a different default
+phone number in case the input value is not a string.</p><h3 id=email-address>Email Address <a href=/3.12/components/tools/arangodump/maskings/#email-address class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>This masking type takes an email address, computes a hash value and
+splits it into three equal parts <code>AAAA</code>, <code>BBBB</code>, and <code>CCCC</code>. The
+resulting email address is in the format <code>AAAA.BBBB@CCCC.invalid</code>.
+The hash is based on a random secret that is different for each run.</p><p>Masking settings:</p><ul><li><code>path</code> (string): which field to mask</li><li><code>type</code> (string): masking function name <code>"email"</code></li></ul><p><strong>Example</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=s2>&#34;.email&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;email&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This masks every leaf attribute <code>email</code> with a random email address
+similar to <code>"EHwG.3AOg@hGU=.invalid"</code>.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/components/tools/arangodump/options/><i class="fas fa-chevron-left fa-fw"></i><p>Options</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/components/tools/arangodump/limitations/><p>Limitations</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/components/tools/arangodump/maskings.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#masking-types>Masking Types</a></div><div class=level-3><a href=#masking-vs-dump-data-option>Masking vs. dump-data option</a></div><div class=level-3><a href=#masking-vs-collection-option>Masking vs. collection option</a></div><div class=level-2><a href=#path>Path</a></div><div class=level-3><a href=#nested-objects-and-arrays>Nested objects and arrays</a></div><div class=level-3><a href=#rule-precedence>Rule precedence</a></div><div class=level-2><a href=#masking-functions>Masking Functions</a></div><div class=level-3><a href=#random-string>Random String</a></div><div class=level-3><a href=#random>Random</a></div><div class=level-3><a href=#xify-front>Xify Front</a></div><div class=level-3><a href=#zip>Zip</a></div><div class=level-3><a href=#datetime>Datetime</a></div><div class=level-3><a href=#integer-number>Integer Number</a></div><div class=level-3><a href=#decimal-number>Decimal Number</a></div><div class=level-3><a href=#credit-card-number>Credit Card Number</a></div><div class=level-3><a href=#phone-number>Phone Number</a></div><div class=level-3><a href=#email-address>Email Address</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

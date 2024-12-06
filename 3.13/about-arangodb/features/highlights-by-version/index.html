@@ -1,0 +1,235 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The most notable features in the Community and Enterprise Edition of ArangoDB, grouped by version"><meta property="og:url" content="http://localhost/3.13/about-arangodb/features/highlights-by-version/"><meta property="og:title" content="Highlights by Version"><meta property="og:type" content="website"><meta property="og:description" content="The most notable features in the Community and Enterprise Edition of ArangoDB, grouped by version"><meta name=docsearch:version content="3.13"><title>Highlights by Version | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="About ArangoDB"><a itemprop=item class=link href=/3.13/about-arangodb/><span itemprop=name class=breadcrumb-entry>About ArangoDB</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Features"><a itemprop=item class=link href=/3.13/about-arangodb/features/><span itemprop=name class=breadcrumb-entry>Features</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Highlights by Version"><a itemprop=item class=link href=/3.13/about-arangodb/features/highlights-by-version/><span itemprop=name class=breadcrumb-entry>Highlights by Version</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.13 is under development and not released yet.
+This documentation is not final and potentially incomplete.</p></div></div></div></div><hgroup><h1>Highlights by Version</h1><p class=lead>The most notable features in the Community and Enterprise Edition of ArangoDB, grouped by version</p></hgroup><h2 id=version-313>Version 3.13 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-313 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li></li></ul><p><strong>Enterprise Edition</strong></p><ul><li></li></ul><p>Also see <a href=/3.13/release-notes/version-3.13/whats-new-in-3-13/ class=link>What&rsquo;s New in 3.13</a>.</p><h2 id=version-312>Version 3.12 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-312 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.12/whats-new-in-3-12/#improved-memory-accounting-and-usage class=link><strong>Improved memory accounting</strong></a>:
+Better tracking and observability of memory consumption for ArangoDB deployments
+and reduced memory usage.</p></li><li><p><a href=/3.13/index-and-search/analyzers/#wildcard class=link><strong><code>wildcard</code> Analyzer</strong></a>:
+Accelerate <code>LIKE</code> searches with <code>_</code> and <code>%</code> wildcards against Views and
+inverted indexes with <em>n</em>-grams to quickly find candidate matches.</p></li><li><p><a href=/3.13/index-and-search/indexing/working-with-indexes/multi-dimensional-indexes/ class=link><strong>Multi-dimensional indexes</strong></a>:
+An index type to efficiently intersect multiple range queries, like finding
+all appointments that intersect a time range. Optionally with prefix fields,
+with support for using it as vertex-centric index in graph traversals.</p></li><li><p><a href=/3.13/release-notes/version-3.12/whats-new-in-3-12/#external-versioning-support class=link><strong>External versioning</strong></a>:
+Specify any top-level attribute to compare whether the version number is higher
+than the currently stored one when updating or replacing documents.</p></li><li><p><a href=/3.13/release-notes/version-3.12/whats-new-in-3-12/#improved-dump-performance-and-size class=link><strong>Improved dump performance</strong></a>
+Create logical backups faster with arangodump thanks to parallel dumping at
+the shard level, as well as transfer compression and file splitting.</p></li><li><p><a href=/3.13/release-notes/version-3.12/whats-new-in-3-12/#transparent-compression-of-requests-and-responses-between-arangodb-servers-and-client-tools class=link><strong>Request and response compression</strong></a>
+Speed up data transfers and reduce traffic with transparent compression of
+requests and responses between ArangoDB servers and client tools.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><a href=/3.13/index-and-search/arangosearch/performance/#wand-optimization class=link><strong>ArangoSearch WAND optimization</strong></a>:
+Retrieve search results for the highest-ranking matches from Views faster by
+defining a list of sort expressions to optimize.</li></ul><p>Also see <a href=/3.13/release-notes/version-3.12/whats-new-in-3-12/ class=link>What&rsquo;s New in 3.12</a>.</p><h2 id=version-311>Version 3.11 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-311 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.11/whats-new-in-3-11/#parallel-gather class=link><strong>Parallel gather</strong></a>:
+Faster, more memory-efficient processing of cluster queries by combining
+results on Coordinators in parallel.</p></li><li><p><a href=/3.13/release-notes/version-3.11/whats-new-in-3-11/#index-cache-refilling class=link><strong>Index cache refilling</strong></a>:
+Automatically repopulate in-memory index caches after writes that affect an
+edge index or cache-enabled persistent indexes to maximize cache hits and thus
+query performance.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/#arangosearch-column-cache-enterprise-edition class=link><strong>ArangoSearch column cache</strong></a>:
+Always cache field normalization values, Geo Analyzer auxiliary data,
+stored values, primary sort columns, and primary key columns in memory to
+improve the performance of Views and inverted indexes.</p></li><li><p><a href=/3.13/index-and-search/analyzers/#geo_s2 class=link><strong><code>geo_s2</code> Analyzer</strong></a>:
+Efficiently index geo-spatial data using different binary formats, tuning the
+size on disk, the precision, and query performance.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.11/whats-new-in-3-11/ class=link>What&rsquo;s New in 3.11</a>.</p><h2 id=version-310>Version 3.10 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-310 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/#native-arm-support class=link><strong>Native ARM Support</strong></a>:
+Packages for the ARM architecture are now available, including native support
+for Apple silicon.</p></li><li><p><a href=/3.13/concepts/data-structure/documents/computed-values/ class=link><strong>Computed Values</strong></a>:
+Persistent document attributes that are generated when documents are created
+or modified, using an AQL expression.</p></li><li><p><a href=/3.13/index-and-search/indexing/working-with-indexes/inverted-indexes/ class=link><strong>Inverted indexes</strong></a>:
+A new, eventually consistent index type that can accelerate a broad range of
+queries, providing similar search capabilities as <code>arangosearch</code> Views, but
+defined per collection and simpler to use.</p></li><li><p><a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/#search-alias-views class=link><strong><code>search-alias</code> Views</strong></a>:
+Add inverted indexes to <code>search-alias</code> Views for searching multiple collections
+at once, with ranking and search highlighting capabilities, as a lightweight
+alternative to <code>arangosearch</code> Views.</p></li><li><p><strong>Persistent indexes</strong>:
+An optional <a href=/3.13/index-and-search/indexing/working-with-indexes/persistent-indexes/#caching-of-index-values class=link><strong>In-memory Cache</strong></a>
+for faster lookups and <a href=/3.13/index-and-search/indexing/working-with-indexes/persistent-indexes/#storing-additional-values-in-indexes class=link><strong>Stored Values</strong></a>
+to let persistent indexes cover additional attributes of projections.</p></li><li><p><strong>AQL Graph Traversals</strong>:
+<a href=/3.13/aql/graphs/all-shortest-paths/ class=link>All Shortest Paths</a> allows you to query
+for all paths of shortest length between two documents.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><a href=/3.13/graphs/enterprisegraphs/ class=link><strong>EnterpriseGraphs</strong></a>: A new specialized version of
+SmartGraphs, with an automatic sharding key selection.</p></li><li><p><a href=/3.13/index-and-search/arangosearch/search-highlighting/ class=link><strong>Search highlighting</strong></a>:
+Get the substring positions of matched terms, phrases, or <em>n</em>-grams.</p></li><li><p><a href=/3.13/index-and-search/arangosearch/nested-search/ class=link><strong>Nested search</strong></a>:
+Match arrays of objects with all the conditions met by a single sub-object,
+and define for how many of the elements this must be true.</p></li><li><p><strong>ArangoSearch</strong>:
+New <a href=/3.13/index-and-search/analyzers/#minhash class=link><code>minhash</code> Analyzer</a> for locality-sensitive hashing
+to approximate the Jaccard similarity, with inverted index and
+<code>arangosearch</code> View support that allows you to implement entity resolution.</p></li><li><p><a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/#parallelism-for-sharded-graphs-enterprise-edition class=link><strong>Parallelism for sharded graphs</strong></a>:
+Parallel execution of AQL traversal queries with many start vertices for all
+types of sharded graphs, leading to faster results.</p></li><li><p><a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/#traversal-projections-enterprise-edition class=link><strong>Traversal Projections</strong></a>:
+Optimized data loading for AQL traversal queries if only a few document
+attributes are accessed.</p></li><li><p><a href=/3.13/develop/http-api/documents/#read-from-followers class=link><strong>Read from followers in clusters</strong></a>:
+Allow dirty reads so that Coordinators can read from any shard replica and not
+only from the leader, for scaling reads.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.10/whats-new-in-3-10/ class=link>What&rsquo;s New in 3.10</a>.</p><h2 id=version-39>Version 3.9 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-39 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><strong>ArangoSearch</strong>:
+New <a href=/3.13/index-and-search/analyzers/#segmentation class=link><strong>Segmentation Analyzer</strong></a>
+for language-agnostic tokenization of text.
+A <a href=/3.13/index-and-search/analyzers/#collation class=link><strong>Collation Analyzer</strong></a>
+to honor the alphabetical order of the specified language in range queries.</li></ul><p><strong>Enterprise Edition</strong></p><ul><li><a href=/3.13/graphs/smartgraphs/ class=link><strong>(Disjoint) SmartGraphs using SatelliteCollections</strong></a>:
+SatelliteCollections can be used in (Disjoint) SmartGraphs to enable more
+local execution of graph queries.</li></ul><p>Also see <a href=/3.13/release-notes/version-3.9/whats-new-in-3-9/ class=link>What&rsquo;s New in 3.9</a>.</p><h2 id=version-38>Version 3.8 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-38 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#weighted-traversals class=link><strong>Weighted traversals</strong></a>
+and <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#k-paths class=link><strong>k Paths</strong></a>:
+Two new AQL graph traversal methods to emit paths in order of increasing
+weights and to enumerate all paths between a source and a target vertex that
+match a given length.</p></li><li><p><strong>ArangoSearch</strong>:
+New <a href=/3.13/index-and-search/analyzers/#pipeline class=link><strong>Pipeline Analyzer</strong></a>
+that allows you to combine multiple Analyzers, enabling case-insensitive
+<em>n</em>-gram-based fuzzy search and more. New
+<a href=/3.13/index-and-search/analyzers/#aql class=link><strong>AQL Analyzer</strong></a>
+so that you can use an AQL query to pre-process and filter your data for
+indexing. Support for <strong>geo-spatial queries</strong> through new
+<a href=/3.13/index-and-search/analyzers/#geojson class=link>Geo</a>
+<a href=/3.13/index-and-search/analyzers/#geopoint class=link>Analyzers</a> and
+<a href=/3.13/aql/functions/arangosearch/#geo-functions class=link>ArangoSearch Geo functions</a>.
+A new <a href=/3.13/index-and-search/analyzers/#stopwords class=link><strong>Stop words Analyzer</strong></a> that
+can be used standalone or in an Analyzer pipeline.</p></li><li><p>A <a href=/3.13/aql/high-level-operations/window/ class=link><strong><code>WINDOW</code> operation</strong></a> for aggregations over
+adjacent rows, value ranges or time windows.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><strong>Encryption at Rest</strong> utilizes
+<a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/#encryption-at-rest class=link>hardware acceleration</a>
+capabilities of modern CPUs.</li></ul><p>Also see <a href=/3.13/release-notes/version-3.8/whats-new-in-3-8/ class=link>What&rsquo;s New in 3.8</a>.</p><h2 id=version-37>Version 3.7 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-37 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><strong>ArangoSearch</strong>:
+<a href=/3.13/aql/functions/arangosearch/#like class=link>Wildcard</a> and fuzzy search
+(<a href=/3.13/aql/functions/arangosearch/#levenshtein_match class=link>Levenshtein distance</a> and
+<a href=/3.13/aql/functions/arangosearch/#ngram_match class=link><em>n</em>-gram based</a>),
+enhanced <a href=/3.13/aql/functions/arangosearch/#phrase class=link>phrase and proximity search</a>,
+improved late document materialization and
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#covering-indexes class=link>Views covering queries</a>
+using their indexes without touching the storage engine, as well as a new
+SIMD-based index format for faster processing and
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#stemming-support-for-more-languages class=link>stemming support</a>
+for 15 additional languages.</p></li><li><p><a href=/3.13/concepts/data-structure/documents/schema-validation/ class=link><strong>Schema Validation</strong></a>:
+Enforce a JSON Schema for documents on collection level. Invalid documents
+can be rejected automatically by the database system, making it easy to
+maintain data quality.</p></li><li><p><a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#insert-update-and-insert-ignore class=link><strong>Insert-Update</strong> and <strong>Insert-Ignore</strong></a>:
+New document API operations to upsert documents and to efficiently insert
+documents while skipping the creation if the document exists already.</p></li><li><p><strong>AQL</strong>:
+Improved <a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#subquery-optimizations class=link>subquery</a> and
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#traversal-optimizations class=link>graph traversal performance</a>,
+among many optimizations and enhancements.</p></li><li><p><a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#http2-support class=link><strong>HTTP/2 support</strong></a>:
+Better load-balancer and Kubernetes compatibility, improved request throughput.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#satellitegraphs class=link><strong>SatelliteGraphs</strong></a>:
+Synchronously replicated graphs with local traversal execution.</p></li><li><p><a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#disjoint-smartgraphs class=link><strong>Disjoint SmartGraphs</strong></a>:
+Improve traversal execution times for SmartGraphs without edges between
+vertices with different SmartGraph attributes.</p></li><li><p><a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#traversal-parallelization-enterprise-edition class=link><strong>Traversal parallelization</strong></a>:
+Optional parallel execution of nested traversals for single servers and
+OneShard clusters.</p></li><li><p><strong>Security</strong>:
+Added support for multiple
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#jwt-secret-rotation-enterprise-edition class=link>JWT Secrets</a>
+and the ability to hot-reload them from disk,
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#tls-key-and-certificate-rotation class=link>TLS key and certificate rotation</a>,
+<a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#encryption-at-rest-key-rotation-enterprise-edition class=link>Encryption at rest key rotation</a>
+and <a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/#server-name-indication-enterprise-edition class=link>Server Name Indication (SNI)</a>.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.7/whats-new-in-3-7/ class=link>What&rsquo;s New in 3.7</a>.</p><h2 id=version-36>Version 3.6 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-36 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><strong>AQL</strong>:
+Improved query performance thanks to
+<a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#early-pruning-of-non-matching-documents class=link>early pruning</a>,
+<a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#subquery-splicing-optimization class=link>subquery splicing</a>,
+<a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#late-document-materialization-rocksdb class=link>late document materialization</a>,
+<a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#parallelization-of-cluster-aql-queries class=link>parallelization</a> for certain cluster queries
+and more. New server-side <a href=/3.13/aql/how-to-invoke-aql/with-arangosh/#maxruntime class=link><code>maxRuntime</code></a>
+option for queries.</p></li><li><p><strong>ArangoSearch</strong>:
+New <a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#analyzers class=link>Analyzer options</a> for
+edge <em>n</em>-grams (<code>text</code> Analyzer), UTF-8 encoded <em>n</em>-gram input and optional
+start/end markers (<code>ngram</code> Analyzer). Support for
+<a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/#dynamic-search-expressions-with-arrays class=link>dynamic expressions</a>
+using arrays (array comparison operators in <code>SEARCH</code> queries and the
+<code>TOKENS()</code> / <code>PHRASE()</code> functions accept arrays). Views can benefit from the
+SmartJoins optimization.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><a href=/3.13/deploy/oneshard/ class=link><strong>OneShard</strong></a>
+deployments offer a practicable solution that enables significant performance
+improvements by massively reducing cluster-internal communication. A database
+created with OneShard enabled is limited to a single DB-Server node but still
+replicated synchronously to ensure resilience. This configuration allows
+running transactions with ACID guarantees on shard leaders.</li></ul><p>Also see <a href=/3.13/release-notes/version-3.6/whats-new-in-3-6/ class=link>What&rsquo;s New in 3.6</a>.</p><h2 id=version-35>Version 3.5 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-35 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><strong>ArangoSearch</strong>:
+The search and ranking engine received an upgrade and now features
+<a href=/3.13/index-and-search/analyzers/ class=link>Configurable Analyzers</a>,
+<a href=/3.13/index-and-search/arangosearch/performance/#primary-sort-order class=link>Sorted Views</a>
+and several improvements to the
+<a href=/3.13/release-notes/version-3.5/whats-new-in-3-5/#arangosearch class=link>AQL integration</a>.</p></li><li><p><strong>AQL Graph Traversals</strong>:
+<a href=/3.13/aql/graphs/k-shortest-paths/ class=link>k Shortest Paths</a> allows you to query not
+just for one shortest path between two documents but multiple, sorted by
+length or weight. With <a href=/3.13/aql/graphs/traversals/#pruning class=link>PRUNE</a> you can
+stop walking down certain paths early in a graph traversal to improve its
+efficiency.</p></li><li><p><a href=/3.13/develop/http-api/transactions/stream-transactions/ class=link><strong>Stream Transaction API</strong></a>:
+Perform multi-document transactions with individual begin and commit / abort
+commands using the new HTTP endpoints or via a supported driver.</p></li><li><p><a href=/3.13/index-and-search/indexing/basics/#ttl-time-to-live-index class=link><strong>Time-to-Live</strong></a>
+<a href=/3.13/index-and-search/indexing/working-with-indexes/ttl-indexes/ class=link><strong>Indexes</strong></a>:
+TTL indexes can be used to automatically remove documents in collections for
+use cases like expiring sessions or automatic purging of statistics or logs.</p></li><li><p><a href=/3.13/aql/high-level-operations/for/#indexhint class=link><strong>Index Hints</strong></a> &
+<a href=https://www.arangodb.com/learn/development/index-hints-named-indices/ target=_blank rel="noopener noreferrer" class=link><strong>Named Indexes</strong></a>&nbsp;<i class="fas fa-external-link-alt"></i>:
+Indexes can be given names and an optional AQL inline query option
+<code>indexHint</code> was added to override the internal optimizer decision on which
+index to utilize.</p></li><li><p><a href=/3.13/components/tools/arangodump/maskings/ class=link><strong>Data Masking</strong></a>:
+arangodump provides a convenient way to extract production data but mask
+critical information that should not be visible.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><a href=/3.13/operations/backup-and-restore/#hot-backups class=link><strong>Hot Backups</strong></a>:
+Create automatic, consistent backups of your cluster without noticeable
+impact on your production systems. In contrast to <em>arangodump</em>, hot backups
+are taken on the level of the underlying storage engine and hence both backup
+and restore are considerably faster.</p></li><li><p><a href=/3.13/develop/smartjoins/ class=link><strong>SmartJoins</strong></a>:
+Run joins between identically sharded collections with performance close to
+that of a local join operation.</p></li><li><p><strong>Advanced Data Masking</strong>:
+There are additional
+<a href=/3.13/components/tools/arangodump/maskings/#masking-functions class=link>data masking functions</a>
+available in the Enterprise Edition, such as for substituting email addresses
+and phone numbers with similar looking pseudo-data.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.5/whats-new-in-3-5/ class=link>What&rsquo;s New in 3.5</a>.</p><h2 id=version-34>Version 3.4 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-34 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/index-and-search/arangosearch/ class=link><strong>ArangoSearch</strong></a>:
+Search and similarity ranking engine integrated natively into ArangoDB and
+AQL. ArangoSearch combines Boolean retrieval capabilities with generalized
+ranking algorithms (BM25, TFDIF). Support of e.g. relevance-based searching,
+phrase and prefix-matching, complex boolean searches and query time relevance
+tuning. Search can be combined with all supported data models in a single
+query. Many specialized language Analyzers are already included for e.g.
+English, German, French, Chinese, Spanish and many other language.</p></li><li><p><a href=/3.13/aql/functions/geo/ class=link><strong>GeoJSON Support</strong></a> and
+<a href=/3.13/index-and-search/indexing/working-with-indexes/geo-spatial-indexes/ class=link><strong>S2 Geo Index</strong></a>: ArangoDB now supports all geo primitives.
+(Multi-)Point, (Multi-)LineStrings, (Multi-)Polygons or intersections can be
+defined and queried for. The Google S2 geo index is optimized for RocksDB and
+enables efficient querying. Geo query results are automatically visualized
+with an OpenStreetMap integration within the Query Editor of the web interface.</p></li><li><p><a href=/3.13/aql/execution-and-performance/query-profiling/ class=link><strong>Query Profiler</strong></a>:
+Enables the analysis of queries and adds additional information for the user
+to identify optimization potentials more easily. The profiler can be accessed
+via <em>arangosh</em> with <code>db._profileQuery(...)</code> or via the <em>Profile</em> button in the
+Query Editor of the web interface.</p></li><li><p><a href=/3.13/aql/how-to-invoke-aql/with-arangosh/#stream class=link><strong>Streaming Cursors</strong></a>:
+Cursors requested with the stream option on make queries calculate results
+on the fly and make them available for the client in a streaming fashion,
+as soon as possible.</p></li><li><p><strong>RocksDB as Default Storage Engine</strong>: With ArangoDB 3.4 the default
+<a href=/3.13/components/arangodb-server/storage-engine/ class=link>storage engine</a> for fresh installations will
+switch from MMFiles to RocksDB. Many optimizations have been made to RocksDB
+since the first release in 3.2. For 3.4 we optimized the binary storage
+format for improved insertion, implemented &ldquo;optional caching&rdquo;, reduced the
+replication catch-up time and much more.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.4/whats-new-in-3-4/ class=link>What&rsquo;s New in 3.4</a>.</p><h2 id=version-33>Version 3.3 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-33 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>Enterprise Edition</strong></p><ul><li><p><strong>Datacenter-to-Datacenter Replication</strong>:
+Replicate the entire structure and content of an ArangoDB cluster
+asynchronously to another cluster in a different datacenter with ArangoSync.
+Multi-datacenter support means you can fallback to a replica of your cluster
+in case of a disaster in one datacenter.</p></li><li><p><a href=/3.13/components/tools/arangodump/examples/#encryption class=link><strong>Encrypted Backups</strong></a>:
+<em>arangodump</em> can create backups encrypted with a secret key using AES256
+block cipher.</p></li></ul><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/release-notes/version-3.3/whats-new-in-3-3/#server-level-replication class=link><strong>Server-level Replication</strong></a>:
+In addition to per-database replication, there is now an additional
+<code>globalApplier</code>. Start the global replication on the Follower once and all
+current and future databases will be replicated from the Leader to the
+Follower automatically.</p></li><li><p><a href=/3.13/release-notes/version-3.3/whats-new-in-3-3/#asynchronous-failover class=link><strong>Asynchronous Failover</strong></a>:
+Make a single server instance resilient with a second server instance, one
+as Leader and the other as asynchronously replicating Follower, with automatic
+failover to the Follower if the Leader goes down.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.3/whats-new-in-3-3/ class=link>What&rsquo;s New in 3.3</a>.</p><h2 id=version-32>Version 3.2 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-32 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/components/arangodb-server/storage-engine/ class=link><strong>RocksDB Storage Engine</strong></a>: You can now use
+as much data in ArangoDB as you can fit on your disk. Plus, you can enjoy
+performance boosts on writes by having only document-level locks.</p></li><li><p><strong>Pregel</strong>
+We implemented distributed graph processing with Pregel to discover hidden
+patterns, identify communities and perform in-depth analytics of large graph
+data sets.</p></li><li><p><a href=/3.13/develop/http-api/foxx/ class=link><strong>Fault-Tolerant Foxx</strong></a>: The Foxx management
+internals have been rewritten from the ground up to make sure
+multi-coordinator cluster setups always keep their services in sync and
+new Coordinators are fully initialized even when all existing Coordinators
+are unavailable.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><strong>LDAP integration</strong>: Users and permissions
+can be managed from outside ArangoDB with an LDAP server in different
+authentication configurations.</p></li><li><p><a href=/3.13/operations/security/encryption-at-rest/ class=link><strong>Encryption at Rest</strong></a>: Let the server
+persist your sensitive data strongly encrypted to protect it even if the
+physical storage medium gets stolen.</p></li><li><p><a href=/3.13/develop/satellitecollections/ class=link><strong>SatelliteCollections</strong></a>: Faster join operations when
+working with sharded datasets by synchronously replicating selected
+collections to all DB-Servers in a cluster, so that joins can be
+executed locally.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.2/whats-new-in-3-2/ class=link>What&rsquo;s New in 3.2</a>.</p><h2 id=version-31>Version 3.1 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-31 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><strong>All Editions</strong></p><ul><li><p><a href=/3.13/index-and-search/indexing/working-with-indexes/vertex-centric-indexes/ class=link><strong>Vertex-centric indexes</strong></a>:
+AQL traversal queries can utilize secondary edge collection
+indexes for better performance against graphs with supernodes.</p></li><li><p><a href=https://www.arangodb.com/2016/10/updated-java-drivers-with-arangodb-3-1/ target=_blank rel="noopener noreferrer" class=link><strong>VelocyPack over HTTP</strong></a>&nbsp;<i class="fas fa-external-link-alt"></i>:
+In addition to JSON, the binary storage format VelocyPack can now also be
+used in transport over the HTTP protocol.</p></li></ul><p><strong>Enterprise Edition</strong></p><ul><li><p><a href=/3.13/graphs/smartgraphs/ class=link><strong>SmartGraphs</strong></a>: Scale with graphs to a
+cluster and stay performant. With SmartGraphs you can use the &ldquo;smartness&rdquo;
+of your application layer to shard your graph efficiently to your machines
+and let traversals run locally.</p></li><li><p><strong>Encryption Control</strong>: Choose your level of <a href=/3.13/components/arangodb-server/options/#ssl class=link>SSL encryption</a></p></li><li><p><a href=/3.13/operations/security/audit-logging/ class=link><strong>Auditing</strong></a>: Keep a detailed log
+of all the important things that happened in ArangoDB.</p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.1/whats-new-in-3-1/ class=link>What&rsquo;s New in 3.1</a>.</p><h2 id=version-30>Version 3.0 <a href=/3.13/about-arangodb/features/highlights-by-version/#version-30 class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.13/deploy/cluster/ class=link><strong>self-organizing cluster</strong></a> with
+synchronous replication, master/master setup, shared nothing
+architecture, cluster management Agency.</p></li><li><p>Deeply integrated, native <a href=/3.13/aql/graphs/ class=link><strong>AQL graph traversal</strong></a></p></li><li><p><a href=https://github.com/arangodb/velocypack target=_blank rel="noopener noreferrer" class=link><strong>VelocyPack</strong></a>&nbsp;<i class="fas fa-external-link-alt"></i> as new internal
+binary storage format as well as for intermediate AQL values.</p></li><li><p><a href=/3.13/index-and-search/indexing/working-with-indexes/persistent-indexes/ class=link><strong>Persistent indexes</strong></a> via RocksDB suitable
+for sorting and range queries.</p></li><li><p><a href=/3.13/develop/foxx-microservices/ class=link><strong>Foxx 3.0</strong></a>: overhauled JS framework for data-centric
+microservices</p></li><li><p>Significantly improved <a href=/3.13/components/web-interface/ class=link><strong>Web Interface</strong></a></p></li></ul><p>Also see <a href=/3.13/release-notes/version-3.0/whats-new-in-3-0/ class=link>What&rsquo;s New in 3.0</a>.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.13/about-arangodb/features/enterprise-edition/><i class="fas fa-chevron-left fa-fw"></i><p>Enterprise Edition</p></a></span><span class=next></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.13/about-arangodb/features/highlights-by-version.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#version-313>Version 3.13</a></div><div class=level-2><a href=#version-312>Version 3.12</a></div><div class=level-2><a href=#version-311>Version 3.11</a></div><div class=level-2><a href=#version-310>Version 3.10</a></div><div class=level-2><a href=#version-39>Version 3.9</a></div><div class=level-2><a href=#version-38>Version 3.8</a></div><div class=level-2><a href=#version-37>Version 3.7</a></div><div class=level-2><a href=#version-36>Version 3.6</a></div><div class=level-2><a href=#version-35>Version 3.5</a></div><div class=level-2><a href=#version-34>Version 3.4</a></div><div class=level-2><a href=#version-33>Version 3.3</a></div><div class=level-2><a href=#version-32>Version 3.2</a></div><div class=level-2><a href=#version-31>Version 3.1</a></div><div class=level-2><a href=#version-30>Version 3.0</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

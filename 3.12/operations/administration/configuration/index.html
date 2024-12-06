@@ -1,0 +1,134 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.12/operations/administration/configuration/"><meta property="og:title" content="Configuration"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.12"><title>Configuration | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Operations"><a itemprop=item class=link href=/3.12/operations/><span itemprop=name class=breadcrumb-entry>Operations</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Administration"><a itemprop=item class=link href=/3.12/operations/administration/><span itemprop=name class=breadcrumb-entry>Administration</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Configuration"><a itemprop=item class=link href=/3.12/operations/administration/configuration/><span itemprop=name class=breadcrumb-entry>Configuration</span></a></li></ol></nav><article class=default><hgroup><h1>Configuration</h1></hgroup><p>The <a href=/3.12/components/tools/ class=link>programs and tools</a> shipped in an
+ArangoDB package can be configured with various <em>startup options</em>.</p><ul><li><p>Startup options you specify on a command line are referred to as
+<a href=#command-line-options class=link>command line options</a>:</p><p><code>arangosh --server.database myDB --server.username Jay</code></p></li><li><p>The same options can also be set via
+<a href=#configuration-file-format class=link>configuration files</a>,
+using a slightly different syntax:</p><pre tabindex=0><code class=language-conf data-lang=conf>server.database = myDB
+server.username = Jay
+</code></pre><p>Or more compact like this:</p><pre tabindex=0><code class=language-conf data-lang=conf>[server]
+database = myDB
+username = Jay
+</code></pre></li><li><p>There are also <em>commands</em> that are intended for command line usage only,
+such as <code>‑‑help</code> and <code>‑‑version</code>.</p></li></ul><h2 id=available-startup-options>Available startup options <a href=/3.12/operations/administration/configuration/#available-startup-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Find the available options and commands in the <em>Options</em> sub-chapters of the
+respective <a href=/3.12/components/tools/ class=link>Programs & Tools</a> sub-chapter, like the
+<a href=/3.12/components/arangodb-server/options/ class=link>ArangoDB Server Options</a>.</p><p>The <a href=/3.12/components/tools/arangodb-starter/ class=link>ArangoDB Starter</a> works differently
+to the other programs and tools. It uses <code>setup.json</code> files for its own
+<a href=/3.12/components/tools/arangodb-starter/architecture/#starter-data-directory class=link>configuration</a>
+and has a fluent command line interface to execute certain actions.
+If you deploy ArangoDB with the Starter, then custom <code>arangod.conf</code> files
+are generated by this tool and are used instead of the default configuration.</p><h2 id=command-line-options>Command line options <a href=/3.12/operations/administration/configuration/#command-line-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Command line options can be supplied in the style <code>‑‑option value</code> with two
+dashes (also known as hyphen minus), the name of the option, a space as
+separator and the value. You may also use an equals sign <code>=</code> as separator
+like <code>‑‑option=value</code>.</p><p>The value can be surrounded with double quote marks <code>"</code> like
+<code>‑‑option="value"</code>. This is mandatory if the value contains spaces,
+but it is optional otherwise.</p><p>Boolean options that you want to enable do not need to be set to <code>true</code>
+explicitly. For example, <code>--log.role</code> is equivalent to <code>--log.role true</code>.</p><p>Some binaries accept one unnamed argument, which means you can take a
+shortcut and leave out the <code>‑‑option</code> part and supply the value directly.
+It does not matter if you supply it as first or last argument, or between
+any of the named arguments. For <em>arangod</em> it is the <code>‑‑database.directory</code>
+option. The following commands are identical:</p><pre tabindex=0><code>arangod my_data_dir
+arangod &#34;my_data_dir&#34;
+arangod --database.directory my_data_dir
+arangod --database.directory=my_data_dir
+arangod --database.directory &#34;my_data_dir&#34;
+arangod --database.directory=&#34;my_data_dir&#34;
+</code></pre><p>Many options belong to a section as in <code>‑‑section.param</code>, e.g.
+<code>‑‑server.database</code>, but there can also be options without any section.
+These options are referred to as <em>general options</em>.</p><p>To list available options, you can run a binary with the <code>‑‑help</code> command:</p><pre tabindex=0><code>arangosh --help
+</code></pre><p>To list the options of a certain section only, use <code>‑‑help‑{section}</code>,
+like <code>‑‑help‑server</code>. To list all options including hidden ones use
+<code>--help-all</code>.</p><h2 id=configuration-file-format>Configuration file format <a href=/3.12/operations/administration/configuration/#configuration-file-format class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><code>.conf</code> files for ArangoDB binaries are in a simple key-value pair format.
+Each option is specified on a separate line in the form:</p><pre tabindex=0><code class=language-conf data-lang=conf>key = value
+</code></pre><p>It may look like this:</p><pre tabindex=0><code class=language-conf data-lang=conf>server.endpoint = tcp://127.0.0.1:8529
+server.authentication = true
+</code></pre><p>Alternatively, a header section can be specified and options pertaining to
+that section can be specified in a shorter form:</p><pre tabindex=0><code class=language-conf data-lang=conf>[server]
+endpoint = tcp://127.0.0.1:8529
+authentication = true
+</code></pre><p>So you see, a command line option <code>‑‑section.param value</code> can be easily
+translated to an option in a configuration file:</p><pre tabindex=0><code class=language-conf data-lang=conf>[section]
+param = value
+</code></pre><div class="box notices cstyle tip"><div class=box-content-container><div class=box-content><i class="fas fa-check"></i><div class=box-text><p>Whitespace around <code>=</code> is ignored in configuration files.
+This includes whitespace around equality signs in the parameter value:</p><pre tabindex=0><code class=language-conf data-lang=conf>log.level = startup = trace
+</code></pre><p>It is the same as without whitespace:</p><pre tabindex=0><code class=language-conf data-lang=conf>log.level=startup=trace
+</code></pre></div></div></div></div><p>Comments can be placed in the configuration file by placing one or more
+hash symbols <code>#</code> at the beginning of a line. Comments that are placed in
+other places (i.e. not at the beginning of a line) are unsupported and should
+be avoided to ensure correct parsing of the startup options as intended.</p><p>Commands like <code>--version</code> should not be used in configuration files
+(<code>version = true</code>) because the process will terminate after executing the
+command, potentially giving the impression that it failed to start.</p><h2 id=using-configuration-files>Using Configuration Files <a href=/3.12/operations/administration/configuration/#using-configuration-files class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Binaries have a corresponding <code>.conf</code> file that an ArangoDB package ships with.
+<code>arangosh.conf</code> contains the default ArangoShell configuration for instance.
+The configuration files can be adjusted or new ones be created.</p><p>To load a particular configuration file, there is a <code>‑‑configuration</code> option
+available to let you specify a path to a <code>.conf</code> file. If you want to
+completely ignore a configuration file (likely the default one) without
+necessarily deleting the file, then add the command line option</p><pre tabindex=0><code>-c none
+</code></pre><p>or</p><pre tabindex=0><code>--configuration none
+</code></pre><p>The value <code>none</code> is case-insensitive.</p><h2 id=suffixes-for-numeric-options>Suffixes for Numeric Options <a href=/3.12/operations/administration/configuration/#suffixes-for-numeric-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>You can add suffixes to numeric options to let ArangoDB multiply the value by a
+certain factor. This allows you to conveniently specify values, for example,
+in megabytes, gigabytes, or terabytes.</p><table><thead><tr><th>Suffix</th><th>Factor</th><th>Bytes</th><th>Example</th></tr></thead><tbody><tr><td><code>kib</code>, <code>KiB</code>, <code>KIB</code></td><td>1024</td><td>1,024</td><td><code>512KiB</code></td></tr><tr><td><code>mib</code>, <code>MiB</code>, <code>MIB</code></td><td>1024<sup>2</sup></td><td>1,048,576</td><td><code>64mib</code></td></tr><tr><td><code>gib</code>, <code>GiB</code>, <code>GIB</code></td><td>1024<sup>3</sup></td><td>1,073,741,824</td><td><code>3GIB</code></td></tr><tr><td><code>tib</code>, <code>TiB</code>, <code>TIB</code></td><td>1024<sup>4</sup></td><td>1,099,511,627,776</td><td><code>3tib</code></td></tr><tr><td><code>b</code>, <code>B</code></td><td>1</td><td>1</td><td><code>10b</code></td></tr><tr><td><code>k</code>, <code>K</code>, <code>kb</code>, <code>KB</code></td><td>1000</td><td>1,000</td><td><code>3k</code></td></tr><tr><td><code>m</code>, <code>M</code>, <code>mb</code>, <code>MB</code></td><td>1000<sup>2</sup></td><td>1,000,000</td><td><code>3M</code></td></tr><tr><td><code>g</code>, <code>G</code>, <code>gb</code>, <code>GB</code></td><td>1000<sup>3</sup></td><td>1,000,000,000</td><td><code>3GB</code></td></tr><tr><td><code>t</code>, <code>T</code>, <code>tb</code>, <code>TB</code></td><td>1000<sup>4</sup></td><td>1,000,000,000,000</td><td><code>4tb</code></td></tr><tr><td><code>%</code></td><td>0.01</td><td>n/a</td><td><code>5%</code></td></tr></tbody></table><p>You can also use suffixes in configuration files like this:</p><pre tabindex=0><code class=language-conf data-lang=conf>[rocksdb]
+write-buffer-size=512KiB
+block-cache-size=512MiB
+total-write-buffer-size=2GiB
+max-bytes-for-level-multiplier=1K
+
+[cache]
+size=2G
+</code></pre><h2 id=environment-variables-as-parameters>Environment variables as parameters <a href=/3.12/operations/administration/configuration/#environment-variables-as-parameters class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>If you want to use an environment variable in a value of a startup option,
+write the name of the variable wrapped in at signs <code>@</code>. It acts as a
+placeholder. It can be combined with fixed strings for instance.
+For literal at signs in startup option arguments, escape them like <code>@@</code>.</p><p>Command line example:</p><pre tabindex=0><code>arangod --temp.path @TEMP@/arango_tmp
+</code></pre><p>In a configuration file:</p><pre tabindex=0><code class=language-conf data-lang=conf>[temp]
+path = @TEMP@/arango_tmp
+</code></pre><p>The <code>@TEMP@</code> placeholder is substituted by the value of the <code>TEMP</code>
+environment variable. For example, if you set it to <code>/var/lib</code>, the resulting
+startup option value is <code>/var/lib/arango_tmp</code>. If the environment variable doesn&rsquo;t
+exist, the placeholder is removed and the resulting value is <code>/arango_tmp</code>.</p><h2 id=options-with-multiple-values>Options with multiple values <a href=/3.12/operations/administration/configuration/#options-with-multiple-values class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Certain startup options accept multiple values. In case of parameters being
+<em>vectors</em> you can specify one or more times the option with varying values.
+Whether this is the case can be seen by looking at the <strong>Type</strong> column of a
+tool&rsquo;s option table (e.g. <a href=/3.12/components/arangodb-server/options/ class=link>ArangoDB Server Options</a>)
+or the type information provided on a command line in the <code>--help</code> output of
+an ArangoDB binary:</p><pre tabindex=0><code>--log.level &lt;string...&gt;     the global or topic-specific log level
+</code></pre><p>Vectors can be identified by the three dots <code>...</code> at the end of the data type
+information (in angled brackets). For <code>log.level</code> you can set one or more
+strings for different log levels for example. Simply repeat the option to
+do so. On a command line:</p><pre tabindex=0><code>arangod --log.level all=warning --log.level queries=trace --log.level startup=info
+</code></pre><p>This sets a global log level of <code>warning</code> and two topic-specific levels
+(<code>trace</code> for queries and <code>info</code> for startup). Note that <code>--log.level warning</code>
+does not set a log level globally for all existing topics, but only the
+<code>general</code> topic. Use the pseudo-topic <code>all</code> to set a global log level.</p><p>The same in a configuration file:</p><pre tabindex=0><code class=language-conf data-lang=conf>[log]
+level = all=warning
+level = queries=trace
+level = startup=info
+</code></pre><h2 id=configuration-precedence>Configuration precedence <a href=/3.12/operations/administration/configuration/#configuration-precedence class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>There are built-in defaults, with which all configuration variables are first
+initialized. They can be overridden by configuration files and command line
+options (in this order). Only a fraction of all available options are set in
+the configuration files that ArangoDB ships with. Many options therefore
+fall back to the built-in defaults unless they are overridden by the user.</p><p>It is common to use modified configuration files together with startup
+options on a command line to override specific settings. Command line options
+take precedence over values set in a configuration file.</p><p>If the same option is set multiple times, but only supports a single value,
+then the last occurrence of the option becomes the final value.
+For example, if you edit <code>arangosh.conf</code> as follows:</p><pre tabindex=0><code class=language-conf data-lang=conf>server.database = myDB1
+server.database = myDB2
+</code></pre><p>Then start ArangoShell like this:</p><pre tabindex=0><code>arangosh --server.database myDB3 --server.database myDB4
+</code></pre><p>The database it connects to is <code>myDB4</code>, because this startup option
+takes a single value only (i.e. it is not a vector), the built-in default
+is <code>_system</code> but the configuration file overrules the setting. It gets set to
+<code>myDB1</code> temporarily before it is replaced by <code>myDB2</code>, which in turn gets
+overridden by the command line options twice, first to <code>myDB3</code> and then the
+final value <code>myDB4</code>.</p><h2 id=change-configuration-at-runtime>Change configuration at runtime <a href=/3.12/operations/administration/configuration/#change-configuration-at-runtime class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>In general, supplied startup options cannot be changed nor can configuration
+files be reloaded once an executable is started, other than by restarting the
+executable with different options. However, some of the startup options
+define default values which can be overridden on a per-query basis for
+instance, or adjusted at runtime via an API call. Examples:</p><ul><li><a href=/3.12/aql/execution-and-performance/caching-query-results/#global-configuration class=link>Query cache configuration</a>
+via JavaScript API</li></ul><h2 id=fetch-current-configuration-options>Fetch Current Configuration Options <a href=/3.12/operations/administration/configuration/#fetch-current-configuration-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Use the <a href=/3.12/develop/http-api/administration/#startup-options class=link><code>GET /_admin/options</code> HTTP API</a>
+to retrieve the effective configuration of the queried <em>arangod</em> instance as
+set by startup options on the command-line and via a configuration file.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/operations/administration/><i class="fas fa-chevron-left fa-fw"></i><p>Administration</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/operations/administration/telemetrics/><p>Telemetrics</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/operations/administration/configuration.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#available-startup-options>Available startup options</a></div><div class=level-2><a href=#command-line-options>Command line options</a></div><div class=level-2><a href=#configuration-file-format>Configuration file format</a></div><div class=level-2><a href=#using-configuration-files>Using Configuration Files</a></div><div class=level-2><a href=#suffixes-for-numeric-options>Suffixes for Numeric Options</a></div><div class=level-2><a href=#environment-variables-as-parameters>Environment variables as parameters</a></div><div class=level-2><a href=#options-with-multiple-values>Options with multiple values</a></div><div class=level-2><a href=#configuration-precedence>Configuration precedence</a></div><div class=level-2><a href=#change-configuration-at-runtime>Change configuration at runtime</a></div><div class=level-2><a href=#fetch-current-configuration-options>Fetch Current Configuration Options</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

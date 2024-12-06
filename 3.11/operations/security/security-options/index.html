@@ -1,0 +1,170 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="You can harden an ArangoDB server by restricting APIs, limiting what can be  accessed in JavaScript contexts, and disable unused features"><meta property="og:url" content="http://localhost/3.11/operations/security/security-options/"><meta property="og:title" content="Server security options"><meta property="og:type" content="website"><meta property="og:description" content="You can harden an ArangoDB server by restricting APIs, limiting what can be  accessed in JavaScript contexts, and disable unused features"><meta name=docsearch:version content="3.11"><title>Server security options | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Operations"><a itemprop=item class=link href=/3.11/operations/><span itemprop=name class=breadcrumb-entry>Operations</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Security"><a itemprop=item class=link href=/3.11/operations/security/><span itemprop=name class=breadcrumb-entry>Security</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Security Options"><a itemprop=item class=link href=/3.11/operations/security/security-options/><span itemprop=name class=breadcrumb-entry>Security Options</span></a></li></ol></nav><article class=default><hgroup><h1>Server security options</h1><p class=lead>You can harden an ArangoDB server by restricting APIs, limiting what can be accessed in JavaScript contexts, and disable unused features</p></hgroup><p><em>arangod</em> provides a variety of options to make a setup more secure.
+Administrators can use these options to limit access to certain ArangoDB
+server functionality as well as preventing the leakage of information about
+the environment that a server is running in.</p><h2 id=general-security-options>General security options <a href=/3.11/operations/security/security-options/#general-security-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The following security options are available:</p><ul><li><p><code>--server.harden</code>
+If this option is set to <code>true</code> and authentication is enabled, non-admin users
+will be denied access to the following REST APIs:</p><ul><li><code>/_admin/cluster/numberOfServers</code></li><li><code>/_admin/log</code></li><li><code>/_admin/log/level</code></li><li><code>/_admin/status</code></li><li><code>/_admin/statistics</code></li><li><code>/_admin/statistics-description</code></li><li><code>/_api/engine/stats</code></li></ul><p>Additionally, no version details will be revealed by the version REST API at
+<code>/_api/version</code>.</p><p>The default value for this option is <code>false</code>.</p></li><li><p><code>--server.support-info-api</code>
+This option controls access to the REST API endpoint <code>/_admin/support-info</code>
+for retrieving deployment information. It can have the following values:</p><ul><li><code>disabled</code>: support info API is disabled.</li><li><code>jwt</code>: support info API can only be accessed via superuser JWT.</li><li><code>admin</code> (default): the support info API can only be accessed by admin users and superuser JWTs.</li><li><code>public</code>: everyone with access to the <code>_system</code> database can access the
+support info API.</li></ul><p>The default value for this option is <code>admin</code>.</p></li></ul><h2 id=javascript-security-options>JavaScript security options <a href=/3.11/operations/security/security-options/#javascript-security-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><code>arangod</code> has several options that allow you to make your installation more
+secure when it comes to running application code in it. Below you will find
+an overview of the relevant options.</p><h3 id=allowlists-and-denylists>Allowlists and denylists <a href=/3.11/operations/security/security-options/#allowlists-and-denylists class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Several options exist to restrict JavaScript application code functionality
+to just certain allowed subsets. Which subset of functionality is available
+can be controlled via &ldquo;denylisting&rdquo; and &ldquo;allowlisting&rdquo; access to individual
+components.</p><p>The set theory for these lists works as follow:</p><ul><li><strong>Only a denylist is specified:</strong>
+Everything is allowed except a set of items matching the denylist.</li><li><strong>Only an allowlist is specified:</strong>
+Everything is disallowed except the set of items matching the allowlist.</li><li><strong>Both allowlist and denylist are specified:</strong>
+Everything is disallowed except the set of items matching the allowlist.
+From this allowed set, subsets can be forbidden again using the denylist.</li></ul><p>Values for denylist and allowlist options need to be specified as ECMAScript
+regular expressions.
+Each option can be used multiple times. When specifying more than one
+pattern, these patterns will be combined with a <em>logical or</em> to the actual pattern
+ArangoDB will use.</p><p>These patterns and how they are applied can be observed by enabling
+<code>--log.level SECURITY=debug</code> in the <code>arangod</code> or <code>arangosh</code> log output.</p><h3 id=options-for-allowlisting-and-denylisting>Options for allowlisting and denylisting <a href=/3.11/operations/security/security-options/#options-for-allowlisting-and-denylisting class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following options are available for allowlisting and denylisting access
+to dedicated functionality for application code:</p><ul><li><p><code>--javascript.startup-options-[allowlist|denylist]</code>:
+These options control which startup options will be exposed to JavaScript code.</p></li><li><p><code>--javascript.environment-variables-[allowlist|denylist]</code>:
+These options control which environment variables will be exposed to
+JavaScript code.</p></li><li><p><code>--javascript.files-allowlist</code>:
+This option controls which filesystem paths can be accessed from JavaScript
+code. There is only an allowlist option for file access.</p></li><li><p><code>--javascript.endpoints-[allowlist|denylist]</code>:
+These options control which endpoints can be used from within the
+<code>@arangodb/request</code> JavaScript module.</p></li></ul><h4 id=startup-option-access>Startup option access <a href=/3.11/operations/security/security-options/#startup-option-access class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The security option to observe the behavior of the pattern matching most easily
+is the masquerading of the startup options:</p><pre tabindex=0><code>--javascript.startup-options-allowlist &#34;^server\.&#34;
+--javascript.startup-options-allowlist &#34;^log\.&#34;
+--javascript.startup-options-denylist &#34;^javascript\.&#34;
+--javascript.startup-options-denylist &#34;^endpoint$&#34;
+</code></pre><p>These sets will resolve internally to the following regular expressions:</p><pre tabindex=0><code>--javascript.startup-options-allowlist = &#34;^server\.|^log\.&#34;
+--javascript.startup-options-denylist = &#34;^javascript\.|endpoint&#34;
+</code></pre><p>Invoking <em>arangosh</em> with these options will hide the denied command-line
+options from the output of:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>require</span><span class=p>(</span><span class=s1>&#39;internal&#39;</span><span class=p>).</span><span class=nx>options</span><span class=p>()</span></span></span></code></pre></div><p>… and an exception will be thrown when trying to access items that are masked
+in the same way as if they weren&rsquo;t there in first place.</p><h4 id=environment-variable-access>Environment variable access <a href=/3.11/operations/security/security-options/#environment-variable-access class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>Access to environment variables can be restricted to hide sensitive information
+from JavaScript code, for example:</p><pre tabindex=0><code>--javascript.environment-variables-allowlist &#34;^ARANGO_&#34;
+--javascript.environment-variables-denylist &#34;PASSWORD&#34;
+</code></pre><p>This will allow JavaScript code to only see environment variables that start
+with <code>ARANGO_</code> except if they contain <code>PASSWORD</code>. It excludes the variables
+<code>PATH</code> and <code>ARANGO_ROOT_PASSWORD</code> for instance.</p><p>Note that regular expression matching is case-sensitive. <code>PASSWORD</code> will not
+exclude environment variables that include <code>password</code>. You may use
+<code>[Pp][Aa][Ss][Ss][Ww][Oo][Rr][Dd]</code> for case-insensitive matching.</p><p>You can test the allow-/denylisting in <em>arangosh</em>, here using the ArangoDB 3.7
+Docker image:</p><pre tabindex=0><code>docker run --rm -e ARANGO_ROOT_PASSWORD=&#34;secret&#34; arangodb:3.7 arangosh --javascript.execute-string &#34;print(process.env)&#34;
+...
+{
+  &#34;ARANGO_PACKAGE&#34; : &#34;arangodb3_3.7.15-1_amd64.deb&#34;,
+  &#34;HOSTNAME&#34; : &#34;84fe29186eba&#34;,
+  &#34;SHLVL&#34; : &#34;1&#34;,
+  &#34;HOME&#34; : &#34;/root&#34;,
+  &#34;ARANGO_ROOT_PASSWORD&#34; : &#34;secret&#34;,
+  &#34;ARANGO_VERSION&#34; : &#34;3.7.15&#34;,
+  &#34;PATH&#34; : &#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;,
+  &#34;ARANGO_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64&#34;,
+  &#34;ARANGO_PACKAGE_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64/arangodb3_3.7.15-1_amd64.deb&#34;,
+  &#34;ARANGO_SIGNATURE_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64/arangodb3_3.7.15-1_amd64.deb.asc&#34;,
+  &#34;PWD&#34; : &#34;/&#34;,
+  &#34;ICU_DATA&#34; : &#34;/usr/share/arangodb3/&#34;
+}
+
+docker run --rm -e ARANGO_ROOT_PASSWORD=&#34;secret&#34; arangodb:3.7 arangosh --javascript.execute-string &#34;print(process.env)&#34; --javascript.environment-variables-allowlist &#34;^ARANGO_&#34; --javascript.environment-variables-denylist &#34;PASSWORD&#34;
+...
+[Object {
+  &#34;ARANGO_PACKAGE&#34; : &#34;arangodb3_3.7.15-1_amd64.deb&#34;,
+  &#34;ARANGO_VERSION&#34; : &#34;3.7.15&#34;,
+  &#34;ARANGO_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64&#34;,
+  &#34;ARANGO_PACKAGE_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64/arangodb3_3.7.15-1_amd64.deb&#34;,
+  &#34;ARANGO_SIGNATURE_URL&#34; : &#34;https://download.arangodb.com/arangodb37/DEBIAN/amd64/arangodb3_3.7.15-1_amd64.deb.asc&#34;
+}]
+</code></pre><h4 id=file-access>File access <a href=/3.11/operations/security/security-options/#file-access class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>In contrast to other areas, access to directories and files from JavaScript
+operations is only controlled via an allowlist, which can be specified via the
+startup option <code>--javascript.files-allowlist</code>. Thus any files or directories
+not matching the allowlist will be inaccessible from JavaScript filesystem
+functions.</p><p>For example, when using the following startup options</p><pre tabindex=0><code>--javascript.files-allowlist &#34;^/etc/required/&#34;
+--javascript.files-allowlist &#34;^/etc/mtab/&#34;
+--javascript.files-allowlist &#34;^/etc/issue$&#34;
+</code></pre><p>The file <code>/etc/issue</code> will be allowed to accessed and all files in the directories
+<code>/etc/required</code> and <code>/etc/mtab</code> plus their subdirectories will be accessible,
+while access to files in any other directories will be disallowed from
+JavaScript operations, with the following exceptions:</p><ul><li>ArangoDB&rsquo;s temporary directory: JavaScript code is given access to this
+directory for storing temporary files. The temporary directory location
+can be specified explicitly via the <code>--temp.path</code> option at startup.
+If the option is not specified, ArangoDB will automatically use a subdirectory
+of the system&rsquo;s temporary directory.</li><li>ArangoDB&rsquo;s own JavaScript code, shipped with the ArangoDB release packages.
+Files in this directory and its subdirectories will be readable for JavaScript
+code running in ArangoDB. The exact path can be specified by the startup option
+<code>--javascript.startup-directory</code>.</li></ul><h4 id=endpoint-access>Endpoint access <a href=/3.11/operations/security/security-options/#endpoint-access class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h4><p>The endpoint allow-/denylisting limits access to external HTTP resources:</p><pre tabindex=0><code>--javascript.endpoints-denylist &#34;&lt;regex&gt;&#34;
+--javascript.endpoints-allowlist &#34;&lt;regex&gt;&#34;
+</code></pre><p>Filtering is done against the full request URL, including protocol, hostname /
+IP address, port, and path.</p><div class="box notices cstyle security"><div class=box-content-container><div class=box-content><i class="fas fa-shield-alt"></i><div class=box-text>Keep in mind that these startup options are treated as regular expressions.
+Certain characters have special meaning that may require escaping and the
+expression only needs to match a substring by default. It is recommended to
+fully specify URLs and to use a leading <code>^</code> and potentially a trailing <code>$</code> to
+ensure that no other than the intended URLs are matched.</div></div></div></div><p>Specifying <code>arangodb.org</code> will match:</p><ul><li><code>http://arangodb.org</code></li><li><code>http://arangodb.org/</code></li><li><code>http://arangodb.org/folder/file.html</code></li><li><code>https://arangodb.org</code></li><li><code>https://arangodb.org:12345</code></li><li><code>https://subdomain.arangodb.organic</code> <strong>(!)</strong></li><li><code>https://arangodb-org.evil.domain</code> <strong>(!)</strong></li><li>etc.</li></ul><p>An unescaped <code>.</code> represents any character. For a literal dot use <code>\.</code>.</p><p>Specifying <code>http://arangodb\.org</code> will match:</p><ul><li><code>http://arangodb.org</code></li><li><code>http://arangodb.org:12345</code></li><li><code>http://arangodb.organic</code> <strong>(!)</strong></li><li><code>http://arangodb.org.evil.domain</code> <strong>(!)</strong></li><li>etc.</li></ul><p>Specifying <code>^http://arangodb\.org$</code> will only match <code>http://arangodb.org</code>.
+Despite port 80 being the default HTTP port, this will not match
+<code>http://arangodb.org:80</code> with an explicitly stated port. Conversely, specifying
+<code>^http://arangodb\.org:80$</code> will match <code>http://arangodb.org:80</code> with an explicit
+port in the request URL but not <code>http://arangodb.org</code> with the port left out.
+To allow both, you can make the port optional like <code>^http://arangodb\.org(:80)?$</code>.
+However, the trailing <code>$</code> demands that the URL has no path. This means
+<code>http://arangodb.org/folder/file.html</code> and even <code>http://arangodb.org/</code> will not
+match. You can specify <code>^http://arangodb\.org(:80)?/</code> to allow any path (but
+the trailing slash will be needed in the request URL).</p><p>Specifying <code>^https?://arangodb\.org(:80|:443)?(/|$)</code> will match:</p><ul><li><code>http://arangodb.org</code></li><li><code>http://arangodb.org/</code></li><li><code>http://arangodb.org/folder/file.html</code></li><li><code>http://arangodb.org:80</code></li><li><code>http://arangodb.org:80/</code></li><li><code>http://arangodb.org:80/folder/file.html</code></li><li><code>https://arangodb.org:443</code></li><li><code>https://arangodb.org:443/</code></li><li><code>https://arangodb.org:443/folder/file.html</code></li><li>etc.</li></ul><p>You can test the allow-/denylisting in <em>arangosh</em>:</p><pre tabindex=0><code>arangosh --javascript.endpoints-allowlist &#34;^https://arangodb\.org(:443)?/&#34;
+127.0.0.1:8529@_system&gt; require(&#39;internal&#39;).download(&#39;http://arangodb.org/file.zip&#39;)
+JavaScript exception: ArangoError 11: not allowed to connect to this URL: http://arangodb.org/file.zip
+...
+
+127.0.0.1:8529@_system&gt; require(&#39;internal&#39;).download(&#39;https://arangodb.org/file.zip&#39;)
+&lt;request permitted by allowlist&gt;
+</code></pre><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>Startup options may require additional escaping in your command line.
+Examples are:</p><ul><li>Dollar symbols and backslashes in most Linux and macOS shells (<code>\$</code>, <code>\\</code>),
+unless the entire string is wrapped in single quotes (<code>'tcp://arangodb\.org$'</code>
+instead of <code>tcp://arangodb\\.org\$</code>)</li><li>Circumflex accents in Windows <code>cmd</code> (<code>^^</code>) unless the entire string is
+wrapped in double quotes (<code>"^http…"</code>).</li></ul></div></div></div></div><h3 id=additional-javascript-security-options>Additional JavaScript security options <a href=/3.11/operations/security/security-options/#additional-javascript-security-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>In addition to the allowlisting and denylisting security options, the following
+extra options are available for locking down JavaScript access to server functionality:</p><ul><li><p><code>--javascript.allow-port-testing</code>:
+If set to <code>true</code>, this option enables the <code>testPort</code> JavaScript function in the
+<code>internal</code> module. The default value is <code>false</code>.</p></li><li><p><code>--javascript.allow-external-process-control</code>:
+If set to <code>true</code>, this option allows the execution and control of external processes
+from JavaScript code via the functions from the <code>internal</code> module:</p><ul><li><code>executeExternal</code></li><li><code>executeExternalAndWait</code></li><li><code>getExternalSpawned</code></li><li><code>killExternal</code></li><li><code>suspendExternal</code></li><li><code>continueExternal</code></li><li><code>statusExternal</code></li></ul></li><li><p><code>--javascript.harden</code>:
+If set to <code>true</code>, this setting will deactivate the following JavaScript functions
+from the <code>internal</code> module, which may leak information about the environment:</p><ul><li><code>getPid()</code></li><li><code>logLevel()</code></li></ul><p>The default value is <code>false</code>.</p></li><li><p><code>--javascript.tasks</code>: You can set this option to <code>false</code> to turn off
+<a href=/3.11/develop/javascript-api/tasks/ class=link>JavaScript tasks</a>. It disallows the
+execution of user-defined JavaScript code on the server inside of periodic
+and one-off tasks.</p></li><li><p><code>--javascript.transactions</code>: You can set this option to <code>false</code> to turn off
+<a href=/3.11/develop/http-api/transactions/javascript-transactions/ class=link>JavaScript Transactions</a>. It disallows
+the execution of user-defined JavaScript code on the server inside of
+JavaScript Transactions.</p></li><li><p><code>--javascript.user-defined-functions</code>: You can set this option to <code>false</code> to
+turn off <a href=/3.11/aql/user-defined-functions/ class=link>user-defined functions</a> (UDFs). It disallows
+the execution of user-defined JavaScript code on the server inside of
+user-defined AQL functions (introduced in: v3.10.4).</p></li></ul><h2 id=security-options-for-managing-foxx-applications>Security options for managing Foxx applications <a href=/3.11/operations/security/security-options/#security-options-for-managing-foxx-applications class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The following options are available for controlling the installation of Foxx applications
+in an ArangoDB server:</p><ul><li><p><code>--foxx.enable</code> (introduced in: v3.10.5):
+If set to <code>false</code>, this option disables access to any user-defined Foxx apps.
+Accessing the URL of any (existing or potentially existing) Foxx app produces an
+HTTP <code>403 Forbidden</code> error with this setting.
+ArangoDB&rsquo;s built-in web interface and all built-in REST APIs remain accessible,
+except the Foxx service management API, which makes it impossible to install and
+uninstall Foxx applications. Setting the option to <code>false</code> also deactivates the
+<strong>SERVICES</strong> section in the web interface.
+The default value is <code>true</code>, meaning that Foxx apps can be accessed.</p></li><li><p><code>--foxx.api</code>:
+If set to <code>false</code>, this option disables the Foxx management API, which will make it
+impossible to install and uninstall Foxx applications. Setting the option to <code>false</code>
+will also deactivate the &ldquo;Services&rdquo; section in the web interface.
+The default value is <code>true</code>, meaning that Foxx apps can be installed and uninstalled.</p></li><li><p><code>--foxx.store</code>:
+If set to <code>false</code>, this option disables the Foxx app store in ArangoDB&rsquo;s web interface,
+which will also prevent ArangoDB and its web interface from making calls to the main Foxx
+application Github repository at
+<a href=https://github.com/arangodb/foxx-apps target=_blank rel="noopener noreferrer" class=link>github.com/arangodb/foxx-apps</a>&nbsp;<i class="fas fa-external-link-alt"></i>.
+The default value is <code>true</code>.</p></li><li><p><code>--foxx.allow-install-from-remote</code>:
+When set to <code>false</code>, this option prevents installation of Foxx apps from any
+remote source other than GitHub and deactivates the <strong>Remote</strong> tab in the <strong>Services</strong>
+section of the web interface. Installing apps from Github and/or zip files is
+still possible with this setting, but any other remote sources are blocked.
+When set to <code>true</code>, installing Foxx apps from other remote sources via URLs
+is allowed (introduced in: v3.8.5).
+The default value is <code>false</code>.</p></li></ul><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/operations/security/><i class="fas fa-chevron-left fa-fw"></i><p>Security</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/operations/security/change-root-password/><p>Change Root Password</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/operations/security/security-options.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#general-security-options>General security options</a></div><div class=level-2><a href=#javascript-security-options>JavaScript security options</a></div><div class=level-3><a href=#allowlists-and-denylists>Allowlists and denylists</a></div><div class=level-3><a href=#options-for-allowlisting-and-denylisting>Options for allowlisting and denylisting</a></div><div class=level-4><a href=#startup-option-access>Startup option access</a></div><div class=level-4><a href=#environment-variable-access>Environment variable access</a></div><div class=level-4><a href=#file-access>File access</a></div><div class=level-4><a href=#endpoint-access>Endpoint access</a></div><div class=level-3><a href=#additional-javascript-security-options>Additional JavaScript security options</a></div><div class=level-2><a href=#security-options-for-managing-foxx-applications>Security options for managing Foxx applications</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

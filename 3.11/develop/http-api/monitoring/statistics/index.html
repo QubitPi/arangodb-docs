@@ -1,0 +1,976 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Server statistics let you monitor the system but they are superseded by the more detailed server metrics"><meta property="og:url" content="http://localhost/3.11/develop/http-api/monitoring/statistics/"><meta property="og:title" content="Statistics"><meta property="og:type" content="website"><meta property="og:description" content="Server statistics let you monitor the system but they are superseded by the more detailed server metrics"><meta name=docsearch:version content="3.11"><title>Statistics | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Monitoring"><a itemprop=item class=link href=/3.11/develop/http-api/monitoring/><span itemprop=name class=breadcrumb-entry>Monitoring</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Statistics"><a itemprop=item class=link href=/3.11/develop/http-api/monitoring/statistics/><span itemprop=name class=breadcrumb-entry>Statistics</span></a></li></ol></nav><article class=default><hgroup><h1>Statistics</h1><p class=lead>Server statistics let you monitor the system but they are superseded by the more detailed server metrics</p></hgroup><h2 id=get-the-statistics>Get the statistics <a href=/3.11/develop/http-api/monitoring/statistics/#get-the-statistics class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_admin/statistics</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>This endpoint should no longer be used. It is deprecated from version 3.8.0 on.
+Use <code>/_admin/metrics/v2</code> instead, which provides the data exposed by this API
+and a lot more.</div></div></div></div><p>Returns the statistics information. The returned object contains the
+statistics figures grouped together according to the description returned by
+<code>/_admin/statistics-description</code>. For instance, to access a figure <code>userTime</code>
+from the group <code>system</code>, you first select the sub-object describing the
+group stored in <code>system</code> and in that sub-object the value for <code>userTime</code> is
+stored in the attribute of the same name.</p><p>In case of a distribution, the returned object contains the total count in
+<code>count</code> and the distribution list in <code>counts</code>. The sum (or total) of the
+individual values is returned in <code>sum</code>.</p><p>The transaction statistics show the local started, committed and aborted
+transactions as well as intermediate commits done for the server queried. The
+intermediate commit count will only take non zero values for the RocksDB
+storage engine. Coordinators do almost no local transactions themselves in
+their local databases, therefor cluster transactions (transactions started on a
+Coordinator that require DB-Servers to finish before the transactions is
+committed cluster wide) are just added to their local statistics. This means
+that the statistics you would see for a single server is roughly what you can
+expect in a cluster setup using a single Coordinator querying this Coordinator.
+Just with the difference that cluster transactions have no notion of
+intermediate commits and will not increase the value.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database. If the <code>--server.harden</code> startup option is enabled,
+administrate access to the <code>_system</code> database is required.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-statistics_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Statistics were returned successfully.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">client*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>information about the connected clients and their resource usage</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesReceived><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">bytesReceived*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_bytesReceived><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of bytes received from the clients</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesReceived_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_bytesReceived_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesReceived_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_bytesReceived_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesReceived_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_bytesReceived_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesSent><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">bytesSent*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_bytesSent><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of bytes sent to the clients</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesSent_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_bytesSent_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesSent_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_bytesSent_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_bytesSent_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_bytesSent_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_connectionTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">connectionTime*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_connectionTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>total connection times</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_connectionTime_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_connectionTime_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_connectionTime_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_connectionTime_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_connectionTime_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_connectionTime_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_httpConnections><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">httpConnections*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_httpConnections><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of open http connections</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_ioTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">ioTime*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_ioTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>IO Time</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_ioTime_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_ioTime_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_ioTime_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_ioTime_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_ioTime_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_ioTime_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_queueTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">queueTime*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_queueTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the time requests were queued waiting for processing</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_queueTime_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_queueTime_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_queueTime_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_queueTime_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_queueTime_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_queueTime_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_requestTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestTime*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_requestTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the request times</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_requestTime_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_requestTime_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_requestTime_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_requestTime_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_requestTime_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_requestTime_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_totalTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">totalTime*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_client_totalTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the system time</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_totalTime_count><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">count*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_client_totalTime_count><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>number of values summarized</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_totalTime_counts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">counts*</span>
+<span class=openapi-property-type><span class=bold-text>array of integers</span></span>
+<a href=#get-the-statistics_res_200_client_totalTime_counts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>array containing the values</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_client_totalTime_sum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">sum*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_client_totalTime_sum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>summarized value of all counts</p></div></details></li></ul></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the HTTP status code - 200 in this case</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_enabled><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">enabled*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-statistics_res_200_enabled><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><code>true</code> if the server has the statistics module enabled. If not, don&rsquo;t expect any values.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-statistics_res_200_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>boolean flag to indicate whether an error occurred (<code>false</code> in this case)</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_errorMessage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorMessage*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics_res_200_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>a descriptive error message</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">http*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_http><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the numbers of requests by Verb</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsAsync><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsAsync*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsAsync><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>total number of asynchronous http requests</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsDelete><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsDelete*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsDelete><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the DELETE-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsGet><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsGet*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsGet><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the GET-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsHead><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsHead*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsHead><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the HEAD-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsOptions><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsOptions*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsOptions><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the OPTIONS-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsOther><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsOther*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsOther><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the none of the above identified verbs</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsPatch><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsPatch*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsPatch><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the PATCH-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsPost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsPost*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsPost><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the POST-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsPut><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsPut*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsPut><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>No of requests using the PUT-verb</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_http_requestsTotal><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">requestsTotal*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_http_requestsTotal><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>total number of http requests</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">server*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_server><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>statistics of the server</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_physicalMemory><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">physicalMemory*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_physicalMemory><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>available physical memory on the server</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_threads><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">threads*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_server_threads><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Statistics about the server worker threads (excluding V8 specific or jemalloc specific threads and system threads)</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_threads_in-progress><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">in-progress*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_threads_in-progress><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The number of currently busy worker threads</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_threads_queued><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">queued*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_threads_queued><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The number of jobs queued up waiting for worker threads becoming available</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_threads_scheduler-threads><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">scheduler-threads*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_threads_scheduler-threads><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The number of spawned worker threads</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_transactions><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">transactions*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_server_transactions><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Statistics about transactions</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_transactions_aborted><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">aborted*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_transactions_aborted><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of aborted transactions</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_transactions_committed><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">committed*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_transactions_committed><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of committed transactions</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_transactions_intermediateCommits><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">intermediateCommits*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_transactions_intermediateCommits><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of intermediate commits done</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_transactions_started><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">started*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_transactions_started><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of started transactions</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_uptime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">uptime*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_uptime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>time the server is up and running</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">v8Context*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Statistics about the V8 javascript contexts</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_available><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">available*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_available><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of currently spawned V8 contexts</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_busy><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">busy*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_busy><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of currently active V8 contexts</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_dirty><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">dirty*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_dirty><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of contexts that were previously used, and should now be garbage collected before being re-used</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_free><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">free*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_free><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of V8 contexts that are free to use</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_max><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">max*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_max><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the maximum number of V8 concurrent contexts we may spawn as configured by --javascript.v8-contexts</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">memory*</span>
+<span class=openapi-property-type><span class=bold-text>array of objects</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>a list of V8 memory / garbage collection watermarks; Refreshed on every garbage collection run;
+Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory_contextId><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">contextId*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory_contextId><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>ID of the context this set of memory statistics is from</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory_countOfTimes><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">countOfTimes*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory_countOfTimes><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>how many times was the garbage collection run in these 10 seconds</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory_heapMax><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">heapMax*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory_heapMax><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>High watermark of all garbage collection runs in 10 seconds</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory_heapMin><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">heapMin*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory_heapMin><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Low watermark of all garbage collection runs in these 10 seconds</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_memory_tMax><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">tMax*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_memory_tMax><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the timestamp where the 10 seconds interval started</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_server_v8Context_min><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">min*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_server_v8Context_min><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the minimum number of V8 contexts that are spawned as configured by --javascript.v8-contexts-minimum</p></div></details></li></ul></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">system*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-the-statistics_res_200_system><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>metrics gathered from the system about this process; may depend on the host OS</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_majorPageFaults><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">majorPageFaults*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_system_majorPageFaults><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>pagefaults</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_minorPageFaults><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">minorPageFaults*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_system_minorPageFaults><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>pagefaults</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_numberOfThreads><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">numberOfThreads*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_system_numberOfThreads><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the number of threads in the server</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_residentSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">residentSize*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_system_residentSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>RSS of process</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_residentSizePercent><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">residentSizePercent*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_system_residentSizePercent><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>RSS of process in %</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_systemTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">systemTime*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_system_systemTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the system CPU time used by the server process</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_userTime><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">userTime*</span>
+<span class=openapi-property-type><span class=bold-text>number</span></span>
+<a href=#get-the-statistics_res_200_system_userTime><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the user CPU time used by the server process</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_system_virtualSize><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">virtualSize*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_system_virtualSize><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>VSS of the process</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_200_time><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">time*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics_res_200_time><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the current server timestamp</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-the-statistics_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Statistics are disabled on the instance.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/statistics&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>2345</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : 1730894181.4674299, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;enabled&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;system&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minorPageFaults&#34;</span> : 154063, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;majorPageFaults&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;userTime&#34;</span> : 5.06, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;systemTime&#34;</span> : 1.66, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSize&#34;</span> : 299544576, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSizePercent&#34;</span> : 0.009055000482274643, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;virtualSize&#34;</span> : <span class=m>1558970368</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;client&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;httpConnections&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;connectionTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.8144552707672119, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1509, 
+</span></span><span class=line><span class=cl>        7, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.5846312046051025, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1512, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        4, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;queueTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.15506243705749512, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1518, 
+</span></span><span class=line><span class=cl>        3, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ioTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.07476162910461426, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1521, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesSent&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 1275189, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        6, 
+</span></span><span class=line><span class=cl>        1390, 
+</span></span><span class=line><span class=cl>        72, 
+</span></span><span class=line><span class=cl>        49, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        <span class=m>3</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesReceived&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 358029, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        985, 
+</span></span><span class=line><span class=cl>        536, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;clientUser&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;httpConnections&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;connectionTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.8144552707672119, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1509, 
+</span></span><span class=line><span class=cl>        7, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.5846312046051025, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1512, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        4, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;queueTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.15506243705749512, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1518, 
+</span></span><span class=line><span class=cl>        3, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ioTime&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.07476162910461426, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        1521, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesSent&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 1275189, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        6, 
+</span></span><span class=line><span class=cl>        1390, 
+</span></span><span class=line><span class=cl>        72, 
+</span></span><span class=line><span class=cl>        49, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        <span class=m>3</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesReceived&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 358029, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        985, 
+</span></span><span class=line><span class=cl>        536, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        0, 
+</span></span><span class=line><span class=cl>        <span class=m>0</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;http&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsTotal&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsSuperuser&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsUser&#34;</span> : 1521, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsAsync&#34;</span> : 6, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsGet&#34;</span> : 352, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsHead&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsPost&#34;</span> : 1029, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsPut&#34;</span> : 27, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsPatch&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsDelete&#34;</span> : 110, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsOptions&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsOther&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;uptime&#34;</span> : 35.94922161102295, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;physicalMemory&#34;</span> : 33080569856, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;transactions&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;started&#34;</span> : 1301, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;aborted&#34;</span> : 95, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;committed&#34;</span> : 1614, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;readOnly&#34;</span> : 517, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;dirtyReadOnly&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;v8Context&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;available&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;busy&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;dirty&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;free&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;max&#34;</span> : 28, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;min&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;memory&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1730894145.755014, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 14973376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>36</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1730894177.2613943, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 14938032, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>3</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1730894178.0593436, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 14828696, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>18</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;threads&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;scheduler-threads&#34;</span> : 6, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;blocked&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;queued&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;in-progress&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;direct-exec&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-statistics-description>Get the statistics description <a href=/3.11/develop/http-api/monitoring/statistics/#get-the-statistics-description class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_admin/statistics-description</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>This endpoint should no longer be used. It is deprecated from version 3.8.0 on.
+Use <code>/_admin/metrics/v2</code> instead, which provides the data exposed by the
+statistics API and a lot more.</div></div></div></div><p>Returns a description of the statistics returned by <code>/_admin/statistics</code>.
+The returned objects contains an array of statistics groups in the attribute
+<code>groups</code> and an array of statistics figures in the attribute <code>figures</code>.</p><p>A statistics group is described by</p><ul><li><code>group</code>: The identifier of the group.</li><li><code>name</code>: The name of the group.</li><li><code>description</code>: A description of the group.</li></ul><p>A statistics figure is described by</p><ul><li><code>group</code>: The identifier of the group to which this figure belongs.</li><li><code>identifier</code>: The identifier of the figure. It is unique within the group.</li><li><code>name</code>: The name of the figure.</li><li><code>description</code>: A description of the figure.</li><li><code>type</code>: Either <code>current</code>, <code>accumulated</code>, or <code>distribution</code>.</li><li><code>cuts</code>: The distribution vector.</li><li><code>units</code>: Units in which the figure is measured.</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of a database. Which database you use doesn&rsquo;t matter as long
+as the user account you authenticate with has at least read access
+to this database. If the <code>--server.harden</code> startup option is enabled,
+administrate access to the <code>_system</code> database is required.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-the-statistics-description_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Description was returned successfully.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-the-statistics-description_res_200_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the HTTP status code</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-the-statistics-description_res_200_error><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>the error, <code>false</code> in this case</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">figures*</span>
+<span class=openapi-property-type><span class=bold-text>array of objects</span></span>
+<a href=#get-the-statistics-description_res_200_figures><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A statistics figure</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_cuts><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">cuts*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_cuts><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The distribution vector.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_description><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">description*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_description><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A description of the figure.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_group><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">group*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_group><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier of the group to which this figure belongs.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_identifier><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">identifier*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_identifier><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier of the figure. It is unique within the group.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the figure.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Either <code>current</code>, <code>accumulated</code>, or <code>distribution</code>.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_figures_units><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">units*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_figures_units><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Units in which the figure is measured.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_groups><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">groups*</span>
+<span class=openapi-property-type><span class=bold-text>array of objects</span></span>
+<a href=#get-the-statistics-description_res_200_groups><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A statistics group</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_groups_description><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">description*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_groups_description><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A description of the group.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_groups_group><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">group*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_groups_group><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The identifier of the group.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-statistics-description_res_200_groups_name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-the-statistics-description_res_200_groups_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the group.</p></div></details></li></ul></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/statistics-description&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>7892</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;groups&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Process Statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Statistics about the ArangoDB process&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Client Connection Statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Statistics about the connections.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Client User Connection Statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Statistics about the connections, only user traffic (ignoring superuser JWT traffic).&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP Request Statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Statistics about the HTTP requests.&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;server&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Server Statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Statistics about the ArangoDB server&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;figures&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;userTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;User Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Amount of time that this process has been scheduled in user mode, measured in seconds.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;systemTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;System Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Amount of time that this process has been scheduled in kernel mode, measured in seconds.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;numberOfThreads&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Number of Threads&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of threads in the arangod process.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;residentSize&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Resident Set Size&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;The total size of the number of pages the process has in real memory. This is just the pages which count toward text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out. The resident set size is reported in bytes.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;residentSizePercent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Resident Set Size&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;The percentage of physical memory used by the process as resident set size.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;percent&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;virtualSize&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Virtual Memory Size&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;On Windows, this figure contains the total amount of memory that the memory manager has committed for the arangod process. On other systems, this figure contains The size of the virtual memory the process is using.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;minorPageFaults&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Minor Page Faults&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;The number of minor faults the process has made which have not required loading a memory page from disk. This figure is not reported on Windows.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;system&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;majorPageFaults&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Major Page Faults&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;On Windows, this figure contains the total number of page faults. On other system, this figure contains the number of major faults the process has made which have required loading a memory page from disk.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;httpConnections&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Client Connections&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;The number of connections that are currently open.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;totalTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Total Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total time needed to answer a request.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Request Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Request time needed to answer a request.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;queueTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Queue Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Queue time needed to answer a request.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;bytesSent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Bytes Sent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Bytes sents for a request.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        250, 
+</span></span><span class=line><span class=cl>        1000, 
+</span></span><span class=line><span class=cl>        2000, 
+</span></span><span class=line><span class=cl>        5000, 
+</span></span><span class=line><span class=cl>        <span class=m>10000</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;bytesReceived&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Bytes Received&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Bytes received for a request.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        250, 
+</span></span><span class=line><span class=cl>        1000, 
+</span></span><span class=line><span class=cl>        2000, 
+</span></span><span class=line><span class=cl>        5000, 
+</span></span><span class=line><span class=cl>        <span class=m>10000</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;client&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;connectionTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Connection Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total connection time of a client.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        <span class=m>60</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;httpConnections&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Client Connections&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;The number of connections that are currently open (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;totalTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Total Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total time needed to answer a request (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Request Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Request time needed to answer a request (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;queueTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Queue Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Queue time needed to answer a request (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.01, 
+</span></span><span class=line><span class=cl>        0.05, 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        0.2, 
+</span></span><span class=line><span class=cl>        0.5, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        5, 
+</span></span><span class=line><span class=cl>        15, 
+</span></span><span class=line><span class=cl>        <span class=m>30</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;bytesSent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Bytes Sent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Bytes sents for a request (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        250, 
+</span></span><span class=line><span class=cl>        1000, 
+</span></span><span class=line><span class=cl>        2000, 
+</span></span><span class=line><span class=cl>        5000, 
+</span></span><span class=line><span class=cl>        <span class=m>10000</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;bytesReceived&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Bytes Received&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Bytes received for a request (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        250, 
+</span></span><span class=line><span class=cl>        1000, 
+</span></span><span class=line><span class=cl>        2000, 
+</span></span><span class=line><span class=cl>        5000, 
+</span></span><span class=line><span class=cl>        <span class=m>10000</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;clientUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;connectionTime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Connection Time&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total connection time of a client (only user traffic).&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;distribution&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cuts&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        0.1, 
+</span></span><span class=line><span class=cl>        1, 
+</span></span><span class=line><span class=cl>        <span class=m>60</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsTotal&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Total requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total number of HTTP requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsSuperuser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Total superuser requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total number of HTTP requests executed by superuser/JWT.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsUser&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Total user requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Total number of HTTP requests executed by clients.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsAsync&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Async requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of asynchronously executed HTTP requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsGet&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP GET requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP GET requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsHead&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP HEAD requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP HEAD requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsPost&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP POST requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP POST requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsPut&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP PUT requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP PUT requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsPatch&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP PATCH requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP PATCH requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsDelete&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP DELETE requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP DELETE requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsOptions&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;HTTP OPTIONS requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of HTTP OPTIONS requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;http&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;requestsOther&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;other HTTP requests&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of other HTTP requests.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;accumulated&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;number&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;server&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;uptime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Server Uptime&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Number of seconds elapsed since server start.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;seconds&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;group&#34;</span> : <span class=s2>&#34;server&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identifier&#34;</span> : <span class=s2>&#34;physicalMemory&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;Physical Memory&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;description&#34;</span> : <span class=s2>&#34;Physical memory in bytes.&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;current&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;units&#34;</span> : <span class=s2>&#34;bytes&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/develop/http-api/monitoring/logs/><i class="fas fa-chevron-left fa-fw"></i><p>Logs</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/develop/http-api/monitoring/metrics/><p>Metrics</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/develop/http-api/monitoring/statistics.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#get-the-statistics>Get the statistics</a></div><div class=level-2><a href=#get-the-statistics-description>Get the statistics description</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

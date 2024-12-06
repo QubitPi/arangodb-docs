@@ -1,0 +1,162 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta property="og:url" content="http://localhost/3.12/components/tools/arangorestore/examples/"><meta property="og:title" content="arangorestore Examples"><meta property="og:type" content="website"><meta property="og:description" content="ArangoDB is a scalable graph database system with native support for other data models and a built-in search engine, for the cloud and on-premises"><meta name=docsearch:version content="3.12"><title>arangorestore Examples | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Components"><a itemprop=item class=link href=/3.12/components/><span itemprop=name class=breadcrumb-entry>Components</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Tools"><a itemprop=item class=link href=/3.12/components/tools/><span itemprop=name class=breadcrumb-entry>Tools</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="arangorestore"><a itemprop=item class=link href=/3.12/components/tools/arangorestore/><span itemprop=name class=breadcrumb-entry>arangorestore</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Examples"><a itemprop=item class=link href=/3.12/components/tools/arangorestore/examples/><span itemprop=name class=breadcrumb-entry>Examples</span></a></li></ol></nav><article class=default><hgroup><h1><em>arangorestore</em> Examples</h1></hgroup><p>To restore data from a dump previously created with <a href=/3.12/components/tools/arangodump/ class=link><em>arangodump</em></a>,
+ArangoDB provides the <em>arangorestore</em> tool.</p><h2 id=invoking-arangorestore>Invoking <em>arangorestore</em> <a href=/3.12/components/tools/arangorestore/examples/#invoking-arangorestore class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><em>arangorestore</em> can be invoked from the command-line as follows:</p><pre tabindex=0><code>arangorestore --input-directory &#34;dump&#34;
+</code></pre><p>This connects to an ArangoDB server (<code>tcp://127.0.0.1:8529</code> by default), then restores the
+collection structure and the documents from the files found in the input directory <code>dump</code>.
+Note that the input directory must have been created by running <code>arangodump</code> before.</p><p><em>arangorestore</em> connects to the <code>_system</code> database by default, using the default
+endpoint. To override the endpoint, or specify a different user, use one of the
+following startup options:</p><ul><li><code>--server.endpoint &lt;string></code>: endpoint to connect to</li><li><code>--server.username &lt;string></code>: username</li><li><code>--server.password &lt;string></code>: password to use
+(omit this and you&rsquo;ll be prompted for the password)</li><li><code>--server.authentication &lt;bool></code>: whether or not to use authentication</li></ul><p>If you want to connect to a different database or dump all databases you can additionally
+use the following startup options:</p><ul><li><code>--server.database &lt;string></code>: name of the database to connect to.
+Defaults to the <code>_system</code> database.</li><li><code>--all-databases true</code>: restore multiple databases from a dump which used the same option.</li></ul><p>Note that the specified user must have access to the database(s).</p><p>The <em>arangorestore</em> tool provides the <code>--create-database</code> option. Setting this
+option to <code>true</code> creates the target database if it does not exist. When creating the
+target database, the username and passwords passed to <em>arangorestore</em> (in options
+<code>--server.username</code> and <code>--server.password</code>) are used to create an initial user for the
+new database.</p><p>The option <code>--force-same-database</code> allows restricting arangorestore operations to a
+database with the same name as in the source dump&rsquo;s <code>dump.json</code> file. It can thus be used
+to prevent restoring data into a &ldquo;wrong&rdquo; database by accident.</p><p>For example, if a dump was taken from database <em><strong>A</strong></em>, and the restore is attempted into
+database <em><strong>B</strong></em>, then with the <code>--force-same-database</code> option set to <code>true</code>, arangorestore
+aborts instantly.</p><p>The <code>--force-same-database</code> option is set to <code>false</code> by default to ensure backwards-compatibility.</p><p>Here&rsquo;s an example of reloading data to a non-standard endpoint, using a dedicated
+<a href=/3.12/concepts/data-structure/databases/#database-names class=link>database name</a>:</p><pre tabindex=0><code>arangorestore \
+  --server.endpoint tcp://192.168.173.13:8531 \
+  --server.username backup \
+  --server.database mydb \
+  --input-directory &#34;dump&#34; \
+</code></pre><p>Also, more than one endpoint can be provided, such as:</p><pre tabindex=0><code>arangorestore \
+  --server.endpoint tcp://192.168.173.13:8531 \
+  --server.endpoint tcp://192.168.173.13:8532 \
+  --server.username backup \
+  --server.database mydb \
+  --input-directory &#34;dump&#34;
+</code></pre><p>To create the target database when restoring, use a command like this:</p><pre tabindex=0><code>arangorestore --server.username backup --server.database newdb --create-database true --input-directory &#34;dump&#34;
+</code></pre><p>In contrast to the above calls, when working with multiple databases using <code>--all-databases true</code>
+the parameter <code>--server.database mydb</code> must not be specified:</p><pre tabindex=0><code>arangorestore --server.username backup --all-databases true --create-database true --input-directory &#34;dump-multiple&#34;
+</code></pre><p><em>arangorestore</em> prints out its progress while running, and ends with a line
+showing some aggregate statistics:</p><pre tabindex=0><code>Processed 2 collection(s), read 2256 byte(s) from datafiles, sent 2 batch(es)
+</code></pre><p>By default, <em>arangorestore</em> re-creates all non-system collections found in the input
+directory and loads data into them. If the target database already contains collections
+which are also present in the input directory, the existing collections in the database
+are dropped and re-created with the properties and data found in the input directory.</p><p>The following parameters are available to adjust this behavior:</p><ul><li><code>--create-collection &lt;bool></code>: set to <code>true</code> to create collections in the target
+database if they don&rsquo;t yet exist. If the target database already contains a
+collection with the same name, then it is dropped and recreated with the
+same properties as in the dump if the <code>overwrite</code> option is also set.
+If the <code>overwrite</code> option is not set, an existing collection is used as is,
+and its properties are not updated nor is its data discarded before restoring.
+If <code>--create-collection</code> is set to <code>false</code>, then <em>arangorestore</em> does not make any
+attempts to create the collection or modify its properties. Data is restored
+into the existing collections without wiping the collection beforehand.
+If set to <code>false</code> and <em>arangorestore</em> encounters a collection that is present in the
+input directory but not in the target database, it aborts with a
+&ldquo;collection not found&rdquo; error.
+The default value for <code>--create-collection</code> is <code>true</code>.</li><li><code>--overwrite &lt;bool></code>: controls whether existing collections are dropped if
+<code>--create-collection true</code> is used. The default value is <code>true</code>.</li><li><code>--import-data &lt;bool></code>: set to <code>true</code> to load document data into the collections in
+the target database. Set to <code>false</code> to not load any document data. The default value
+is <code>true</code>.</li><li><code>--include-system-collections &lt;bool></code>: whether or not to include system collections
+when re-creating collections or reloading data. The default value is <code>false</code>.</li></ul><p>For example, to (re-)create all non-system collections and load document data into them, use:</p><pre tabindex=0><code>arangorestore --create-collection true --import-data true --input-directory &#34;dump&#34;
+</code></pre><p>This drops potentially existing collections in the target database that are also present
+in the input directory.</p><p>To include system collections too, use <code>--include-system-collections true</code>:</p><pre tabindex=0><code>arangorestore --create-collection true --import-data true --include-system-collections true --input-directory &#34;dump&#34;
+</code></pre><p>To (re-)create all non-system collections without loading document data, use:</p><pre tabindex=0><code>arangorestore --create-collection true --import-data false --input-directory &#34;dump&#34;
+</code></pre><p>This also drops existing collections in the target database that are also present in the
+input directory.</p><p>To just load document data into existing non-system collections, use:</p><pre tabindex=0><code>arangorestore --create-collection false --import-data true --input-directory &#34;dump&#34;
+</code></pre><p>To restrict reloading to just specific collections, use the <code>--collection</code> option.
+It can be specified multiple times if required:</p><pre tabindex=0><code>arangorestore --collection myusers --collection myvalues --input-directory &#34;dump&#34;
+</code></pre><p>Collections are processed in alphabetical order by <em>arangorestore</em>, with all document
+collections being processed before all <a href=/3.12/concepts/data-models/#graph-model class=link>edge collections</a>.
+This remains valid also when multiple threads are in use.</p><p>Note however that when restoring an edge collection no internal checks are made in order to validate that
+the documents that the edges connect exist. As a consequence, when restoring individual collections
+which are part of a graph you are not required to restore in a specific order.</p><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>When restoring only a subset of collections of your database, and graphs are in use, you need
+to make sure that you restore all the needed collections (the ones that are part of the graph).
+Otherwise, you might end up with edges pointing to non-existing documents.</div></div></div></div><p>To restrict reloading to specific Views, there is the <code>--view</code> option.
+Should you specify the <code>--collection</code> parameter, Views are not restored <em>unless</em> you explicitly
+specify them via the <code>--view</code> option.</p><pre tabindex=0><code>arangorestore --collection myusers --view myview --input-directory &#34;dump&#34;
+</code></pre><p>In the case of an <code>arangosearch</code> View, you must make sure that the linked collections are either
+also restored or already present on the server.</p><h2 id=encryption>Encryption <a href=/3.12/components/tools/arangorestore/examples/#encryption class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>See <a href=/3.12/components/tools/arangodump/examples/#encryption class=link><em>arangodump</em></a> for details.</p><h2 id=compression>Compression <a href=/3.12/components/tools/arangorestore/examples/#compression class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>You can optionally let <em>arangorestore</em> compress the data for the network transfer
+with the <code>--compress-transfer</code> startup option. This can reduce the traffic and
+thus save time. Set the <code>--compress-request-threshold</code> startup option to define
+the minimum size for request bodies (in bytes) at which compression is applied.</p><pre tabindex=0><code>arangorestore --input-directory &#34;dump&#34; --compress-transfer --compress-request-threshold 250
+</code></pre><h2 id=reloading-data-into-a-different-collection>Reloading Data into a different Collection <a href=/3.12/components/tools/arangorestore/examples/#reloading-data-into-a-different-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><em>arangorestore</em> restores documents and edges with the exact same <code>_key</code>,
+<code>_from</code>, and <code>_to</code> values as found in the input directory.</p><p>With some creativity you can also use <em>arangodump</em> and <em>arangorestore</em> to transfer data from one
+collection into another (either on the same server or not). For example, to copy data from
+a collection <code>myvalues</code> in database <code>mydb</code> into a collection <code>mycopyvalues</code> in database <code>mycopy</code>,
+you can start with the following command:</p><pre tabindex=0><code>arangodump --collection myvalues --server.database mydb --output-directory &#34;dump&#34;
+</code></pre><p>This creates two files, <code>myvalues.structure.json</code> and <code>myvalues.data.json</code>, in the output
+directory. To load data from the datafile into an existing collection <code>mycopyvalues</code> in database
+<code>mycopy</code>, rename the files to <code>mycopyvalues.structure.json</code> and <code>mycopyvalues.data.json</code>.</p><p>After that, run the following command:</p><pre tabindex=0><code>arangorestore --collection mycopyvalues --server.database mycopy --input-directory &#34;dump&#34;
+</code></pre><h2 id=enabling-revision-trees-for-older-dumps>Enabling revision trees for older dumps <a href=/3.12/components/tools/arangorestore/examples/#enabling-revision-trees-for-older-dumps class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p><small>Introduced in: v3.8.7, v3.9.2</small></p><p>Collections in ArangoDB 3.8 and later can use an internal format that is based
+on revision trees for replication. Using this format has advantages over the
+previous format, because changes to the collection on the leader can quickly be
+detected when trying to get follower shards in sync.</p><p>Dumps taken from older versions of ArangoDB, i.e. ArangoDB 3.7 or before, do not
+contain any information about revision trees.
+The <em>arangorestore</em> behavior for these collections is as follows:</p><ul><li>In ArangoDB versions before 3.8.7 and 3.9.2, the collections are
+restored without revision trees.</li><li>In ArangoDB versions 3.8.7, 3.9.2 or later, the
+collections use revision trees by default, but you can opt out of this by
+invoking arangorestore with the <code>--enable-revision-trees false</code> option.</li></ul><p>If the <code>--enable-revision-trees</code> startup option is <code>true</code> (which is the default value),
+then <em>arangorestore</em> adds the necessary attributes for using revision trees
+when restoring the collections. It&rsquo;s only done for the attributes which are not
+contained in the dump. If the option is set to <code>false</code>, <em>arangorestore</em> does not
+add the attributes when restoring collections.</p><p>Regardless of the setting of this option, <em>arangorestore</em> does not add the
+attributes, when they are already present in the dump. You may modify the
+attributes manually in the dump if you want to change their values.</p><h2 id=restoring-in-a-cluster>Restoring in a Cluster <a href=/3.12/components/tools/arangorestore/examples/#restoring-in-a-cluster class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>To restore data into a Cluster, simply point <em>arangorestore</em> to one of the
+<em>Coordinators</em> in your Cluster.</p><p>If <em>arangorestore</em> is asked to restore a collection, it uses the same
+number of shards, replication factor, and shard keys as when the collection
+was dumped. The distribution of the shards to the servers are also the
+same as at the time of the dump, provided that the number of <em>DB-Servers</em> in
+the cluster dumped from is identical to the number of DB-Servers in the
+to-be-restored-to cluster.</p><p>To modify the number of <em>shards</em> or the <em>replication factor</em> for all or just
+some collections, <em>arangorestore</em> provides the options <code>--number-of-shards</code>
+and <code>--replication-factor</code>. These options
+can be specified multiple times as well, in order to override the settings
+for dedicated collections, e.g.</p><pre tabindex=0><code>arangorestore --number-of-shards 2 --number-of-shards mycollection=3 --number-of-shards test=4
+</code></pre><p>The above command restores all collections except &ldquo;mycollection&rdquo; and &ldquo;test&rdquo; with
+2 shards. &ldquo;mycollection&rdquo; has 3 shards when restored, and &ldquo;test&rdquo; has 4.
+It is possible to omit the default value and only use
+collection-specific overrides. In this case, the number of shards for any
+collections not overridden is determined by looking into the
+<code>numberOfShards</code> values contained in the dump.</p><p>The <code>--replication-factor</code> options works in the same way, e.g.</p><pre tabindex=0><code>arangorestore --replication-factor 2 --replication-factor mycollection=1
+</code></pre><p>sets the replication factor to <code>2</code> for all collections but &ldquo;mycollection&rdquo;,
+which gets a replication factor of just <code>1</code>.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>The options <code>--number-of-shards</code> and <code>replication-factor</code>, as well as the deprecated
+options <code>--default-number-of-shards</code> and <code>--default-replication-factor</code>, are
+<strong>not applicable to system collections</strong>. They are managed by the server.</div></div></div></div><p>If a collection was dumped from a single instance and is then restored into
+a cluster, the sharding is done by the <code>_key</code> attribute by default. You can
+manually edit the structural description for the shard keys in the dump files if
+required (<code>*.structure.json</code>).</p><p>If you restore a collection that was dumped from a cluster into a single
+ArangoDB instance, the number of shards, replication factor and shard keys are
+silently ignored.</p><h3 id=factors-affecting-speed-of-arangorestore-in-a-cluster>Factors affecting speed of arangorestore in a Cluster <a href=/3.12/components/tools/arangorestore/examples/#factors-affecting-speed-of-arangorestore-in-a-cluster class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The following factors affect speed of <em>arangorestore</em> in a Cluster:</p><ul><li><strong>Replication Factor</strong>: the higher the <em>replication factor</em>, the more
+time the restore takes. To speed up the restore you can restore
+using a <em>replication factor</em> of <code>1</code> and then increase it again
+after the restore. This reduces the number of network hops needed
+during the restore.</li><li><strong>Restore Parallelization</strong>: if the collections are not restored in
+parallel, the restore speed is highly affected. A parallel restore can
+be done by using the <code>--threads</code> option of <em>arangorestore</em>.
+Depending on your specific case, you might be able to achieve additional
+parallelization by restoring on multiple <em>Coordinators</em> at the same time.</li></ul><h3 id=restoring-collections-with-sharding-prototypes>Restoring collections with sharding prototypes <a href=/3.12/components/tools/arangorestore/examples/#restoring-collections-with-sharding-prototypes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><em>arangorestore</em> yields an error when you try to restore a collection whose shard
+distribution follows a collection (<code>distributeShardsLike</code> property) which does not
+exist in the cluster and which was not dumped together with the other collection:</p><pre tabindex=0><code>arangorestore --collection clonedCollection --server.database mydb --input-directory &#34;dump&#34;
+
+WARNING [c6658] {restore} Error while creating document collection &#39;clonedCollection&#39;: got invalid response from server: HTTP 500: &#39;Collection not found: prototypeCollection in database _system&#39; while executing restoring collection with this requestPayload: ...
+
+ERROR [cb69f] {restore} got invalid response from server: HTTP 500: &#39;Collection not found: prototypeCollection in database _system&#39; while executing restoring collection with this requestPayload: ...
+
+INFO [a66e1] {restore} Processed 0 collection(s) from 1 database(s) in 0.04 s total time. Read 0 bytes from datafiles, sent 0 data batch(es) of 0 bytes total size.
+</code></pre><p>You need to dump and restore collections that follow the sharding of a
+prototype collection together with the prototype collection:</p><pre tabindex=0><code>arangorestore --collection clonedCollection --collection prototypeCollection --server.database mydb --input-directory &#34;dump&#34;
+
+...
+INFO [a66e1] {restore} Processed 2 collection(s) from 1 database(s) in 1.12 s total time. Read 0 bytes from datafiles, sent 0 data batch(es) of 0 bytes total size.
+</code></pre><h2 id=restore-into-an-authentication-enabled-arangodb>Restore into an authentication-enabled ArangoDB <a href=/3.12/components/tools/arangorestore/examples/#restore-into-an-authentication-enabled-arangodb class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Of course you can restore data into a password-protected ArangoDB as well.
+However this requires certain user rights for the user used in the restore process.
+The rights are described in detail in the <a href=/3.12/operations/administration/user-management/ class=link>Managing Users</a> chapter.
+For restore this short overview is sufficient:</p><ul><li>When importing into an existing database, the given user needs <code>Administrate</code>
+access on this database.</li><li>When creating a new database during restore, the given user needs <code>Administrate</code>
+access on <code>_system</code>. The user is promoted to <code>Administrate</code> access on the
+newly created database.</li></ul><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/components/tools/arangorestore/><i class="fas fa-chevron-left fa-fw"></i><p>arangorestore</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/components/tools/arangorestore/options/><p>Options</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/components/tools/arangorestore/examples.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#invoking-arangorestore>Invoking <em>arangorestore</em></a></div><div class=level-2><a href=#encryption>Encryption</a></div><div class=level-2><a href=#compression>Compression</a></div><div class=level-2><a href=#reloading-data-into-a-different-collection>Reloading Data into a different Collection</a></div><div class=level-2><a href=#enabling-revision-trees-for-older-dumps>Enabling revision trees for older dumps</a></div><div class=level-2><a href=#restoring-in-a-cluster>Restoring in a Cluster</a></div><div class=level-3><a href=#factors-affecting-speed-of-arangorestore-in-a-cluster>Factors affecting speed of arangorestore in a Cluster</a></div><div class=level-3><a href=#restoring-collections-with-sharding-prototypes>Restoring collections with sharding prototypes</a></div><div class=level-2><a href=#restore-into-an-authentication-enabled-arangodb>Restore into an authentication-enabled ArangoDB</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

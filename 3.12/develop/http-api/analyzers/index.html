@@ -1,0 +1,392 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for Analyzers lets you create and delete Analyzers, as well as list all or get specific Analyzers with all their settings"><meta property="og:url" content="http://localhost/3.12/develop/http-api/analyzers/"><meta property="og:title" content="HTTP interface for Analyzers"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for Analyzers lets you create and delete Analyzers, as well as list all or get specific Analyzers with all their settings"><meta name=docsearch:version content="3.12"><title>HTTP interface for Analyzers | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Analyzers"><a itemprop=item class=link href=/3.12/develop/http-api/analyzers/><span itemprop=name class=breadcrumb-entry>Analyzers</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for Analyzers</h1><p class=lead>The HTTP API for Analyzers lets you create and delete Analyzers, as well as list all or get specific Analyzers with all their settings</p></hgroup><p>The RESTful API for managing ArangoSearch Analyzers is accessible via the
+<code>/_api/analyzer</code> endpoint.</p><p>See the description of <a href=/3.12/index-and-search/analyzers/ class=link>Analyzers</a> for an
+introduction and the available types, properties and features.</p><h2 id=create-an-analyzer>Create an Analyzer <a href=/3.12/develop/http-api/analyzers/#create-an-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_db/{database-name}/_api/analyzer</span></div><div class="openapi-description regular-font">Creates a new Analyzer based on the provided configuration.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-analyzer_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-analyzer_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-analyzer_body_features><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">features</span>
+<span class=openapi-property-type><span class=bold-text>array of strings</span></span>
+<a href=#create-an-analyzer_body_features><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The set of features to set on the Analyzer generated fields.
+The default value is an empty array.</p><p class=regular-font>Possible values: <code>"frequency"</code>, <code>"norm"</code>, <code>"position"</code>, <code>"offset"</code></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_body_name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-analyzer_body_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_body_properties><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">properties</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#create-an-analyzer_body_properties><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The properties used to configure the specified Analyzer type.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_body_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-analyzer_body_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer type.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-analyzer_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#create-an-analyzer_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An Analyzer with a matching name and definition already exists.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_res_201><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">201</span>
+<span class="openapi-property-type bold-text">Created</span>
+<a href=#create-an-analyzer_res_201><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A new Analyzer definition was successfully created.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#create-an-analyzer_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>One or more of the required parameters is missing or one or more of the parameters
+is not valid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-analyzer_res_403><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">403</span>
+<span class="openapi-property-type bold-text">Forbidden</span>
+<a href=#create-an-analyzer_res_403><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The user does not have permission to create and Analyzer with this configuration.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;name&#34;: &#34;testAnalyzer&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;type&#34;: &#34;identity&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>80</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_system::testAnalyzer&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;identity&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> <span class=o>]</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-an-analyzer-definition>Get an Analyzer definition <a href=/3.12/develop/http-api/analyzers/#get-an-analyzer-definition class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/analyzer/{analyzer-name}</span></div><div class="openapi-description regular-font"><p>Retrieves the full definition for the specified Analyzer name.
+The resulting object contains the following attributes:</p><ul><li><code>name</code>: the Analyzer name</li><li><code>type</code>: the Analyzer type</li><li><code>properties</code>: the properties used to configure the specified type</li><li><code>features</code>: the set of features to set on the Analyzer generated fields</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-an-analyzer-definition_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-an-analyzer-definition_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-an-analyzer-definition_path_analyzer-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">analyzer-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-an-analyzer-definition_path_analyzer-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the Analyzer to retrieve.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-an-analyzer-definition_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-an-analyzer-definition_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer definition was retrieved successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-an-analyzer-definition_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-an-analyzer-definition_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Such an Analyzer configuration does not exist.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Retrieve an Analyzer definition:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer/testAnalyzer&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>105</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;identity&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_system::testAnalyzer&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=list-all-analyzers>List all Analyzers <a href=/3.12/develop/http-api/analyzers/#list-all-analyzers class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/analyzer</span></div><div class="openapi-description regular-font"><p>Retrieves a an array of all Analyzer definitions.
+The resulting array contains objects with the following attributes:</p><ul><li><code>name</code>: the Analyzer name</li><li><code>type</code>: the Analyzer type</li><li><code>properties</code>: the properties used to configure the specified type</li><li><code>features</code>: the set of features to set on the Analyzer generated fields</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-analyzers_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-all-analyzers_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-analyzers_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#list-all-analyzers_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer definitions was retrieved successfully.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Retrieve all Analyzer definitions:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>2116</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;identity&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;identity&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_no&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;no&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_de&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;de&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_ru&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;ru&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_sv&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;sv&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_es&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;es&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_nl&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;nl&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_en&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;en&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_zh&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;zh&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_fr&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;fr&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_it&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;it&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_fi&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;fi&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;text_pt&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;text&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;properties&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;locale&#34;</span> : <span class=s2>&#34;pt&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;case&#34;</span> : <span class=s2>&#34;lower&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stopwords&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;accent&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;stemming&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;features&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;frequency&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;position&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=remove-an-analyzer>Remove an Analyzer <a href=/3.12/develop/http-api/analyzers/#remove-an-analyzer class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
+<span class=endpoint-path>/_db/{database-name}/_api/analyzer/{analyzer-name}</span></div><div class="openapi-description regular-font"><p>Removes an Analyzer configuration identified by <code>analyzer-name</code>.</p><p>If the Analyzer definition was successfully dropped, an object is returned with
+the following attributes:</p><ul><li><code>error</code>: <code>false</code></li><li><code>name</code>: The name of the removed Analyzer</li></ul></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#remove-an-analyzer_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_path_analyzer-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">analyzer-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#remove-an-analyzer_path_analyzer-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the Analyzer to remove.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_query_force><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">force</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#remove-an-analyzer_query_force><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer configuration should be removed even if it is in-use.
+The default value is <code>false</code>.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#remove-an-analyzer_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The Analyzer configuration was removed successfully.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#remove-an-analyzer_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>analyzer-name</code> was not supplied or another request parameter was not
+valid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_res_403><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">403</span>
+<span class="openapi-property-type bold-text">Forbidden</span>
+<a href=#remove-an-analyzer_res_403><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The user does not have permission to remove this Analyzer configuration.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#remove-an-analyzer_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Such an Analyzer configuration does not exist.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-an-analyzer_res_409><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">409</span>
+<span class="openapi-property-type bold-text">Conflict</span>
+<a href=#remove-an-analyzer_res_409><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The specified Analyzer configuration is still in use and <code>force</code> was omitted or
+<code>false</code> specified.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Removing without <code>force</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer/testAnalyzer&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>57</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_system::testAnalyzer&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Removing with <code>force</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/collection&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;name&#34;: &#34;testCollection&#34;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/view&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;name&#34;: &#34;testView&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;type&#34;: &#34;arangosearch&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;links&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;testCollection&#34;: {
+</span></span></span><span class=line><span class=cl><span class=s>      &#34;analyzers&#34;: [
+</span></span></span><span class=line><span class=cl><span class=s>        &#34;testAnalyzer&#34;
+</span></span></span><span class=line><span class=cl><span class=s>      ]
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>  }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer/testAnalyzer?force=false&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/analyzer/testAnalyzer?force=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>57</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_system::testAnalyzer&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/develop/http-api/views/><i class="fas fa-chevron-left fa-fw"></i><p>Views</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/develop/http-api/import/><p>Import</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/develop/http-api/analyzers.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#create-an-analyzer>Create an Analyzer</a></div><div class=level-2><a href=#get-an-analyzer-definition>Get an Analyzer definition</a></div><div class=level-2><a href=#list-all-analyzers>List all Analyzers</a></div><div class=level-2><a href=#remove-an-analyzer>Remove an Analyzer</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

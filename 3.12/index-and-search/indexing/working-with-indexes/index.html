@@ -1,0 +1,492 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Create and manage indexes programmatically for document collections using ArangoDB&amp;rsquo;s JavaScript API"><meta property="og:url" content="http://localhost/3.12/index-and-search/indexing/working-with-indexes/"><meta property="og:title" content="Working with Indexes"><meta property="og:type" content="website"><meta property="og:description" content="Create and manage indexes programmatically for document collections using ArangoDB&amp;rsquo;s JavaScript API"><meta name=docsearch:version content="3.12"><title>Working with Indexes | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.3</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Index and Search"><a itemprop=item class=link href=/3.12/index-and-search/><span itemprop=name class=breadcrumb-entry>Index and Search</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Indexing"><a itemprop=item class=link href=/3.12/index-and-search/indexing/><span itemprop=name class=breadcrumb-entry>Indexing</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Working with Indexes"><a itemprop=item class=link href=/3.12/index-and-search/indexing/working-with-indexes/><span itemprop=name class=breadcrumb-entry>Working with Indexes</span></a></li></ol></nav><article class=default><hgroup><h1>Working with Indexes</h1><p class=lead>Create and manage indexes programmatically for document collections using ArangoDB&rsquo;s JavaScript API</p></hgroup><h2 id=index-identifiers>Index Identifiers <a href=/3.12/index-and-search/indexing/working-with-indexes/#index-identifiers class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>An index identifier uniquely identifies an index within a collection.
+It is a numeric value stored as a string that is auto-generated by ArangoDB.
+It can be prefixed with a collection name and forward slash (<code>/</code>) to uniquely
+identify an index within a database.</p><p>A specific index of a collection can be accessed using its index identifier
+as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>collection</span><span class=p>.</span><span class=nx>index</span><span class=p>(</span><span class=s2>&#34;&lt;index-identifier&gt;&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>collection</span><span class=p>.</span><span class=nx>index</span><span class=p>(</span><span class=s2>&#34;&lt;collection-name&gt;/&lt;index-identifier&gt;&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_index</span><span class=p>(</span><span class=s2>&#34;&lt;collection-name&gt;/&lt;index-identifier&gt;&#34;</span><span class=p>);</span></span></span></code></pre></div><p>For example, assume that the full index identifier, which is stored in the <code>_id</code>
+attribute of the index, is <code>demo/362549736</code>, and the index has been created in a
+collection named <code>demo</code>. Then this index can be accessed as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>demo</span><span class=p>.</span><span class=nx>index</span><span class=p>(</span><span class=s2>&#34;362549736&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>demo</span><span class=p>.</span><span class=nx>index</span><span class=p>(</span><span class=s2>&#34;demo/362549736&#34;</span><span class=p>);</span></span></span></code></pre></div><p>Because the full index identifier is unique within the database, you can also
+access the index directly from the <code>db</code> object:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_index</span><span class=p>(</span><span class=s2>&#34;demo/362549736&#34;</span><span class=p>);</span></span></span></code></pre></div><p>You can also look up an index by its name. Since names are only unique within
+a collection rather than within the database, the lookup must also include the
+collection name when calling <code>db._index()</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>demo</span><span class=p>.</span><span class=nx>index</span><span class=p>(</span><span class=s2>&#34;primary&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_index</span><span class=p>(</span><span class=s2>&#34;demo/primary&#34;</span><span class=p>)</span></span></span></code></pre></div><h2 id=collection-methods>Collection Methods <a href=/3.12/index-and-search/indexing/working-with-indexes/#collection-methods class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=listing-all-indexes-of-a-collection>Listing all indexes of a collection <a href=/3.12/index-and-search/indexing/working-with-indexes/#listing-all-indexes-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><code>collection.getIndexes(withStats, withHidden)</code></p><p><code>collection.indexes(withStats, withHidden)</code></p><p>Returns an array of all indexes defined for the collection.</p><p>You can set the following parameters:</p><ul><li><code>withStats</code> (boolean, <em>optional</em>): whether to include index figures and
+estimates in the result. Default: <code>false</code></li><li><code>withHidden</code> (boolean, <em>optional</em>): whether to include hidden indexes in the
+result. Internal indexes (such as <code>arangosearch</code>) and ones that are currently
+built in the background are hidden. Default: <code>false</code></li></ul><p>The <code>indexes()</code> method is an alias for <code>getIndexes()</code>.</p><p>Note that <code>_key</code> implicitly has an index assigned to it.</p><p><strong>Examples</strong></p><p>Get the index definitions for a collection:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>test</span><span class=p>.</span><span class=nx>indexes</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;attribute&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/85906&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677170302976&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;uniqueAttribute&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/85910&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677171351552&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;attribute&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;secondAttribute.subAttribute&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/85914&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677171351553&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><p>Get the index definitions for a collection, including figures and hidden indexes:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>coll</span><span class=p>.</span><span class=nx>indexes</span><span class=p>(</span><span class=kc>true</span><span class=p>,</span> <span class=kc>true</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;figures&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;memory&#34;</span> <span class=o>:</span> <span class=mi>128</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheInUse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheSize&#34;</span> <span class=o>:</span> <span class=mi>0</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheUsage&#34;</span> <span class=o>:</span> <span class=mi>0</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;coll/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;analyzer&#34;</span> <span class=o>:</span> <span class=s2>&#34;identity&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cleanupIntervalStep&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;commitIntervalMsec&#34;</span> <span class=o>:</span> <span class=mi>1000</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;consolidationIntervalMsec&#34;</span> <span class=o>:</span> <span class=mi>1000</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;consolidationPolicy&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;tier&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;segmentsBytesFloor&#34;</span> <span class=o>:</span> <span class=mi>2097152</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;segmentsBytesMax&#34;</span> <span class=o>:</span> <span class=mi>5368709120</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;segmentsMax&#34;</span> <span class=o>:</span> <span class=mi>10</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;segmentsMin&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;minScore&#34;</span> <span class=o>:</span> <span class=mi>0</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;features&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;frequency&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;norm&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=p>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;attr&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=p>}</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;figures&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numPrimaryDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numLiveDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numSegments&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numFiles&#34;</span> <span class=o>:</span> <span class=mi>6</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;indexSize&#34;</span> <span class=o>:</span> <span class=mi>743</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;coll/86020&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;includeAllFields&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;inv-idx&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;optimizeTopK&#34;</span> <span class=o>:</span> <span class=p>[</span> <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;primarySort&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> <span class=p>],</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;compression&#34;</span> <span class=o>:</span> <span class=s2>&#34;lz4&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;searchField&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storedValues&#34;</span> <span class=o>:</span> <span class=p>[</span> <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;trackListPositions&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;inverted&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;writebufferActive&#34;</span> <span class=o>:</span> <span class=mi>0</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;writebufferIdle&#34;</span> <span class=o>:</span> <span class=mi>64</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;writebufferSizeMax&#34;</span> <span class=o>:</span> <span class=mi>33554432</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;analyzers&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;identity&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;figures&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numPrimaryDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numLiveDocs&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numSegments&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numFiles&#34;</span> <span class=o>:</span> <span class=mi>6</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;indexSize&#34;</span> <span class=o>:</span> <span class=mi>1279</span> 
+</span></span><span class=line><span class=cl>    <span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;coll/86024&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;includeAllFields&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storeValues&#34;</span> <span class=o>:</span> <span class=s2>&#34;none&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;trackListPositions&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;arangosearch&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;view&#34;</span> <span class=o>:</span> <span class=s2>&#34;hAF1DA2160ED2/86022&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=creating-an-index>Creating an index <a href=/3.12/index-and-search/indexing/working-with-indexes/#creating-an-index class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Ensures that an index exists:</p><p><code>collection.ensureIndex(index-description)</code></p><p>Ensures that an index according to the <code>index-description</code> exists. A
+new index will be created if none exists with the given description.</p><p>Calling this method returns an index object. Whether or not the index
+object existed before the call is indicated in the <code>isNewlyCreated</code> return
+attribute.</p><p>The <code>index-description</code> input value must contain at least a <code>type</code> attribute.
+Other attributes may be necessary, depending on the index type.</p><ul><li><p><code>type</code>: can be one of the following values:</p><ul><li><code>"persistent"</code>: persistent (array) index, including vertex-centric index</li><li><code>"inverted"</code>: inverted index</li><li><code>"ttl"</code>: time-to-live index</li><li><code>"fulltext"</code>: full-text index (deprecated from ArangoDB 3.10 onwards)</li><li><code>"geo"</code>: geo-spatial index, with <em>one</em> or <em>two</em> attributes</li><li><code>"mdi"</code>: multi-dimensional index</li><li><code>"mdi-prefixed"</code>: multi-dimensional index with search prefix, including vertex-centric index</li></ul></li><li><p><code>fields</code>: an array of attribute paths, containing the document attributes
+(or sub-attributes) to be indexed. Some indexes allow using only a single path,
+and others allow multiple.
+If multiple attributes are used, their order matters.</p><p>The <code>.</code> character denotes sub-attributes in attribute paths. Attributes with
+literal <code>.</code> in their name cannot be indexed. Attributes with the name <code>_id</code>
+cannot be indexed either, neither as a top-level attribute nor as a sub-attribute
+(except the inverted index type).</p><p>If an attribute path contains an <code>[*]</code> extension (e.g. <code>friends[*].id</code>), it means
+that the index attribute value is treated as an array and all array members are
+indexed separately. This is possible with <code>persistent</code> and <code>inverted</code> indexes.</p></li><li><p><code>storedValues</code>: in indexes of type <code>persistent</code>, <code>inverted</code>, <code>mdi</code>, and <code>mdi-prefixed</code>, additional
+attributes can be stored in the index. These additional attributes cannot be used for
+index lookups or for sorting, but they can be used for projections. This allows an
+index to fully cover more queries and avoid extra document lookups.
+Non-existing attributes are stored as <code>null</code> values inside <code>storedValues</code>.
+The maximum number of attributes in <code>storedValues</code> is 32.
+It is not possible to create multiple indexes with the same <code>fields</code> attributes
+(and <code>sparse</code>, <code>unique</code>, and <code>prefixFields</code> attributes if supported)
+but different <code>storedValues</code> attributes. That means the value of
+<code>storedValues</code> is not considered in index creation calls when checking if an
+index is already present or needs to be created.
+In unique indexes, only the attributes in <code>fields</code> and (for <code>mdi-prefixed</code>
+indexes) <code>prefixFields</code> are checked for uniqueness,
+but the attributes in <code>storedValues</code> are not checked for their uniqueness.</p></li><li><p><code>name</code>: can be a string. Index names are subject to the same character
+restrictions as <a href=/3.12/concepts/data-structure/collections/#collection-names class=link>collection names</a>.
+If omitted, a name will be auto-generated so
+that it is unique with respect to the collection, e.g. <code>idx_832910498</code>.</p><p>The purpose of user-defined index names is have easy-to-remember names to
+use in index hints in AQL queries.
+If no index hints are used, going with the auto-generated index names is fine.</p></li><li><p><code>sparse</code>: can be <code>true</code> or <code>false</code>.
+You can control the sparsity for <code>persistent</code>, <code>mdi</code>, and <code>mdi-prefixed</code> indexes.
+The <code>inverted</code>, <code>fulltext</code>, and <code>geo</code> index types are
+<a href=/3.12/index-and-search/indexing/which-index-to-use-when/ class=link>sparse</a> by definition.</p></li><li><p><code>unique</code>: can be <code>true</code> or <code>false</code> and is supported by <code>persistent</code>, <code>mdi</code>,
+and <code>mdi-prefixed</code> indexes. By default, all user-defined indexes are non-unique.
+Only the attributes in <code>fields</code> are checked for uniqueness. Any attributes in
+from <code>storedValues</code> are not checked for their uniqueness.</p></li><li><p><code>deduplicate</code>: can be <code>true</code> or <code>false</code> and is supported by array indexes of
+type <code>persistent</code>. It controls whether inserting duplicate index values
+from the same document into a unique array index will lead to a unique constraint
+error or not. The default value is <code>true</code>, so only a single instance of each
+non-unique index value will be inserted into the index per document. Trying to
+insert a value into the index that already exists in the index will always fail,
+regardless of the value of this attribute.</p></li><li><p><code>estimates</code>: can be <code>true</code> or <code>false</code> and is supported by indexes of type
+<code>persistent</code>. This attribute controls whether index selectivity estimates are
+maintained for the index. Not maintaining index selectivity estimates can have
+a slightly positive impact on write performance.
+The downside of turning off index selectivity estimates is that
+the query optimizer is not able to determine the usefulness of different
+competing indexes in AQL queries when there are multiple candidate indexes to
+choose from.
+The <code>estimates</code> attribute is optional and defaults to <code>true</code> if not set. It
+has no effect on indexes other than <code>persistent</code>, <code>mdi</code>, and <code>mdi-prefixed</code>.</p></li><li><p><code>cacheEnabled</code>: can be <code>true</code> or <code>false</code> and is supported by indexes of type
+<code>persistent</code>. The attribute controls whether an extra in-memory hash cache is
+created for the index. The hash cache can be used to speed up index lookups.
+The cache can only be used for queries that look up all index attributes via
+an equality lookup (<code>==</code>). The hash cache cannot be used for range scans,
+partial lookups or sorting.
+The cache will be populated lazily upon reading data from the index. Writing data
+into the collection or updating existing data will invalidate entries in the
+cache. The cache may have a negative effect on performance in case index values
+are updated more often than they are read.
+The maximum size of cache entries that can be stored is currently 4 MB, i.e.
+the cumulated size of all index entries for any index lookup value must be
+less than 4 MB. This limitation is there to avoid storing the index entries
+of &ldquo;super nodes&rdquo; in the cache.
+<code>cacheEnabled</code> defaults to <code>false</code> and should only be used for indexes that
+are known to benefit from an extra layer of caching.</p></li></ul><p>Also check the documentation of the specific index type for additional options.</p><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>test</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;a&#34;</span> <span class=p>],</span> <span class=nx>sparse</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>test</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span> <span class=p>],</span> <span class=nx>unique</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;a&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>],</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/86294&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isNewlyCreated&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814363440871899136&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> <span class=o>:</span> <span class=mi>201</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;a&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;b&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>],</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;test/86298&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isNewlyCreated&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814363440873996288&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> <span class=o>:</span> <span class=mi>201</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=dropping-an-index-via-a-collection-object>Dropping an index via a collection object <a href=/3.12/index-and-search/indexing/working-with-indexes/#dropping-an-index-via-a-collection-object class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><code>collection.dropIndex(index)</code></p><p>Delete the specified index using an index object.</p><p>If the index does not exist or cannot be dropped, then an error is raised.
+If the index existed and has been dropped, then <code>true</code> is returned.</p><p>Note that you cannot drop certain indexes (e.g. the primary index of a
+collection or the edge index of an edge collection).</p><hr><p><code>collection.dropIndex(index-identifier)</code></p><p>Delete the specified index using an index identifier.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span><span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx2</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;c&#34;</span><span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>indexInfo</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>indexes</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>indexInfo</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>dropIndex</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>dropIndex</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>2</span><span class=p>].</span><span class=nx>id</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>indexInfo</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>indexes</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;a&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;b&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86152&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677452369920&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;c&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86156&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677453418496&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=load-indexes-into-memory>Load Indexes into Memory <a href=/3.12/index-and-search/indexing/working-with-indexes/#load-indexes-into-memory class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Loads suitable indexes of this collection into memory:</p><p><code>collection.loadIndexesIntoMemory()</code></p><p>This function tries to cache index entries of this collection in main memory.
+Index lookups that can be served from the memory cache can be much faster
+than lookups not stored in the cache, so you can get a nice performance boost.</p><p>The function iterates over suitable indexes of the collection and stores the
+indexed values, not the entire document data, in memory.
+This is implemented for edge indexes only.</p><p>The function returns as soon as the index warmup has been scheduled. The index
+warmup may still be ongoing in the background, even after the function has already
+returned. As all suitable indexes are scanned, it may cause significant
+I/O activity and background load.</p><p>This function honors memory limits. If the indexes you want to load are smaller
+than your memory limit, this function guarantees that most index values are
+cached. If the index is larger than your memory limit, this function fills
+up values up to this limit and there is no way to control
+which indexes of the collection should have priority over others.</p><p>It is guaranteed at all times that the in-memory cache data is consistent with
+the stored index data.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>loadIndexesIntoMemory</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h2 id=database-methods>Database Methods <a href=/3.12/index-and-search/indexing/working-with-indexes/#database-methods class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=fetching-an-index-by-identifier>Fetching an index by identifier <a href=/3.12/index-and-search/indexing/working-with-indexes/#fetching-an-index-by-identifier class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><code>db._index(index-identifier)</code></p><p>Find and return the specified index, or <code>null</code> if no such index exists.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>indexInfo</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>indexes</span><span class=p>().</span><span class=nx>map</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span> <span class=p>{</span> <span class=k>return</span> <span class=nx>x</span><span class=p>.</span><span class=nx>id</span><span class=p>;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>indexInfo</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_index</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_index</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;a&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;b&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>],</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86186&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;isNewlyCreated&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677710319616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> <span class=o>:</span> <span class=mi>201</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;example/86186&#34;</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>],</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> <span class=o>:</span> <span class=mi>200</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;a&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;b&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=p>],</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86186&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677710319616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> <span class=o>:</span> <span class=mi>200</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=dropping-an-index-via-a-database-object>Dropping an index via a database object <a href=/3.12/index-and-search/indexing/working-with-indexes/#dropping-an-index-via-a-database-object class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p><code>db._dropIndex(index)</code></p><p>Delete the specified index using an index object.</p><p>If the index does not exist or cannot be dropped, an error is raised.
+If the index existed and has been dropped, then <code>true</code> is returned.</p><hr><p><code>db._dropIndex(index-identifier)</code></p><p>Drop the specified index using an index identifier.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx2</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;c&#34;</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>indexInfo</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>indexes</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>indexInfo</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_dropIndex</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_dropIndex</span><span class=p>(</span><span class=nx>indexInfo</span><span class=p>[</span><span class=mi>2</span><span class=p>].</span><span class=nx>id</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>indexInfo</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>indexes</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;a&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;b&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86202&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677798400001&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheEnabled&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;deduplicate&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;estimates&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;c&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/86206&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;idx_1814819677799448576&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>false</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span> 
+</span></span><span class=line><span class=cl>  <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;fields&#34;</span> <span class=o>:</span> <span class=p>[</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>],</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/0&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;selectivityEstimate&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sparse&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> <span class=o>:</span> <span class=s2>&#34;primary&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;unique&#34;</span> <span class=o>:</span> <span class=kc>true</span> 
+</span></span><span class=line><span class=cl>  <span class=p>}</span> 
+</span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=revalidating-whether-an-index-is-used>Revalidating whether an index is used <a href=/3.12/index-and-search/indexing/working-with-indexes/#revalidating-whether-an-index-is-used class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>So you&rsquo;ve created an index, and since its maintenance isn&rsquo;t for free,
+you definitely want to know whether your query can utilize it.</p><p>You can use explain to verify that a certain index is used:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>explain</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;@arangodb/aql/explainer&#34;</span><span class=p>).</span><span class=nx>explain</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>idx</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>ensureIndex</span><span class=p>({</span> <span class=nx>type</span><span class=o>:</span> <span class=s2>&#34;persistent&#34;</span><span class=p>,</span> <span class=nx>fields</span><span class=o>:</span> <span class=p>[</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span> <span class=p>]</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>explain</span><span class=p>(</span><span class=s2>&#34;FOR doc IN example FILTER doc.a &lt; 23 RETURN doc&#34;</span><span class=p>,</span> <span class=p>{</span><span class=nx>colors</span><span class=o>:</span> <span class=kc>false</span><span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Query</span> <span class=nb>String</span> <span class=p>(</span><span class=mi>47</span> <span class=nx>chars</span><span class=p>,</span> <span class=nx>cacheable</span><span class=o>:</span> <span class=kc>true</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=nx>FOR</span> <span class=nx>doc</span> <span class=nx>IN</span> <span class=nx>example</span> <span class=nx>FILTER</span> <span class=nx>doc</span><span class=p>.</span><span class=nx>a</span> <span class=o>&lt;</span> <span class=mi>23</span> <span class=nx>RETURN</span> <span class=nx>doc</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Execution</span> <span class=nx>plan</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=nx>Id</span>   <span class=nx>NodeType</span>        <span class=nx>Par</span>   <span class=nx>Est</span><span class=p>.</span>   <span class=nx>Comment</span>
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=nx>SingletonNode</span>            <span class=mi>1</span>   <span class=o>*</span> <span class=nx>ROOT</span> 
+</span></span><span class=line><span class=cl>  <span class=mi>6</span>   <span class=nx>IndexNode</span>         <span class=err>✓</span>      <span class=mi>0</span>     <span class=o>-</span> <span class=nx>FOR</span> <span class=nx>doc</span> <span class=nx>IN</span> <span class=nx>example</span>   <span class=cm>/* persistent index scan, index scan + document lookup */</span>    
+</span></span><span class=line><span class=cl>  <span class=mi>5</span>   <span class=nx>ReturnNode</span>               <span class=mi>0</span>       <span class=o>-</span> <span class=nx>RETURN</span> <span class=nx>doc</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Indexes</span> <span class=nx>used</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=nx>By</span>   <span class=nx>Name</span>                      <span class=nx>Type</span>         <span class=nx>Collection</span>   <span class=nx>Unique</span>   <span class=nx>Sparse</span>   <span class=nx>Cache</span>   <span class=nx>Selectivity</span>   <span class=nx>Fields</span>         <span class=nx>Stored</span> <span class=nx>values</span>   <span class=nx>Ranges</span>
+</span></span><span class=line><span class=cl>  <span class=mi>6</span>   <span class=nx>idx_1814363441012408320</span>   <span class=nx>persistent</span>   <span class=nx>example</span>      <span class=kc>false</span>    <span class=kc>false</span>    <span class=kc>false</span>      <span class=mf>100.00</span> <span class=o>%</span>   <span class=p>[</span> <span class=sb>`a`</span><span class=p>,</span> <span class=sb>`b`</span> <span class=p>]</span>   <span class=p>[</span>  <span class=p>]</span>            <span class=p>(</span><span class=nx>doc</span><span class=p>.</span><span class=sb>`a`</span> <span class=o>&lt;</span> <span class=mi>23</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Optimization</span> <span class=nx>rules</span> <span class=nx>applied</span><span class=o>:</span>
+</span></span><span class=line><span class=cl> <span class=nx>Id</span>   <span class=nx>Rule</span> <span class=nx>Name</span>                                 <span class=nx>Id</span>   <span class=nx>Rule</span> <span class=nx>Name</span>                        
+</span></span><span class=line><span class=cl>  <span class=mi>1</span>   <span class=nx>use</span><span class=o>-</span><span class=nx>indexes</span>                                <span class=mi>3</span>   <span class=nx>remove</span><span class=o>-</span><span class=nx>unnecessary</span><span class=o>-</span><span class=nx>calculations</span><span class=o>-</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl>  <span class=mi>2</span>   <span class=nx>remove</span><span class=o>-</span><span class=nx>filter</span><span class=o>-</span><span class=nx>covered</span><span class=o>-</span><span class=nx>by</span><span class=o>-</span><span class=nx>index</span>             <span class=mi>4</span>   <span class=kr>async</span><span class=o>-</span><span class=nx>prefetch</span>                   
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=mi>56</span> <span class=nx>rule</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span> <span class=nx>executed</span><span class=p>,</span> <span class=mi>1</span> <span class=nx>plan</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span> <span class=nx>created</span><span class=p>,</span> <span class=nx>peak</span> <span class=nx>mem</span> <span class=p>[</span><span class=nx>b</span><span class=p>]</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>exec</span> <span class=nx>time</span> <span class=p>[</span><span class=nx>s</span><span class=p>]</span><span class=o>:</span> <span class=mf>0.00018</span></span></span></code></pre></div></div></div><br><p>You can omit <code>colors: false</code> to get syntax highlighting in <em>arangosh</em>.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/index-and-search/indexing/index-utilization/><i class="fas fa-chevron-left fa-fw"></i><p>Index Utilization</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/index-and-search/indexing/working-with-indexes/persistent-indexes/><p>Persistent Indexes</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/index-and-search/indexing/working-with-indexes/_index.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#index-identifiers>Index Identifiers</a></div><div class=level-2><a href=#collection-methods>Collection Methods</a></div><div class=level-3><a href=#listing-all-indexes-of-a-collection>Listing all indexes of a collection</a></div><div class=level-3><a href=#creating-an-index>Creating an index</a></div><div class=level-3><a href=#dropping-an-index-via-a-collection-object>Dropping an index via a collection object</a></div><div class=level-3><a href=#load-indexes-into-memory>Load Indexes into Memory</a></div><div class=level-2><a href=#database-methods>Database Methods</a></div><div class=level-3><a href=#fetching-an-index-by-identifier>Fetching an index by identifier</a></div><div class=level-3><a href=#dropping-an-index-via-a-database-object>Dropping an index via a database object</a></div><div class=level-3><a href=#revalidating-whether-an-index-is-used>Revalidating whether an index is used</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

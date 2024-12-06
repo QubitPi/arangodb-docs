@@ -1,0 +1,263 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for indexes lets you create, delete, and list indexes"><meta property="og:url" content="http://localhost/3.11/develop/http-api/indexes/"><meta property="og:title" content="HTTP interface for indexes"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for indexes lets you create, delete, and list indexes"><meta name=docsearch:version content="3.11"><title>HTTP interface for indexes | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Indexes"><a itemprop=item class=link href=/3.11/develop/http-api/indexes/><span itemprop=name class=breadcrumb-entry>Indexes</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for indexes</h1><p class=lead>The HTTP API for indexes lets you create, delete, and list indexes</p></hgroup><h2 id=addresses-of-indexes>Addresses of indexes <a href=/3.11/develop/http-api/indexes/#addresses-of-indexes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>All indexes in ArangoDB have a unique identifier. It identifies an
+index within a collection and is managed by ArangoDB. The full identifier
+is prefixed with a collection name and a forward slash (<code>/</code>) to identify an
+index within a database.</p><pre tabindex=0><code>http://server:port/_api/index/&lt;collection-name&gt;/&lt;index-identifier&gt;
+</code></pre><p>For example, assume that the full index identifier is <code>demo/63563528</code>, then the
+URL of that index is as follows:</p><pre tabindex=0><code>http://localhost:8529/_api/index/demo/63563528
+</code></pre><h2 id=list-all-indexes-of-a-collection>List all indexes of a collection <a href=/3.11/develop/http-api/indexes/#list-all-indexes-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/index</span></div><div class="openapi-description regular-font">Returns an object with an <code>indexes</code> attribute containing an array of all
+index descriptions for the given collection. The same information is also
+available in the <code>identifiers</code> attribute as an object with the index identifiers
+as object keys.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-indexes-of-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-all-indexes-of-a-collection_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-indexes-of-a-collection_query_collection><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">collection*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#list-all-indexes-of-a-collection_query_collection><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The collection name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-indexes-of-a-collection_query_withStats><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">withStats</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#list-all-indexes-of-a-collection_query_withStats><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether to include figures and estimates in the result.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-indexes-of-a-collection_query_withHidden><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">withHidden</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#list-all-indexes-of-a-collection_query_withHidden><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether to include hidden indexes in the result. Internal indexes
+(such as <code>arangosearch</code>) and ones that are currently built in the
+background are hidden.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-all-indexes-of-a-collection_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#list-all-indexes-of-a-collection_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>returns a JSON object containing a list of indexes on that collection.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Return information about all indexes</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/index?collection=products&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>1175</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;indexes&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/0&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;deduplicate&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;estimates&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;name&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/83508&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1814974139442659329&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;deduplicate&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;estimates&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;price&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/83512&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1814974139443707904&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;identifiers&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;products/0&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/0&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>true</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;products/83508&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;deduplicate&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;estimates&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;name&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/83508&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1814974139442659329&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;products/83512&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;deduplicate&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;estimates&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;price&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/83512&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1814974139443707904&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sparse&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;unique&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-an-index>Get an index <a href=/3.11/develop/http-api/indexes/#get-an-index class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+<span class=endpoint-path>/_db/{database-name}/_api/index/{index-id}</span></div><div class="openapi-description regular-font"><p>The result is an object describing the index. It has at least the following
+attributes:</p><ul><li><p><code>id</code>: the identifier of the index</p></li><li><p><code>type</code>: the index type</p></li></ul><p>All other attributes are type-dependent. For example, some indexes provide
+<code>unique</code> or <code>sparse</code> flags, whereas others don&rsquo;t. Some indexes also provide
+a selectivity estimate in the <code>selectivityEstimate</code> attribute of the result.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-an-index_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-an-index_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-an-index_path_index-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">index-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-an-index_path_index-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The index identifier.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-an-index_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#get-an-index_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the index exists, then a <em>HTTP 200</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-an-index_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#get-an-index_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the index does not exist, then a <em>HTTP 404</em>
+is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/index/products/0&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>149</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/0&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;selectivityEstimate&#34;</span> : 1, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;sparse&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;primary&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;unique&#34;</span> : true, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=create-an-index>Create an index <a href=/3.11/develop/http-api/indexes/#create-an-index class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
+<span class=endpoint-path>/_db/{database-name}/_api/index</span></div><div class="openapi-description regular-font"><p>Creates a new index in the collection <code>collection</code>. Expects
+an object containing the index details.</p><p>The type of the index to be created must specified in the <strong>type</strong>
+attribute of the index details. Depending on the index type, additional
+other attributes may need to specified in the request in order to create
+the index.</p><p>Indexes require the to be indexed attribute(s) in the <strong>fields</strong> attribute
+of the index details. Depending on the index type, a single attribute or
+multiple attributes can be indexed. In the latter case, an array of
+strings is expected.</p><p>The <code>.</code> character denotes sub-attributes in attribute paths. Attributes with
+literal <code>.</code> in their name cannot be indexed. Attributes with the name <code>_id</code>
+cannot be indexed either, neither as a top-level attribute nor as a sub-attribute.</p><p>Optionally, an index name may be specified as a string in the <strong>name</strong> attribute.
+Index names have the same restrictions as collection names. If no value is
+specified, one will be auto-generated.</p><p>Persistent indexes (including vertex-centric indexes) can be created as unique
+or non-unique variants. Uniqueness can be controlled by specifying the
+<strong>unique</strong> option for the index definition. Setting it to <code>true</code> creates a
+unique index. Setting it to <code>false</code> or omitting the <code>unique</code> attribute creates a
+non-unique index.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Unique indexes on non-shard keys are not supported in cluster deployments.</div></div></div></div><p>Persistent indexes can optionally be created in a sparse
+variant. A sparse index will be created if the <strong>sparse</strong> attribute in
+the index details is set to <code>true</code>. Sparse indexes do not index documents
+for which any of the index attributes is either not set or is <code>null</code>.</p><p>The optional <strong>deduplicate</strong> attribute is supported by persistent array indexes.
+It controls whether inserting duplicate index values
+from the same document into a unique array index will lead to a unique constraint
+error or not. The default value is <code>true</code>, so only a single instance of each
+non-unique index value will be inserted into the index per document. Trying to
+insert a value into the index that already exists in the index always fails,
+regardless of the value of this attribute.</p><p>The optional <strong>estimates</strong> attribute is supported by persistent indexes.
+This attribute controls whether index selectivity estimates are
+maintained for the index. Not maintaining index selectivity estimates can have
+a slightly positive impact on write performance.
+The downside of turning off index selectivity estimates will be that
+the query optimizer will not be able to determine the usefulness of different
+competing indexes in AQL queries when there are multiple candidate indexes to
+choose from.
+The <code>estimates</code> attribute is optional and defaults to <code>true</code> if not set. It will
+have no effect on indexes other than persistent indexes.</p><p>The optional attribute <strong>cacheEnabled</strong> is supported by indexes of type
+<code>persistent</code>. This attribute controls whether an extra in-memory hash cache is
+created for the index. The hash cache can be used to speed up index lookups.
+The cache can only be used for queries that look up all index attributes via
+an equality lookup (<code>==</code>). The hash cache cannot be used for range scans,
+partial lookups or sorting.
+The cache will be populated lazily upon reading data from the index. Writing data
+into the collection or updating existing data will invalidate entries in the
+cache. The cache may have a negative effect on performance in case index values
+are updated more often than they are read.
+The maximum size of cache entries that can be stored is currently 4 MB, i.e.
+the cumulated size of all index entries for any index lookup value must be
+less than 4 MB. This limitation is there to avoid storing the index entries
+of &ldquo;super nodes&rdquo; in the cache.
+<code>cacheEnabled</code> defaults to <code>false</code> and should only be used for indexes that
+are known to benefit from an extra layer of caching.</p><p>The optional attribute <strong>inBackground</strong> can be set to <code>true</code> to create the index
+in the background, which will not write-lock the underlying collection for
+as long as if the index is built in the foreground.</p></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-index_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-index_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-index_query_collection><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">collection*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#create-an-index_query_collection><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The collection name.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Request Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-index_body_index-details><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">index-details*</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#create-an-index_body_index-details><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The options for the index.</p></div></details></li></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-an-index_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#create-an-index_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the index already exists, then an <em>HTTP 200</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-index_res_201><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">201</span>
+<span class="openapi-property-type bold-text">Created</span>
+<a href=#create-an-index_res_201><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the index does not already exist and could be created, then an <em>HTTP 201</em>
+is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-index_res_400><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">400</span>
+<span class="openapi-property-type bold-text">Bad Request</span>
+<a href=#create-an-index_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If an invalid index description is posted or attributes are used that the
+target index will not support, then an <em>HTTP 400</em> is returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-an-index_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#create-an-index_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If <code>collection</code> is unknown, then an <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><h2 id=delete-an-index>Delete an index <a href=/3.11/develop/http-api/indexes/#delete-an-index class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
+<span class=endpoint-path>/_db/{database-name}/_api/index/{index-id}</span></div><div class="openapi-description regular-font">Deletes an index with <code>index-id</code>.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-an-index_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-an-index_path_database-name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The name of the database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-an-index_path_index-id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">index-id*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#delete-an-index_path_index-id><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The index id.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=delete-an-index_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
+<span class="openapi-property-type bold-text">OK</span>
+<a href=#delete-an-index_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the index could be deleted, then an <em>HTTP 200</em> is
+returned.</p></div></details></li><li class="openapi-table-row regular-font"><details id=delete-an-index_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
+<span class="openapi-property-type bold-text">Not Found</span>
+<a href=#delete-an-index_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If the <code>index-id</code> is unknown, then an <em>HTTP 404</em> is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/index/products/83530&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>content-type: application/json
+</span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>connection: Keep-Alive
+</span></span><span class=line><span class=cl>content-length: <span class=m>48</span>
+</span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>expires: <span class=m>0</span>
+</span></span><span class=line><span class=cl>pragma: no-cache
+</span></span><span class=line><span class=cl>server: ArangoDB
+</span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
+</span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
+</span></span><span class=line><span class=cl>x-content-type-options: nosniff
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>{</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;products/83530&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/develop/http-api/transactions/><i class="fas fa-chevron-left fa-fw"></i><p>Transactions</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/develop/http-api/indexes/persistent/><p>Persistent</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/develop/http-api/indexes/_index.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#addresses-of-indexes>Addresses of indexes</a></div><div class=level-2><a href=#list-all-indexes-of-a-collection>List all indexes of a collection</a></div><div class=level-2><a href=#get-an-index>Get an index</a></div><div class=level-2><a href=#create-an-index>Create an index</a></div><div class=level-2><a href=#delete-an-index>Delete an index</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

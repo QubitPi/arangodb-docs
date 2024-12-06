@@ -1,0 +1,195 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1733459933></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Designing the data model of your application is a crucial task that can make or break the performance of your application"><meta property="og:url" content="http://localhost/3.11/develop/operational-factors/"><meta property="og:title" content="Data Modeling and Operational Factors"><meta property="og:type" content="website"><meta property="og:description" content="Designing the data model of your application is a crucial task that can make or break the performance of your application"><meta name=docsearch:version content="3.11"><title>Data Modeling and Operational Factors | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1733459933 defer></script>
+<script src=/js/featherlight.min.js?1733459933 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.12"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.3"}</script><script src=/js/codeblocks.js?1733459933 defer></script>
+<script src=/js/theme.js?1733459933 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.278/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"docs.arangodb.com"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.12</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Operational Factors"><a itemprop=item class=link href=/3.11/develop/operational-factors/><span itemprop=name class=breadcrumb-entry>Operational Factors</span></a></li></ol></nav><article class=default><hgroup><h1>Data Modeling and Operational Factors</h1><p class=lead>Designing the data model of your application is a crucial task that can make or break the performance of your application</p></hgroup><p>A well-designed data model allows you to write efficient AQL queries, increase
+throughput of CRUD operations, and makes sure your data is distributed in the
+most effective way.</p><p>Whether you design a new application with ArangoDB or port an existing one to
+use ArangoDB, you should always analyze the (expected) data access patterns of
+your application in conjunction with several factors:</p><h2 id=operation-atomicity>Operation Atomicity <a href=/3.11/develop/operational-factors/#operation-atomicity class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>All insert / update / replace / remove operations in ArangoDB are
+atomic on a single document, in the sense that any read operation
+either observes a single document write in its entirety or not at all,
+regardless of whether it is a read in the same transaction, a different
+transaction, or indeed another write operation implicitly reading the
+document (like update). This is true for all deployment modes including cluster.</p><p>When using a single instance of ArangoDB or a OneShard database
+in a cluster, we can make additional guarantees: Multi-document /
+multi-collection queries are guaranteed to be fully atomic, in the
+sense that one transaction observes any other transaction either in its
+entirety, or not at all. In general, this is not guaranteed for cluster
+deployments in case of failovers.</p><h2 id=transactional-isolation>Transactional Isolation <a href=/3.11/develop/operational-factors/#transactional-isolation class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>In the single instance case and in the OneShard database case, ArangoDB uses
+RocksDB&rsquo;s
+<a href=https://jepsen.io/consistency/models/snapshot-isolation target=_blank rel="noopener noreferrer" class=link>snapshot isolation</a>&nbsp;<i class="fas fa-external-link-alt"></i>
+for reads and uses RocksDB key-level pessimistic locking for write-write-conflict
+detection. Therefore, in these cases, the isolation level ArangoDB
+guarantees for transactions is
+&ldquo;<a href=https://jepsen.io/consistency/models/repeatable-read target=_blank rel="noopener noreferrer" class=link>repeatable read</a>&nbsp;<i class="fas fa-external-link-alt"></i>&rdquo;
+in the following sense: the reads of a transaction see a snapshot
+of the state of the database, that is, a transaction T does not see
+&ldquo;dirty reads&rdquo;, which are writes from other transactions which have not
+yet committed. Furthermore, a transaction T does not see writes from
+other transactions, which have started, after T was started, even if
+they commit before the read of T happens. Finally, in the end, there is
+a total order on the set of all transactions, so that the state of
+the database is as if the <em>writes</em> of the transactions would have been
+executed in this order.</p><p>Note that this is strictly weaker than &ldquo;serializable&rdquo;, since it is
+possible that two concurrent transactions T1 and T2 both read the old
+state from before both of them (including the documents T1 or T2 touch),
+but then write to disjoint sets of keys. This allows for the possibility
+of &ldquo;phantom reads&rdquo;.</p><p>Note that in a cluster without OneShard databases, these
+isolation guarantees are not given.</p><h3 id=denormalizing-data>Denormalizing Data <a href=/3.11/develop/operational-factors/#denormalizing-data class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>In traditional <em>SQL</em> databases it is considered a good practice to normalize
+all your data across multiple tables to avoid duplicated data and ensure
+consistency.</p><p>ArangoDB is a schema-less <em>NoSQL</em> multi-model database, so a good data model
+is not necessarily normalized. On the contrary, to avoid extra joins it is
+often an advantage to deliberately <em>denormalize</em> your data model.</p><p>To denormalize your data model you essentially combine all related entities
+into a single document instead of spreading it over multiple documents and
+collections. The advantage of this is that it allows you to atomically update
+all of your connected data, the downside is that your documents become larger
+(see below for more considerations on
+<a href=#document-and-transaction-sizes class=link>large documents</a>).</p><p>As a simple example, lets say you want to maintain the total amount of a
+shopping basket (from an online shop) together with a list of all included
+items and prices. The total balance of all items in the shopping basket should
+stay in sync with the contained items, then you may put all contained items
+inside the shopping basket document and only update them together:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_id&#34;</span><span class=p>:</span> <span class=s2>&#34;basket/123&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_key&#34;</span><span class=p>:</span> <span class=s2>&#34;123&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;_rev&#34;</span><span class=p>:</span> <span class=s2>&#34;_Xv0TA0O--_&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;user&#34;</span><span class=p>:</span> <span class=s2>&#34;some_user&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;balance&#34;</span><span class=p>:</span> <span class=s2>&#34;100&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;items&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=p>{</span> <span class=nt>&#34;price&#34;</span><span class=p>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nt>&#34;title&#34;</span><span class=p>:</span> <span class=s2>&#34;Harry Potter and the Philosopher’s Stone&#34;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>               <span class=p>{</span> <span class=nt>&#34;price&#34;</span><span class=p>:</span> <span class=mi>90</span><span class=p>,</span> <span class=nt>&#34;title&#34;</span><span class=p>:</span> <span class=s2>&#34;Vacuum XYZ&#34;</span> <span class=p>}</span> <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This allows you to avoid making lookups via the document keys in
+multiple collections.</p><h3 id=ensuring-consistent-atomic-updates>Ensuring Consistent Atomic Updates <a href=/3.11/develop/operational-factors/#ensuring-consistent-atomic-updates class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>There are ways to ensure atomicity and consistency when performing updates in
+your application. ArangoDB allows you to specify the revision ID (<code>_rev</code>) value
+of the existing document you want to update. The update or replace operation is
+only able to succeed if the values match. This way you can ensure that if your
+application has read a document with a certain <code>_rev</code> value, the modifications
+to it are only allowed to pass <em>if and only if</em> the document was not changed by
+someone else in the meantime. By specifying a document&rsquo;s previous revision ID
+you can avoid losing updates on these documents without noticing it.</p><p>You can specify the revision via the <code>_rev</code> field inside the document or via
+the <code>If-Match: &lt;revision></code> HTTP header in the documents REST API.
+In the <em>arangosh</em> you can perform such an operation like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>basketCollection</span><span class=p>.</span><span class=nx>update</span><span class=p>({</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span> <span class=s2>&#34;123&#34;</span><span class=p>,</span> <span class=s2>&#34;_rev&#34;</span><span class=o>:</span> <span class=s2>&#34;_Xv0TA0O--_&#34;</span><span class=p>},</span> <span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// or replace
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>db</span><span class=p>.</span><span class=nx>basketCollection</span><span class=p>.</span><span class=nx>replace</span><span class=p>({</span><span class=s2>&#34;_key&#34;</span><span class=o>:</span> <span class=s2>&#34;123&#34;</span><span class=p>,</span> <span class=s2>&#34;_rev&#34;</span><span class=o>:</span> <span class=s2>&#34;_Xv0TA0O--_&#34;</span><span class=p>},</span> <span class=nx>data</span><span class=p>)</span></span></span></code></pre></div><p>An AQL query with the same effect can be written by using the <em>ignoreRevs</em>
+option together with a modification operation. Either let ArangoDB compare
+the <code>_rev</code> value and only succeed if they still match, or let ArangoDB
+ignore them (default):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>i</span> <span class=kr>IN</span> <span class=mf>1</span><span class=o>..</span><span class=mi>1000</span>
+</span></span><span class=line><span class=cl>  <span class=kr>UPDATE</span> <span class=p>{</span> <span class=n>_key</span><span class=o>:</span> <span class=nf>CONCAT</span><span class=p>(</span><span class=s1>&#39;test&#39;</span><span class=p>,</span> <span class=n>i</span><span class=p>),</span> <span class=n>_rev</span><span class=o>:</span> <span class=s2>&#34;1287623&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>WITH</span> <span class=p>{</span> <span class=n>foobar</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span> <span class=kr>IN</span> <span class=n>users</span>
+</span></span><span class=line><span class=cl>  <span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>ignoreRevs</span><span class=o>:</span> <span class=kc>false</span> <span class=p>}</span></span></span></code></pre></div><h2 id=indexes>Indexes <a href=/3.11/develop/operational-factors/#indexes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Indexes can improve the performance of AQL queries drastically. Queries that
+frequently filter on or one more fields can be made faster by creating an index
+(in arangosh via the <em>ensureIndex</em> command, the web interface or your specific
+client driver). There is already an automatic (and non-deletable) primary index
+in every collection on the <code>_key</code> and <code>_id</code> fields as well as the edge index
+on <code>_from</code> and <code>_to</code> (for edge collections).</p><p>Should you decide to create an index you should consider a few things:</p><ul><li>Indexes are a trade-off between storage space, maintenance cost and query speed.</li><li>Each new index increases the amount of RAM and the amount of disk space needed.</li><li>Indexes with <a href=/3.11/index-and-search/indexing/basics/#indexing-array-values class=link>indexed array values</a>
+need an extra index entry per array entry</li><li>Adding indexes increases the write-amplification i.e. it negatively affects
+the write performance (how much depends on the storage engine)</li><li>Each index needs to add at least one index entry per document. You can use
+<em>sparse indexes</em> to avoid adding <em>null</em> index entries for rarely used attributes</li><li>Sparse indexes can be smaller than non-sparse indexes, but they can only be
+used if the optimizer determines that the <em>null</em> value cannot be in the
+result range, e.g. by an explicit <code>FILTER doc.attribute != null</code> in AQL
+(also see <a href=/3.11/aql/fundamentals/type-and-value-order/ class=link>Type and value order</a>).</li><li>Collections that are more frequently read benefit the most from added indexes,
+provided the indexes can actually be utilized</li><li>Indexes on collections with a high rate of inserts or updates compared to
+reads may hurt overall performance.</li></ul><p>Generally it is best to design your indexes with your queries in mind.
+Use the <a href=/3.11/aql/execution-and-performance/query-profiling/ class=link>query profiler</a>
+to understand the bottlenecks in your queries.</p><p>Always consider the additional space requirements of extra indexes when
+planning server capacities. For more information on indexes see
+<a href=/3.11/index-and-search/indexing/basics/ class=link>Index Basics</a>.</p><h2 id=number-of-databases-and-collections>Number of Databases and Collections <a href=/3.11/develop/operational-factors/#number-of-databases-and-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Sometimes you can consider to split up data over multiple collections.
+For example, one could create a new set of collections for each new customer
+instead of having a customer field on each documents. Having a few thousand
+collections has no significant performance penalty for most operations and
+results in good performance.</p><p>Grouping documents into collections by type (i.e. a session collection
+&lsquo;sessions_dev&rsquo;, &lsquo;sessions_prod&rsquo;) allows you to avoid an extra index on a <em>type</em>
+field. Similarly you may consider to
+<a href=/3.11/graphs/#multiple-edge-collections-vs-filters-on-edge-document-attributes class=link>split edge collections</a>
+instead of specifying the type of the connection inside the edge document.</p><p>A few things to consider:</p><ul><li>Adding an extra collection always incurs a small amount of overhead for the
+collection metadata and indexes.</li><li>You cannot use more than <em>2048</em> collections/shards per AQL query</li><li>Uniqueness constraints on certain attributes (via an unique index) can only
+be enforced by ArangoDB within one collection</li></ul><h2 id=cluster-sharding>Cluster Sharding <a href=/3.11/develop/operational-factors/#cluster-sharding class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The ArangoDB cluster <em>partitions</em> your collections into one or more <em>shards</em>
+across multiple <em>DB-Servers</em>. This enables efficient <em>horizontal scaling</em>:
+It allows you to store much more data, since ArangoDB distributes the data
+automatically to the different servers. In many situations one can also reap
+a benefit in data throughput, again because the load can be distributed to
+multiple machines.</p><p>ArangoDB uses the specified <em>shard keys</em> to determine in which shard a given
+document is stored. Choosing the right shard key can have significant impact on
+your performance can reduce network traffic and increase performance.</p><p>ArangoDB uses consistent hashing to compute the target shard from the given
+values (as specified via &lsquo;shardKeys&rsquo;). The ideal set of shard keys allows
+ArangoDB to distribute documents evenly across your shards and your <em>DB-Servers</em>.
+By default ArangoDB uses the <code>_key</code> field as a shard key. For a custom shard key
+you should consider a few different properties:</p><ul><li><strong>Cardinality</strong>: The cardinality of a set is the number of distinct values
+that it contains. A shard key with only <em>N</em> distinct values cannot be hashed
+onto more than <em>N</em> shards. Consider using multiple shard keys, if one of your
+values has a low cardinality.</li><li><strong>Frequency</strong>: Consider how often a given shard key value may appear in
+your data. Having a lot of documents with identical shard keys leads
+to unevenly distributed data. Consider using multiple shard keys or a different
+one that is more suitable.</li></ul><p>The default sharding should randomly distribute your documents across your
+cluster machines. This may be good enough for you, but depending on the kind
+of AQL queries and other operations an application performs, it may leave
+a lot of performance on the table.</p><p>See <a href=/3.11/deploy/architecture/data-sharding/ class=link><em>Cluster Sharding</em></a>
+for more information.</p><h3 id=smartgraphs>SmartGraphs <a href=/3.11/develop/operational-factors/#smartgraphs class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>SmartGraphs are an Enterprise Edition feature of ArangoDB. It enables you to
+manage graphs at scale. It provides a vast performance benefit for all graphs
+sharded in an ArangoDB Cluster.</p><p>To add a SmartGraph you need a SmartGraph attribute that partitions your
+graph into several smaller sub-graphs. Ideally these sub-graphs follow a
+&ldquo;natural&rdquo; structure in your data. These subgraphs have a large amount of edges
+that only connect vertices in the same subgraph and only have few edges
+connecting vertices from other subgraphs.</p><p>All the usual considerations for sharding keys also apply for smart attributes,
+for more information see <a href=/3.11/graphs/smartgraphs/ class=link>SmartGraphs</a></p><h2 id=document-and-transaction-sizes>Document and Transaction Sizes <a href=/3.11/develop/operational-factors/#document-and-transaction-sizes class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>When designing your data-model you should keep in mind that the size of
+documents affects the performance and storage requirements of your system.
+Very large numbers of very small documents may have an unexpectedly big overhead:
+Each document needs has a certain amount extra storage space, depending on the
+storage engine and the indexes you added to the collection. The overhead may
+become significant if your store a large amount of very small documents.</p><p>Very large documents may reduce your write throughput:
+This is due to the extra time needed to send larger documents over the
+network as well as more copying work required inside the storage engine.</p><p>Consider some ways to minimize the required amount of storage space:</p><ul><li>Use the <code>_key</code> attribute to give documents unique identifiers. The <code>_key</code>
+attribute is always present in every document (including edges), and it
+is always indexed. This means it is the best-suited attribute to store a unique
+document identifier. Using the <code>_key</code> attribute is preferable to storing
+document identifiers in another attribute and creating a unique index on it.
+Some limitations apply, see <a href=/3.11/concepts/data-structure/documents/#document-keys class=link>Document keys</a>.</li><li>Shorter field names reduce the amount of space needed to store documents.
+ArangoDB is schema-free and needs to store the document structure inside of
+each document. Usually, this is a small overhead compared to the overall
+document size. The field name length has no effect on index sizes.</li><li>Combining many small related documents into one larger one can also
+reduce overhead. Common fields can be stored once and indexes just need to
+store one entry. This is only beneficial if the combined documents are
+regularly retrieved together and not just subsets of them.</li></ul><h2 id=document-keys>Document Keys <a href=/3.11/develop/operational-factors/#document-keys class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p>Explicitly set the <code>_key</code> attribute to a custom unique value.
+This enables you to store information in the <code>_key</code> attribute instead of another
+attribute inside of the document. The <code>_key</code> attribute is always indexed, so it is
+preferable to storing the document identifiers in another attribute and
+creating an extra index on it.</p></li><li><p>Try to use short values for the <code>_key</code> attribute.
+The <code>_key</code> values are used whenever a document is looked up by its primary
+key, and shorter key values can improve the lookup performance and reduce the
+disk usage.</p><p>As the <code>_key</code> values are also used as foreign keys in the <code>_from</code> and <code>_to</code> attributes
+of edges, the key length also matters for all graph operations. Again, shorter keys
+can improve lookup performance here and reduce memory usage.</p><p>When using hash values as document keys, try to avoid long hash values such as
+generated by hash functions such as SHA256 (64 characters in the alphabet
+<code>[0-9a-f]</code>) or SHA512 (128 bytes in the alphabet <code>[0-9a-f]</code>). Smaller keys are
+always preferable for performance.</p></li><li><p>Try to avoid keys that are randomly distributed.
+Keys that are randomly distributed are more expensive during larger insert
+operations than keys that follow a mostly ascending sequential pattern, e.g.
+<code>000001</code>, <code>000002</code>, and so on. The storage engine can process sequential keys
+more efficiently on inserts than randomly distributed keys.</p></li></ul><h2 id=storage-engine>Storage Engine <a href=/3.11/develop/operational-factors/#storage-engine class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Large documents and transactions may negatively impact the write performance
+of the RocksDB storage engine.</p><ul><li>Consider a maximum size of 50-75 kB <em>per document</em> as a good rule of thumb.
+This allows you to maintain steady write throughput even under very high load.</li><li>Transactions are held in-memory before they are committed.
+This means that certain transactions have to be split if they become too big.
+See <a href=/3.11/aql/fundamentals/limitations/#storage-engine-properties class=link>Known limitations for AQL queries</a>
+for details.</li></ul><h3 id=improving-update-query-performance>Improving Update Query Performance <a href=/3.11/develop/operational-factors/#improving-update-query-performance class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>You may use the <em>exclusive</em> query option for modifying AQL queries, to improve the performance drastically.
+This has the downside that no concurrent writes may occur on the collection, but ArangoDB is able
+to use a special fast-path which should improve the performance by up to 50% for large collections.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-aql data-lang=aql><span class=line><span class=cl><span class=kr>FOR</span> <span class=n>doc</span> <span class=kr>IN</span> <span class=n>mycollection</span>
+</span></span><span class=line><span class=cl>  <span class=kr>UPDATE</span> <span class=n>doc</span><span class=p>.</span><span class=n>_key</span>
+</span></span><span class=line><span class=cl>  <span class=kr>WITH</span> <span class=p>{</span> <span class=n>foobar</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span> <span class=kr>IN</span> <span class=n>mycollection</span>
+</span></span><span class=line><span class=cl>  <span class=kp>OPTIONS</span> <span class=p>{</span> <span class=n>exclusive</span><span class=o>:</span> <span class=kc>true</span> <span class=p>}</span></span></span></code></pre></div><p>The same naturally also applies for queries using <em>REPLACE</em> or <em>INSERT</em>. Additionally you may be able to use
+the <code>intermediateCommitCount</code> option in the API to subdivide the AQL transaction into smaller batches.</p><h3 id=read--write-load-balance>Read / Write Load Balance <a href=/3.11/develop/operational-factors/#read--write-load-balance class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Depending on whether your data model has a higher read- or higher write-rate you may want
+to adjust some of the RocksDB specific options. Some of the most critical options to
+adjust the performance and memory usage are listed below:</p><p><code>--rocksdb.block-cache-size</code></p><p>This is the size of the block cache in bytes. This cache is used for read operations.
+Increasing the size of this may improve the performance of read heavy workloads.
+You may wish to adjust this parameter to control memory usage.</p><p><code>--rocksdb.write-buffer-size</code></p><p>Amount of data to build up in memory before converting to a file on disk.
+Larger values increase performance, especially during bulk loads.</p><p><code>--rocksdb.max-write-buffer-number</code></p><p>Maximum number of write buffers that built up in memory, per internal column family.
+The default and the minimum number is 2, so that when 1 write buffer
+is being flushed to storage, new writes can continue to the other write buffer.</p><p><code>--rocksdb.total-write-buffer-size</code></p><p>The total amount of data to build up in all in-memory buffers when writing into ArangoDB.
+You may wish to adjust this parameter to control memory usage.</p><p>Setting this to a low value may limit the RAM that ArangoDB uses but may slow down
+write heavy workloads. Setting this to <code>0</code> does not limit the size of the write-buffers.</p><p><code>--rocksdb.level0-stop-trigger</code></p><p>When this many files accumulate in level-0, writes are stopped to allow compaction to catch up.
+Setting this value very high may improve write throughput, but may lead to temporarily
+bad read performance.</p><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/develop/><i class="fas fa-chevron-left fa-fw"></i><p>Develop</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/develop/satellitecollections/><p>SatelliteCollections</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/develop/operational-factors.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#operation-atomicity>Operation Atomicity</a></div><div class=level-2><a href=#transactional-isolation>Transactional Isolation</a></div><div class=level-3><a href=#denormalizing-data>Denormalizing Data</a></div><div class=level-3><a href=#ensuring-consistent-atomic-updates>Ensuring Consistent Atomic Updates</a></div><div class=level-2><a href=#indexes>Indexes</a></div><div class=level-2><a href=#number-of-databases-and-collections>Number of Databases and Collections</a></div><div class=level-2><a href=#cluster-sharding>Cluster Sharding</a></div><div class=level-3><a href=#smartgraphs>SmartGraphs</a></div><div class=level-2><a href=#document-and-transaction-sizes>Document and Transaction Sizes</a></div><div class=level-2><a href=#document-keys>Document Keys</a></div><div class=level-2><a href=#storage-engine>Storage Engine</a></div><div class=level-3><a href=#improving-update-query-performance>Improving Update Query Performance</a></div><div class=level-3><a href=#read--write-load-balance>Read / Write Load Balance</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>
