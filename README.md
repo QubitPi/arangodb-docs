@@ -1,7 +1,10 @@
 # ArangoDB Documentation
 
-This repository contains the source files of the ArangoDB documentation as
-published on [docs.arangodb.com](https://docs.arangodb.com/).
+[![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
+[![Apache License][Apache License Badge]][Apache License, Version 2.0]
+
+This repository contains QubitPi's study notes as well as the source files of forked ArangoDB documentation as
+published on [arango.qubitpi.org](https://arango.qubitpi.org/).
 
 The ArangoDB documentation is licensed under Apache-2.0.
 See [LICENSE](LICENSE) for details.
@@ -167,10 +170,11 @@ Go to the `toolchain/docker/<architecture>` folder, with `<architecture>` being
 either `amd64` for x86-64 CPUs and `arm64` for 64-bit ARM CPUs (including
 Apple silicon like M1).
 
-Run the `docker compose` services using the `docker-compose.pain-build.yml` file.
+Run the `docker compose` services using the `docker-compose.pain-build.yml` file. For example, on x86-64 CPUs, do
 
 ```shell
-docs-hugo/toolchain/docker/amd64> docker compose -f docker-compose.plain-build.yml up --abort-on-container-exit
+cd arangodb-docs/toolchain/docker/amd64
+docker compose -f docker-compose.plain-build.yml up --abort-on-container-exit
 ```
 
 The site will be available at `http://localhost:1313`.
@@ -247,7 +251,7 @@ Apple silicon like M1).
 Run the `docker compose` services without specifying a file:
 
 ```shell
-docs-hugo/toolchain/docker/arm64> docker compose up --abort-on-container-exit
+arangodb-docs/toolchain/docker/arm64> docker compose up --abort-on-container-exit
 ```
 
 The site will be available at `http://localhost:1313`
@@ -523,7 +527,7 @@ The following shortcodes also exist but are rarely used:
 
 - Use relative links for cross-references to other documentation pages, e.g.
   `../drivers/js/_index.md` instead of `/3.12/drivers/js/_index.md` or
-  `https://docs.arangodb.com/3.12/drivers/js/`.
+  `https://arango.qubitpi.org/3.12/drivers/js/`.
 
 - Avoid **bold** and *italic* markup in headlines. If you have to use it, then
   prefer `**bold**` and `*italic*`  over `__bold__` and `_italic_` because the
@@ -756,7 +760,7 @@ Start off by finding a file name. It should be:
 Note that the file name is independent of what will show in the navigation or
 what will be used as headline for that page. The file name will be used as
 part of the final URL, however. For example, `3.12/aql/examples.md` will become
-`http://docs.arangodb.com/3.12/aql/examples/`.
+`http://arango.qubitpi.org/3.12/aql/examples/`.
 
 Create a new file with the file name and a `.md` file extension. Open the file
 in a text editor (Visual Studio Code is recommended). Add the following
@@ -1231,7 +1235,7 @@ db._document("collection/does_not_exist"); // xpError(ERROR_ARANGO_DOCUMENT_NOT_
 ```
 
 This will make the example generation continue despite the error. See
-[Error codes and meanings](https://docs.arangodb.com/3.12/develop/error-codes-and-meanings/)
+[Error codes and meanings](https://arango.qubitpi.org/3.12/develop/error-codes-and-meanings/)
 for a list of all error codes and their names. If a unexpected error is raised,
 then the example generation will abort with an error.
 
@@ -1406,3 +1410,9 @@ need to be output explicitly by calling one of the following functions:
 To test whether requests and replies are as expected, you can add
 `assert(expression)` calls. Expressions that evaluate to false will make the
 example generation fail. You can inspect the CircleCI logs for details.
+
+[Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
+[Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
+
+[GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/arangodb-docs/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=CI/CD
+[GitHub workflow status URL]: https://github.com/QubitPi/arangodb-docs/actions/workflows/ci-cd.yaml
