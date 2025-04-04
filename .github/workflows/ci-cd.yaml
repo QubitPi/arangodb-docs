@@ -44,10 +44,8 @@ jobs:
           export ENV=static
           cd toolchain/docker/amd64
           docker compose -f docker-compose.plain-build.yml up --abort-on-container-exit
-      - name: Load CNAME file
-        run: |
-          sudo chmod -R 755 site/public/
-          sudo cp CNAME site/public/CNAME
+      - name: Free up permission for HTML upload
+        run: sudo chmod -R 755 site/public/
       - name: Deploy documentation to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
@@ -57,3 +55,4 @@ jobs:
           enable_jekyll: false
           user_name: ${{ env.USER }}
           user_email: ${{ env.EMAIL }}
+          cname: arango.qubitpi.org
