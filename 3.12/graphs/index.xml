@@ -6,6 +6,6 @@ Creating and modifying the underlying collections of an EnterpriseGraph are also
 Together with vertex documents stored in document collections (also called vertex collections in this context), edges form graphs.
 Example
 An edge collection stores the information that a company&amp;rsquo;s reception is a sub-unit to the services unit and the services unit is sub-unit to the CEO.</description></item><item><title>Example graphs</title><link>http://localhost/3.12/graphs/example-graphs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost/3.12/graphs/example-graphs/</guid><description>ArangoDB comes with a set of easy-to-understand graphs for demonstration purposes.
-In the web interface, navigate to the Graphs section, click the Add Graph card, go to the Examples tab, and click the Create button of one of the listed graphs.
+In the web interface, navigate to the Graphs section, click Add Graph, go to the Examples tab, and click the Create button of one of the listed graphs.
 In arangosh, run require(&amp;quot;@arangodb/graph-examples/example-graph&amp;quot;).loadGraph(&amp;quot;&amp;lt;name&amp;gt;&amp;quot;); with &amp;lt;name&amp;gt; substituted by the name of an example graph listed below.
 You can visually explore the created graphs in the Graph viewer of the web interface.</description></item></channel></rss>
