@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1745503965></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1747029125></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="You can get information about ArangoDB servers, toggle the maintenance mode, shut down server nodes, and start actions like compaction"><meta property="og:url" content="http://localhost/3.13/develop/http-api/administration/"><meta property="og:title" content="HTTP interface for server administration"><meta property="og:type" content="website"><meta property="og:description" content="You can get information about ArangoDB servers, toggle the maintenance mode, shut down server nodes, and start actions like compaction"><meta name=docsearch:version content="3.13"><title>HTTP interface for server administration | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1745503965 defer></script>
-<script src=/js/featherlight.min.js?1745503965 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.13"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1745503965 defer></script>
-<script src=/js/theme.js?1745503965 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
+<script src=/js/clipboard.min.js?1747029125 defer></script>
+<script src=/js/featherlight.min.js?1747029125 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.13"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1747029125 defer></script>
+<script src=/js/theme.js?1747029125 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.13"><a itemprop=item class=link href=/3.13/><span itemprop=name class=breadcrumb-entry>3.13.0</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.13/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.13/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Administration"><a itemprop=item class=link href=/3.13/develop/http-api/administration/><span itemprop=name class=breadcrumb-entry>Administration</span></a></li></ol></nav><article class=default><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text><p>ArangoDB v3.13 is under development and not released yet.
@@ -434,11 +434,11 @@ There are additional attributes for the number of <code>agents</code>, <code>coo
 <a href=#get-information-about-the-deployment_res_200_host><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An object that holds information about the ArangoDB instance as well as the
 host machine. Only set in case of single servers.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-deployment_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
 <span class="openapi-property-type bold-text">Not Found</span>
-<a href=#get-information-about-the-deployment_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The support info API is turned off.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Query support information from a single server</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_admin/support-info</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#get-information-about-the-deployment_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The support info API is turned off.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Query support information from a single server</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_db/_system/_admin/support-info&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>1145</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>1200</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -455,13 +455,13 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;SINGLE&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> : 33106219008, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> : 33089757184, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -469,35 +469,37 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;processUptime&#34;</span> : 39.45463585853577, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;numberOfThreads&#34;</span> : 61, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;virtualSize&#34;</span> : 1496182784, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>213753856</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;processUptime&#34;</span> : 171.0257532596588, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numberOfThreads&#34;</span> : 72, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;virtualSize&#34;</span> : 2574700544, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;residentSetSize&#34;</span> : 238465024, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fileDescrtors&#34;</span> : 29, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;userPercent&#34;</span> : 12.402974895261602, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;systemPercent&#34;</span> : 4.040141599818129, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;idlePercent&#34;</span> : 80.44233704653958, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8233358232383923 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;userPercent&#34;</span> : 14.020245071923283, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;systemPercent&#34;</span> : 7.037187000532765, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;idlePercent&#34;</span> : 75.82567927543953, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;iowaitPercent&#34;</span> : 2.7980820458177944 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.limit&#34;</span> : 7739683840, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.allocated&#34;</span> : 1281040, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 1553, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 15121, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 15121, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9287620608, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 541952, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 143003516928, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.allocated&#34;</span> : 1281056, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 1654, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135842553856, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2024-03-11T19:03:42Z&#34;</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Query support information from a cluster</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_admin/support-info</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-04-25T14:55:31Z&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Query support information from a cluster</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_db/_system/_admin/support-info&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>6566</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>6980</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -510,20 +512,20 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;deployment&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;cluster&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;servers&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-085d1776-5a95-496c-9b09-7382e9db7327&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-085d1776-5a95-496c-9b09-7382e9db7327&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0001&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-a6266e75-0d92-4cff-9fe1-8a15761f64e5&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-a6266e75-0d92-4cff-9fe1-8a15761f64e5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0002&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8529&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -531,197 +533,34 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 39.9025239944458, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1116704768, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>106000384</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 170.92322444915771, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2240577536, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 126996480, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 42, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034408199400708, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042529283573958, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79848815036775, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057749931898663 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-90a2159c-2dd1-4cdd-bd26-bbbf16136079&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-90a2159c-2dd1-4cdd-bd26-bbbf16136079&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0002&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8539&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 39.88232755661011, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1114083328, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>103403520</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-2678bdce-1850-4f94-893b-f398ba10df50&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-2678bdce-1850-4f94-893b-f398ba10df50&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0003&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8530&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 40.900248765945435, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 935604224, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>161751040</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7739683840, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082848, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 10, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9287620608, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 142930042880, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-d761f99e-d613-4efd-af1f-91e6334feba0&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-d761f99e-d613-4efd-af1f-91e6334feba0&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0001&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8540&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 40.88037610054016, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 939274240, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>163307520</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7739683840, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082848, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 188, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9287620608, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 142930042880, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-227d8305-3735-4e6e-b33d-16d62dfcc1ee&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-227d8305-3735-4e6e-b33d-16d62dfcc1ee&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0002&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8550&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 41.87971639633179, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 956575744, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>166555648</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7739683840, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082848, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9287620608, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 142930042880, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-7c96e96b-2f14-42ca-98d7-5595548c4649&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-7c96e96b-2f14-42ca-98d7-5595548c4649&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-c0f10e91-835d-45f7-aeca-d782bb65e1ab&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-c0f10e91-835d-45f7-aeca-d782bb65e1ab&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0003&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8549&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.0-nightly.20240305&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 9b0f5c5d58c&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 5.15.0-1052-aws (buildd@lcy02-amd64-013) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #57~20.04.1-Ubuntu SMP Mon Jan 15 17:04:56 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33106219008, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -729,16 +568,191 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 40.876648902893066, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1114083328, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : <span class=m>105291776</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 171.83917713165283, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2247917568, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 125345792, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 40, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 12.428773773611427, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 4.045974028782424, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 80.40697611556219, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.827424394779807 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034774096065037, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042499308348763, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79816552810232, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057630509268128 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-39e7f402-a7d3-4a45-bed0-6942368b7e29&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-39e7f402-a7d3-4a45-bed0-6942368b7e29&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0002&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8540&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 171.8409948348999, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 77, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2089103360, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 177307648, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 62, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034714359895466, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042894963097903, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79784290858325, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057511087654183 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 574, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135842390016, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-53e7543a-e342-45dd-8541-cd9876a525e3&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-53e7543a-e342-45dd-8541-cd9876a525e3&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0001&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8550&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 172.85408926010132, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 77, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2067083264, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 172011520, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 58, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034774096065037, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042499308348763, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79816552810232, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057630509268128 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 59, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135842390016, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-36a49129-c2b9-4f2c-b0e8-1ae45bbd925b&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-36a49129-c2b9-4f2c-b0e8-1ae45bbd925b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0003&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8530&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 171.94052696228027, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 77, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2072326144, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 174235648, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 62, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034774096065037, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042499308348763, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79816552810232, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057630509268128 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 506, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135842390016, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-771dff78-4131-450a-a428-5ac6dd855a5f&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-771dff78-4131-450a-a428-5ac6dd855a5f&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0001&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8539&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5-nightly.20250419&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/head/3.12 2624a86a2e6&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 170.8470380306244, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2235072512, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 126971904, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 40, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 14.034774096065037, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 7.042499308348763, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 75.79816552810232, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.8057630509268128 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
@@ -755,7 +769,7 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;servers&#34;</span> : <span class=m>3</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2024-03-11T19:03:42Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-04-25T14:55:32Z&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=startup-options>Startup options <a href=/3.13/develop/http-api/administration/#startup-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The permissions required to use the <code>/_admin/options*</code> endpoints depends on the
 setting of the <a href=/3.13/components/arangodb-server/options/#--serveroptions-api class=link><code>--server.options-api</code> startup option</a>.</p><h3 id=get-the-startup-option-configuration>Get the startup option configuration <a href=/3.13/develop/http-api/administration/#get-the-startup-option-configuration class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/_system/_admin/options</span></div><div class="openapi-description regular-font"><p>Return the effective configuration of the queried <em>arangod</em> instance as
@@ -861,11 +875,11 @@ restricted to read-only mode.</li></ul></p><p class=regular-font>Possible values
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
 <a href=#get-information-about-the-current-license_res_200_upgrading><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the server is performing a database upgrade.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_version><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">version</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
-<a href=#get-information-about-the-current-license_res_200_version><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The license version number.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_admin/license</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#get-information-about-the-current-license_res_200_version><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The license version number.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/license&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>162</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>181</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -876,12 +890,14 @@ restricted to read-only mode.</li></ul></p><p class=regular-font>Possible values
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;upgrading&#34;</span> : false, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;features&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=m>1710194582</span> 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;JD4EOXdmdVRWPS9UUFR7UwFNZ1hWfCddAVluTmQIWh18TnBAfmNfAioVIDcydQdZ&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : 1, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;expiring&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;diskUsage&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesUsed&#34;</span> : 263017, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesLimit&#34;</span> : 107374182400, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;limitReached&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;secondsUntilReadOnly&#34;</span> : 315569520, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;secondsUntilShutDown&#34;</span> : 315569520, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;good&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=set-a-new-license>Set a new license <a href=/3.13/develop/http-api/administration/#set-a-new-license class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_admin/license</span></div><div class="openapi-description regular-font">Set a new license for an Enterprise Edition instance.
 Can be called on single servers, Coordinators, and DB-Servers.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=set-a-new-license_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
@@ -1126,7 +1142,7 @@ an error.</div></div></div></div></div><div class="responses regular-font"><div 
 <span class="openapi-property-type bold-text">Bad Request</span>
 <a href=#list-the-endpoints-of-a-single-server-deprecated_res_400><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the action is not carried out in the system database.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-the-endpoints-of-a-single-server-deprecated_res_405><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">405</span>
 <span class="openapi-property-type bold-text">Method Not Allowed</span>
-<a href=#list-the-endpoints-of-a-single-server-deprecated_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The server will respond with <em>HTTP 405</em> if an unsupported HTTP method is used.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - http://localhost:8529/_api/endpoint</span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#list-the-endpoints-of-a-single-server-deprecated_res_405><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The server will respond with <em>HTTP 405</em> if an unsupported HTTP method is used.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_db/_system/_api/endpoint&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
