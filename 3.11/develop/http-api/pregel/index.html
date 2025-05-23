@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1747875309></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1748038512></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for Pregel lets you execute, cancel, and list Pregel jobs"><meta property="og:url" content="http://localhost/3.11/develop/http-api/pregel/"><meta property="og:title" content="Pregel HTTP API"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for Pregel lets you execute, cancel, and list Pregel jobs"><meta name=docsearch:version content="3.11"><title>Pregel HTTP API | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1747875309 defer></script>
-<script src=/js/featherlight.min.js?1747875309 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.13"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1747875309 defer></script>
-<script src=/js/theme.js?1747875309 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.13</span></a>
+<script src=/js/clipboard.min.js?1748038512 defer></script>
+<script src=/js/featherlight.min.js?1748038512 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1748038512 defer></script>
+<script src=/js/theme.js?1748038512 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.14</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Pregel"><a itemprop=item class=link href=/3.11/develop/http-api/pregel/><span itemprop=name class=breadcrumb-entry>Pregel</span></a></li></ol></nav><article class=default><hgroup><h1>Pregel HTTP API</h1><p class=lead>The HTTP API for Pregel lets you execute, cancel, and list Pregel jobs</p></hgroup><p>See <a href=/3.11/data-science/pregel/ class=link>Distributed Iterative Graph Processing (Pregel)</a>
@@ -74,7 +74,7 @@ the results in the vertices as attribute <code>component</code>:</p><div class=h
 </span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=s2>&#34;68665&#34;</span></span></span></code></pre></div></div></div><br><h2 id=get-a-pregel-job-execution-status>Get a Pregel job execution status <a href=/3.11/develop/http-api/pregel/#get-a-pregel-job-execution-status class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;68965&#34;</span></span></span></code></pre></div></div></div><br><h2 id=get-a-pregel-job-execution-status>Get a Pregel job execution status <a href=/3.11/develop/http-api/pregel/#get-a-pregel-job-execution-status class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_api/control_pregel/{id}</span></div><div class="openapi-description regular-font">Returns the current state of the execution, the current global superstep, the
 runtime, the global aggregator values as well as the number of sent and
 received messages.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-a-pregel-job-execution-status_path_id><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">id*</span>
@@ -162,11 +162,11 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 <a href=#get-a-pregel-job-execution-status_res_200_vertexCount><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The total number of vertices processed.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-a-pregel-job-execution-status_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
 <span class="openapi-property-type bold-text">Not Found</span>
 <a href=#get-a-pregel-job-execution-status_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An HTTP 404 error is returned if no Pregel job with the specified execution number
-is found or the execution number is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Get the execution status of a Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/68830&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+is found or the execution number is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Get the execution status of a Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/69137&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>2897</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2893</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -177,17 +177,17 @@ is found or the execution number is invalid.</p></div></details></li></ul></div>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;graphLoaded&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68830&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69137&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -263,7 +263,7 @@ is found or the execution number is invalid.</p></div></details></li></ul></div>
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -343,29 +343,29 @@ is found or the execution number is invalid.</p></div></details></li></ul></div>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>    0.000112973, 
-</span></span><span class=line><span class=cl>    0.000091912, 
-</span></span><span class=line><span class=cl>    0.000059102, 
-</span></span><span class=line><span class=cl>    0.000055444, 
-</span></span><span class=line><span class=cl>    0.000051575, 
-</span></span><span class=line><span class=cl>    0.000052459, 
-</span></span><span class=line><span class=cl>    0.000068888, 
-</span></span><span class=line><span class=cl>    0.000061116, 
-</span></span><span class=line><span class=cl>    0.000059994, 
-</span></span><span class=line><span class=cl>    0.000041179, 
-</span></span><span class=line><span class=cl>    0.000036031 
+</span></span><span class=line><span class=cl>    0.000098073, 
+</span></span><span class=line><span class=cl>    0.000070103, 
+</span></span><span class=line><span class=cl>    0.000087872, 
+</span></span><span class=line><span class=cl>    0.000054566, 
+</span></span><span class=line><span class=cl>    0.000052963, 
+</span></span><span class=line><span class=cl>    0.000051399, 
+</span></span><span class=line><span class=cl>    0.0000472, 
+</span></span><span class=line><span class=cl>    0.000045474, 
+</span></span><span class=line><span class=cl>    0.000048749, 
+</span></span><span class=line><span class=cl>    0.000037609, 
+</span></span><span class=line><span class=cl>    0.000044424 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;storageTime&#34;</span> : 0.000593996, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;totalRuntime&#34;</span> : 0.002521165, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storageTime&#34;</span> : 0.000444939, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;totalRuntime&#34;</span> : 0.00209652, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;parallelism&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;startupTime&#34;</span> : 0.000427176, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;computationTime&#34;</span> : 0.001469417 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;startupTime&#34;</span> : 0.000326493, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;computationTime&#34;</span> : 0.001293206 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=list-the-running-pregel-jobs>List the running Pregel jobs <a href=/3.11/develop/http-api/pregel/#list-the-running-pregel-jobs class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_api/control_pregel</span></div><div class="openapi-description regular-font">Returns a list of currently running and recently finished Pregel jobs without
 retrieving their results.</div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=list-the-running-pregel-jobs_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
@@ -453,7 +453,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>5759</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>5950</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -465,197 +465,17 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl><span class=o>[</span> 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68665&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68965&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span> 
-</span></span><span class=line><span class=cl>          <span class=o>]</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span> 
-</span></span><span class=line><span class=cl>            <span class=o>]</span> 
-</span></span><span class=line><span class=cl>          <span class=o>}</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;sendCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>      0.000081306, 
-</span></span><span class=line><span class=cl>      0.000081084, 
-</span></span><span class=line><span class=cl>      0.000066524, 
-</span></span><span class=line><span class=cl>      0.000060157, 
-</span></span><span class=line><span class=cl>      0.00005428, 
-</span></span><span class=line><span class=cl>      0.00006119, 
-</span></span><span class=line><span class=cl>      0.000060072, 
-</span></span><span class=line><span class=cl>      0.000051205, 
-</span></span><span class=line><span class=cl>      0.000049944, 
-</span></span><span class=line><span class=cl>      0.000049745, 
-</span></span><span class=line><span class=cl>      0.000052774 
-</span></span><span class=line><span class=cl>    <span class=o>]</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000605997, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002571716, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000385974, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001533673 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68830&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -731,7 +551,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -811,35 +631,227 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>      0.000112973, 
-</span></span><span class=line><span class=cl>      0.000091912, 
-</span></span><span class=line><span class=cl>      0.000059102, 
-</span></span><span class=line><span class=cl>      0.000055444, 
-</span></span><span class=line><span class=cl>      0.000051575, 
-</span></span><span class=line><span class=cl>      0.000052459, 
-</span></span><span class=line><span class=cl>      0.000068888, 
-</span></span><span class=line><span class=cl>      0.000061116, 
-</span></span><span class=line><span class=cl>      0.000059994, 
-</span></span><span class=line><span class=cl>      0.000041179, 
-</span></span><span class=line><span class=cl>      0.000036031 
+</span></span><span class=line><span class=cl>      0.000109361, 
+</span></span><span class=line><span class=cl>      0.000081725, 
+</span></span><span class=line><span class=cl>      0.000052279, 
+</span></span><span class=line><span class=cl>      0.000048088, 
+</span></span><span class=line><span class=cl>      0.000069165, 
+</span></span><span class=line><span class=cl>      0.000048578, 
+</span></span><span class=line><span class=cl>      0.000035056, 
+</span></span><span class=line><span class=cl>      0.000048109, 
+</span></span><span class=line><span class=cl>      0.000047273, 
+</span></span><span class=line><span class=cl>      0.000042326, 
+</span></span><span class=line><span class=cl>      0.000043702 
 </span></span><span class=line><span class=cl>    <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000593996, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002521165, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000599334, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002455758, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000427176, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001469417 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000480974, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001350304 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69004&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69137&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 5, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>240</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>]</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 5, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>240</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span> 
+</span></span><span class=line><span class=cl>            <span class=o>]</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sendCount&#34;</span> : 370, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>      0.000098073, 
+</span></span><span class=line><span class=cl>      0.000070103, 
+</span></span><span class=line><span class=cl>      0.000087872, 
+</span></span><span class=line><span class=cl>      0.000054566, 
+</span></span><span class=line><span class=cl>      0.000052963, 
+</span></span><span class=line><span class=cl>      0.000051399, 
+</span></span><span class=line><span class=cl>      0.0000472, 
+</span></span><span class=line><span class=cl>      0.000045474, 
+</span></span><span class=line><span class=cl>      0.000048749, 
+</span></span><span class=line><span class=cl>      0.000037609, 
+</span></span><span class=line><span class=cl>      0.000044424 
+</span></span><span class=line><span class=cl>    <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:13Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000444939, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.00209652, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000326493, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001293206 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69306&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;loading&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 0, 
@@ -863,7 +875,7 @@ documents have no or stale results from a previous execution.</p></div><div clas
 <span class="openapi-property-type bold-text">Not Found</span>
 <a href=#cancel-a-pregel-job-execution_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An HTTP 404 error is returned if no Pregel job with the specified execution number
 is found or the execution number is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Cancel a Pregel job to stop the execution or to free up the results if it was
-started with <code>"store": false</code> and is in the done state:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/69159&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+started with <code>"store": false</code> and is in the done state:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/69464&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -966,11 +978,11 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 <a href=#get-the-execution-statistics-of-a-pregel-job_res_200_vertexCount><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The total number of vertices processed.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-execution-statistics-of-a-pregel-job_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
 <span class="openapi-property-type bold-text">Not Found</span>
 <a href=#get-the-execution-statistics-of-a-pregel-job_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if no Pregel job with the specified ID is found or if the ID
-is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Get the execution status of a Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/history/69308&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Get the execution status of a Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/history/69613&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>2895</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2894</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -981,17 +993,17 @@ is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;graphLoaded&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69308&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69613&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1067,7 +1079,7 @@ is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1147,29 +1159,29 @@ is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>    0.000067452, 
-</span></span><span class=line><span class=cl>    0.000088717, 
-</span></span><span class=line><span class=cl>    0.000099877, 
-</span></span><span class=line><span class=cl>    0.000062003, 
-</span></span><span class=line><span class=cl>    0.000069945, 
-</span></span><span class=line><span class=cl>    0.000054757, 
-</span></span><span class=line><span class=cl>    0.000061677, 
-</span></span><span class=line><span class=cl>    0.00004232, 
-</span></span><span class=line><span class=cl>    0.000057284, 
-</span></span><span class=line><span class=cl>    0.000051778, 
-</span></span><span class=line><span class=cl>    0.000057503 
+</span></span><span class=line><span class=cl>    0.000104085, 
+</span></span><span class=line><span class=cl>    0.000068359, 
+</span></span><span class=line><span class=cl>    0.000049474, 
+</span></span><span class=line><span class=cl>    0.000056847, 
+</span></span><span class=line><span class=cl>    0.000044763, 
+</span></span><span class=line><span class=cl>    0.000043499, 
+</span></span><span class=line><span class=cl>    0.00004063, 
+</span></span><span class=line><span class=cl>    0.000040127, 
+</span></span><span class=line><span class=cl>    0.000037162, 
+</span></span><span class=line><span class=cl>    0.000031723, 
+</span></span><span class=line><span class=cl>    0.00003537 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:14Z&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;storageTime&#34;</span> : 0.000444639, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;totalRuntime&#34;</span> : 0.002483494, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;storageTime&#34;</span> : 0.000478348, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;totalRuntime&#34;</span> : 0.002010139, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;parallelism&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;startupTime&#34;</span> : 0.000430574, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;computationTime&#34;</span> : 0.001573864 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;startupTime&#34;</span> : 0.000271625, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;computationTime&#34;</span> : 0.00123331 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=get-the-execution-statistics-of-all-pregel-jobs>Get the execution statistics of all Pregel jobs <a href=/3.11/develop/http-api/pregel/#get-the-execution-statistics-of-all-pregel-jobs class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_api/control_pregel/history</span></div><div class="openapi-description regular-font"><p>Returns a list of currently running and finished Pregel jobs without retrieving
 their results.</p><p>The execution statistics are persisted to a system collection and kept until you
@@ -1259,7 +1271,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>9036</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>9225</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -1271,197 +1283,17 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl><span class=o>[</span> 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68665&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68965&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
-</span></span><span class=line><span class=cl>            <span class=o>}</span> 
-</span></span><span class=line><span class=cl>          <span class=o>]</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>              <span class=o>{</span> 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
-</span></span><span class=line><span class=cl>              <span class=o>}</span> 
-</span></span><span class=line><span class=cl>            <span class=o>]</span> 
-</span></span><span class=line><span class=cl>          <span class=o>}</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;sendCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>      0.000081306, 
-</span></span><span class=line><span class=cl>      0.000081084, 
-</span></span><span class=line><span class=cl>      0.000066524, 
-</span></span><span class=line><span class=cl>      0.000060157, 
-</span></span><span class=line><span class=cl>      0.00005428, 
-</span></span><span class=line><span class=cl>      0.00006119, 
-</span></span><span class=line><span class=cl>      0.000060072, 
-</span></span><span class=line><span class=cl>      0.000051205, 
-</span></span><span class=line><span class=cl>      0.000049944, 
-</span></span><span class=line><span class=cl>      0.000049745, 
-</span></span><span class=line><span class=cl>      0.000052774 
-</span></span><span class=line><span class=cl>    <span class=o>]</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000605997, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002571716, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000385974, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001533673 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68830&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1537,7 +1369,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1617,67 +1449,43 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>      0.000112973, 
-</span></span><span class=line><span class=cl>      0.000091912, 
-</span></span><span class=line><span class=cl>      0.000059102, 
-</span></span><span class=line><span class=cl>      0.000055444, 
-</span></span><span class=line><span class=cl>      0.000051575, 
-</span></span><span class=line><span class=cl>      0.000052459, 
-</span></span><span class=line><span class=cl>      0.000068888, 
-</span></span><span class=line><span class=cl>      0.000061116, 
-</span></span><span class=line><span class=cl>      0.000059994, 
-</span></span><span class=line><span class=cl>      0.000041179, 
-</span></span><span class=line><span class=cl>      0.000036031 
+</span></span><span class=line><span class=cl>      0.000109361, 
+</span></span><span class=line><span class=cl>      0.000081725, 
+</span></span><span class=line><span class=cl>      0.000052279, 
+</span></span><span class=line><span class=cl>      0.000048088, 
+</span></span><span class=line><span class=cl>      0.000069165, 
+</span></span><span class=line><span class=cl>      0.000048578, 
+</span></span><span class=line><span class=cl>      0.000035056, 
+</span></span><span class=line><span class=cl>      0.000048109, 
+</span></span><span class=line><span class=cl>      0.000047273, 
+</span></span><span class=line><span class=cl>      0.000042326, 
+</span></span><span class=line><span class=cl>      0.000043702 
 </span></span><span class=line><span class=cl>    <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:00Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:12Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000593996, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002521165, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000599334, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002455758, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000427176, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001469417 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000480974, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001350304 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69004&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;canceled&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:01Z&#34;</span> 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : false, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69159&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;canceled&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:01Z&#34;</span> 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69308&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69137&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1753,7 +1561,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
@@ -1833,39 +1641,255 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>      0.000067452, 
-</span></span><span class=line><span class=cl>      0.000088717, 
-</span></span><span class=line><span class=cl>      0.000099877, 
-</span></span><span class=line><span class=cl>      0.000062003, 
-</span></span><span class=line><span class=cl>      0.000069945, 
-</span></span><span class=line><span class=cl>      0.000054757, 
-</span></span><span class=line><span class=cl>      0.000061677, 
-</span></span><span class=line><span class=cl>      0.00004232, 
-</span></span><span class=line><span class=cl>      0.000057284, 
-</span></span><span class=line><span class=cl>      0.000051778, 
-</span></span><span class=line><span class=cl>      0.000057503 
+</span></span><span class=line><span class=cl>      0.000098073, 
+</span></span><span class=line><span class=cl>      0.000070103, 
+</span></span><span class=line><span class=cl>      0.000087872, 
+</span></span><span class=line><span class=cl>      0.000054566, 
+</span></span><span class=line><span class=cl>      0.000052963, 
+</span></span><span class=line><span class=cl>      0.000051399, 
+</span></span><span class=line><span class=cl>      0.0000472, 
+</span></span><span class=line><span class=cl>      0.000045474, 
+</span></span><span class=line><span class=cl>      0.000048749, 
+</span></span><span class=line><span class=cl>      0.000037609, 
+</span></span><span class=line><span class=cl>      0.000044424 
 </span></span><span class=line><span class=cl>    <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-02-15T13:18:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:13Z&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000444639, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002483494, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000444939, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.00209652, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000430574, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001573864 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000326493, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.001293206 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69477&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-02-15T13:08:01Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:13Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 6, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69306&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;canceled&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;loading&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:13Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69464&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;canceled&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:14Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 11, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69613&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;done&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;detail&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;aggregatedStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>            <span class=o>{</span> 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;messagesReceived&#34;</span> : 5, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>240</span> 
+</span></span><span class=line><span class=cl>            <span class=o>}</span> 
+</span></span><span class=line><span class=cl>          <span class=o>]</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;workerStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;timeStamp&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;graphStoreStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;allGssStatus&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;items&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>0</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1728</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 69, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3312</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 68, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>3264</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 55, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2640</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 48, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>2304</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 38, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1824</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 27, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>1296</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 16, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>768</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>384</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>              <span class=o>{</span> 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;verticesProcessed&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesSent&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;messagesReceived&#34;</span> : 5, 
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;memoryBytesUsedForMessages&#34;</span> : <span class=m>240</span> 
+</span></span><span class=line><span class=cl>              <span class=o>}</span> 
+</span></span><span class=line><span class=cl>            <span class=o>]</span> 
+</span></span><span class=line><span class=cl>          <span class=o>}</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sendCount&#34;</span> : 370, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;aggregators&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gssTimes&#34;</span> : <span class=o>[</span> 
+</span></span><span class=line><span class=cl>      0.000104085, 
+</span></span><span class=line><span class=cl>      0.000068359, 
+</span></span><span class=line><span class=cl>      0.000049474, 
+</span></span><span class=line><span class=cl>      0.000056847, 
+</span></span><span class=line><span class=cl>      0.000044763, 
+</span></span><span class=line><span class=cl>      0.000043499, 
+</span></span><span class=line><span class=cl>      0.00004063, 
+</span></span><span class=line><span class=cl>      0.000040127, 
+</span></span><span class=line><span class=cl>      0.000037162, 
+</span></span><span class=line><span class=cl>      0.000031723, 
+</span></span><span class=line><span class=cl>      0.00003537 
+</span></span><span class=line><span class=cl>    <span class=o>]</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;receivedCount&#34;</span> : 370, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=s2>&#34;2025-05-23T18:26:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;vertexCount&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;storageTime&#34;</span> : 0.000478348, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;totalRuntime&#34;</span> : 0.002010139, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;parallelism&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;masterContext&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;edgeCount&#34;</span> : 36, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;startupTime&#34;</span> : 0.000271625, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;computationTime&#34;</span> : 0.00123331 
+</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>  <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;algorithm&#34;</span> : <span class=s2>&#34;wcc&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span> : <span class=s2>&#34;2025-05-23T18:16:14Z&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;database&#34;</span> : <span class=s2>&#34;_system&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graphLoaded&#34;</span> : true, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gss&#34;</span> : 0, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;69782&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;running&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;ttl&#34;</span> : 600, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;user&#34;</span> : <span class=s2>&#34;root&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><h2 id=remove-the-execution-statistics-of-a-past-pregel-job>Remove the execution statistics of a past Pregel job <a href=/3.11/develop/http-api/pregel/#remove-the-execution-statistics-of-a-past-pregel-job class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
@@ -1876,7 +1900,7 @@ The TTL is used to calculate the expiration date for the job&rsquo;s results.</p
 <a href=#remove-the-execution-statistics-of-a-past-pregel-job_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if the Pregel job ID is valid.</p></div></details></li><li class="openapi-table-row regular-font"><details id=remove-the-execution-statistics-of-a-past-pregel-job_res_404><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">404</span>
 <span class="openapi-property-type bold-text">Not Found</span>
 <a href=#remove-the-execution-statistics-of-a-past-pregel-job_res_404><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>is returned if no Pregel job with the specified ID is found or if the ID
-is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Remove the persisted execution statistics of a finished Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/history/69642&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Remove the persisted execution statistics of a finished Pregel job:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/control_pregel/history/69947&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1890,9 +1914,9 @@ is invalid.</p></div></details></li></ul></div></div></div><p><strong>Examples</
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;_pregel_queries/69642&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;69642&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk3Fqu--A&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;_pregel_queries/69947&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;69947&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3aIFS--F&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=remove-the-execution-statistics-of-all-past-pregel-jobs>Remove the execution statistics of all past Pregel jobs <a href=/3.11/develop/http-api/pregel/#remove-the-execution-statistics-of-all-past-pregel-jobs class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
 <span class=endpoint-path>/_api/control_pregel/history</span></div><div class="openapi-description regular-font">Removes the persisted execution statistics of all past Pregel jobs.</div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=remove-the-execution-statistics-of-all-past-pregel-jobs_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
 <span class="openapi-property-type bold-text">OK</span>

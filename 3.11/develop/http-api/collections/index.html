@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1747875309></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1748038512></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for collections lets you create and delete collections, get information about collections, and modify certain properties of existing collections"><meta property="og:url" content="http://localhost/3.11/develop/http-api/collections/"><meta property="og:title" content="HTTP interface for collections"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for collections lets you create and delete collections, get information about collections, and modify certain properties of existing collections"><meta name=docsearch:version content="3.11"><title>HTTP interface for collections | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1747875309 defer></script>
-<script src=/js/featherlight.min.js?1747875309 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.13"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1747875309 defer></script>
-<script src=/js/theme.js?1747875309 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.13</span></a>
+<script src=/js/clipboard.min.js?1748038512 defer></script>
+<script src=/js/featherlight.min.js?1748038512 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1748038512 defer></script>
+<script src=/js/theme.js?1748038512 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.14</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Collections"><a itemprop=item class=link href=/3.11/develop/http-api/collections/><span itemprop=name class=breadcrumb-entry>Collections</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for collections</h1><p class=lead>The HTTP API for collections lets you create and delete collections, get information about collections, and modify certain properties of existing collections</p></hgroup><h2 id=addresses-of-collections>Addresses of collections <a href=/3.11/develop/http-api/collections/#addresses-of-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>All collections in ArangoDB have a unique identifier and a unique
@@ -41,7 +41,7 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>1756</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>1875</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -55,14 +55,6 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;37&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_frontend&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_frontend&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;4&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_users&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
@@ -71,76 +63,28 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_users&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;16&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statisticsRaw&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;37&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_frontend&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statisticsRaw&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_frontend&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;10&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statistics&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statistics&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;28&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_jobs&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_jobs&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;22&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_aqlfunctions&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_aqlfunctions&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;40&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_pregel_queries&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_pregel_queries&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;34&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_appbundles&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_appbundles&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67286&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;mycollection&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;117&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;demo&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67286&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/117&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;13&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statistics15&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statistics15&#34;</span> 
-</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;112&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;ignore&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;123&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;animals&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/112&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/123&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;7&#34;</span>, 
@@ -151,20 +95,36 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_graphs&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;123&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;animals&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;19&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_analyzers&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/123&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_analyzers&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;117&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;demo&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;13&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statistics15&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statistics15&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;31&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_apps&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_apps&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;112&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;ignore&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/117&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/112&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;25&#34;</span>, 
@@ -175,20 +135,68 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_queues&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;19&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_analyzers&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67290&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;mycollection&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_analyzers&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/67290&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;31&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_apps&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67896&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;schemaCollection&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : false, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/67896&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;34&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_appbundles&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_apps&#34;</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_appbundles&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;40&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_pregel_queries&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_pregel_queries&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;10&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statistics&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statistics&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;16&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_statisticsRaw&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_statisticsRaw&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;22&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_aqlfunctions&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_aqlfunctions&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>    <span class=o>{</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;28&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;_jobs&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;status&#34;</span> : 3, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;type&#34;</span> : 2, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;isSystem&#34;</span> : true, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;_jobs&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=get-the-collection-information>Get the collection information <a href=/3.11/develop/http-api/collections/#get-the-collection-information class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
@@ -381,14 +389,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#get-the-properties-of-a-collection_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-properties-of-a-collection_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
-<a href=#get-the-properties-of-a-collection_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/67637/properties&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#get-the-properties-of-a-collection_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/67937/properties&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>445</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/collection/67637/properties
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/collection/67937/properties
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -403,7 +411,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67637&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67937&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -412,14 +420,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67637&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/67937&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67636&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67936&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Using a name:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/products/properties&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
@@ -442,7 +450,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67644&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67944&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -451,14 +459,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67644&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/67944&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67643&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67943&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=get-the-document-count-of-a-collection>Get the document count of a collection <a href=/3.11/develop/http-api/collections/#get-the-document-count-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/count</span></div><div class="openapi-description regular-font">Get the number of documents in a collection.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-document-count-of-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
@@ -630,7 +638,7 @@ Stream Transaction that has just been canceled or timed out.</p></div></details>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67651&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67951&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -640,14 +648,14 @@ Stream Transaction that has just been canceled or timed out.</p></div></details>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67651&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/67951&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>67854</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>68154</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67650&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67950&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=get-the-collection-statistics>Get the collection statistics <a href=/3.11/develop/http-api/collections/#get-the-collection-statistics class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/figures</span></div><div class="openapi-description regular-font">Get the number of documents and additional statistical information
 about the collection.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-collection-statistics_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
@@ -874,9 +882,9 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;figures&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;indexes&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;size&#34;</span> : <span class=m>2697</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;size&#34;</span> : <span class=m>2698</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;documentsSize&#34;</span> : 3499, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;documentsSize&#34;</span> : 3546, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheInUse&#34;</span> : false, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheSize&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheUsage&#34;</span> : <span class=m>0</span> 
@@ -886,7 +894,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67858&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68158&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -896,14 +904,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67858&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68158&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>67863</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>68163</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67857&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68157&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/products/figures?details=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
@@ -926,7 +934,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;size&#34;</span> : <span class=m>1233</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;documentsSize&#34;</span> : 1731, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;documentsSize&#34;</span> : 5601, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheInUse&#34;</span> : false, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheSize&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cacheUsage&#34;</span> : 0, 
@@ -946,7 +954,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67867&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68167&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -956,14 +964,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67867&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68167&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>67872</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>68172</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67866&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68166&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=get-the-responsible-shard-for-a-document>Get the responsible shard for a document <a href=/3.11/develop/http-api/collections/#get-the-responsible-shard-for-a-document class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/responsibleShard</span></div><div class="openapi-description regular-font"><p>Returns the ID of the shard that is responsible for the given document
 (if the document exists) or that would be responsible if such document
@@ -1037,7 +1045,7 @@ collection&rsquo;s shard key attributes are present in the input document.</p><u
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;shardId&#34;</span> : <span class=s2>&#34;s8010026&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;shardId&#34;</span> : <span class=s2>&#34;s6010030&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=get-the-shard-ids-of-a-collection>Get the shard IDs of a collection <a href=/3.11/develop/http-api/collections/#get-the-shard-ids-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/shards</span></div><div class="openapi-description regular-font"><p>Returns a JSON array with the shard IDs of the collection.</p><p>If the <code>details</code> parameter is set to <code>true</code>, it returns a JSON object with the
 shard IDs as object attribute keys, and the responsible servers for each shard mapped to them.
@@ -1093,7 +1101,7 @@ In the detailed response, the leader shards come first in the arrays.</p><div cl
 </span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=s2>&#34;{\&#34;error\&#34;:false,\&#34;code\&#34;:200,\&#34;shards\&#34;:[\&#34;s8010030\&#34;,\&#34;s8010031\&#34;,\&#34;s8010032\&#34;],\&#34;writeConcern\&#34;:1,\&#34;waitForSync\&#34;:false,\&#34;usesRevisionsAsDocumentIds\&#34;:true,\&#34;syncByRevision\&#34;:true,\&#34;shardingStrategy\&#34;:\&#34;hash\&#34;,\&#34;schema\&#34;:null,\&#34;numberOfShards\&#34;:3,\&#34;minReplicationFactor\&#34;:1,\&#34;id\&#34;:\&#34;8010029\&#34;,\&#34;isSmartChild\&#34;:false,\&#34;name\&#34;:\&#34;testCollection\&#34;,\&#34;statusString\&#34;:\&#34;loaded\&#34;,\&#34;isSmart\&#34;:false,\&#34;replicationFactor\&#34;:1,\&#34;type\&#34;:2,\&#34;status\&#34;:3,\&#34;cacheEnabled\&#34;:false,\&#34;isSystem\&#34;:false,\&#34;computedValues\&#34;:null,\&#34;internalValidatorType\&#34;:0,\&#34;globallyUniqueId\&#34;:\&#34;c8010029/\&#34;,\&#34;shardKeys\&#34;:[\&#34;_key\&#34;],\&#34;isDisjoint\&#34;:false,\&#34;keyOptions\&#34;:{\&#34;allowUserKeys\&#34;:true,\&#34;type\&#34;:\&#34;traditional\&#34;}}&#34;</span></span></span></code></pre></div></div></div><br><p>Retrieves the list of shards with the responsible servers:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/testCollection/shards?details=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl><span class=s2>&#34;{\&#34;error\&#34;:false,\&#34;code\&#34;:200,\&#34;shards\&#34;:[\&#34;s6010034\&#34;,\&#34;s6010035\&#34;,\&#34;s6010036\&#34;],\&#34;writeConcern\&#34;:1,\&#34;waitForSync\&#34;:false,\&#34;usesRevisionsAsDocumentIds\&#34;:true,\&#34;syncByRevision\&#34;:true,\&#34;shardingStrategy\&#34;:\&#34;hash\&#34;,\&#34;schema\&#34;:null,\&#34;numberOfShards\&#34;:3,\&#34;minReplicationFactor\&#34;:1,\&#34;id\&#34;:\&#34;6010033\&#34;,\&#34;isSmartChild\&#34;:false,\&#34;name\&#34;:\&#34;testCollection\&#34;,\&#34;statusString\&#34;:\&#34;loaded\&#34;,\&#34;isSmart\&#34;:false,\&#34;replicationFactor\&#34;:1,\&#34;type\&#34;:2,\&#34;status\&#34;:3,\&#34;cacheEnabled\&#34;:false,\&#34;isSystem\&#34;:false,\&#34;computedValues\&#34;:null,\&#34;internalValidatorType\&#34;:0,\&#34;globallyUniqueId\&#34;:\&#34;c6010033/\&#34;,\&#34;shardKeys\&#34;:[\&#34;_key\&#34;],\&#34;isDisjoint\&#34;:false,\&#34;keyOptions\&#34;:{\&#34;allowUserKeys\&#34;:true,\&#34;type\&#34;:\&#34;traditional\&#34;}}&#34;</span></span></span></code></pre></div></div></div><br><p>Retrieves the list of shards with the responsible servers:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/testCollection/shards?details=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1107,7 +1115,7 @@ In the detailed response, the leader shards come first in the arrays.</p><div cl
 </span></span><span class=line><span class=cl>x-arango-queue-time-seconds: 0.000000
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=s2>&#34;{\&#34;error\&#34;:false,\&#34;code\&#34;:200,\&#34;shards\&#34;:{\&#34;s8010036\&#34;:[\&#34;PRMR-7854da1c-6663-49c9-bcb2-1e0fa93f6e6a\&#34;],\&#34;s8010037\&#34;:[\&#34;PRMR-9cae31b1-9f7a-4ee0-96e5-76f3299632d5\&#34;],\&#34;s8010038\&#34;:[\&#34;PRMR-d1a9e2da-69f7-437e-872f-d516ac5bfc5f\&#34;]},\&#34;writeConcern\&#34;:1,\&#34;waitForSync\&#34;:false,\&#34;usesRevisionsAsDocumentIds\&#34;:true,\&#34;syncByRevision\&#34;:true,\&#34;shardingStrategy\&#34;:\&#34;hash\&#34;,\&#34;schema\&#34;:null,\&#34;numberOfShards\&#34;:3,\&#34;minReplicationFactor\&#34;:1,\&#34;id\&#34;:\&#34;8010035\&#34;,\&#34;isSmartChild\&#34;:false,\&#34;name\&#34;:\&#34;testCollection\&#34;,\&#34;statusString\&#34;:\&#34;loaded\&#34;,\&#34;isSmart\&#34;:false,\&#34;replicationFactor\&#34;:1,\&#34;type\&#34;:2,\&#34;status\&#34;:3,\&#34;cacheEnabled\&#34;:false,\&#34;isSystem\&#34;:false,\&#34;computedValues\&#34;:null,\&#34;internalValidatorType\&#34;:0,\&#34;globallyUniqueId\&#34;:\&#34;c8010035/\&#34;,\&#34;shardKeys\&#34;:[\&#34;_key\&#34;],\&#34;isDisjoint\&#34;:false,\&#34;keyOptions\&#34;:{\&#34;allowUserKeys\&#34;:true,\&#34;type\&#34;:\&#34;traditional\&#34;}}&#34;</span></span></span></code></pre></div></div></div><br><h3 id=get-the-collection-revision-id>Get the collection revision ID <a href=/3.11/develop/http-api/collections/#get-the-collection-revision-id class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;{\&#34;error\&#34;:false,\&#34;code\&#34;:200,\&#34;shards\&#34;:{\&#34;s6010040\&#34;:[\&#34;PRMR-6db41c10-5f6a-4dad-901e-eea212248fe3\&#34;],\&#34;s6010041\&#34;:[\&#34;PRMR-21cb1072-7e9e-49b2-a09a-0939cdc68525\&#34;],\&#34;s6010042\&#34;:[\&#34;PRMR-23a9538c-b4d7-4f6c-9a41-0fcb3f0776fd\&#34;]},\&#34;writeConcern\&#34;:1,\&#34;waitForSync\&#34;:false,\&#34;usesRevisionsAsDocumentIds\&#34;:true,\&#34;syncByRevision\&#34;:true,\&#34;shardingStrategy\&#34;:\&#34;hash\&#34;,\&#34;schema\&#34;:null,\&#34;numberOfShards\&#34;:3,\&#34;minReplicationFactor\&#34;:1,\&#34;id\&#34;:\&#34;6010039\&#34;,\&#34;isSmartChild\&#34;:false,\&#34;name\&#34;:\&#34;testCollection\&#34;,\&#34;statusString\&#34;:\&#34;loaded\&#34;,\&#34;isSmart\&#34;:false,\&#34;replicationFactor\&#34;:1,\&#34;type\&#34;:2,\&#34;status\&#34;:3,\&#34;cacheEnabled\&#34;:false,\&#34;isSystem\&#34;:false,\&#34;computedValues\&#34;:null,\&#34;internalValidatorType\&#34;:0,\&#34;globallyUniqueId\&#34;:\&#34;c6010039/\&#34;,\&#34;shardKeys\&#34;:[\&#34;_key\&#34;],\&#34;isDisjoint\&#34;:false,\&#34;keyOptions\&#34;:{\&#34;allowUserKeys\&#34;:true,\&#34;type\&#34;:\&#34;traditional\&#34;}}&#34;</span></span></span></code></pre></div></div></div><br><h3 id=get-the-collection-revision-id>Get the collection revision ID <a href=/3.11/develop/http-api/collections/#get-the-collection-revision-id class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/revision</span></div><div class="openapi-description regular-font">The response contains the collection&rsquo;s latest used revision ID.
 The revision ID is a server-generated string that clients can use to
 check whether data in a collection has changed since the last revision check.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-the-collection-revision-id_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
@@ -1290,17 +1298,17 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;revision&#34;</span> : <span class=s2>&#34;54&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67876&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68176&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67875&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68175&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67876&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68176&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
@@ -1375,10 +1383,10 @@ is returned.</p></div></details></li></ul></div></div></div><p><strong>Examples<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67883&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;revision&#34;</span> : <span class=s2>&#34;_jOk2bIy---&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67883&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;checksum&#34;</span> : <span class=s2>&#34;13615993272616214278&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68183&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;revision&#34;</span> : <span class=s2>&#34;_jt3Zc92--_&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68183&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;checksum&#34;</span> : <span class=s2>&#34;17280409625463707261&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Retrieving the checksum of a collection including the collection data,
 but not the revisions:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/products/checksum?withRevisions=false&amp;withData=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
@@ -1401,10 +1409,10 @@ but not the revisions:</p><div class=highlight><pre tabindex=0 class=chroma><cod
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67892&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;revision&#34;</span> : <span class=s2>&#34;_jOk2bJK--_&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67892&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;checksum&#34;</span> : <span class=s2>&#34;5773383591829908751&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68192&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;revision&#34;</span> : <span class=s2>&#34;_jt3Zd-q---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68192&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;checksum&#34;</span> : <span class=s2>&#34;3607295829036387123&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=create-and-delete-collections>Create and delete collections <a href=/3.11/develop/http-api/collections/#create-and-delete-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=create-a-collection>Create a collection <a href=/3.11/develop/http-api/collections/#create-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection</span></div><div class="openapi-description regular-font">Creates a new collection with a given name. The request must contain an
 object with the following attributes.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=create-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
@@ -1771,7 +1779,7 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67901&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68201&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;testCollectionBasics&#34;</span>, 
@@ -1780,14 +1788,14 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67901&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68201&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67900&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68200&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -1812,7 +1820,7 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67906&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68206&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;testCollectionEdges&#34;</span>, 
@@ -1821,14 +1829,14 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67906&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68206&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67905&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68205&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/collection&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;name&#34;: &#34;testCollectionUsers&#34;,
@@ -1859,7 +1867,7 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67915&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68215&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;testCollectionUsers&#34;</span>, 
@@ -1868,7 +1876,7 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67915&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68215&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;autoincrement&#34;</span>, 
@@ -1877,7 +1885,7 @@ has an invalid value.</p><ul class=openapi-table><div class=openapi-table-title>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67914&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68214&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=drop-a-collection>Drop a collection <a href=/3.11/develop/http-api/collections/#drop-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-delete">DELETE</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}</span></div><div class="openapi-description regular-font">Delete the collection identified by <code>collection-name</code> and all its documents.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=drop-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
@@ -1915,7 +1923,7 @@ must be set to <code>true</code> in order to drop a system collection.</p></div>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#drop-a-collection_res_404_errorMessage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>A descriptive error message.</p></div></details></li><li class="openapi-table-row regular-font"><details id=drop-a-collection_res_404_errorNum><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">errorNum*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
-<a href=#drop-a-collection_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/67921&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#drop-a-collection_res_404_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>ArangoDB error number for the error that occurred.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using an identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/68221&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1931,7 +1939,7 @@ must be set to <code>true</code> in order to drop a system collection.</p></div>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67921&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68221&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Using a name:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/products1&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
@@ -1948,7 +1956,7 @@ must be set to <code>true</code> in order to drop a system collection.</p></div>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67927&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68227&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Dropping a system collection</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/collection/_example?isSystem=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
@@ -1965,7 +1973,7 @@ must be set to <code>true</code> in order to drop a system collection.</p></div>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67933&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68233&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=truncate-a-collection>Truncate a collection <a href=/3.11/develop/http-api/collections/#truncate-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/truncate</span></div><div class="openapi-description regular-font">Removes all documents from the collection, but leaves the indexes intact.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=truncate-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
@@ -2041,12 +2049,12 @@ Stream Transaction that has just been canceled or timed out.</p><ul class=openap
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67938&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68238&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67938&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68238&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=modify-collections>Modify collections <a href=/3.11/develop/http-api/collections/#modify-collections class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=change-the-properties-of-a-collection>Change the properties of a collection <a href=/3.11/develop/http-api/collections/#change-the-properties-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/properties</span></div><div class="openapi-description regular-font">Changes the properties of a collection. Only the provided attributes are
 updated. Collection properties <strong>cannot be changed</strong> once a collection is
@@ -2301,7 +2309,7 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;usesRevisionsAsDocumentIds&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;statusString&#34;</span> : <span class=s2>&#34;loaded&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67945&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68245&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSmartChild&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> : null, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
@@ -2310,14 +2318,14 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;cacheEnabled&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;internalValidatorType&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67945&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68245&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;allowUserKeys&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;traditional&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;lastValue&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;computedValues&#34;</span> : null, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;67944&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;objectId&#34;</span> : <span class=s2>&#34;68244&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=load-collection-indexes-into-memory>Load collection indexes into memory <a href=/3.11/develop/http-api/collections/#load-collection-indexes-into-memory class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/loadIndexesIntoMemory</span></div><div class="openapi-description regular-font"><p>You can call this endpoint to try to cache this collection&rsquo;s index entries in
 the main memory. Index lookups served from the memory cache can be much faster
@@ -2561,12 +2569,12 @@ startup option as default, which defaults to <code>1</code>. <em>(cluster only)<
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67959&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68259&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;newname&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67959&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68259&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=recalculate-the-document-count-of-a-collection>Recalculate the document count of a collection <a href=/3.11/develop/http-api/collections/#recalculate-the-document-count-of-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/recalculateCount</span></div><div class="openapi-description regular-font">Recalculates the document count of a collection, if it ever becomes inconsistent.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=recalculate-the-document-count-of-a-collection_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
@@ -2660,12 +2668,12 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67967&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68267&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;testCollection&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67967&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68267&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=load-a-collection>Load a collection <a href=/3.11/develop/http-api/collections/#load-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/load</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>The load function is deprecated from version 3.8.0 onwards and is a no-op
 from version 3.9.0 onwards. It should no longer be used, as it may be removed
@@ -2734,12 +2742,12 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67973&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68273&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67973&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68273&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=unload-a-collection>Unload a collection <a href=/3.11/develop/http-api/collections/#unload-a-collection class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/collection/{collection-name}/unload</span></div><div class="openapi-description regular-font"><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>The unload function is deprecated from version 3.8.0 onwards and is a no-op
 from version 3.9.0 onwards. It should no longer be used, as it may be removed
@@ -2805,12 +2813,12 @@ an underscore are usually system collections.</p></div></details></li><li class=
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 200, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h42FE6B944B83/67980&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> : <span class=s2>&#34;h68138D6305DA/68280&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : 3, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;type&#34;</span> : 2, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;products&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;67980&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;68280&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.11/develop/http-api/databases/><i class="fas fa-chevron-left fa-fw"></i><p>Databases</p></a></span><span class=next><a class="nav nav-next link" href=/3.11/develop/http-api/documents/><p>Documents</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.11/develop/http-api/collections.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#addresses-of-collections>Addresses of collections</a></div><div class=level-2><a href=#get-information-about-collections>Get information about collections</a></div><div class=level-3><a href=#list-all-collections>List all collections</a></div><div class=level-3><a href=#get-the-collection-information>Get the collection information</a></div><div class=level-3><a href=#get-the-properties-of-a-collection>Get the properties of a collection</a></div><div class=level-3><a href=#get-the-document-count-of-a-collection>Get the document count of a collection</a></div><div class=level-3><a href=#get-the-collection-statistics>Get the collection statistics</a></div><div class=level-3><a href=#get-the-responsible-shard-for-a-document>Get the responsible shard for a document</a></div><div class=level-3><a href=#get-the-shard-ids-of-a-collection>Get the shard IDs of a collection</a></div><div class=level-3><a href=#get-the-collection-revision-id>Get the collection revision ID</a></div><div class=level-3><a href=#get-the-collection-checksum>Get the collection checksum</a></div><div class=level-2><a href=#create-and-delete-collections>Create and delete collections</a></div><div class=level-3><a href=#create-a-collection>Create a collection</a></div><div class=level-3><a href=#drop-a-collection>Drop a collection</a></div><div class=level-3><a href=#truncate-a-collection>Truncate a collection</a></div><div class=level-2><a href=#modify-collections>Modify collections</a></div><div class=level-3><a href=#change-the-properties-of-a-collection>Change the properties of a collection</a></div><div class=level-3><a href=#load-collection-indexes-into-memory>Load collection indexes into memory</a></div><div class=level-3><a href=#rename-a-collection>Rename a collection</a></div><div class=level-3><a href=#recalculate-the-document-count-of-a-collection>Recalculate the document count of a collection</a></div><div class=level-3><a href=#compact-a-collection>Compact a collection</a></div><div class=level-3><a href=#load-a-collection>Load a collection</a></div><div class=level-3><a href=#unload-a-collection>Unload a collection</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
 <script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
 <script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

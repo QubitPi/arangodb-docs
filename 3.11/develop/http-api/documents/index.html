@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1747875309></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1748038512></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for documents lets you create, read, update, and delete documents in collections, either one or multiple at a time"><meta property="og:url" content="http://localhost/3.11/develop/http-api/documents/"><meta property="og:title" content="HTTP interface for documents"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for documents lets you create, read, update, and delete documents in collections, either one or multiple at a time"><meta name=docsearch:version content="3.11"><title>HTTP interface for documents | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1747875309 defer></script>
-<script src=/js/featherlight.min.js?1747875309 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.13"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1747875309 defer></script>
-<script src=/js/theme.js?1747875309 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.13</span></a>
+<script src=/js/clipboard.min.js?1748038512 defer></script>
+<script src=/js/featherlight.min.js?1748038512 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!1,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1748038512 defer></script>
+<script src=/js/theme.js?1748038512 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.11"><a itemprop=item class=link href=/3.11/><span itemprop=name class=breadcrumb-entry>3.11.14</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.11/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.11/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Documents"><a itemprop=item class=link href=/3.11/develop/http-api/documents/><span itemprop=name class=breadcrumb-entry>Documents</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for documents</h1><p class=lead>The HTTP API for documents lets you create, read, update, and delete documents in collections, either one or multiple at a time</p></hgroup><p>The basic operations for documents are mapped to the standard HTTP methods:</p><ul><li>Create: <code>POST</code></li><li>Read: <code>GET</code></li><li>Update: <code>PATCH</code> (partially modify)</li><li>Replace: <code>PUT</code></li><li>Delete: <code>DELETE</code></li><li>Check: <code>HEAD</code> (test for existence and get document metadata)</li></ul><h2 id=addresses-of-documents>Addresses of documents <a href=/3.11/develop/http-api/documents/#addresses-of-documents class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>Any document can be retrieved using its unique URI:</p><pre tabindex=0><code>http://server:port/_api/document/&lt;document-identifier&gt;
@@ -68,13 +68,13 @@ Stream Transaction that has just been canceled or timed out.</p></div></details>
 <a href=#get-a-document_res_412><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An <code>If-Match</code> header is specified and the found
 document has a different revision. The response includes the found
 document&rsquo;s current revision in the <code>_rev</code> attribute. Additionally, the
-<code>_id</code> and <code>_key</code> attributes are returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Use a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68119&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<code>_id</code> and <code>_key</code> attributes are returned.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Use a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68419&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>76</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bbq--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdQy--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -83,17 +83,17 @@ document&rsquo;s current revision in the <code>_rev</code> attribute. Additional
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68119&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68119&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bbq--_&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68419&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68419&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdQy--_&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hello&#34;</span> : <span class=s2>&#34;world&#34;</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Use a document identifier and an ETag:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;If-None-Match: &#34;_jOk2bcS---&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68128&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>304</span> Not Modified
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Use a document identifier and an ETag:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;If-None-Match: &#34;_jt3ZdRG--_&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68428&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>304</span> Not Modified
 </span></span><span class=line><span class=cl>content-type: text/plain
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>0</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bcS---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdRG--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -159,13 +159,13 @@ Stream Transaction that has just been canceled or timed out.</p></div></details>
 <span class="openapi-property-type bold-text">Precondition Failed</span>
 <a href=#get-a-document-header_res_412><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>An <code>If-Match</code> header is given and the found
 document has a different version. The response includes the found
-document&rsquo;s current revision in the <code>ETag</code> header.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X HEAD --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68144&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+document&rsquo;s current revision in the <code>ETag</code> header.</p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X HEAD --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68444&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>76</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bde--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdSe---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -309,9 +309,9 @@ key.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-b
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>60</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2beW--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdTu--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68153
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68453
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -319,9 +319,9 @@ key.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-b
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68153&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68153&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2beW--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68453&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68453&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdTu--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Create a document in a collection named <code>products</code> with a collection-level
 <code>waitForSync</code> value of <code>false</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{ &#34;Hello&#34;: &#34;World&#34; }
@@ -331,9 +331,9 @@ key.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-b
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>60</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2be2--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdUO--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68161
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68461
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -341,9 +341,9 @@ key.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-b
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68161&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68161&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2be2--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68461&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68461&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdUO--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Create a document in a collection with a collection-level <code>waitForSync</code>
 value of <code>false</code>, but using the <code>waitForSync</code> query parameter.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products?waitForSync=true&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{ &#34;Hello&#34;: &#34;World&#34; }
@@ -353,9 +353,9 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>60</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bfq---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdV---_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68169
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68469
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -363,9 +363,9 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68169&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68169&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bfq---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68469&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68469&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdV---_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Unknown collection name</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{ &#34;Hello&#34;: &#34;World&#34; }
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
@@ -414,9 +414,9 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>143</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bhm--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdXe---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68184
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68484
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -424,13 +424,13 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68184&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68184&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bhm--_&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68484&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68484&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdXe---&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;new&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68184&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68184&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bhm--_&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68484&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68484&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdXe---&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;Hello&#34;</span> : <span class=s2>&#34;World&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
@@ -445,7 +445,7 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>58</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2biS--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdY----&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/lock
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -457,7 +457,7 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/lock&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;lock&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2biS--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdY----&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -467,7 +467,7 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>82</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bii---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdYO---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/lock
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -479,8 +479,8 @@ value of <code>false</code>, but using the <code>waitForSync</code> query parame
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/lock&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;lock&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bii---&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2biS--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdYO---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3ZdY----&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=replace-a-document>Replace a document <a href=/3.11/develop/http-api/documents/#replace-a-document class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/document/{collection}/{key}</span></div><div class="openapi-description regular-font"><p>Replaces the specified document with the one in the body, provided there is
 such a document and no precondition is violated.</p><p>The values of the <code>_key</code>, <code>_id</code>, and <code>_rev</code> system attributes as well as
@@ -592,7 +592,7 @@ is <code>2</code> and the replication factor is <code>3</code>, then the write c
 if two replicas are not in-sync.</p><p>Note that the HTTP status code is configurable via the
 <code>--cluster.failed-write-concern-status-code</code> startup option. It defaults to <code>403</code>
 but can be changed to <code>503</code> to signal client applications that it is a
-temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using a document identifier</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68200&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using a document identifier</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68500&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{&#34;Hello&#34;: &#34;you&#34;}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
 </span></span><span class=line><span class=cl>content-type: application/json
@@ -600,9 +600,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>84</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bj2--A&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdZO---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68200
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68500
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -610,11 +610,11 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68200&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68200&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bj2--A&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2bj2--_&#34;</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Unknown document identifier</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68209&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68500&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68500&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdZO---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3ZdZK--_&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Unknown document identifier</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68509&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
 </span></span><span class=line><span class=cl>content-type: application/json
@@ -634,7 +634,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;document not found&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>1202</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Produce a revision conflict</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;If-Match: &#34;_jOk2blG---&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68219&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Produce a revision conflict</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;If-Match: &#34;_jt3Zdaa---&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68519&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{&#34;other&#34;:&#34;content&#34;}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>412</span> Precondition Failed
 </span></span><span class=line><span class=cl>content-type: application/json
@@ -642,7 +642,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>152</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bl---_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdaW--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -655,9 +655,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 412, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : 1200, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;conflict, _rev values do not match&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68219&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68219&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bl---_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68519&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68519&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdaW--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=update-a-document>Update a document <a href=/3.11/develop/http-api/documents/#update-a-document class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-patch">PATCH</span>
 <span class=endpoint-path>/_db/{database-name}/_api/document/{collection}/{key}</span></div><div class="openapi-description regular-font"><p>Partially updates the document identified by the <em>document ID</em>.
 The body of the request must contain a JSON document with the
@@ -787,13 +787,13 @@ is <code>2</code> and the replication factor is <code>3</code>, then the write c
 if two replicas are not in-sync.</p><p>Note that the HTTP status code is configurable via the
 <code>--cluster.failed-write-concern-status-code</code> startup option. It defaults to <code>403</code>
 but can be changed to <code>503</code> to signal client applications that it is a
-temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Patches an existing document with new content.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68231&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Patches an existing document with new content.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68531&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;hello&#34;: &#34;world&#34;
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68231&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68531&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;numbers&#34;: {
 </span></span></span><span class=line><span class=cl><span class=s>    &#34;one&#34;: 1,
@@ -804,9 +804,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68231&#39;</span>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68531&#39;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68231?keepNull=false&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68531?keepNull=false&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;hello&#34;: null,
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;numbers&#34;: {
@@ -815,15 +815,15 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68231&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68531&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>202</span> Accepted
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>84</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bmG---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdbe--A&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68231
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68531
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -831,10 +831,10 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bmG---&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2bmC--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdbe--A&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3Zdbe--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -844,9 +844,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>84</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bmG--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdbi---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68231
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68531
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -854,10 +854,10 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bmG--_&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2bmG---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdbi---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3Zdbe--A&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -867,7 +867,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>141</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bmG--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdbi---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -876,9 +876,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bmG--_&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdbi---&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;one&#34;</span> : <span class=s2>&#34;world&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hello&#34;</span> : <span class=s2>&#34;world&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;numbers&#34;</span> : <span class=o>{</span> 
@@ -896,9 +896,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>84</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bmi---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdbm---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68231
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68531
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -906,10 +906,10 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bmi---&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2bmG--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdbm---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3Zdbi---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -919,7 +919,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>134</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bmi---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdbm---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -928,9 +928,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68231&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bmi---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68531&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdbm---&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;one&#34;</span> : <span class=s2>&#34;world&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;numbers&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;one&#34;</span> : 1, 
@@ -939,9 +939,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;empty&#34;</span> : null, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;four&#34;</span> : <span class=m>4</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Merging attributes of an object using <code>mergeObjects</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68244&#39;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Merging attributes of an object using <code>mergeObjects</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68544&#39;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68244?mergeObjects=true&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68544?mergeObjects=true&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;inhabitants&#34;: {
 </span></span></span><span class=line><span class=cl><span class=s>    &#34;indonesia&#34;: 252164800,
@@ -950,9 +950,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68244&#39;</span>
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68544&#39;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68244?mergeObjects=false&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span><span class=line><span class=cl>curl -X PATCH --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68544?mergeObjects=false&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>{
 </span></span></span><span class=line><span class=cl><span class=s>  &#34;inhabitants&#34;: {
 </span></span></span><span class=line><span class=cl><span class=s>    &#34;pakistan&#34;: 188346000
@@ -960,13 +960,13 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68244&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68544&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>130</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bna---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdcW--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -975,9 +975,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bna---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdcW--_&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;inhabitants&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;china&#34;</span> : 1366980000, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;india&#34;</span> : 1263590000, 
@@ -992,7 +992,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>171</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bna--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdca---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -1001,9 +1001,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bna--_&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdca---&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;inhabitants&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;china&#34;</span> : 1366980000, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;india&#34;</span> : 1263590000, 
@@ -1020,9 +1020,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>84</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bne---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdce---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68244
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68544
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -1030,10 +1030,10 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bne---&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jOk2bna--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdce---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> : <span class=s2>&#34;_jt3Zdca---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
@@ -1043,7 +1043,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>97</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bne---&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zdce---&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -1052,9 +1052,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68244&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bne---&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68544&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdce---&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;inhabitants&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;pakistan&#34;</span> : <span class=m>188346000</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
@@ -1135,15 +1135,15 @@ is <code>2</code> and the replication factor is <code>3</code>, then the write c
 if two replicas are not in-sync.</p><p>Note that the HTTP status code is configurable via the
 <code>--cluster.failed-write-concern-status-code</code> startup option. It defaults to <code>403</code>
 but can be changed to <code>503</code> to signal client applications that it is a
-temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68257&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><p>Using document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68557&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>60</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2boO--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3Zddu--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
-</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68257
+</span></span><span class=line><span class=cl>location: /_db/_system/_api/document/products/68557
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
 </span></span><span class=line><span class=cl>strict-transport-security: max-age<span class=o>=</span><span class=m>31536000</span> <span class=p>;</span> includeSubDomains
@@ -1151,10 +1151,10 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68257&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68257&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2boO--_&#34;</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Unknown document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68266&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68557&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68557&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zddu--_&#34;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Unknown document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68566&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>404</span> Not Found
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1172,13 +1172,13 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;document not found&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : <span class=m>1202</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Revision conflict:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;If-Match: &#34;_jOk2bqO--A&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68276&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>412</span> Precondition Failed
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Revision conflict:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;If-Match: &#34;_jt3ZdfW--A&#34;&#39;</span> --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products/68576&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>412</span> Precondition Failed
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
 </span></span><span class=line><span class=cl>content-length: <span class=m>152</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jOk2bqO--_&#34;</span>
+</span></span><span class=line><span class=cl>etag: <span class=s2>&#34;_jt3ZdfW--_&#34;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
 </span></span><span class=line><span class=cl>server: ArangoDB
@@ -1191,9 +1191,9 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : 412, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorNum&#34;</span> : 1200, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;errorMessage&#34;</span> : <span class=s2>&#34;conflict, _rev values do not match&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68276&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68276&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bqO--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68576&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68576&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdfW--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=document-etags>Document ETags <a href=/3.11/develop/http-api/documents/#document-etags class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>ArangoDB tries to adhere to the existing HTTP standard as far as
 possible. To this end, results of single document queries have the <code>ETag</code>
 HTTP header set to the <a href=/3.11/concepts/data-structure/documents/#document-revisions class=link>document revision</a>
@@ -1280,13 +1280,13 @@ Stream Transaction that has just been canceled or timed out.</p></div></details>
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;doc1&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/doc1&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2brO---&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdgO---&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;hello&#34;</span> : <span class=s2>&#34;world&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;doc2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/doc2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2brO--_&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdgO--_&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;say&#34;</span> : <span class=s2>&#34;hi to mom&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><h3 id=create-multiple-documents>Create multiple documents <a href=/3.11/develop/http-api/documents/#create-multiple-documents class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-post">POST</span>
@@ -1431,19 +1431,19 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>[</span> 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68297&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68297&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2br6---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68597&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68597&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdhO---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68298&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68298&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2br6--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68598&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68598&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdhO--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68299&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68299&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2br6--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68599&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68599&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdhO--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Use of returnNew:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products?returnNew=true&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>[{&#34;Hello&#34;:&#34;Earth&#34;}, {&#34;Hello&#34;:&#34;Venus&#34;}, {&#34;Hello&#34;:&#34;Mars&#34;}]
@@ -1462,35 +1462,35 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>[</span> 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68307&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68307&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--_&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68607&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68607&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--_&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;new&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68307&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68307&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--_&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68607&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68607&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;Hello&#34;</span> : <span class=s2>&#34;Earth&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68308&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68308&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--A&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68608&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68608&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--A&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;new&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68308&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68308&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--A&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68608&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68608&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--A&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;Hello&#34;</span> : <span class=s2>&#34;Venus&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68309&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68309&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--B&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68609&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68609&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--B&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;new&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68309&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68309&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bsO--B&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;68609&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/68609&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdh6--B&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;Hello&#34;</span> : <span class=s2>&#34;Mars&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
@@ -1519,7 +1519,7 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/abc&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;abc&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2btm---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdim---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><h3 id=replace-multiple-documents>Replace multiple documents <a href=/3.11/develop/http-api/documents/#replace-multiple-documents class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_api/document/{collection}</span></div><div class="openapi-description regular-font"><p>Replaces multiple documents in the specified collection with the
@@ -1845,12 +1845,12 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/1&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2buu--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdkG--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2buu--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdkG--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Using document identifiers:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>[
@@ -1874,12 +1874,12 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/1&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bvq---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdk6--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bvq--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdk6--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Using objects with document keys:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>[
@@ -1907,12 +1907,12 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/1&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bwi--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdmC--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2bwi--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3ZdmC--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Unknown documents:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>[
@@ -1948,11 +1948,11 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span></span><span class=line><span class=cl><span class=s>[
 </span></span></span><span class=line><span class=cl><span class=s>  {
 </span></span></span><span class=line><span class=cl><span class=s>    &#34;_key&#34;: &#34;1&#34;,
-</span></span></span><span class=line><span class=cl><span class=s>    &#34;_rev&#34;: &#34;_jOk2by6--_&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;_rev&#34;: &#34;_jt3Zdn6---&#34;
 </span></span></span><span class=line><span class=cl><span class=s>  },
 </span></span></span><span class=line><span class=cl><span class=s>  {
 </span></span></span><span class=line><span class=cl><span class=s>    &#34;_key&#34;: &#34;2&#34;,
-</span></span></span><span class=line><span class=cl><span class=s>    &#34;_rev&#34;: &#34;_jOk2by6--A&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;_rev&#34;: &#34;_jt3Zdn6--_&#34;
 </span></span></span><span class=line><span class=cl><span class=s>  }
 </span></span></span><span class=line><span class=cl><span class=s>]
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
@@ -1972,12 +1972,12 @@ temporary error.</p></p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/1&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;1&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2by6--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdn6---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jOk2by6--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jt3Zdn6--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>]</span></span></span></code></pre></div></div></div><br><p>Revision conflict:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --data-binary @- --dump - <span class=s1>&#39;http://localhost:8529/_api/document/products?ignoreRevs=false&#39;</span> <span class=s>&lt;&lt;&#39;EOF&#39;
 </span></span></span><span class=line><span class=cl><span class=s>[
