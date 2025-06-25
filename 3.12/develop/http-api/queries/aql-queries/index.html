@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750383861></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750819604></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="The HTTP API for AQL queries lets you to execute, track, kill, explain, and validate queries written in ArangoDB&amp;rsquo;s query language"><meta property="og:url" content="http://localhost/3.12/develop/http-api/queries/aql-queries/"><meta property="og:title" content="HTTP interfaces for AQL queries"><meta property="og:type" content="website"><meta property="og:description" content="The HTTP API for AQL queries lets you to execute, track, kill, explain, and validate queries written in ArangoDB&amp;rsquo;s query language"><meta name=docsearch:version content="3.12"><title>HTTP interfaces for AQL queries | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1750383861 defer></script>
-<script src=/js/featherlight.min.js?1750383861 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1750383861 defer></script>
-<script src=/js/theme.js?1750383861 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.4</span></a>
+<script src=/js/clipboard.min.js?1750819604 defer></script>
+<script src=/js/featherlight.min.js?1750819604 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"}</script><script src=/js/codeblocks.js?1750819604 defer></script>
+<script src=/js/theme.js?1750819604 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.5</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Queries"><a itemprop=item class=link href=/3.12/develop/http-api/queries/><span itemprop=name class=breadcrumb-entry>Queries</span></a>
@@ -235,7 +235,7 @@ deployment, then the Coordinator is allowed to read from any shard replica and
 not only from the leader.</p><p>You may observe data inconsistencies (dirty reads) when reading from followers,
 namely obsolete revisions of documents because changes have not yet been
 replicated to the follower, as well as changes to documents before they are
-officially committed on the leader.</p><p>This feature is only available in the Enterprise Edition.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_allowRetry><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">allowRetry</span>
+officially committed on the leader.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_allowRetry><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">allowRetry</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
 <a href=#create-a-cursor_body_options_allowRetry><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Set this option to <code>true</code> to make it possible to retry
 fetching the latest batch from a cursor. The default is <code>false</code>.</p><p>If retrieving a result batch fails because of a connection issue, you can ask
@@ -340,17 +340,17 @@ is served from the query results cache. If set to <code>2</code>, the query incl
 per query plan node in <code>stats.nodes</code> sub-attribute of the <code>extra</code> return attribute.
 Additionally, the query plan is returned in the <code>extra.plan</code> sub-attribute.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_satelliteSyncWait><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">satelliteSyncWait</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
-<a href=#create-a-cursor_body_options_satelliteSyncWait><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>This <em>Enterprise Edition</em> parameter allows to configure how long a DB-Server has time
+<a href=#create-a-cursor_body_options_satelliteSyncWait><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>This parameter allows to configure how long a DB-Server has time
 to bring the SatelliteCollections involved in the query into sync.
 The default value is <code>60.0</code> seconds. When the maximal time is reached, the query
 is stopped.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_skipInaccessibleCollections><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">skipInaccessibleCollections</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
-<a href=#create-a-cursor_body_options_skipInaccessibleCollections><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Let AQL queries (especially graph traversals) treat collections to which a user
+<a href=#create-a-cursor_body_options_skipInaccessibleCollections><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Let AQL queries (especially graph traversals) treat collections to which a user
 has no access rights for as if these collections are empty. Instead of returning a
 forbidden access error, your queries execute normally. This is intended to help
 with certain use-cases: A graph contains several collections and different users
 execute AQL queries on that graph. You can naturally limit the accessible
-results by changing the access rights of users on collections.</p><p>This feature is only available in the Enterprise Edition.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_spillOverThresholdMemoryUsage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">spillOverThresholdMemoryUsage</span>
+results by changing the access rights of users on collections.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_body_options_spillOverThresholdMemoryUsage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">spillOverThresholdMemoryUsage</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
 <a href=#create-a-cursor_body_options_spillOverThresholdMemoryUsage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>This option allows queries to store intermediate and final results temporarily
 on disk if the amount of memory used (in bytes) exceeds the specified value.
@@ -441,7 +441,7 @@ collections that can statically be determined at query compile time.</p><ul clas
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#create-a-cursor_res_201_extra_plan_collections_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The collection name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_res_201_extra_plan_collections_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#create-a-cursor_res_201_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>How the collection is used.</p><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_res_201_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
+<a href=#create-a-cursor_res_201_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p><p class=regular-font>How the collection is used.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_res_201_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
 <a href=#create-a-cursor_res_201_extra_plan_estimatedCost><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The estimated cost of the query.</p></div></details></li><li class="openapi-table-row regular-font"><details id=create-a-cursor_res_201_extra_plan_estimatedNrItems><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedNrItems*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
@@ -636,15 +636,15 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;71937&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/71937&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpIBy---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72249&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72249&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf1Ni--_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello1&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;71939&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/71939&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpIBy--_&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72251&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72251&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf1Nm---&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello2&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
@@ -666,7 +666,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0002627709999956096, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0002562210000007781, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -695,20 +695,20 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;71952&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/71952&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpICS---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72264&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72264&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf1O---_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello1&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;71954&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/71954&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpICS--_&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72266&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72266&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf1O---A&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello2&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;71963&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72275&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -725,7 +725,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00017483600001355626, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00015392399998859219, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -746,7 +746,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>451</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>450</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -787,7 +787,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 500, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;fullCount&#34;</span> : 500, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00025128899997639564, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0002319630000044981, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -812,7 +812,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>413</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>414</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -852,7 +852,7 @@ connectivity issues.</p></div></details></li></ul></div></div></div><p><strong>E
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0001791469999830042, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00022241600001393635, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -872,7 +872,7 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>2951</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2952</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -903,7 +903,7 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.755189176000016, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.7547832550000066, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;nodes&#34;</span> : <span class=o>[</span> 
@@ -913,8 +913,8 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;parallel&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;filtered&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.000003832000004422298, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.0000010490000192930893 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.0000041009999733887526, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.0000014680000219868816 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;id&#34;</span> : 2, 
@@ -922,8 +922,8 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;parallel&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;filtered&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.2516564619999997, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.000006979000005458147 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.25153492600000504, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.00000705499999753556 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;id&#34;</span> : 3, 
@@ -931,8 +931,8 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;parallel&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;filtered&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.7549935860000119, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.25165922700000465 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.7545721579999736, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.2515377990000047 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;id&#34;</span> : 4, 
@@ -940,8 +940,8 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;parallel&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;filtered&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.000006528000000116663, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.000004772000011143973 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.000006482000003416033, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.000005246999990049517 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;id&#34;</span> : 5, 
@@ -949,8 +949,8 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;parallel&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;items&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;filtered&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.7550031539999793, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.7549966740000116 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;runtime&#34;</span> : 0.7545813399999872, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fetching&#34;</span> : 0.7545754159999944 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
@@ -1093,15 +1093,15 @@ execution plan and profiling information</p><div class=highlight><pre tabindex=0
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;isModificationQuery&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;profile&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;initializing&#34;</span> : 0.000002273999996305065, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;parsing&#34;</span> : 0.00004006200001072102, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;optimizing ast&#34;</span> : 0.000003223999982537862, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;loading collections&#34;</span> : 0.000014286999999058025, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;instantiating plan&#34;</span> : 0.00001796200001535908, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;optimizing plan&#34;</span> : 0.0000682929999982207, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;instantiating executors&#34;</span> : 0.000026447999999845706, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executing&#34;</span> : 0.7550184119999983, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;finalizing&#34;</span> : 0.00004428200000461402 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;initializing&#34;</span> : 0.0000022730000068804657, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;parsing&#34;</span> : 0.00003057300000364194, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;optimizing ast&#34;</span> : 0.000003940999988572003, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;loading collections&#34;</span> : 0.0000190250000002834, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;instantiating plan&#34;</span> : 0.000016023000000586762, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;optimizing plan&#34;</span> : 0.00006922500000428045, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;instantiating executors&#34;</span> : 0.00004860300001041651, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executing&#34;</span> : 0.7545945800000027, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;finalizing&#34;</span> : 0.00004921400000057474 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
@@ -1115,7 +1115,7 @@ modified documents</p><div class=highlight><pre tabindex=0 class=chroma><code cl
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>385</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>386</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -1143,7 +1143,7 @@ modified documents</p><div class=highlight><pre tabindex=0 class=chroma><code cl
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.000373019000022623, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0002910370000108742, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 32768, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -1158,7 +1158,7 @@ modified documents</p><div class=highlight><pre tabindex=0 class=chroma><code cl
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>382</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>383</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -1186,7 +1186,7 @@ modified documents</p><div class=highlight><pre tabindex=0 class=chroma><code cl
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0001973639999732768, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00015620400000670998, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -1208,7 +1208,7 @@ with key <code>test</code> in the collection <code>documents</code>. The normal 
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>462</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>463</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -1222,7 +1222,7 @@ with key <code>test</code> in the collection <code>documents</code>. The normal 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;test&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;documents/test&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpI4K---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2E----&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;arr&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>        1, 
 </span></span><span class=line><span class=cl>        2, 
@@ -1248,7 +1248,7 @@ with key <code>test</code> in the collection <code>documents</code>. The normal 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0005728139999803261, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.0004482889999906092, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 32768, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -1383,7 +1383,7 @@ collections that can statically be determined at query compile time.</p><ul clas
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#read-the-next-batch-from-a-cursor_res_200_extra_plan_collections_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The collection name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=read-the-next-batch-from-a-cursor_res_200_extra_plan_collections_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#read-the-next-batch-from-a-cursor_res_200_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>How the collection is used.</p><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=read-the-next-batch-from-a-cursor_res_200_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
+<a href=#read-the-next-batch-from-a-cursor_res_200_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p><p class=regular-font>How the collection is used.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=read-the-next-batch-from-a-cursor_res_200_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
 <a href=#read-the-next-batch-from-a-cursor_res_200_extra_plan_estimatedCost><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The estimated cost of the query.</p></div></details></li><li class="openapi-table-row regular-font"><details id=read-the-next-batch-from-a-cursor_res_200_extra_plan_estimatedNrItems><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedNrItems*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
@@ -1547,7 +1547,7 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72050&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72362&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1563,20 +1563,20 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72043&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72043&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJ_---A&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72355&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72355&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2JS---&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello3&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72045&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72045&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJ_C---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72357&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72357&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2JS--_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello4&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72050&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72362&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -1593,7 +1593,7 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00019935000000259606, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00018414600000937753, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -1671,7 +1671,7 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72072&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+</span></span><span class=line><span class=cl>curl -X PUT --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72384&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -1687,20 +1687,20 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72065&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72065&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJCW---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72377&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72377&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2N----&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello3&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72067&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72067&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJCW--_&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72379&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72379&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2N---_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello4&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72072&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72384&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -1717,7 +1717,7 @@ or connectivity issues.</p></div></details></li></ul></div></div></div><p><stron
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00018180000000711516, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00018758999999590742, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -1810,7 +1810,7 @@ collections that can statically be determined at query compile time.</p><ul clas
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#read-a-batch-from-the-cursor-again_res_200_extra_plan_collections_name><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The collection name.</p></div></details></li><li class="openapi-table-row regular-font"><details id=read-a-batch-from-the-cursor-again_res_200_extra_plan_collections_type><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">type*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#read-a-batch-from-the-cursor-again_res_200_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>How the collection is used.</p><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=read-a-batch-from-the-cursor-again_res_200_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
+<a href=#read-a-batch-from-the-cursor-again_res_200_extra_plan_collections_type><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"read"</code>, <code>"write"</code>, <code>"exclusive"</code></p><p class=regular-font>How the collection is used.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=read-a-batch-from-the-cursor-again_res_200_extra_plan_estimatedCost><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedCost*</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
 <a href=#read-a-batch-from-the-cursor-again_res_200_extra_plan_estimatedCost><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The estimated cost of the query.</p></div></details></li><li class="openapi-table-row regular-font"><details id=read-a-batch-from-the-cursor-again_res_200_extra_plan_estimatedNrItems><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">estimatedNrItems*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
@@ -1987,9 +1987,9 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72081&#39;</span>
+</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72393&#39;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72081/2&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
+</span></span><span class=line><span class=cl>curl -X POST --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72393/2&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -2008,7 +2008,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>    <span class=m>2</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72081&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72393&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -2025,7 +2025,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00015432600000053753, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00016453700001761717, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -2056,7 +2056,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>    <span class=m>4</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72081&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72393&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -2073,7 +2073,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00015432600000053753, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00016453700001761717, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -2104,7 +2104,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>    <span class=m>4</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72081&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72393&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -2121,7 +2121,7 @@ going through a restart, a failure or connectivity issues.</p></div></details></
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00015432600000053753, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00016453700001761717, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -2152,7 +2152,7 @@ returned if a cursor is used after it has been destroyed.</p></div></details></l
 </span></span></span><span class=line><span class=cl><span class=s>}
 </span></span></span><span class=line><span class=cl><span class=s>EOF</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72099&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
+</span></span><span class=line><span class=cl>curl -X DELETE --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/cursor/72411&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>201</span> Created
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
@@ -2168,20 +2168,20 @@ returned if a cursor is used after it has been destroyed.</p></div></details></l
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;result&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72088&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72088&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJHO---&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72400&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72400&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2SS---&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello1&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72090&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72090&#34;</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_jJdpJHO--_&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> : <span class=s2>&#34;72402&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;products/72402&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> : <span class=s2>&#34;_j4Jf2SS--_&#34;</span>, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;hello2&#34;</span> : <span class=s2>&#34;world1&#34;</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>]</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;hasMore&#34;</span> : true, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72099&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72411&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;count&#34;</span> : 5, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;extra&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;warnings&#34;</span> : <span class=o>[</span> <span class=o>]</span>, 
@@ -2198,7 +2198,7 @@ returned if a cursor is used after it has been destroyed.</p></div></details></l
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cacheMisses&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;filtered&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;httpRequests&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00027496499998846957, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;executionTime&#34;</span> : 0.00018665400000372756, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;intermediateCommits&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
@@ -2224,7 +2224,7 @@ returned if a cursor is used after it has been destroyed.</p></div></details></l
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72099&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72411&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>202</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=track-queries>Track queries <a href=/3.12/develop/http-api/queries/aql-queries/#track-queries class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>You can track AQL queries by enabling query tracking. This allows you to list
@@ -2558,7 +2558,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00015894499998125866 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00012773599999604812 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -2570,7 +2570,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>3000</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2999</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -2646,9 +2646,9 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;indexCoversFilterProjections&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;indexes&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>          <span class=o>{</span> 
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72141&#34;</span>, 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72453&#34;</span>, 
 </span></span><span class=line><span class=cl>            <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1822689780598571008&#34;</span>, 
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1835830504873525248&#34;</span>, 
 </span></span><span class=line><span class=cl>            <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>              <span class=s2>&#34;id&#34;</span> 
 </span></span><span class=line><span class=cl>            <span class=o>]</span>, 
@@ -2802,7 +2802,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.0002459349999810456 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.000346011999994289 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -2825,7 +2825,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>3798</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>3797</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -2891,9 +2891,9 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;indexCoversFilterProjections&#34;</span> : false, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;indexes&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72177&#34;</span>, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72489&#34;</span>, 
 </span></span><span class=line><span class=cl>              <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1822689780630028289&#34;</span>, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1835830504898691073&#34;</span>, 
 </span></span><span class=line><span class=cl>              <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>                <span class=s2>&#34;id&#34;</span> 
 </span></span><span class=line><span class=cl>              <span class=o>]</span>, 
@@ -3134,7 +3134,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00021699500001659544 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.0002368840000031014 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -3149,7 +3149,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>2147</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2148</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -3203,9 +3203,9 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;indexCoversFilterProjections&#34;</span> : false, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;indexes&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>            <span class=o>{</span> 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72213&#34;</span>, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;72525&#34;</span>, 
 </span></span><span class=line><span class=cl>              <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;persistent&#34;</span>, 
-</span></span><span class=line><span class=cl>              <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1822689780657291264&#34;</span>, 
+</span></span><span class=line><span class=cl>              <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;idx_1835830504933294080&#34;</span>, 
 </span></span><span class=line><span class=cl>              <span class=s2>&#34;fields&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>                <span class=s2>&#34;id&#34;</span> 
 </span></span><span class=line><span class=cl>              <span class=o>]</span>, 
@@ -3319,7 +3319,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.0002528610000069875 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00021382999997854313 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -3489,7 +3489,7 @@ an error.</p></div></details></li><li class="openapi-table-row regular-font"><de
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00020999699998469623 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.00018252899999993133 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -3651,7 +3651,7 @@ the optimizer has removed so that there are less top-level statements.</p><div c
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rules&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;peakMemoryUsage&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.0001184439999803999 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;executionTime&#34;</span> : 0.0001368750000096952 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;error&#34;</span> : false, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;code&#34;</span> : <span class=m>200</span> 
@@ -3827,7 +3827,7 @@ to this database.</p></div></details></li></ul></div></div><div class="openapi-p
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
 <a href=#list-all-aql-optimizer-rules_res_200__flags_disabledByDefault><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the optimizer considers this rule by default.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-aql-optimizer-rules_res_200__flags_enterpriseOnly><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">enterpriseOnly*</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
-<a href=#list-all-aql-optimizer-rules_res_200__flags_enterpriseOnly><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the rule is available in the Enterprise Edition only.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-aql-optimizer-rules_res_200__flags_hidden><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">hidden*</span>
+<a href=#list-all-aql-optimizer-rules_res_200__flags_enterpriseOnly><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the rule is implemented in the non-public enterprise code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-aql-optimizer-rules_res_200__flags_hidden><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">hidden*</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
 <a href=#list-all-aql-optimizer-rules_res_200__flags_hidden><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the rule is displayed to users. Internal rules are hidden.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=list-all-aql-optimizer-rules_res_200__name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">name*</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>

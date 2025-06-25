@@ -1,0 +1,193 @@
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750819604></script>
+<script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="All features of the ArangoDB database system, available in both the Community Edition and Enterprise Edition"><meta property="og:url" content="http://localhost/3.12/about-arangodb/features/core/"><meta property="og:title" content="Feature list of the ArangoDB core database system"><meta property="og:type" content="website"><meta property="og:description" content="All features of the ArangoDB database system, available in both the Community Edition and Enterprise Edition"><meta name=docsearch:version content="3.12"><title>Feature list of the ArangoDB core database system | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
+<script src=/js/clipboard.min.js?1750819604 defer></script>
+<script src=/js/featherlight.min.js?1750819604 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"}</script><script src=/js/codeblocks.js?1750819604 defer></script>
+<script src=/js/theme.js?1750819604 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.5</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="About ArangoDB"><a itemprop=item class=link href=/3.12/about-arangodb/><span itemprop=name class=breadcrumb-entry>About ArangoDB</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Features"><a itemprop=item class=link href=/3.12/about-arangodb/features/><span itemprop=name class=breadcrumb-entry>Features</span></a>
+<i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Core Database"><a itemprop=item class=link href=/3.12/about-arangodb/features/core/><span itemprop=name class=breadcrumb-entry>Core Database</span></a></li></ol></nav><article class=default><hgroup><h1>Feature list of the ArangoDB core database system</h1><p class=lead>All features of the ArangoDB database system, available in both the Community Edition and Enterprise Edition</p></hgroup><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Feature parity between the Community Edition and the Enterprise Edition is
+available from v3.12.5 onward.</div></div></div></div><h2 id=general>General <a href=/3.12/about-arangodb/features/core/#general class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/concepts/data-models/#graph-model class=link><strong>Graph Database</strong></a>:
+Native support for storing and querying graphs comprised of vertices and edges.
+You can model complex domains because edges are documents without any
+restrictions in complexity.</p></li><li><p><a href=/3.12/concepts/data-models/#document-model class=link><strong>Document Database</strong></a>:
+A modern document database system that allows you to model data intuitively
+and evolve the data model easily. Documents can be organized in collections,
+and collections in databases for multi-tenancy.</p></li><li><p><strong>Native Multi-model</strong>:
+The capabilities of a graph database, a document database, a key-value store
+in one C++ core with a unified query language for a lower TCO (total cost of
+ownership). Easily change the data access strategy or even combine all
+supported data models in a single query. Add full-text search with ranking on
+top and mix it with graph traversals, geo queries, aggregations, or any other
+supported access pattern.</p></li><li><p><a href=/3.12/concepts/data-structure/#documents class=link><strong>Data Format</strong></a>:
+JSON, internally stored in a binary format invented by ArangoDB called
+VelocyPack.</p></li><li><p><strong>Schema-free</strong>:
+Flexible data modeling without having to define a schema upfront.
+Model your data as combination of key-value pairs,
+documents, or graphs - perfect for social relations. Optional document
+validation using JSON Schema (draft-4, without remote schema support).</p></li><li><p><a href=/3.12/components/arangodb-server/storage-engine/ class=link><strong>Data Storage</strong></a>:
+RocksDB storage engine to persist data and indexes on disk, with a hot set in
+memory. It uses journaling (write-ahead logging) and can take advantage of
+modern storage hardware, like SSDs and large caches.</p></li><li><p><a href=/3.12/concepts/data-structure/documents/computed-values/ class=link><strong>Computed Values</strong></a>:
+Persistent document attributes that are generated when documents are created
+or modified, using an AQL expression.</p></li><li><p><a href=/3.12/about-arangodb/features/#on-premises-versus-cloud class=link><strong>In the cloud or on-prem</strong></a>:
+Use ArangoDB as a <a href=https://dashboard.arangodb.cloud/home target=_blank rel="noopener noreferrer" class=link>fully managed service</a>&nbsp;<i class="fas fa-external-link-alt"></i>,
+self-managed in the cloud, or on-premises.</p></li><li><p><a href=/3.12/operations/installation/#supported-platforms-and-architectures class=link><strong>Multiple Environments</strong></a>:
+Run ArangoDB on Linux using the production-ready packages for the x86-64
+architecture, on bare metal or in containers.
+Develop and test with ArangoDB on Windows, macOS, and Linux using the official
+ArangoDB Docker images, available for the x86-64 architecture and 64-bit ARM chips.</p></li></ul><h2 id=scalability--high-availability>Scalability & High Availability <a href=/3.12/about-arangodb/features/core/#scalability--high-availability class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/deploy/architecture/data-sharding/ class=link><strong>Hash-based sharding</strong></a>:
+Spread bigger datasets across multiple servers using consistent hashing on
+the default or custom shard keys.</p></li><li><p><a href=/3.12/deploy/cluster/#synchronous-replication class=link><strong>Synchronous Replication</strong></a>:
+Data changes are propagated to other cluster nodes immediately as part of an
+operation, and are only considered successful when the configured number of writes
+is reached. Synchronous replication works on a per-shard basis. For each
+collection, you can configure how many copies of each shard are kept in the cluster.</p></li><li><p><a href=/3.12/deploy/cluster/#automatic-failover class=link><strong>Automatic Failover Cluster</strong></a>:
+If a node goes down, another node takes over to avoid any downtime.</p></li><li><p><strong>Load-Balancer Support</strong>:
+Round-robin load-balancer support for cloud environments.</p></li><li><p><strong>High-performance Request Handling</strong>:
+Low-latency request handling using a boost-ASIO server infrastructure.</p></li></ul><h2 id=querying>Querying <a href=/3.12/about-arangodb/features/core/#querying class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/aql/ class=link><strong>Declarative Query Language for All Data Models</strong></a>:
+Powerful query language (AQL) to retrieve and modify data.
+Graph traversals, full-text searches, geo-spatial queries, and aggregations
+can be composed in a single query.
+Support for sliding window queries to aggregate adjacent documents, value
+ranges and time intervals.
+Cluster-distributed aggregation queries.</p></li><li><p><a href=/3.12/aql/execution-and-performance/query-optimization/ class=link><strong>Query Optimizer</strong></a>:
+Cost-based query optimizer that takes index selectivity estimates into account.</p></li><li><p><a href=/3.12/aql/execution-and-performance/query-profiling/ class=link><strong>Query Profiling</strong></a>:
+Show detailed runtime information for AQL queries.</p></li><li><p><a href=/3.12/aql/execution-and-performance/query-logging/ class=link><strong>Query Logging</strong></a>:
+Store query metadata and analyze it directly in the database system to debug
+issues and understand usage patterns.</p></li><li><p><a href=/3.12/aql/examples-and-query-patterns/upsert-repsert-guide/ class=link><strong>Upsert Operations</strong></a>:
+Support for insert-or-update (upsert), insert-or-replace (repsert), and
+insert-or-ignore requests, that result in one or the other operation depending
+on whether the target document exists already.</p></li><li><p><strong>Graph Relations</strong>:
+Edges can connect vertex and even edge documents to express complex m:n
+relations with any depth, creating graphs and hyper-graphs.</p></li><li><p><a href=/3.12/aql/examples-and-query-patterns/joins/ class=link><strong>Relational Joins</strong></a>:
+Joins similar to those in relational database systems can be leveraged to
+match up documents from different collections, allowing normalized data models.</p></li><li><p><strong>Advanced Path-Finding with Multiple Algorithms</strong>:
+Graphs can be <a href=/3.12/aql/graphs/traversals-explained/ class=link>traversed</a> with AQL to
+retrieve direct and indirect neighbor nodes using a fixed or variable depth.
+The <a href=/3.12/aql/graphs/traversals/ class=link>traversal order</a> can be
+depth-first, breadth-first, or in order of increasing edge weights
+(&ldquo;Weighted Traversals&rdquo;). Stop conditions for pruning paths are supported.
+Traversal algorithms to get a <a href=/3.12/aql/graphs/shortest-path/ class=link>shortest path</a>,
+<a href=/3.12/aql/graphs/all-shortest-paths/ class=link>all shortest paths</a>, paths in order of
+increasing length ("<a href=/3.12/aql/graphs/k-shortest-paths/ class=link>k Shortest Paths</a>"),
+and to enumerate all paths between two vertices
+("<a href=/3.12/aql/graphs/k-paths/ class=link>k Paths</a>") are available, too.</p></li><li><p><a href=/3.12/index-and-search/arangosearch/ class=link><strong>ArangoSearch for Text Search and Ranking</strong></a>:
+A built-in search engine for full-text, complex data structures, and more.
+Exact value matching, range queries, prefix matching, case-insensitive and
+accent-insensitive search. Token, phrase, wildcard, and fuzzy search support
+for full-text. Result ranking using Okapi BM25 and TF-IDF.
+Geo-spatial search that can be combined with full-text search.
+Flexible data field pre-processing with custom queries and the ability to
+chain built-in and custom Analyzers. Language-agnostic tokenization of text.</p></li><li><p><a href=/3.12/aql/functions/geo/#geojson class=link><strong>GeoJSON Support</strong></a>:
+Geographic data encoded in the popular GeoJSON format can be stored and used
+for geo-spatial queries.</p></li><li><p><a href=/3.12/index-and-search/arangosearch/search-highlighting/ class=link><strong>Search highlighting</strong></a>:
+Get the substring positions of matched terms, phrases, or <em>n</em>-grams.</p></li><li><p><a href=/3.12/index-and-search/arangosearch/nested-search/ class=link><strong>Nested search</strong></a>:
+Match arrays of objects with all the conditions met by a single sub-object,
+and define for how many of the elements this must be true.</p></li><li><p><a href=/3.12/aql/how-to-invoke-aql/with-arangosh/#skipinaccessiblecollections class=link><strong>Skip inaccessible collections</strong></a>:
+Let AQL queries like graph traversals pretend that collections are empty if
+the user has no access to them instead of failing the query.</p></li></ul><h2 id=transactions>Transactions <a href=/3.12/about-arangodb/features/core/#transactions class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/aql/data-queries/#transactional-execution class=link><strong>AQL Queries</strong></a>:
+AQL queries are executed transactionally (with exceptions), either committing
+or rolling back data modifications automatically.</p></li><li><p><a href=/3.12/develop/http-api/transactions/stream-transactions/ class=link><strong>Stream Transactions</strong></a>:
+Transactions with individual begin and commit / abort commands that can span
+multiple AQL queries and API calls of supported APIs.</p></li><li><p><a href=/3.12/develop/http-api/transactions/javascript-transactions/ class=link><strong>JavaScript Transactions</strong></a>:
+Single-request transactions written in JavaScript that leverage ArangoDB&rsquo;s
+JavaScript API.</p></li><li><p><strong>Multi-Document Transactions</strong>:
+Transactions are not limited to single documents, but can involve many
+documents of a collection.</p></li><li><p><strong>Multi-Collection Transactions</strong>
+A single transaction can modify the documents of multiple collections.
+There is an automatic deadlock detection for single servers.</p></li><li><p><strong>ACID Transactions</strong>:
+Using single servers, multi-document / multi-collection queries are guaranteed
+to be fully ACID (atomic, consistent, isolated, durable).
+Using cluster deployments, single-document operations are fully ACID, too.
+Multi-document queries in a cluster are not ACID, except for collections with
+a single shard. Multi-collection queries require the OneShard
+feature to be ACID.</p></li></ul><h2 id=performance>Performance <a href=/3.12/about-arangodb/features/core/#performance class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/graphs/smartgraphs/ class=link><strong>SmartGraphs</strong></a>:
+Value-based sharding of large graph datasets for better data locality when
+traversing graphs.</p></li><li><p><a href=/3.12/graphs/enterprisegraphs/ class=link><strong>EnterpriseGraphs</strong></a>:
+A specialized version of SmartGraphs, with an automatic sharding key selection.</p></li><li><p><a href=/3.12/graphs/smartgraphs/ class=link><strong>SmartGraphs using SatelliteCollections</strong></a>:
+Collections replicated on all cluster nodes can be combined with graphs
+sharded by document attributes to enable more local execution of graph queries.</p></li><li><p><a href=/3.12/graphs/satellitegraphs/ class=link><strong>SatelliteGraphs</strong></a>:
+Graphs replicated on all cluster nodes to execute graph traversals locally.</p></li><li><p><a href=/3.12/develop/satellitecollections/ class=link><strong>SatelliteCollections</strong></a>:
+Collections replicated on all cluster nodes to execute joins with sharded
+data locally.</p></li><li><p><a href=/3.12/develop/smartjoins/ class=link><strong>SmartJoins</strong></a>:
+Co-located joins in a cluster using identically sharded collections.</p></li><li><p><a href=/3.12/deploy/oneshard/ class=link><strong>OneShard</strong></a>:
+Option to store all collections of a database on a single cluster node, to
+combine the performance of a single server and ACID semantics with a
+fault-tolerant cluster setup.</p></li><li><p><a href=/3.12/release-notes/version-3.7/whats-new-in-3-7/#traversal-parallelization-enterprise-edition class=link><strong>Traversal</strong></a>
+<a href=/3.12/release-notes/version-3.10/whats-new-in-3-10/#parallelism-for-sharded-graphs-enterprise-edition class=link><strong>Parallelization</strong></a>:
+Parallel execution of traversal queries with many start vertices, leading to
+faster results.</p></li><li><p><a href=/3.12/release-notes/version-3.10/whats-new-in-3-10/#traversal-projections-enterprise-edition class=link><strong>Traversal Projections</strong></a>:
+Optimized data loading for AQL traversal queries if only a few document
+attributes are accessed.</p></li><li><p><a href=/3.12/release-notes/version-3.10/whats-new-in-3-10/#parallel-index-creation-enterprise-edition class=link><strong>Parallel index creation</strong></a>:
+Non-unique indexes can be created with multiple threads in parallel.</p></li><li><p><a href=/3.12/index-and-search/analyzers/#minhash class=link><strong><code>minhash</code> Analyzer</strong></a>:
+Jaccard similarity approximation for entity resolution, such as for finding
+duplicate records, based on how many elements they have in common</p></li><li><p><a href=/3.12/index-and-search/analyzers/#geo_s2 class=link><strong><code>geo_s2</code> Analyzer</strong></a>:
+Efficiently index geo-spatial data using different binary formats, tuning the
+size on disk, the precision, and query performance.</p></li><li><p><a href=/3.12/release-notes/version-3.10/whats-new-in-3-10/#arangosearch-column-cache-enterprise-edition class=link><strong>ArangoSearch column cache</strong></a>:
+Always cache field normalization values, Geo Analyzer auxiliary data,
+stored values, primary sort columns, and primary key columns in memory to
+improve the performance of Views and inverted indexes.</p></li><li><p><a href=/3.12/index-and-search/arangosearch/performance/#wand-optimization class=link><strong>ArangoSearch WAND optimization</strong></a>:
+Retrieve search results for the highest-ranking matches from Views faster by
+defining a list of sort expressions to optimize.</p></li><li><p><a href=/3.12/develop/http-api/documents/#read-from-followers class=link><strong>Read from followers in clusters</strong></a>:
+Allow dirty reads so that Coordinators can read from any shard replica and not
+only from the leader, for scaling reads.</p></li><li><p><a href=/3.12/index-and-search/indexing/basics/#persistent-index class=link><strong>Persistent Indexes</strong></a>:
+Indexes are stored on disk to enable fast server restarts. You can create
+secondary indexes over one or multiple fields, optionally with a uniqueness
+constraint. A &ldquo;sparse&rdquo; option to only index non-null values is also available.
+The elements of an array can be indexed individually.</p></li><li><p><a href=/3.12/index-and-search/indexing/working-with-indexes/inverted-indexes/ class=link><strong>Inverted indexes</strong></a>:
+An eventually consistent index type that can accelerate a broad range of
+queries from simple to complex, including full-text search.</p></li><li><p><a href=/3.12/index-and-search/indexing/basics/#vertex-centric-indexes class=link><strong>Vertex-centric Indexes</strong></a>:
+Secondary indexes for more efficient graph traversals with filter conditions.</p></li><li><p><a href=/3.12/index-and-search/indexing/basics/#ttl-time-to-live-index class=link><strong>Time-to-Live (TTL) Indexes</strong></a>:
+Time-based removal of expired documents.</p></li><li><p><a href=/3.12/index-and-search/indexing/basics/#geo-index class=link><strong>Geo-spatial Indexes</strong></a>:
+Accelerated geo-spatial queries for locations and GeoJSON objects, based on
+the S2 library.
+Support for composable, distance-based geo-queries (&ldquo;geo cursors&rdquo;).</p></li><li><p><a href=/3.12/index-and-search/indexing/working-with-indexes/multi-dimensional-indexes/ class=link><strong>Multi-dimensional indexes</strong></a>:
+An index type to efficiently intersect multiple range queries, like finding
+all appointments that intersect a time range.</p></li><li><p><a href=/3.12/index-and-search/indexing/basics/#creating-indexes-in-background class=link><strong>Background Indexing</strong></a>:
+Indexes can be created in the background to not block queries in the meantime.</p></li><li><p><a href=/3.12/release-notes/version-3.11/whats-new-in-3-11/#index-cache-refilling class=link><strong>Index cache refilling</strong></a>:
+In-memory index caches are automatically repopulated after writes that affect
+an edge index or cache-enabled persistent indexes to maximize cache hits and
+thus query performance.</p></li><li><p><a href=/3.12/aql/execution-and-performance/query-optimization/ class=link><strong>Extensive Query Optimization</strong></a>:
+Late document materialization to only fetch the relevant documents from
+SORT/LIMIT queries. Early pruning of non-matching documents in full
+collection scans. Inlining of certain subqueries to improve execution time.</p></li><li><p><a href=/3.12/release-notes/version-3.11/whats-new-in-3-11/#parallel-gather class=link><strong>Parallel gather</strong></a>:
+Fast, memory-efficient processing of cluster queries by combining
+results in parallel.</p></li></ul><h2 id=extensibility>Extensibility <a href=/3.12/about-arangodb/features/core/#extensibility class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/develop/foxx-microservices/ class=link><strong>Microservice Support with ArangoDB Foxx</strong></a>:
+Use ArangoDB as an application server and fuse your application and database
+together for maximal throughput.
+With fault-tolerant cluster support.</p></li><li><p><a href=/3.12/aql/user-defined-functions/ class=link><strong>Server-Side Functions</strong></a>:
+You can extend AQL with user-defined functions written in JavaScript.</p></li></ul><h2 id=security>Security <a href=/3.12/about-arangodb/features/core/#security class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/operations/security/audit-logging/ class=link><strong>Auditing</strong></a>:
+Audit logs of all server interactions.</p></li><li><p><a href=/3.12/operations/security/encryption-at-rest/ class=link><strong>Encryption at Rest</strong></a>:
+Hardware-accelerated on-disk encryption for your data.</p></li><li><p><a href=/3.12/components/tools/arangodump/examples/#encryption class=link><strong>Encrypted Backups</strong></a>:
+Data dumps can be encrypted using a strong 256-bit AES block cipher.</p></li><li><p><a href=/3.12/operations/backup-and-restore/#hot-backups class=link><strong>Hot Backups</strong></a>:
+Consistent, incremental data backups without downtime for single servers and clusters.</p></li><li><p><a href=/3.12/components/tools/arangodump/maskings/#masking-functions class=link><strong>Enhanced Data Masking</strong></a>:
+Extended data masking capabilities for attributes containing sensitive data
+/ PII when creating backups.</p></li><li><p><strong>Advanced Encryption and Security Configuration</strong>:
+Key rotation for <a href=/3.12/develop/http-api/authentication/#hot-reload-jwt-secrets class=link>JWT secrets</a>
+and <a href=/3.12/develop/http-api/security/#encryption-at-rest class=link>on-disk encryption</a>,
+as well as <a href=/3.12/components/arangodb-server/options/#--sslserver-name-indication class=link>Server Name Indication (SNI)</a>.</p></li><li><p><a href=/3.12/operations/administration/user-management/ class=link><strong>Authentication</strong></a>:
+Built-in user management with password- and token-based authentication.</p></li><li><p><strong>Role-based Access Control</strong>:
+ArangoDB supports all basic security requirements. By using ArangoDB&rsquo;s Foxx
+microservice framework users can achieve very high security standards
+fitting individual needs.</p></li><li><p><a href=/3.12/components/arangodb-server/options/#ssl class=link><strong>TLS Encryption</strong></a>:
+Internal and external communication over encrypted network connections with
+TLS (formerly SSL).
+<a href=/3.12/release-notes/version-3.7/whats-new-in-3-7/#tls-key-and-certificate-rotation class=link>TLS key and certificate rotation</a>
+is supported.</p></li></ul><h2 id=administration>Administration <a href=/3.12/about-arangodb/features/core/#administration class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><ul><li><p><a href=/3.12/components/web-interface/ class=link><strong>Web-based User Interface</strong></a>:
+Graphical UI for your browser to work with ArangoDB. It allows you to
+view, create, and modify databases, collections, documents, graphs, etc.
+You can also run, explain, and profile AQL queries. Includes a graph viewer
+with WebGL support.</p></li><li><p><strong>Cluster-friendly User Interface</strong>:
+View the status of your cluster and its individual nodes, and move and
+rebalance shards via the web interface.</p></li><li><p><strong><a href=/3.12/components/tools/arangodump/ class=link>Backup</a> and <a href=/3.12/components/tools/arangorestore/ class=link>Restore</a> Tools</strong>:
+Multi-threaded dumping and restoring of collection settings and data
+in JSON format. Data masking capabilities for attributes containing sensitive
+data / PII when creating backups.</p></li><li><p><strong><a href=/3.12/components/tools/arangoimport/ class=link>Import</a> and <a href=/3.12/components/tools/arangoexport/ class=link>Export</a> Tools</strong>:
+CLI utilities to load and export data in multiple text-based formats.
+You can import from JSON, JSONL, CSV, and TSV files, and export to JSON, JSONL,
+CSV, TSV, XML, and XGMML files.</p></li><li><p><a href=/3.12/develop/http-api/monitoring/metrics/ class=link><strong>Metrics</strong></a>:
+Monitor the healthiness and performance of ArangoDB servers using the metrics
+exported in the Prometheus format.</p></li></ul><nav class=pagination><span class=prev><a class="nav nav-prev link" href=/3.12/about-arangodb/features/><i class="fas fa-chevron-left fa-fw"></i><p>Features</p></a></span><span class=next><a class="nav nav-next link" href=/3.12/about-arangodb/features/highlights-by-version/><p>Highlights by Version</p><i class="fas fa-chevron-right fa-fw"></i></a></span></nav></article><div class=toc-container><a class=edit-page aria-label href=https://github.com/arangodb/docs-hugo/edit/main/site/content/3.12/about-arangodb/features/core.md target=_blank><i class="fab fa-fw fa-github edit-page-icon"></i></a><div class=toc><div class=toc-content><div class=toc-header><p>On this page</p></div><nav id=TableOfContents><div class=level-2><a href=#general>General</a></div><div class=level-2><a href=#scalability--high-availability>Scalability & High Availability</a></div><div class=level-2><a href=#querying>Querying</a></div><div class=level-2><a href=#transactions>Transactions</a></div><div class=level-2><a href=#performance>Performance</a></div><div class=level-2><a href=#extensibility>Extensibility</a></div><div class=level-2><a href=#security>Security</a></div><div class=level-2><a href=#administration>Administration</a></div></nav></div></div></div></div></div></section></section></div><button class="back-to-top hidden" onclick=goToTop(event) href=#><i class="fa fa-arrow-up"></i></button><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3></script>
+<script type=text/javascript>window.setupDocSearch=function(e){if(!window.docsearch)return;docsearch({appId:"OK3ZBQ5982",apiKey:"500c85ccecb335d507fe4449aed12e1d",indexName:"arangodbdocs",insights:!0,container:"#searchbox",debug:!1,maxResultsPerGroup:10,searchParameters:{facetFilters:[`version:${e}`]}})}</script></body></html>

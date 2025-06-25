@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750383861></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750819604></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Collection objects represent document collections and provide access to information and methods for executing collection-related operations"><meta property="og:url" content="http://localhost/3.12/develop/javascript-api/@arangodb/collection-object/"><meta property="og:title" content="The collection object of the JavaScript API"><meta property="og:type" content="website"><meta property="og:description" content="Collection objects represent document collections and provide access to information and methods for executing collection-related operations"><meta name=docsearch:version content="3.12"><title>The collection object of the JavaScript API | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1750383861 defer></script>
-<script src=/js/featherlight.min.js?1750383861 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1750383861 defer></script>
-<script src=/js/theme.js?1750383861 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.4</span></a>
+<script src=/js/clipboard.min.js?1750819604 defer></script>
+<script src=/js/featherlight.min.js?1750819604 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"}</script><script src=/js/codeblocks.js?1750819604 defer></script>
+<script src=/js/theme.js?1750819604 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.5</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="JavaScript API"><a itemprop=item class=link href=/3.12/develop/javascript-api/><span itemprop=name class=breadcrumb-entry>JavaScript API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="@arangodb"><a itemprop=item class=link href=/3.12/develop/javascript-api/@arangodb/><span itemprop=name class=breadcrumb-entry>@arangodb</span></a>
@@ -26,7 +26,7 @@ with attribute <code>isSystem</code> set to <code>true</code> must be specified.
 in other collections is prohibited. In order to be able to drop
 such a collection, all dependent collections must be dropped first.</div></div></div></div><p><strong>Examples</strong></p><p>Drop a collection:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>.</span><span class=nx>drop</span><span class=p>();</span>
-</span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoCollection</span> <span class=mi>72718</span><span class=p>,</span> <span class=s2>&#34;example&#34;</span> <span class=p>(</span><span class=nx>type</span> <span class=nb>document</span><span class=p>,</span> <span class=nx>status</span> <span class=nx>deleted</span><span class=p>)]</span></span></span></code></pre></div></div></div><br><p>Drop a system collection:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_example</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoCollection</span> <span class=mi>73030</span><span class=p>,</span> <span class=s2>&#34;example&#34;</span> <span class=p>(</span><span class=nx>type</span> <span class=nb>document</span><span class=p>,</span> <span class=nx>status</span> <span class=nx>deleted</span><span class=p>)]</span></span></span></code></pre></div></div></div><br><p>Drop a system collection:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>_example</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>.</span><span class=nx>drop</span><span class=p>({</span> <span class=nx>isSystem</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Empty</span> <span class=nx>Output</span></span></span></code></pre></div></div></div><br><h3 id=collectionfiguresdetails><code>collection.figures([details])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionfiguresdetails class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Returns an object containing statistics about the collection.</p><p>Setting <code>details</code> to <code>true</code> returns extended storage engine-specific
 details to the figures (introduced in v3.8.0). The details are intended for
 debugging ArangoDB itself and their format is subject to change. By default,
@@ -93,8 +93,7 @@ is enabled for this collection. This is an internal property.</p></li><li><p><co
 This is an internal property.</p></li></ul><p>In a cluster setup, the result also contains the following attributes:</p><ul><li><p><code>numberOfShards</code> (number): The number of shards of the collection.</p></li><li><p><code>shardKeys</code> (array): Contains the names of document attributes that are used to
 determine the target shard for documents.</p></li><li><p><code>replicationFactor</code> (number|string): Determines how many copies of each shard are kept
 on different DB-Servers. Has to be in the range of 1-10 or the string
-<code>"satellite"</code> for a SatelliteCollection (Enterprise Edition only).
-<em>(cluster only)</em></p></li><li><p><code>writeConcern</code> (number): Determines how many copies of each shard are required to be
+<code>"satellite"</code> for a SatelliteCollection. <em>(cluster only)</em></p></li><li><p><code>writeConcern</code> (number): Determines how many copies of each shard are required to be
 in sync on the different DB-Servers. If there are less then these many copies
 in the cluster, a shard refuses to write. Writes to shards with enough
 up-to-date copies succeed at the same time, however. The value of
@@ -104,20 +103,19 @@ The name of another collection. This collection uses the <code>replicationFactor
 <code>numberOfShards</code> and <code>shardingStrategy</code> properties of the other collection and
 the shards of this collection are distributed in the same way as the shards of
 the other collection.</p></li><li><p><code>isSmart</code> (boolean): Whether the collection is used in a SmartGraph or
-EnterpriseGraph (Enterprise Edition only). This is an internal property.</p></li><li><p><code>isDisjoint</code> (boolean): Whether the SmartGraph this collection belongs to is
-disjoint (Enterprise Edition only). This is an internal property.</p></li><li><p><code>smartGraphAttribute</code> (string):
+EnterpriseGraph. This is an internal property.</p></li><li><p><code>isDisjoint</code> (boolean): Whether the SmartGraph this collection belongs to is
+disjoint. This is an internal property.</p></li><li><p><code>smartGraphAttribute</code> (string):
 The attribute that is used for sharding: vertices with the same value of
 this attribute are placed in the same shard. All vertices are required to
 have this attribute set and it has to be a string. Edges derive the
-attribute from their connected vertices.</p><p>This feature can only be used in the <em>Enterprise Edition</em>.</p></li><li><p><code>smartJoinAttribute</code> (string):
-In an <em>Enterprise Edition</em> cluster, this attribute determines an attribute
+attribute from their connected vertices.</p></li><li><p><code>smartJoinAttribute</code> (string):
+In a cluster, this attribute determines an attribute
 of the collection that must contain the shard key value of the referred-to
 SmartJoin collection.</p></li></ul><hr><p><code>collection.properties(properties)</code></p><p>Changes the collection properties. <code>properties</code> must be an object and can have
 one or more of the following attribute(s):</p><ul><li><p><code>waitForSync</code> (boolean): If <code>true</code>, creating a document only returns
 after the data was synced to disk.</p></li><li><p><code>replicationFactor</code> (number|string): Change the number of shard copies kept on
 different DB-Servers. Valid values are integer numbers in the range of 1-10
-or the string <code>"satellite"</code> for a SatelliteCollection (Enterprise Edition only).
-<em>(cluster only)</em></p></li><li><p><code>writeConcern</code> (number): Change how many copies of each shard are required to be
+or the string <code>"satellite"</code> for a SatelliteCollection. <em>(cluster only)</em></p></li><li><p><code>writeConcern</code> (number): Change how many copies of each shard are required to be
 in sync on the different DB-Servers. If there are less then these many copies
 in the cluster, a shard refuses to write. Writes to shards with enough
 up-to-date copies succeed at the same time however. The value of
@@ -132,7 +130,7 @@ fetched often or are modified frequently, then you may disable the cache to
 avoid the maintenance costs.</p></li></ul><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>Some other collection properties, such as <code>type</code>,
 <code>keyOptions</code>, <code>numberOfShards</code> or <code>shardingStrategy</code> cannot be changed once
 the collection is created.</div></div></div></div><p><strong>Examples</strong></p><p>Read all properties:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>properties</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> <span class=o>:</span> <span class=s2>&#34;h3715BD071044/72746&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> <span class=o>:</span> <span class=s2>&#34;hB7C02EE43DCE/73058&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;waitForSync&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> <span class=o>:</span> <span class=p>{</span> 
@@ -146,7 +144,7 @@ the collection is created.</div></div></div></div><p><strong>Examples</strong></
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;syncByRevision&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;schema&#34;</span> <span class=o>:</span> <span class=kc>null</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Change a property:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>properties</span><span class=p>({</span> <span class=nx>waitForSync</span> <span class=o>:</span> <span class=kc>true</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> <span class=o>:</span> <span class=s2>&#34;h3715BD071044/72756&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;globallyUniqueId&#34;</span> <span class=o>:</span> <span class=s2>&#34;hB7C02EE43DCE/73068&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;isSystem&#34;</span> <span class=o>:</span> <span class=kc>false</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;waitForSync&#34;</span> <span class=o>:</span> <span class=kc>true</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;keyOptions&#34;</span> <span class=o>:</span> <span class=p>{</span> 
@@ -167,7 +165,7 @@ If renaming the collection succeeds, then the collection is also renamed in
 all graph definitions inside the <code>_graphs</code> collection in the current
 database.</p><div class="box notices cstyle info"><div class=box-content-container><div class=box-content><i class="fas fa-info-circle"></i><div class=box-text>The <code>rename()</code> method cannot be used in clusters.</div></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>coll</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>.</span><span class=nx>rename</span><span class=p>(</span><span class=s2>&#34;better-example&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoCollection</span> <span class=mi>72767</span><span class=p>,</span> <span class=s2>&#34;better-example&#34;</span> <span class=p>(</span><span class=nx>type</span> <span class=nb>document</span><span class=p>,</span> <span class=nx>status</span> <span class=nx>loaded</span><span class=p>)]</span></span></span></code></pre></div></div></div><br><h3 id=collectionrevision><code>collection.revision()</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionrevision class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Returns the revision ID of the collection</p><p>The revision ID is updated when the document data is modified, either by
+</span></span><span class=line><span class=cl><span class=nx>coll</span><span class=p>;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoCollection</span> <span class=mi>73079</span><span class=p>,</span> <span class=s2>&#34;better-example&#34;</span> <span class=p>(</span><span class=nx>type</span> <span class=nb>document</span><span class=p>,</span> <span class=nx>status</span> <span class=nx>loaded</span><span class=p>)]</span></span></span></code></pre></div></div></div><br><h3 id=collectionrevision><code>collection.revision()</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionrevision class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Returns the revision ID of the collection</p><p>The revision ID is updated when the document data is modified, either by
 inserting, deleting, updating or replacing documents in it.</p><p>The revision ID of a collection can be used by clients to check whether
 data in a collection has changed or if it is still unmodified since a
 previous fetch of the revision ID.</p><p>The revision ID returned is a string value. Clients should treat this value
@@ -200,33 +198,33 @@ can be limited using the <code>skip()</code> and <code>limit()</code> operator.<
 </span></span><span class=line><span class=cl><span class=p>]);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>five</span><span class=p>.</span><span class=nx>all</span><span class=p>().</span><span class=nx>toArray</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72799&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72799&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPJq---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73111&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73111&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Q2--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;one&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72800&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72800&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPJq--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73112&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73112&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Q6---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;two&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72801&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72801&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPJq--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73113&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73113&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Q6--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;three&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72802&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72802&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPJq--B&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73114&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73114&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Q6--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;four&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPJq--C&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73115&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73115&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Q6--B&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;five&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><p>Use <code>limit()</code> to restrict the documents:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>docs</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>five</span><span class=p>.</span><span class=nx>insert</span><span class=p>([</span>
@@ -238,15 +236,15 @@ can be limited using the <code>skip()</code> and <code>limit()</code> operator.<
 </span></span><span class=line><span class=cl><span class=p>]);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>five</span><span class=p>.</span><span class=nx>all</span><span class=p>().</span><span class=nx>limit</span><span class=p>(</span><span class=mi>2</span><span class=p>).</span><span class=nx>toArray</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72817&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72817&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPL2---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73129&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73129&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8SW--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;one&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72818&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/72818&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPL2--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73130&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;five/73130&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8SW--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;two&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=collectionany><code>collection.any()</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionany class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Returns a random document from the collection or <code>null</code> if none exists.</p><p><strong>Note</strong>: This is generally an expensive operation for the RocksDB storage engine
@@ -272,39 +270,39 @@ that has an attribute <code>c</code> of value <code>1</code>. Both the following
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>users</span><span class=p>.</span><span class=nx>byExample</span><span class=p>({</span> <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Gerhard&#34;</span> <span class=p>}).</span><span class=nx>toArray</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>users</span><span class=p>.</span><span class=nx>byExample</span><span class=p>({</span> <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Helmut&#34;</span><span class=p>,</span> <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/15&#34;</span> <span class=p>}).</span><span class=nx>toArray</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U----&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72836&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72836&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73148&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73148&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U---_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72837&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72837&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--B&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73149&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73149&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U---A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U----&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Gerhard&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72836&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72836&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73148&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73148&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U---_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Helmut&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72837&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72837&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--B&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73149&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73149&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U---A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Angela&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>
@@ -313,9 +311,9 @@ that has an attribute <code>c</code> of value <code>1</code>. Both the following
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72835&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPMq--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73147&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8U----&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Gerhard&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>
@@ -330,25 +328,25 @@ that has an attribute <code>c</code> of value <code>1</code>. Both the following
 </span></span><span class=line><span class=cl>  <span class=nx>print</span><span class=p>(</span><span class=nx>cursor</span><span class=p>.</span><span class=nx>next</span><span class=p>());</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72860&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72860&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPOK---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73172&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73172&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8VK---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72861&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72861&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPOK--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73173&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73173&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8VK--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72862&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72862&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPOK--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73174&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73174&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8VK--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72862&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72862&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPOK--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73174&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73174&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8VK--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Angela&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=collectioncount><code>collection.count()</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectioncount class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Returns the number of living documents in the collection.</p><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>users</span><span class=p>.</span><span class=nx>count</span><span class=p>();</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=mi>3</span></span></span></code></pre></div></div></div><br><h3 id=collectiondocumentobject--options><code>collection.document(object [, options])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectiondocumentobject--options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The <code>document()</code> method finds a document given an object <code>object</code>
 containing the <code>_id</code> or <code>_key</code> attribute. The method returns
@@ -374,25 +372,25 @@ occurs with any of the documents, no exception is raised! Instead of a document,
 an error object is returned in the result array.</p><p><strong>Examples</strong></p><p>Return a document using a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;example/2873916&#34;</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;2873916&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/2873916&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPR---_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8Y----&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Return a document using a document key:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;2873916&#34;</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;2873916&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/2873916&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPSq---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ZK---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Return a document using an object with a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>({</span><span class=nx>_id</span><span class=o>:</span> <span class=s2>&#34;example/2873916&#34;</span><span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;2873916&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/2873916&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPUC---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8a6---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Return multiple documents using an array of document keys:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>([</span><span class=s2>&#34;2873916&#34;</span><span class=p>,</span><span class=s2>&#34;2873917&#34;</span><span class=p>]);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;2873916&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/2873916&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPVq---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8cK--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;2873917&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/2873917&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPVq--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8cO---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><p>An error is raised if the document is unknown:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;example/4472917&#34;</span><span class=p>);</span> 
 </span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoError</span> <span class=mi>1202</span><span class=o>:</span> <span class=nb>document</span> <span class=nx>not</span> <span class=nx>found</span><span class=p>]</span></span></span></code></pre></div></div></div><br><p>An error is raised if the document key or identifier is invalid:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>);</span> 
@@ -413,31 +411,31 @@ ignored, and no exception will be thrown for them.</p><div class="box notices cs
 </span></span><span class=line><span class=cl>    <span class=p>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;test0&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/test0&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPaW---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8gi--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> <span class=o>:</span> <span class=mi>0</span> 
 </span></span><span class=line><span class=cl>    <span class=p>},</span> 
 </span></span><span class=line><span class=cl>    <span class=p>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;test1&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/test1&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPaW--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8gm---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> <span class=o>:</span> <span class=mi>1</span> 
 </span></span><span class=line><span class=cl>    <span class=p>},</span> 
 </span></span><span class=line><span class=cl>    <span class=p>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;test2&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/test2&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPaW--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8gm--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> <span class=o>:</span> <span class=mi>2</span> 
 </span></span><span class=line><span class=cl>    <span class=p>},</span> 
 </span></span><span class=line><span class=cl>    <span class=p>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;test3&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/test3&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPaW--B&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8gm--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> <span class=o>:</span> <span class=mi>3</span> 
 </span></span><span class=line><span class=cl>    <span class=p>},</span> 
 </span></span><span class=line><span class=cl>    <span class=p>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;test4&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/test4&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPaa---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8gm--B&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> <span class=o>:</span> <span class=mi>4</span> 
 </span></span><span class=line><span class=cl>    <span class=p>}</span> 
 </span></span><span class=line><span class=cl>  <span class=p>]</span> 
@@ -463,9 +461,9 @@ with options passed as an object.</p><p>No revision can be specified in this cas
 example. If no such document exists, <code>null</code> will be returned.
 The example has to be specified as paths and values.
 See <code>byExample</code> for details.</p><hr><p><code>collection.firstExample(path1, value1, ...)</code></p><p>As alternative you can supply an array of paths and values.</p><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>users</span><span class=p>.</span><span class=nx>firstExample</span><span class=p>(</span><span class=s2>&#34;name&#34;</span><span class=p>,</span> <span class=s2>&#34;Angela&#34;</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72976&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/72976&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPci---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73288&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;users/73288&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8iC--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span> <span class=o>:</span> <span class=s2>&#34;Angela&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=collectioninsertdata--options><code>collection.insert(data [, options])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectioninsertdata--options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Creates a new document in the <code>collection</code> from the given <code>data</code>. The
 <code>data</code> must be an object. The attributes <code>_id</code> and <code>_rev</code> are ignored
@@ -536,56 +534,56 @@ members of the array separately and all results are returned in an array. If an
 error occurs with any of the documents, no exception is raised! Instead of a
 document, an error object is returned in the result array.</p><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> <span class=p>},</span> <span class=p>{</span><span class=nx>waitForSync</span><span class=o>:</span> <span class=kc>true</span><span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/72989&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72989&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPeC---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73301&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73301&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8jK--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/72991&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;72991&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPeC--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73303&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73303&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8jO---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>([{</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> <span class=p>},</span> <span class=p>{</span><span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;there&#34;</span><span class=p>}])</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>([{</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> <span class=p>},</span> <span class=p>{}],</span> <span class=p>{</span><span class=nx>waitForSync</span><span class=o>:</span> <span class=kc>true</span><span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73002&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73002&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPfa--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73314&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73314&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ky---&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73003&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73003&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPfa--A&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73315&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73315&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ky--_&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73005&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73005&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPfe---&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73317&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73317&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ky--A&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73006&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73006&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPfe--_&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73318&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73318&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ky--B&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>_key</span> <span class=o>:</span> <span class=s2>&#34;666&#34;</span><span class=p>,</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>_key</span> <span class=o>:</span> <span class=s2>&#34;666&#34;</span><span class=p>,</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;Universe&#34;</span> <span class=p>},</span> <span class=p>{</span><span class=nx>overwrite</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span> <span class=nx>returnOld</span><span class=o>:</span> <span class=kc>true</span><span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/666&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;666&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPg6---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8mW---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/666&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;666&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPg6--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPg6---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8mW--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8mW---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;old&#34;</span> <span class=o>:</span> <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;666&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/666&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPg6---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8mW---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;Hello&#34;</span> <span class=o>:</span> <span class=s2>&#34;World&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=collectioniterateiterator--options><code>collection.iterate(iterator [, options])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectioniterateiterator--options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>The <code>iterate()</code> method is deprecated from version 3.11.0 onwards and will be
@@ -610,11 +608,11 @@ as second argument.</p><p><code>options</code> must be an object with the follow
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;idx&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;i&#34;</span> <span class=o>:</span> <span class=mi>2</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;i&#34;</span> <span class=o>:</span> <span class=mi>3</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;idx&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;i&#34;</span> <span class=o>:</span> <span class=mi>3</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;i&#34;</span> <span class=o>:</span> <span class=mi>7</span> 
 </span></span><span class=line><span class=cl>  <span class=p>},</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;idx&#34;</span> <span class=o>:</span> <span class=mi>3</span><span class=p>,</span> 
@@ -651,22 +649,22 @@ document, an error object is returned in the result array.</p><p><strong>Example
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>remove</span><span class=p>(</span><span class=nx>a1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=nx>a1</span><span class=p>);</span> 
 </span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPj6---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8pW--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPj6---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8pW--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=mi>1</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73050&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPj6---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73362&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8pW--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoError</span> <span class=mi>1202</span><span class=o>:</span> <span class=nb>document</span> <span class=nx>not</span> <span class=nx>found</span><span class=p>]</span></span></span></code></pre></div></div></div><br><p>Remove a document with a conflict:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>a1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>1</span> <span class=p>});</span>
@@ -675,16 +673,16 @@ document, an error object is returned in the result array.</p><p><strong>Example
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>remove</span><span class=p>(</span><span class=nx>a1</span><span class=p>,</span> <span class=kc>true</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=nx>a1</span><span class=p>);</span>     
 </span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73064&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73064&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPlS---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73376&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73376&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8qm---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73064&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73064&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPlS--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPlS---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73376&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73376&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8qm--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8qm---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoError</span> <span class=mi>1200</span><span class=o>:</span> <span class=nx>conflict</span><span class=p>,</span> <span class=nx>_rev</span> <span class=nx>values</span> <span class=k>do</span> <span class=nx>not</span> <span class=nx>match</span><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=collectionremovebyexampleexample><code>collection.removeByExample(example)</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionremovebyexampleexample class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Removes all documents matching an example.</p><hr><p><code>collection.removeByExample(document, waitForSync)</code></p><p>The optional <code>waitForSync</code> parameter can be used to force synchronization
@@ -761,30 +759,30 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=nx>a2</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=nx>a1</span><span class=p>,</span> <span class=p>{</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>2</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>a3</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=nx>a1</span><span class=p>,</span> <span class=p>{</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>3</span> <span class=p>});</span> 
 </span></span><span class=line><span class=cl><span class=nx>a3</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=nx>a1</span><span class=p>,</span> <span class=p>{</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>3</span> <span class=p>},</span> <span class=p>{</span> <span class=nx>overwrite</span><span class=o>:</span> <span class=kc>true</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73109&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73109&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPpu--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73421&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73421&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8uy--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73109&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73109&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPqW---&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPpu--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73421&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73421&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8u2---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8uy--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoError</span> <span class=mi>1200</span><span class=o>:</span> <span class=nx>conflict</span><span class=p>,</span> <span class=nx>_rev</span> <span class=nx>values</span> <span class=k>do</span> <span class=nx>not</span> <span class=nx>match</span><span class=p>]</span></span></span></code></pre></div></div></div><br><p>Use a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>a1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>1</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>a2</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=s2>&#34;example/3903044&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>a</span> <span class=o>:</span> <span class=mi>2</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/3903045&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;3903045&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPrS--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8wa---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/3903044&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;3903044&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPrS--A&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPrS---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8wa--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8wW--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><h3 id=collectionreplacebyexampleexample-newvalue--waitforsync--limit><code>collection.replaceByExample(example, newValue [, waitForSync [, limit]])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionreplacebyexampleexample-newvalue--waitforsync--limit class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Replaces all documents matching an example with a new document body.
 The entire document body of each document matching the <code>example</code> is
 replaced with <code>newValue</code>. The document meta-attributes <code>_id</code>, <code>_key</code> and
@@ -802,9 +800,9 @@ replacements to the specified value. If <code>limit</code> is specified but less
 the number of documents in the collection, it is undefined which documents are
 replaced.</p><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;world&#34;</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>replaceByExample</span><span class=p>({</span> <span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;world&#34;</span> <span class=p>},</span> <span class=p>{</span><span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;mars&#34;</span><span class=p>},</span> <span class=kc>false</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73137&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73137&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPsq---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73449&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73449&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8xy--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=mi>1</span></span></span></code></pre></div></div></div><br><h3 id=collectionsavedata--options><code>collection.save(data [, options])</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectionsavedata--options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>See <a href=#collectioninsertdata--options class=link><code>collection.insert(data [, options])</code></a>.</p><h3 id=collectiontoarray><code>collection.toArray()</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#collectiontoarray class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>Converts the entire collection into an array of documents.</p><div class="box notices cstyle warning"><div class=box-content-container><div class=box-content><i class="fas fa-exclamation-triangle"></i><div class=box-text>Avoid calling this method on a collection in production environments as it
@@ -869,30 +867,30 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=nx>a4</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>a5</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=nx>a4</span><span class=p>,</span> <span class=p>{</span><span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span> <span class=o>:</span> <span class=mi>9</span><span class=p>,</span> <span class=nx>e</span> <span class=o>:</span> <span class=mi>42</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=nx>a5</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73150&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73150&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPuO---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73462&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73462&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ze--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73150&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73150&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPuO--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPuO---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73462&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73462&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8zi---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf8ze--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>ArangoError</span> <span class=mi>1200</span><span class=o>:</span> <span class=nx>conflict</span><span class=p>,</span> <span class=nx>_rev</span> <span class=nx>values</span> <span class=k>do</span> <span class=nx>not</span> <span class=nx>match</span><span class=p>]</span></span></span></code></pre></div></div></div><br><p>Use a document identifier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>a1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span><span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>a2</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=s2>&#34;example/18612115&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=s2>&#34;x&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> <span class=s2>&#34;y&#34;</span> <span class=o>:</span> <span class=mi>2</span> <span class=p>});</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/18612116&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;18612116&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPvy--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf81---A&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/18612115&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;18612115&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPvy--A&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPvy---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf81C---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf81---_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Use the <code>keepNull</code> parameter to remove attributes with <code>null</code> values:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span><span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=s2>&#34;b&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> <span class=s2>&#34;c&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> <span class=s2>&#34;d&#34;</span> <span class=o>:</span> <span class=mi>3</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;example/19988371&#34;</span><span class=p>);</span>
@@ -902,20 +900,20 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;example/19988371&#34;</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988372&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988372&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxi--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82W--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxi--A&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxi---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82W--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82W---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxi--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82W--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;b&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;c&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;d&#34;</span> <span class=o>:</span> <span class=mi>3</span> 
@@ -924,14 +922,14 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxm---&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxi--A&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82a---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82W--A&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxm---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82a---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;b&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;c&#34;</span> <span class=o>:</span> <span class=kc>null</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;d&#34;</span> <span class=o>:</span> <span class=mi>3</span> 
@@ -940,14 +938,14 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxm--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxm---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82e---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82a---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;19988371&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/19988371&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPxm--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf82e---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><br><p>Patching array values:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=p>{</span> <span class=s2>&#34;one&#34;</span> <span class=o>:</span> <span class=mi>1</span><span class=p>,</span> <span class=s2>&#34;two&#34;</span> <span class=o>:</span> <span class=mi>2</span><span class=p>,</span> <span class=s2>&#34;three&#34;</span> <span class=o>:</span> <span class=mi>3</span> <span class=p>},</span>
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;b&#34;</span> <span class=o>:</span> <span class=p>{</span> <span class=p>}</span>
@@ -968,39 +966,39 @@ result array.</p><p><strong>Examples</strong></p><p>Create and update a document
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nb>document</span><span class=p>(</span><span class=s2>&#34;example/20774803&#34;</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/20774804&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;20774804&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzK---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf83y---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/20774803&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;20774803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzK--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzG--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf83y--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf83q---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;20774803&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/20774803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzK--_&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;four&#34;</span> <span class=o>:</span> <span class=mi>4</span> 
-</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf83y--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;b&#34;</span> <span class=o>:</span> <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;b1&#34;</span> <span class=o>:</span> <span class=mi>1</span> 
+</span></span><span class=line><span class=cl>  <span class=p>},</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;four&#34;</span> <span class=o>:</span> <span class=mi>4</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/20774803&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;20774803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzO---&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzK--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf84e---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_oldRev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf83y--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;20774803&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/20774803&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpPzO---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf84e---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;a&#34;</span> <span class=o>:</span> <span class=p>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;four&#34;</span> <span class=o>:</span> <span class=mi>4</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
@@ -1028,18 +1026,18 @@ updated.</p><hr><p><code>collection.updateByExample(document, newValue, options)
 an object with the following sub-attributes:</p><ul><li><code>keepNull</code></li><li><code>waitForSync</code></li><li><code>limit</code></li><li><code>mergeObjects</code></li></ul><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>insert</span><span class=p>({</span> <span class=nx>Hello</span> <span class=o>:</span> <span class=s2>&#34;world&#34;</span><span class=p>,</span> <span class=nx>foo</span> <span class=o>:</span> <span class=s2>&#34;bar&#34;</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>updateByExample</span><span class=p>({</span> <span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;world&#34;</span> <span class=p>},</span> <span class=p>{</span> <span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;foo&#34;</span><span class=p>,</span> <span class=nx>World</span><span class=o>:</span> <span class=s2>&#34;bar&#34;</span> <span class=p>},</span> <span class=kc>false</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>example</span><span class=p>.</span><span class=nx>byExample</span><span class=p>({</span> <span class=nx>Hello</span><span class=o>:</span> <span class=s2>&#34;foo&#34;</span> <span class=p>}).</span><span class=nx>toArray</span><span class=p>()</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73215&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73215&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP0a--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73527&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73527&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf85S--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=mi>1</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73215&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73215&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP0e---&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73527&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;example/73527&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf85W---&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;Hello&#34;</span> <span class=o>:</span> <span class=s2>&#34;foo&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;foo&#34;</span> <span class=o>:</span> <span class=s2>&#34;bar&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;World&#34;</span> <span class=o>:</span> <span class=s2>&#34;bar&#34;</span> 
@@ -1057,29 +1055,29 @@ or document identifiers.</p><div class=highlight><pre tabindex=0 class=chroma><c
 </span></span><span class=line><span class=cl><span class=nx>myGraph</span><span class=p>.</span><span class=nx>e1</span> <span class=o>=</span> <span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>insert</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>v1</span><span class=p>,</span> <span class=nx>myGraph</span><span class=p>.</span><span class=nx>v2</span><span class=p>,</span> <span class=p>{</span> <span class=nx>label</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span><span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_document</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>e1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>edges</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>e1</span><span class=p>.</span><span class=nx>_id</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73238&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73238&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP12--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73550&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73550&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf86y--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73240&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73240&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP16---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73552&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73552&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf862---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73242&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73242&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP16--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73554&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73554&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf862--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73242&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73242&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73238&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73240&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP16--_&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73554&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73554&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73550&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73552&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf862--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;label&#34;</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -1093,29 +1091,29 @@ or document identifiers.</p><div class=highlight><pre tabindex=0 class=chroma><c
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_document</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>e1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>inEdges</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>_id</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>inEdges</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>v2</span><span class=p>.</span><span class=nx>_id</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73269&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73269&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP3e---&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73581&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73581&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf88G---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73271&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73271&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP3e--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73583&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73583&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf88G--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP3e--A&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf88G--A&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73269&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73271&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP3e--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73581&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73583&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf88G--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;label&#34;</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -1123,11 +1121,11 @@ or document identifiers.</p><div class=highlight><pre tabindex=0 class=chroma><c
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73273&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73269&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73271&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP3e--A&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73585&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73581&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73583&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf88G--A&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;label&#34;</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span></span></span></code></pre></div></div></div><br><h3 id=edge-collectionoutedgesvertex><code>edge-collection.outEdges(vertex)</code> <a href=/3.12/develop/javascript-api/@arangodb/collection-object/#edge-collectionoutedgesvertex class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><p>The <code>outEdges()</code> operator finds all edges starting from (outbound)
@@ -1141,39 +1139,39 @@ from <code>vertices</code>, which must be a list of documents or document identi
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>_document</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>e1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>outEdges</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>_id</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>db</span><span class=p>.</span><span class=nx>relation</span><span class=p>.</span><span class=nx>outEdges</span><span class=p>(</span><span class=nx>myGraph</span><span class=p>.</span><span class=nx>v2</span><span class=p>.</span><span class=nx>_id</span><span class=p>);</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73302&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73302&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP5C--_&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73614&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73614&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf89q--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73304&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73304&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP5C--A&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf89u---&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP5C--B&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf89u--_&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73302&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73304&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP5C--B&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73614&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf89u--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;label&#34;</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span> 
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>[</span> 
 </span></span><span class=line><span class=cl>  <span class=p>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73306&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73302&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73304&#34;</span><span class=p>,</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_jJdpP5C--B&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_key&#34;</span> <span class=o>:</span> <span class=s2>&#34;73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_id&#34;</span> <span class=o>:</span> <span class=s2>&#34;relation/73618&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_from&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73614&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_to&#34;</span> <span class=o>:</span> <span class=s2>&#34;vertex/73616&#34;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;_rev&#34;</span> <span class=o>:</span> <span class=s2>&#34;_j4Jf89u--_&#34;</span><span class=p>,</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;label&#34;</span> <span class=o>:</span> <span class=s2>&#34;knows&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=p>}</span> 
 </span></span><span class=line><span class=cl><span class=p>]</span>

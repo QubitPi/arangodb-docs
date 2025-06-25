@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750383861></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750819604></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="Server statistics let you monitor the system but they are superseded by the more detailed server metrics"><meta property="og:url" content="http://localhost/3.12/develop/http-api/monitoring/statistics/"><meta property="og:title" content="HTTP interface for server statistics"><meta property="og:type" content="website"><meta property="og:description" content="Server statistics let you monitor the system but they are superseded by the more detailed server metrics"><meta name=docsearch:version content="3.12"><title>HTTP interface for server statistics | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1750383861 defer></script>
-<script src=/js/featherlight.min.js?1750383861 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1750383861 defer></script>
-<script src=/js/theme.js?1750383861 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.4</span></a>
+<script src=/js/clipboard.min.js?1750819604 defer></script>
+<script src=/js/featherlight.min.js?1750819604 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"}</script><script src=/js/codeblocks.js?1750819604 defer></script>
+<script src=/js/theme.js?1750819604 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.5</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Monitoring"><a itemprop=item class=link href=/3.12/develop/http-api/monitoring/><span itemprop=name class=breadcrumb-entry>Monitoring</span></a>
@@ -201,7 +201,7 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>2322</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>2319</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -211,17 +211,17 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>x-content-type-options: nosniff
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : 1738252429.3025048, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;time&#34;</span> : 1750784400.5757916, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;enabled&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;system&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;minorPageFaults&#34;</span> : 132519, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;minorPageFaults&#34;</span> : 133361, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;majorPageFaults&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;userTime&#34;</span> : 5.72, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;systemTime&#34;</span> : 1.71, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;numberOfThreads&#34;</span> : 64, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSize&#34;</span> : 304013312, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSizePercent&#34;</span> : 0.009187536431338633, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;virtualSize&#34;</span> : <span class=m>2827542528</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;userTime&#34;</span> : 5.99, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;systemTime&#34;</span> : 2.2, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSize&#34;</span> : 305299456, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;residentSizePercent&#34;</span> : 0.00922640592026888, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;virtualSize&#34;</span> : <span class=m>2834231296</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;client&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;httpConnections&#34;</span> : 1, 
@@ -236,10 +236,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;totalTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.7592782974243164, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.8222799301147461, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        874, 
+</span></span><span class=line><span class=cl>        871, 
 </span></span><span class=line><span class=cl>        7, 
 </span></span><span class=line><span class=cl>        2, 
 </span></span><span class=line><span class=cl>        1, 
@@ -252,10 +252,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.6799941062927246, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.7487814426422119, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        874, 
+</span></span><span class=line><span class=cl>        871, 
 </span></span><span class=line><span class=cl>        7, 
 </span></span><span class=line><span class=cl>        2, 
 </span></span><span class=line><span class=cl>        1, 
@@ -268,10 +268,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;queueTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.016742944717407227, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.014684915542602539, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        884, 
+</span></span><span class=line><span class=cl>        881, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -284,10 +284,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ioTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.06254124641418457, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.05881357192993164, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        884, 
+</span></span><span class=line><span class=cl>        881, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -300,11 +300,11 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesSent&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 904834, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 837193, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>        6, 
-</span></span><span class=line><span class=cl>        786, 
+</span></span><span class=line><span class=cl>        783, 
 </span></span><span class=line><span class=cl>        63, 
 </span></span><span class=line><span class=cl>        27, 
 </span></span><span class=line><span class=cl>        0, 
@@ -312,10 +312,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesReceived&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 197906, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 197450, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        659, 
+</span></span><span class=line><span class=cl>        656, 
 </span></span><span class=line><span class=cl>        225, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -337,10 +337,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;totalTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.7592782974243164, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.8222799301147461, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        874, 
+</span></span><span class=line><span class=cl>        871, 
 </span></span><span class=line><span class=cl>        7, 
 </span></span><span class=line><span class=cl>        2, 
 </span></span><span class=line><span class=cl>        1, 
@@ -353,10 +353,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.6799941062927246, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.7487814426422119, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        874, 
+</span></span><span class=line><span class=cl>        871, 
 </span></span><span class=line><span class=cl>        7, 
 </span></span><span class=line><span class=cl>        2, 
 </span></span><span class=line><span class=cl>        1, 
@@ -369,10 +369,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;queueTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.016742944717407227, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.014684915542602539, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        884, 
+</span></span><span class=line><span class=cl>        881, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -385,10 +385,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ioTime&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.06254124641418457, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 0.05881357192993164, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        884, 
+</span></span><span class=line><span class=cl>        881, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -401,11 +401,11 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesSent&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 904834, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 837193, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>        6, 
-</span></span><span class=line><span class=cl>        786, 
+</span></span><span class=line><span class=cl>        783, 
 </span></span><span class=line><span class=cl>        63, 
 </span></span><span class=line><span class=cl>        27, 
 </span></span><span class=line><span class=cl>        0, 
@@ -413,10 +413,10 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesReceived&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 197906, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;sum&#34;</span> : 197450, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;count&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;counts&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        659, 
+</span></span><span class=line><span class=cl>        656, 
 </span></span><span class=line><span class=cl>        225, 
 </span></span><span class=line><span class=cl>        0, 
 </span></span><span class=line><span class=cl>        0, 
@@ -426,11 +426,11 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;http&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsTotal&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsTotal&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsSuperuser&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsUser&#34;</span> : 884, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsUser&#34;</span> : 881, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsAsync&#34;</span> : 6, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsGet&#34;</span> : 320, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsGet&#34;</span> : 317, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsHead&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsPost&#34;</span> : 439, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsPut&#34;</span> : 27, 
@@ -440,8 +440,8 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;requestsOther&#34;</span> : <span class=m>0</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;uptime&#34;</span> : 40.765854835510254, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;physicalMemory&#34;</span> : 33089753088, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;uptime&#34;</span> : 40.43230104446411, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;physicalMemory&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;transactions&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;started&#34;</span> : 563, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;aborted&#34;</span> : 59, 
@@ -460,27 +460,27 @@ Preserves min/max memory used at that time for 10 seconds</p><ul class=openapi-t
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;memory&#34;</span> : <span class=o>[</span> 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1738252388.7699587, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13606168, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1750784360.4041202, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 9, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13705384, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>43</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 1, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1738252427.7215075, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13601384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1750784399.0574713, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 9, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13730504, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>3</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=o>{</span> 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;contextId&#34;</span> : 2, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1738252427.7670944, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13417016, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;tMax&#34;</span> : 1750784399.0969896, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;countOfTimes&#34;</span> : 9, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMax&#34;</span> : 13710744, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;heapMin&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>15</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;invocations&#34;</span> : <span class=m>14</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 

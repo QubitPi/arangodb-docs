@@ -1,9 +1,9 @@
-<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750383861></script>
+<!doctype html><html lang=en><head><link href=//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet><link href=/css/fontawesome-all.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css rel=stylesheet></noscript><link href=/css/featherlight.min.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/featherlight.min.css rel=stylesheet></noscript><link href=/css/nucleus.css rel=stylesheet><link href=/css/fonts.css rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css rel=stylesheet></noscript><link href=/css/theme.css rel=stylesheet><link href=/css/theme-relearn-light.css rel=stylesheet id=variant-style><link href=/css/print.css rel=stylesheet media=print><script src=/js/variant.js?1750819604></script>
 <script>var root_url="/",baseUriFull,baseUri=root_url.replace(/\/$/,"");window.T_Copy_to_clipboard="",window.T_Copied_to_clipboard="",window.T_Copy_link_to_clipboard="",window.T_Link_copied_to_clipboard="",baseUriFull="http://localhost/",window.variants&&variants.init(["relearn-light"])</script><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.119.0"><meta itemprop=description property="description" content="You can get information about ArangoDB servers, toggle the maintenance mode, shut down server nodes, and start actions like compaction"><meta property="og:url" content="http://localhost/3.12/develop/http-api/administration/"><meta property="og:title" content="HTTP interface for server administration"><meta property="og:type" content="website"><meta property="og:description" content="You can get information about ArangoDB servers, toggle the maintenance mode, shut down server nodes, and start actions like compaction"><meta name=docsearch:version content="3.12"><title>HTTP interface for server administration | ArangoDB Documentation</title><link href=/images/favicon.png rel=icon type=image/png><script src=/js/jquery.min.js></script>
-<script src=/js/clipboard.min.js?1750383861 defer></script>
-<script src=/js/featherlight.min.js?1750383861 defer></script>
-<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.4"}</script><script src=/js/codeblocks.js?1750383861 defer></script>
-<script src=/js/theme.js?1750383861 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.4</span></a>
+<script src=/js/clipboard.min.js?1750819604 defer></script>
+<script src=/js/featherlight.min.js?1750819604 defer></script>
+<script>var versions=[{alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"},{alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"},{alias:"3.11",deprecated:!0,name:"3.11",version:"3.11.14"},{alias:"3.10",deprecated:!0,name:"3.10",version:"3.10.14"}]</script><script>var develVersion={alias:"devel",deprecated:!1,name:"3.13",version:"3.13.0"}</script><script>var stableVersion={alias:"stable",deprecated:!1,name:"3.12",version:"3.12.5"}</script><script src=/js/codeblocks.js?1750819604 defer></script>
+<script src=/js/theme.js?1750819604 defer></script></head><body><noscript>You need to enable JavaScript to use the ArangoDB documentation.</noscript><div id=page-wrapper class=page_content_splash style=height:auto;opacity:0><section id=page-main><section class=page-container id=page-container><header id=header style="transition:.5s padding ease-out,.15s" class="zn_header_white header-splash-new nav-down header-splash-wrap header1"><div class=header-block-left><div class=mobile-menu-toggle><button id=sidebar-toggle-navigation onclick=showSidebarHandler()><svg width="1.33em" height="1.33em" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div><div class=version-logo-container><div class="logo-container hasinfocard_img arangodb-logo-large"><div class=logo><a href=https://www.arangodb.com/><img src=/images/logo_main.png alt=ArangoDB title></a></div></div><div class=arangodb-logo-small><a href=https://arangodb.com/><img alt="ArangoDB Logo" src=/images/ArangoDB_Logo_White_small.png></a></div></div></div><div class=container-right style=display:hidden></div><div class=search-and-version-container><a href=# class="home-link is-current" aria-label="Go to home page" onclick=goToHomepage(event)></a><div id=searchbox></div><script type=text/javascript>const SCRIPT_SRC="https://unpkg.com/@inkeep/widgets-embed@0.2.290/dist/embed.js";function loadAndInitializeInkeep(){if(document.querySelector(`script[src="${SCRIPT_SRC}]"`))return;const e=document.createElement("script");e.type="module",e.src=SCRIPT_SRC,e.onload=initializeInkeep,document.head.appendChild(e)}function initializeInkeep(){const e=Inkeep({integrationId:"clo4lx6jk0000s601cp21x2ok",apiKey:"13b4e56966a76e86c6ff359cd795ee6a0412f751d75d6383",organizationId:"org_HGBkkzGAa4KeGJGh",organizationDisplayName:"ArangoDB",primaryBrandColor:"#80a54d",stringReplacementRules:[{matchingRule:{ruleType:"Substring",string:"Arangograph"},replaceWith:"ArangoGraph"},{matchingRule:{ruleType:"Substring",string:"Aql"},replaceWith:"AQL"},{matchingRule:{ruleType:"Substring",string:"Arangodb"},replaceWith:"ArangoDB"}],customCardSettings:[{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arango.qubitpi.org"}},searchTabLabel:"Official Docs"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"developer.arangodb.com"}},searchTabLabel:"Developer Hub"},{filters:{UrlMatch:{ruleType:"PartialUrl",partialUrl:"arangodb.com"}},searchTabLabel:"Home"}]}),t=e.embed({componentType:"ChatButton",properties:{stylesheetUrls:["/css/fonts.css"],fixedPositionXOffset:"52px",baseSettings:{theme:{primaryColors:{textColorOnPrimary:"white"},tokens:{fonts:{body:"'Inter'",heading:"'Inter'"},zIndex:{overlay:1e4,modal:11e3,popover:12e3,skipLink:13e3,toast:14e3,tooltip:15e3}}}},aiChatSettings:{botAvatarSrcUrl:"/images/ArangoDB_Logo_White_small.png",quickQuestions:["What can you do with AQL that is not feasible with SQL?","How do I search for objects within arrays?","Where can I deploy my ArangoDB instance?"],getHelpCallToActions:[{icon:{builtIn:"FaSlack"},name:"Slack",url:"https://arangodb-community.slack.com/"}]},searchSettings:{tabSettings:{isAllTabEnabled:!1,alwaysDisplayedTabs:["Official Docs","Developer Hub","Home"]}}}})}loadAndInitializeInkeep()</script><div class=version-selector><select id=arangodb-version onchange=changeVersion()><option value=3.13>3.13</option><option value=3.12>3.12</option><option value=3.11>3.11</option><option value=3.10>3.10</option><option value=3.9>3.9</option><option value=3.8>3.8</option></select></div></div></header><iframe src=/nav.html title=description id=menu-iframe class="menu-iframe active" style=opacity:0></iframe><div class=container-main><div class=row-main><nav id=breadcrumbs><ol class=links itemscope itemtype=http://schema.org/BreadcrumbList><meta itemprop=itemListOrder content="Descending"><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="3.12"><a itemprop=item class=link href=/3.12/><span itemprop=name class=breadcrumb-entry>3.12.5</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Develop"><a itemprop=item class=link href=/3.12/develop/><span itemprop=name class=breadcrumb-entry>Develop</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="HTTP API"><a itemprop=item class=link href=/3.12/develop/http-api/><span itemprop=name class=breadcrumb-entry>HTTP API</span></a>
 <i class="fas fa-chevron-right fa-fw"></i></li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><meta itemprop=position content="Administration"><a itemprop=item class=link href=/3.12/develop/http-api/administration/><span itemprop=name class=breadcrumb-entry>Administration</span></a></li></ol></nav><article class=default><hgroup><h1>HTTP interface for server administration</h1><p class=lead>You can get information about ArangoDB servers, toggle the maintenance mode, shut down server nodes, and start actions like compaction</p></hgroup><h2 id=information>Information <a href=/3.12/develop/http-api/administration/#information class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><h3 id=get-the-server-version>Get the server version <a href=/3.12/develop/http-api/administration/#get-the-server-version class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
@@ -64,7 +64,7 @@ request.</p><ul class=openapi-table><li class="openapi-table-row regular-font"><
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#get-the-server-version_res_200_details_maintainer-mode><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><code>false</code> if this is a production binary</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-server-version_res_200_details_mode><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">mode</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#get-the-server-version_res_200_details_mode><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The mode arangod runs in.</p><p class=regular-font>Possible values: <code>"server"</code>, <code>"console"</code>, <code>"script"</code></p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-server-version_res_200_details_openssl-version><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">openssl-version</span>
+<a href=#get-the-server-version_res_200_details_mode><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"server"</code>, <code>"console"</code>, <code>"script"</code></p><p class=regular-font>The mode arangod runs in.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-server-version_res_200_details_openssl-version><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">openssl-version</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
 <a href=#get-the-server-version_res_200_details_openssl-version><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>which openssl version do we link?</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-the-server-version_res_200_details_platform><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">platform</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
@@ -110,12 +110,12 @@ may contain a number or a textual version.</p></div></details></li></ul></div></
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;arango&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Return the version information with details</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_api/version?details=true&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>1646</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>1643</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -127,7 +127,7 @@ may contain a number or a textual version.</p></div></details></li></ul></div></
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;arango&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;details&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;architecture&#34;</span> : <span class=s2>&#34;64bit&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;arm&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
@@ -136,21 +136,21 @@ may contain a number or a textual version.</p></div></details></li></ul></div></
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;avx&#34;</span> : <span class=s2>&#34;true&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;avx2&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;boost-version&#34;</span> : <span class=s2>&#34;1.78.0&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-date&#34;</span> : <span class=s2>&#34;2025-01-30 15:08:40&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-id&#34;</span> : <span class=s2>&#34;93f199db476f500f58ebe6fb715bbe27f468570c&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-repository&#34;</span> : <span class=s2>&#34;refs/3.12.4 532d00b4&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-date&#34;</span> : <span class=s2>&#34;2025-06-24 16:13:43&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-id&#34;</span> : <span class=s2>&#34;5af32a31ebdc7023d4dd66bd0aceec20c8e62ad5&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;build-repository&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;compiler&#34;</span> : <span class=s2>&#34;clang [Ubuntu Clang 16.0.6 (23ubuntu4)]&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;coverage&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cplusplus&#34;</span> : <span class=s2>&#34;202002&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;curl-version&#34;</span> : <span class=s2>&#34;none&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;debug&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;endianness&#34;</span> : <span class=s2>&#34;little&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;enterprise-build-repository&#34;</span> : <span class=s2>&#34;refs/3.12.4 cdf1798&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;enterprise-build-repository&#34;</span> : <span class=s2>&#34;refs/3.12.5 9318e1f&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;enterprise-version&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;failure-tests&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;fd-client-event-handler&#34;</span> : <span class=s2>&#34;poll&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;fd-setsize&#34;</span> : <span class=s2>&#34;1024&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;full-version-string&#34;</span> : <span class=s2>&#34;ArangoDB 3.12.4 enterprise [linux] 64bit, using jemalloc, build refs/3.12.4 532d00b4, VPack 0.2.1, RocksDB 7.2.0, ICU 64.2, V8 12.1.165, OpenSSL 3.4.0 22 Oct 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;full-version-string&#34;</span> : <span class=s2>&#34;ArangoDB 3.12.5 enterprise [linux] 64bit, using jemalloc, build refs/3.12.5 3aed02d9, VPack 0.2.1, RocksDB 7.2.0, ICU 64.2, V8 12.1.165, OpenSSL 3.5.0 8 Apr 2025&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;icu-version&#34;</span> : <span class=s2>&#34;64.2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ipo&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;iresearch-version&#34;</span> : <span class=s2>&#34;1.3.0.0&#34;</span>, 
@@ -160,8 +160,8 @@ may contain a number or a textual version.</p></div></details></li></ul></div></
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;maintainer-mode&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;memory-profiler&#34;</span> : <span class=s2>&#34;true&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;ndebug&#34;</span> : <span class=s2>&#34;true&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;openssl-version-compile-time&#34;</span> : <span class=s2>&#34;OpenSSL 3.4.0 22 Oct 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;openssl-version-run-time&#34;</span> : <span class=s2>&#34;OpenSSL 3.4.0 22 Oct 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;openssl-version-compile-time&#34;</span> : <span class=s2>&#34;OpenSSL 3.5.0 8 Apr 2025&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;openssl-version-run-time&#34;</span> : <span class=s2>&#34;OpenSSL 3.5.0 8 Apr 2025&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;optimization-flags&#34;</span> : <span class=s2>&#34;-mfxsr -mmmx -msse -msse2 -mcx16 -msahf -mpopcnt -msse3 -msse4.1 -msse4.2 -mssse3 -mpclmul -mavx -mxsave&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;pic&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;pie&#34;</span> : <span class=s2>&#34;2&#34;</span>, 
@@ -169,7 +169,7 @@ may contain a number or a textual version.</p></div></details></li></ul></div></
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;reactor-type&#34;</span> : <span class=s2>&#34;epoll&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;replication2-enabled&#34;</span> : <span class=s2>&#34;false&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rocksdb-version&#34;</span> : <span class=s2>&#34;7.2.0&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;server-version&#34;</span> : <span class=s2>&#34;3.12.4&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;server-version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;sizeof int&#34;</span> : <span class=s2>&#34;4&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;sizeof long&#34;</span> : <span class=s2>&#34;8&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;sizeof void*&#34;</span> : <span class=s2>&#34;8&#34;</span>, 
@@ -349,7 +349,7 @@ last handled recovery sequence number.</p></div></details></li></ul></div></deta
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>709</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>708</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -360,14 +360,14 @@ last handled recovery sequence number.</p></div></details></li></ul></div></deta
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;server&#34;</span> : <span class=s2>&#34;arango&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;pid&#34;</span> : 247, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;pid&#34;</span> : 251, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;mode&#34;</span> : <span class=s2>&#34;server&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;operationMode&#34;</span> : <span class=s2>&#34;server&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;foxxApi&#34;</span> : true, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;host&#34;</span> : <span class=s2>&#34;localhost&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;hostname&#34;</span> : <span class=s2>&#34;358d5f11165e&#34;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;hostname&#34;</span> : <span class=s2>&#34;11ae62a1cdcc&#34;</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;serverInfo&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;progress&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;phase&#34;</span> : <span class=s2>&#34;in wait&#34;</span>, 
@@ -378,22 +378,22 @@ last handled recovery sequence number.</p></div></details></li></ul></div></deta
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;writeOpsEnabled&#34;</span> : true, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;persistedId&#34;</span> : <span class=s2>&#34;CRDN-26f5226c-a99c-45ad-8a1e-35fa74eff2f7&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;persistedId&#34;</span> : <span class=s2>&#34;CRDN-b6043d11-bc2d-4fff-8194-10c1c18c9850&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;rebootId&#34;</span> : 1, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;address&#34;</span> : <span class=s2>&#34;tcp://localhost:8529&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;CRDN-26f5226c-a99c-45ad-8a1e-35fa74eff2f7&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;serverId&#34;</span> : <span class=s2>&#34;CRDN-b6043d11-bc2d-4fff-8194-10c1c18c9850&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;state&#34;</span> : <span class=s2>&#34;SERVING&#34;</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;coordinator&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;foxxmaster&#34;</span> : <span class=s2>&#34;CRDN-bfe85a0d-11b8-45f0-895e-159a6abf4ad5&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;isFoxxmaster&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;foxxmaster&#34;</span> : <span class=s2>&#34;CRDN-b6043d11-bc2d-4fff-8194-10c1c18c9850&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;isFoxxmaster&#34;</span> : <span class=nb>true</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;agency&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;agencyComm&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;endpoints&#34;</span> : <span class=o>[</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;tcp://localhost:8541&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;tcp://localhost:8551&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;tcp://localhost:8531&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;tcp://localhost:8551&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;tcp://localhost:8541&#34;</span> 
 </span></span><span class=line><span class=cl>      <span class=o>]</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span> 
@@ -438,7 +438,7 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>1171</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>1176</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -455,13 +455,13 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;SINGLE&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -469,37 +469,37 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;processUptime&#34;</span> : 110.41402268409729, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;numberOfThreads&#34;</span> : 71, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;virtualSize&#34;</span> : 2550067200, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;residentSetSize&#34;</span> : 235012096, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;fileDescrtors&#34;</span> : 29, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;processUptime&#34;</span> : 50.869158029556274, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;numberOfThreads&#34;</span> : 65, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;virtualSize&#34;</span> : 1537556480, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;residentSetSize&#34;</span> : 237285376, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;fileDescrtors&#34;</span> : 25, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;userPercent&#34;</span> : 13.532482856888414, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;systemPercent&#34;</span> : 6.444251491673346, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;idlePercent&#34;</span> : 76.75048980318817, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;iowaitPercent&#34;</span> : 2.9198949149523554 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;userPercent&#34;</span> : 8.155568352243604, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;systemPercent&#34;</span> : 3.722781549988293, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;idlePercent&#34;</span> : 85.8657064931942, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0129471546001634 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.limit&#34;</span> : 7735566336, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;cache.allocated&#34;</span> : 1281056, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 1614, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 1594, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282679603, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135958560768, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 138644398080, 
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-04-25T14:54:21Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-06-24T16:59:15Z&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><p>Query support information from a cluster</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_db/_system/_admin/support-info&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>6796</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>6838</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -512,20 +512,20 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;deployment&#34;</span> : <span class=o>{</span> 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span> : <span class=s2>&#34;cluster&#34;</span>, 
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;servers&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-cb28be7c-d8e1-4fa1-b972-e586d43239d8&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-cb28be7c-d8e1-4fa1-b972-e586d43239d8&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0003&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-b6043d11-bc2d-4fff-8194-10c1c18c9850&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-b6043d11-bc2d-4fff-8194-10c1c18c9850&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0001&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8529&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -533,34 +533,34 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 109.83285760879517, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 47, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2216992768, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 126283776, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 47, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 48.07343769073486, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 41, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1199763456, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 127696896, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 23, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-e70995a2-5f4f-4ec6-9a87-56d92b3be86c&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-e70995a2-5f4f-4ec6-9a87-56d92b3be86c&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0002&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-bd0e1e3a-239c-4172-8023-4eabda257945&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-bd0e1e3a-239c-4172-8023-4eabda257945&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0001&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8530&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -568,80 +568,45 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 110.84348583221436, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 76, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2026717184, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 170606592, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 66, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 49.0775511264801, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 70, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1047764992, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 175374336, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 40, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735566336, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 23, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 211, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282679603, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135958315008, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 138644393984, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-a8056bac-51a4-4035-a6d5-a4d97375b70d&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-a8056bac-51a4-4035-a6d5-a4d97375b70d&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0002&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8539&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 109.80375242233276, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 47, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2207555584, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 123891712, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 49, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
-</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
-</span></span><span class=line><span class=cl>        <span class=o>}</span> 
-</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-d314fc9e-8101-4a3d-9029-e6ce7608fe46&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-d314fc9e-8101-4a3d-9029-e6ce7608fe46&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0003&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-f55db8eb-32e4-44c0-a148-a2e7d0eecc28&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-f55db8eb-32e4-44c0-a148-a2e7d0eecc28&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0002&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8550&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -649,45 +614,45 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 111.77838349342346, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 76, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2031960064, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 172466176, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 70, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 50.059346437454224, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 70, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1027317760, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 172560384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 40, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735566336, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 444, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 205, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282679603, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135958315008, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 138644393984, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-55199a05-d899-4da5-b2bf-e26aeae53d26&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-55199a05-d899-4da5-b2bf-e26aeae53d26&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0001&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-e3715b03-23a2-420f-a309-6d1a21955dce&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-e3715b03-23a2-420f-a309-6d1a21955dce&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0002&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8549&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -695,34 +660,34 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 110.73910617828369, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 47, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2215944192, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 126210048, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 47, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 49.05861735343933, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 41, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1213132800, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 124071936, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 19, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-4af07213-e2fc-4af2-b7e7-179eb375b769&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-4af07213-e2fc-4af2-b7e7-179eb375b769&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0001&#34;</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;PRMR-081cb8e7-ce44-4d91-b250-0a9401f2bada&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;PRMR-081cb8e7-ce44-4d91-b250-0a9401f2bada&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;DBServer0003&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8540&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;PRIMARY&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.4-2&#34;</span>, 
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;3e14777307b&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089757184, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
@@ -730,29 +695,64 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 110.78049516677856, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 76, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 2044542976, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 175652864, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 72, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 49.05864214897156, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 70, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1022074880, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 170184704, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 40, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 13.555498761014746, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 6.451057304457013, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 76.71152200726723, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.929116709077373 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span>, 
 </span></span><span class=line><span class=cl>        <span class=s2>&#34;engineStats&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735568384, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.limit&#34;</span> : 7735566336, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;cache.allocated&#34;</span> : 1082864, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 393, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-num-keys&#34;</span> : 17, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.estimate-live-data-size&#34;</span> : 0, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.live-sst-files-size&#34;</span> : 0, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282682060, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-capacity&#34;</span> : 9282679603, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.block-cache-usage&#34;</span> : 96, 
-</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 135958315008, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.free-disk-space&#34;</span> : 138644393984, 
 </span></span><span class=line><span class=cl>          <span class=s2>&#34;rocksdb.total-disk-space&#34;</span> : <span class=m>155897610240</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span> 
+</span></span><span class=line><span class=cl>      <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;CRDN-77b6d558-c670-4b71-aa01-20497591fd79&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;id&#34;</span> : <span class=s2>&#34;CRDN-77b6d558-c670-4b71-aa01-20497591fd79&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;alias&#34;</span> : <span class=s2>&#34;Coordinator0003&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;endpoint&#34;</span> : <span class=s2>&#34;tcp://localhost:8539&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;role&#34;</span> : <span class=s2>&#34;COORDINATOR&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;maintenance&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;readOnly&#34;</span> : false, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;version&#34;</span> : <span class=s2>&#34;3.12.5&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;build&#34;</span> : <span class=s2>&#34;refs/3.12.5 3aed02d9&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;enterprise&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;os&#34;</span> : <span class=s2>&#34;Linux version 6.8.0-1019-aws (buildd@lcy02-amd64-058) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #21~22.04.1-Ubuntu SMP Thu Nov  7 17:33:30 UTC 2024&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;platform&#34;</span> : <span class=s2>&#34;linux&#34;</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;physicalMemory&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 33089748992, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;numberOfCores&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;value&#34;</span> : 8, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;overridden&#34;</span> : <span class=nb>false</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;processStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;processUptime&#34;</span> : 48.05435132980347, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;numberOfThreads&#34;</span> : 41, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;virtualSize&#34;</span> : 1194520576, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;residentSetSize&#34;</span> : 124882944, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtors&#34;</span> : 20, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;fileDescrtorsLimit&#34;</span> : <span class=m>1048576</span> 
+</span></span><span class=line><span class=cl>        <span class=o>}</span>, 
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;cpuStats&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;userPercent&#34;</span> : 8.157053817192395, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;systemPercent&#34;</span> : 3.7232258676875376, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;idlePercent&#34;</span> : 85.86325813901983, 
+</span></span><span class=line><span class=cl>          <span class=s2>&#34;iowaitPercent&#34;</span> : 2.0134780270193313 
 </span></span><span class=line><span class=cl>        <span class=o>}</span> 
 </span></span><span class=line><span class=cl>      <span class=o>}</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span>, 
@@ -769,7 +769,7 @@ host machine. Only set in case of single servers.</p></div></details></li></ul><
 </span></span><span class=line><span class=cl>      <span class=s2>&#34;servers&#34;</span> : <span class=m>3</span> 
 </span></span><span class=line><span class=cl>    <span class=o>}</span> 
 </span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-04-25T14:54:21Z&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;date&#34;</span> : <span class=s2>&#34;2025-06-24T16:59:15Z&#34;</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h2 id=startup-options>Startup options <a href=/3.12/develop/http-api/administration/#startup-options class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h2><p>The permissions required to use the <code>/_admin/options*</code> endpoints depends on the
 setting of the <a href=/3.12/components/arangodb-server/options/#--serveroptions-api class=link><code>--server.options-api</code> startup option</a>.</p><h3 id=get-the-startup-option-configuration>Get the startup option configuration <a href=/3.12/develop/http-api/administration/#get-the-startup-option-configuration class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-get">GET</span>
 <span class=endpoint-path>/_db/_system/_admin/options</span></div><div class="openapi-description regular-font"><p>Return the effective configuration of the queried <em>arangod</em> instance as
@@ -802,9 +802,8 @@ startup option</li><li><code>type</code> (string): the data type of the option, 
 <code>"uint64"</code>, <code>"uint32"</code>, <code>"int64"</code>, <code>"int32"</code>, <code>"double"</code>, <code>"boolean"</code>,
 <code>"string"</code>, <code>"string..."</code></li><li><code>experimental</code> (boolean): Whether the option relates to a feature
 that is not ready for production yet</li><li><code>obsolete</code> (boolean): Whether the option has been deprecated and
-no effect anymore</li><li><code>enterpriseOnly</code> (boolean): Whether the option is only available in
-the Enterprise Edition. The Community Edition does have most of the
-Enterprise Edition startup options and they are thus not reported</li><li><code>requiresValue</code> (boolean): Whether the option can be specified
+no effect anymore</li><li><code>enterpriseOnly</code> (boolean): Whether the option is implemented in
+the non-public enterprise code.</li><li><code>requiresValue</code> (boolean): Whether the option can be specified
 without a value to enable it</li><li><code>os</code> (array of strings): The operating systems the startup option
 is supported on, always <code>["linux"]</code></li><li><code>component</code> (array of strings): A list of server roles the startup
 option is available on. If it is supported by all cluster node types
@@ -856,30 +855,50 @@ as the user account you authenticate with has at least read access
 to this database. If the <code>--server.harden</code> startup option is enabled,
 administrate access to the <code>_system</code> database is required.</p></div></details></li></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Query Parameters</div><div><ul class=openapi-table></ul></div></div><div class="openapi-parameters regular-font"><div class=openapi-table-title>HTTP Headers</div><div><ul class=openapi-table></ul></div></div><div class="responses regular-font"><div class=openapi-table-title>Responses</div><div class=openapi-responses><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">200</span>
 <span class="openapi-property-type bold-text">OK</span>
-<a href=#get-information-about-the-current-license_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Returns the license information.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_features><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">features</span>
+<a href=#get-information-about-the-current-license_res_200><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Returns the license information.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">diskUsage</span>
 <span class=openapi-property-type><span class=bold-text>object</span></span>
-<a href=#get-information-about-the-current-license_res_200_features><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The properties of the license.</p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_features_expires><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">expires*</span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>Information about the dataset size limit if you use the
+Community Edition.</p><p>This attribute is not present if an Enterprise Edition
+license is applied.</p></p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_bytesLimit><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">bytesLimit*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_bytesLimit><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The maximum dataset size for your Community Edition deployment.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_bytesUsed><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">bytesUsed*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_bytesUsed><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The determined dataset size of your deployment.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_limitReached><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">limitReached*</span>
+<span class=openapi-property-type><span class=bold-text>boolean</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_limitReached><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the dataset size exceeds the limit.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_secondsUntilReadOnly><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">secondsUntilReadOnly*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_secondsUntilReadOnly><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The time until read-only mode is entered if you are over the limit.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_secondsUntilShutDown><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">secondsUntilShutDown*</span>
+<span class=openapi-property-type><span class=bold-text>integer</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_secondsUntilShutDown><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The time until shutdown if you are over the limit.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_diskUsage_status><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">status*</span>
+<span class=openapi-property-type><span class=bold-text>string</span></span>
+<a href=#get-information-about-the-current-license_res_200_diskUsage_status><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"good"</code>, <code>"limit-reached"</code>, <code>"read-only"</code>, <code>"shutdown"</code></p><p class=regular-font><p>The state of your Community Edition deployment with regard to
+the dataset size limit at a glance.</p><ul><li><code>good</code>: The dataset size of your deployment is below the 100 GiB limit.</li><li><code>limit-reached</code>: Your deployment exceeds the size limit and you have two days
+to bring the deployment back below 100 GiB. Consider acquiring an
+Enterprise Edition license to lift the limit.</li><li><code>read-only</code>: Your deployment is in read-only mode because it exceeded the
+size limit for two days. All read operations to the instance keep functioning
+for two more days. However, no data or data definition changes can be made.</li><li><code>shutdown</code>: The server shuts down after two days of read-only mode.</li></ul></p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_features><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">features</span>
+<span class=openapi-property-type><span class=bold-text>object</span></span>
+<a href=#get-information-about-the-current-license_res_200_features><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The properties of the license.</p><p>This attribute is only present if an Enterprise Edition license is applied.</p></p><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_features_expires><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">expires*</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
 <a href=#get-information-about-the-current-license_res_200_features_expires><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The <code>expires</code> key lists the expiry date as Unix timestamp (seconds since
 January 1st, 1970 UTC).</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_hash><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">hash</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#get-information-about-the-current-license_res_200_hash><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The hash value of the license.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_license><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">license*</span>
+<a href=#get-information-about-the-current-license_res_200_hash><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The hash value of the license.</p><p>This attribute is only present if an Enterprise Edition license is applied.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_license><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">license</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#get-information-about-the-current-license_res_200_license><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The encrypted license key in Base64 encoding, or <code>"none"</code>
-in the Community Edition.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_status><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">status</span>
+<a href=#get-information-about-the-current-license_res_200_license><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The encrypted license key in Base64 encoding.</p><p>This attribute is only present if an Enterprise Edition license is applied.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_status><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">status</span>
 <span class=openapi-property-type><span class=bold-text>string</span></span>
-<a href=#get-information-about-the-current-license_res_200_status><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The <code>status</code> key allows you to confirm the state of the installed license on a
-glance.</p><ul><li><code>good</code>: The license is valid for more than 2 weeks.</li><li><code>expiring</code>: The license is valid for less than 2 weeks.</li><li><code>expired</code>: The license has expired. In this situation, no new
+<a href=#get-information-about-the-current-license_res_200_status><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Possible values: <code>"good"</code>, <code>"expiring"</code>, <code>"expired"</code>, <code>"read-only"</code></p><p class=regular-font><p>The <code>status</code> attribute allows you to confirm the state of the
+applied license at a glance.</p><ul><li><code>good</code>: The license is valid for more than 2 weeks.</li><li><code>expiring</code>: The license is valid for less than 2 weeks.</li><li><code>expired</code>: The license has expired. In this situation, no new
 Enterprise Edition features can be utilized.</li><li><code>read-only</code>: The license is expired over 2 weeks. The instance is now
-restricted to read-only mode.</li></ul></p><p class=regular-font>Possible values: <code>"good"</code>, <code>"expiring"</code>, <code>"expired"</code>, <code>"read-only"</code></p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_upgrading><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">upgrading</span>
+restricted to read-only mode.</li></ul><p>This attribute is only present if an Enterprise Edition license is applied.</p></p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_upgrading><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">upgrading*</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
 <a href=#get-information-about-the-current-license_res_200_upgrading><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>Whether the server is performing a database upgrade.</p></div></details></li><li class="openapi-table-row regular-font"><details id=get-information-about-the-current-license_res_200_version><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">version</span>
 <span class=openapi-property-type><span class=bold-text>number</span></span>
-<a href=#get-information-about-the-current-license_res_200_version><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The license version number.</p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/license&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
+<a href=#get-information-about-the-current-license_res_200_version><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font><p>The license version number.</p><p>This attribute is only present if an Enterprise Edition license is applied.</p></p></div></details></li></ul></div></details></li></ul></div></div></div><p><strong>Examples</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl --header <span class=s1>&#39;accept: application/json&#39;</span> --dump - <span class=s1>&#39;http://localhost:8529/_admin/license&#39;</span></span></span></code></pre></div><div class=expand><a class=expand-label onclick=toggleExpandShortcode(event)>Show output</a><div class=expand-content style=display:none><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>HTTP/1.1 <span class=m>200</span> OK
 </span></span><span class=line><span class=cl>content-type: application/json
 </span></span><span class=line><span class=cl>cache-control: no-cache, no-store, must-revalidate, pre-check<span class=o>=</span>0, post-check<span class=o>=</span>0, max-age<span class=o>=</span>0, s-maxage<span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>connection: Keep-Alive
-</span></span><span class=line><span class=cl>content-length: <span class=m>162</span>
+</span></span><span class=line><span class=cl>content-length: <span class=m>181</span>
 </span></span><span class=line><span class=cl>content-security-policy: frame-ancestors <span class=s1>&#39;self&#39;</span><span class=p>;</span> form-action <span class=s1>&#39;self&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>expires: <span class=m>0</span>
 </span></span><span class=line><span class=cl>pragma: no-cache
@@ -890,12 +909,14 @@ restricted to read-only mode.</li></ul></p><p class=regular-font>Possible values
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=o>{</span> 
 </span></span><span class=line><span class=cl>  <span class=s2>&#34;upgrading&#34;</span> : false, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;features&#34;</span> : <span class=o>{</span> 
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;expires&#34;</span> : <span class=m>1745603551</span> 
-</span></span><span class=line><span class=cl>  <span class=o>}</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;license&#34;</span> : <span class=s2>&#34;JD4EOXdmdQdWPXoPUFR5BQQdZ1gGKnpdW1wyHGRYWht9HGgIfV9xTHoVEjYydQUM&#34;</span>, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;version&#34;</span> : 1, 
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;expiring&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;diskUsage&#34;</span> : <span class=o>{</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesUsed&#34;</span> : 326056, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;bytesLimit&#34;</span> : 107374182400, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;limitReached&#34;</span> : false, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;secondsUntilReadOnly&#34;</span> : 315569520, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;secondsUntilShutDown&#34;</span> : 315569520, 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span> : <span class=s2>&#34;good&#34;</span> 
+</span></span><span class=line><span class=cl>  <span class=o>}</span> 
 </span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></div></div><br><h3 id=set-a-new-license>Set a new license <a href=/3.12/develop/http-api/administration/#set-a-new-license class=header-link onclick=copyURI(event)><span></span><i class="fa fa-link"></i></a></h3><div class=openapi><div class=endpoint><span class="endpoint-method regular-font bold-text method-put">PUT</span>
 <span class=endpoint-path>/_db/{database-name}/_admin/license</span></div><div class="openapi-description regular-font">Set a new license for an Enterprise Edition instance.
 Can be called on single servers, Coordinators, and DB-Servers.</div><div class="openapi-parameters regular-font"><div class=openapi-table-title>Path Parameters</div><div><ul class=openapi-table><li class="openapi-table-row regular-font"><details id=set-a-new-license_path_database-name><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">database-name*</span>
@@ -926,7 +947,7 @@ or if the supplied license string is invalid.</p><ul class=openapi-table><div cl
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
 <a href=#set-a-new-license_res_400_errorNum><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The ArangoDB error number.</p></div></details></li></ul></div></details></li><li class="openapi-table-row regular-font"><details id=set-a-new-license_res_501><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">501</span>
 <span class="openapi-property-type bold-text">Not Implemented</span>
-<a href=#set-a-new-license_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If you try to apply a license in the Community Edition.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=set-a-new-license_res_501_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
+<a href=#set-a-new-license_res_501><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>If you try to apply a license using a custom build of the public source code.</p><ul class=openapi-table><div class=openapi-table-title>Response Body <span class=openapi-content-type>application/json</span> <span class=openapi-property-type>object</span></div><li class="openapi-table-row regular-font"><details id=set-a-new-license_res_501_code><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">code*</span>
 <span class=openapi-property-type><span class=bold-text>integer</span></span>
 <a href=#set-a-new-license_res_501_code><i class="fa fa-link" style=font-size:12px></i></a></summary><div class=openapi-prop-content><p class=regular-font>The HTTP status code.</p></div></details></li><li class="openapi-table-row regular-font"><details id=set-a-new-license_res_501_error><summary class="openapi-prop collapsed"><span class="openapi-property-name bold-text">error*</span>
 <span class=openapi-property-type><span class=bold-text>boolean</span></span>
