@@ -6,7 +6,11 @@
 [![Apache License][Apache License Badge]][Apache License, Version 2.0]
 
 This repository contains QubitPi's study notes as well as the source files of forked ArangoDB documentation as
-published on [arango.qubitpi.org](https://arango.qubitpi.org/).
+published on [arango.qubitpi.org](https://arango.qubitpi.org/). In addition, there are [Jupyter notebooks](./notebooks)
+as ArangoDB tutorials:
+
+- [AQL](./notebooks/AQL.ipynb) [![][Google Colab Badge]](https://colab.research.google.com/github/QubitPi/arangodb-docs/blob/master/notebooks/AQL.ipynb) [![][Kaggle Badge]](https://kaggle.com/kernels/welcome?src=https://github.com/QubitPi/arangodb-docs/blob/master/notebooks/AQL.ipynb)
+- [Arango Search](./notebooks/ArangoSearch.ipynb) [![][Google Colab Badge]](https://colab.research.google.com/github/QubitPi/arangodb-docs/blob/master/notebooks/ArangoSearch.ipynb) [![][Kaggle Badge]](https://kaggle.com/kernels/welcome?src=https://github.com/QubitPi/arangodb-docs/blob/master/notebooks/ArangoSearch.ipynb)
 
 The ArangoDB documentation is licensed under Apache-2.0.
 See [LICENSE](LICENSE) for details.
@@ -1430,3 +1434,6 @@ assertTypeOf("string", response.parsedBody.name);
 
 [GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/arangodb-docs/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=CI/CD
 [GitHub workflow status URL]: https://github.com/QubitPi/arangodb-docs/actions/workflows/ci-cd.yaml
+
+[Google Colab Badge]: https://img.shields.io/badge/Open%20In%20Colab-F9AB00?style=for-the-badge&logo=google-colab&logoColor=white
+[Kaggle Badge]: https://img.shields.io/badge/Open%20In%20Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white
