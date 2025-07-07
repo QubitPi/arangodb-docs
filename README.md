@@ -1,5 +1,7 @@
 # ArangoDB Documentation
 
+![](https://github.com/QubitPi/QubitPi/blob/master/img/arango-logo-with-text.png?raw=true)
+
 [![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
 [![Apache License][Apache License Badge]][Apache License, Version 2.0]
 
