@@ -8,10 +8,8 @@ database that lets us focus on all the cool things ArangoDB has to offer.
 Notebooks
 ---------
 
-- ArangoDB
-
-  - [AQL](./AQL.ipynb)
-  - [Arango Search](./ArangoSearch.ipynb)
+- [AQL](./AQL.ipynb) [![][Google Colab Badge]](https://colab.research.google.com/github/QubitPi/arangodb-docs/blob/master/notebooks/AQL.ipynb) [![][Kaggle Badge]](https://kaggle.com/kernels/welcome?src=https://github.com/QubitPi/arangodb-docs/blob/master/notebooks/AQL.ipynb)
+- [Arango Search](./ArangoSearch.ipynb) [![][Google Colab Badge]](https://colab.research.google.com/github/QubitPi/arangodb-docs/blob/master/notebooks/ArangoSearch.ipynb) [![][Kaggle Badge]](https://kaggle.com/kernels/welcome?src=https://github.com/QubitPi/arangodb-docs/blob/master/notebooks/ArangoSearch.ipynb)
 
 Setup
 -----
@@ -75,3 +73,6 @@ The first half of the composite commands registers virtualenv to Jupyter and giv
 
 A Jupyter server is now running in our terminal, listening to port 8888. We can visit this server by opening our web
 browser to http://localhost:8888/
+
+[Google Colab Badge]: https://img.shields.io/badge/Open%20In%20Colab-F9AB00?style=for-the-badge&logo=google-colab&logoColor=white
+[Kaggle Badge]: https://img.shields.io/badge/Open%20In%20Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white
